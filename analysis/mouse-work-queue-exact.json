@@ -1,0 +1,172 @@
+{
+  "status": "PARTIAL_RECOVERY_VERIFIED",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "entry_spans": [
+    {
+      "address": "0xe0952ec",
+      "image_offset": "0x292ec",
+      "role": "system work submit",
+      "entry16_hex": "70b50f4b82b00193eff31186202585f3"
+    },
+    {
+      "address": "0xe09518c",
+      "image_offset": "0x2918c",
+      "role": "choose queue and append work",
+      "entry16_hex": "f8b5c3680d469a07c3f3400611d45f07"
+    },
+    {
+      "address": "0xe096220",
+      "image_offset": "0x2a220",
+      "role": "wake first waiting worker",
+      "entry16_hex": "f8b5eff31185202383f31288bff36f8f"
+    },
+    {
+      "address": "0xe0958bc",
+      "image_offset": "0x298bc",
+      "role": "ready queue stable priority insertion",
+      "entry16_hex": "90f90d30427b002b03dbd30601d18369"
+    },
+    {
+      "address": "0xe09587c",
+      "image_offset": "0x2987c",
+      "role": "select next runnable thread",
+      "entry16_hex": "38b50e4d2b4653f81c4f9c4214d09cb1"
+    },
+    {
+      "address": "0xe096318",
+      "image_offset": "0x2a318",
+      "role": "cancel and reset timeslice",
+      "entry16_hex": "70b5144b144e1d7c044605eb450306eb"
+    },
+    {
+      "address": "0xe095ecc",
+      "image_offset": "0x29ecc",
+      "role": "restore BASEPRI or actual CPU switch boundary",
+      "entry16_hex": "034648b9eff3058232b9064a91699268"
+    },
+    {
+      "address": "0xe0956e0",
+      "image_offset": "0x296e0",
+      "role": "privileged exception number test",
+      "entry16_hex": "eff30580003818bf01207047014b9b68"
+    },
+    {
+      "address": "0x2302516c",
+      "image_offset": "0x5908",
+      "role": "mode4 TIMER entry",
+      "entry16_hex": "70b5b74b82b0d3f84021012a4dd0d3f8"
+    },
+    {
+      "address": "0x23022f5c",
+      "image_offset": "0x36f8",
+      "role": "disconnect work submission",
+      "entry16_hex": "0122024b02481a7109f0a4ba78290023"
+    },
+    {
+      "address": "0x23025ed4",
+      "image_offset": "0x6670",
+      "role": "timeout notification timer start",
+      "entry16_hex": "47f6122c40f2e732002130b504460c4b"
+    }
+  ],
+  "original_cases": 2560,
+  "work_comparison": {
+    "status": "PASS",
+    "original_cases": 2048,
+    "original_steps": 114522,
+    "counts": {
+      "0": 1024,
+      "1": 1024
+    },
+    "boundaries": {
+      "0x0": 2035,
+      "0xe089d4c": 13
+    },
+    "original_returns": {
+      "-22": 156,
+      "-16": 1030,
+      "0": 512,
+      "1": 185,
+      "2": 102,
+      "-19": 50
+    },
+    "failures": [],
+    "sources": {
+      "recovered-code/portable/mouse_work_queue.c": "18634efd7f5860b19c3d85a8ac7341b8635561b8f8ad2c1b163e401df564778e",
+      "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+      "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+      "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+      "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+      "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+      "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+      "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+      "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+      "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+      "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+      "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+      "analysis/verify_mouse_work_queue.py": "578b80280d62f5cb7e13ade14ed50d715141e9dff5239ad185454a1a9d22c11e",
+      "ghidra-scripts/EmulateMouseWorkQueue.java": "93c2964ece976e0fe375e0ff9bc1e7bfb6fdfd9f8d4cb981f24a8ecce49a5f24",
+      "analysis/mouse-work-queue-original.jsonl": "93510e7cd1aa4dff70e9ebc704407fe8e8dc346c07d62762db219353c276c2a4"
+    },
+    "limits": [
+      "64KiB RAM and4KiB RTC snapshots plus serialized privileged CPU priority/exception model",
+      "work enqueue/wake/active-timeout/ready/timeslice original paths execute; true CPU context switch remains a real entry boundary",
+      "work callback execution not implied by successful submit",
+      "inert clock/IRQ/peripherals, no physical device access"
+    ]
+  },
+  "mode4_comparison": {
+    "status": "PASS",
+    "original_cases": 512,
+    "full_instruction_returns": 512,
+    "original_steps": 393835,
+    "original_work_calls": 512,
+    "original_timer_start_calls": 512,
+    "failures": [],
+    "sources": {
+      "recovered-code/portable/mouse_work_queue.c": "18634efd7f5860b19c3d85a8ac7341b8635561b8f8ad2c1b163e401df564778e",
+      "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+      "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+      "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+      "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+      "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+      "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+      "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+      "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+      "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+      "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+      "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+      "analysis/verify_mouse_mode4_rtos.py": "f146c09dc8f74f6279fd0a50d5499990410d6fc6bcf9ee78f3180735d09d1731",
+      "ghidra-scripts/EmulateMouseMode4Rtos.java": "c57c35dce74993472d716b34c547915e5fdb17c6bf1e260bf76e769c0cc294e3",
+      "analysis/mouse-mode4-rtos-original.jsonl": "ed5c565cea810834e12d3fbd31c3658d3d1da9bd8833937079c868e140469163"
+    },
+    "limits": [
+      "Whole mode4 TIMER timeout -> work submission -> timer-start returns, allRAM/RADIO/TIMER/SPIM/clock/NVIC/RTC snapshots compared",
+      "Explicit interrupt mode prevents actual thread switch; direct work cases separately retain true switch boundary",
+      "Work queued and callback registered; future worker/expiry callback execution not implied",
+      "No autonomous hardware or actual RF/device behavior"
+    ]
+  },
+  "observed_stats": {
+    "mouse-work-queue": {
+      "rtc_changed": 58,
+      "ready_list_changed": 150,
+      "time_slice_registered": 64
+    },
+    "mouse-mode4-rtos": {
+      "rtc_changed": 234,
+      "ready_list_changed": 68,
+      "time_slice_registered": 56,
+      "new_work_queued": 138,
+      "target_timer_registered": 512
+    }
+  },
+  "harness_runtime": "Ghidra12.1.3 with installed OpenJDK25; initial Java21 cached-class loader failure produced no accepted record; successful final run validates original image mappings before execution",
+  "emulator_log_sha256": "4209e0a3b484f5d0ed50363bfd1feaf11f571264e970576c25508569e6b303d5",
+  "limits": [
+    "work accepted does not imply handler execution",
+    "real CPU context switch0E089D4C remains boundary",
+    "timer callback registration does not execute future callback or IRQ",
+    "serialized RAM/RTC/MMIO input, no physical radio evidence"
+  ]
+}

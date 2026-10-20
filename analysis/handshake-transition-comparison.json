@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "cases": 640,
+  "function": "dongle 0x230223f0",
+  "engine": "Ghidra 12.1.3 AdaptedEmulator",
+  "source_sha256": "8d63788970f7720323f20adb359ce26c616226e136897e1cb92c344984f418e1",
+  "checked": [
+    "all 224 bytes of selected slot state",
+    "global selected mode",
+    "return value"
+  ],
+  "coverage": {
+    "state_0_return_0": 113,
+    "state_0_return_1": 175,
+    "state_2_return_1": 140,
+    "state_3_return_2": 77,
+    "state_6_return_0": 32,
+    "state_65535_return_0": 32,
+    "state_2_return_0": 20,
+    "state_3_return_0": 19,
+    "state_1_return_0": 32
+  },
+  "failures": [],
+  "limits": [
+    "state3 with nonzero notification flag excluded",
+    "software execution only; no real radio/interrupt scheduling",
+    "no claim exhaustive full-state-space coverage"
+  ]
+}

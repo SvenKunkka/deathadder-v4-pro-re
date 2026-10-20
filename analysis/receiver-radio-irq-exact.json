@@ -1,0 +1,181 @@
+{
+  "status": "verified bounded recovery",
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "source_version": "DeathAdder V4 Pro receiver radio 1.20",
+  "evidence": [
+    {
+      "address": "0x23020a00",
+      "role": "RADIO IRQ mode4",
+      "firmware_offset": "0x119c",
+      "first16_hex": "094b1a88052a07d09b88042b08d0012b"
+    },
+    {
+      "address": "0x2302440c",
+      "role": "mode4 RADIO wrapper",
+      "firmware_offset": "0x4ba8",
+      "first16_hex": "08b5254bd3f80422012a04bf0022c3f8"
+    },
+    {
+      "address": "0x23024190",
+      "role": "mode4 radio event states",
+      "firmware_offset": "0x492c",
+      "first16_hex": "2de9f843934db5f8a040022c05d0a4f1"
+    },
+    {
+      "address": "0x23021bbc",
+      "role": "TIMER IRQ, CC1 branch",
+      "firmware_offset": "0x2358",
+      "first16_hex": "084b1a88012a06d99b88042b04d0012b"
+    },
+    {
+      "address": "0x23023fa4",
+      "role": "slot subscription",
+      "firmware_offset": "0x4740",
+      "first16_hex": "38b53a4ab2f8a0303bb1013b042b2dd8"
+    },
+    {
+      "address": "0x230240ac",
+      "role": "RX window action",
+      "firmware_offset": "0x4848",
+      "first16_hex": "324ad2f880300b2b17d00c2b14d10428"
+    },
+    {
+      "address": "0x230207ec",
+      "role": "actual queue peek",
+      "firmware_offset": "0xf88",
+      "first16_hex": "40f68473114a10b503fb002353fa81fc"
+    },
+    {
+      "address": "0x2302073c",
+      "role": "actual queue pop",
+      "firmware_offset": "0xed8",
+      "first16_hex": "40f68472084b02fb0033194491f86021"
+    },
+    {
+      "address": "0x23021af4",
+      "role": "scan increment",
+      "firmware_offset": "0x2290",
+      "first16_hex": "224bb3f8021149bb40f6847210b4204c"
+    },
+    {
+      "address": "0x23020f1c",
+      "role": "task-state transition",
+      "firmware_offset": "0x16b8",
+      "first16_hex": "30b400240125054b0260c3f80042c3f8"
+    },
+    {
+      "address": "0x23021be4",
+      "role": "SWI4",
+      "firmware_offset": "0x2380",
+      "first16_hex": "0d4b9b88042b04d0012b0cd0022b0ed0"
+    },
+    {
+      "address": "0x2302455c",
+      "role": "business dispatch full",
+      "firmware_offset": "0x4cf8",
+      "first16_hex": "40f684732de9f04f00fb03f3964d87b0"
+    },
+    {
+      "address": "0x230247d0",
+      "role": "post-business stat",
+      "firmware_offset": "0x4f6c",
+      "first16_hex": "024640f68471054b054801fb023390f8"
+    },
+    {
+      "address": "0x230216bc",
+      "role": "stat update",
+      "firmware_offset": "0x1e58",
+      "first16_hex": "0d4ad3898bb1012b0fd0022b01d0032b"
+    },
+    {
+      "address": "0x23021c24",
+      "role": "pend business SWI4",
+      "firmware_offset": "0x23c0",
+      "first16_hex": "4ff080520249034b0880c3f808217047"
+    },
+    {
+      "address": "0x2302233c",
+      "role": "pend notification SWI3",
+      "firmware_offset": "0x2ad8",
+      "first16_hex": "4ff0006230b4044b044d054c28802180"
+    }
+  ],
+  "validation": {
+    "cases": 1536,
+    "radio_irq": 768,
+    "timer_cc1": 576,
+    "radio_then_actual_swi4": 192,
+    "original_steps": 245320,
+    "radio_entry_state_counts": {
+      "11": 114,
+      "12": 114,
+      "13": 108,
+      "14": 108,
+      "15": 108,
+      "16": 108,
+      "17": 108
+    },
+    "radio_accepted_cases": 29,
+    "radio_accepted_peer2_cases": 12,
+    "radio_new_sequence_cases": 11,
+    "radio_actual_queue_pop_cases": 7,
+    "integrated_business_classes": {
+      "0": 48,
+      "1": 48,
+      "3": 48,
+      "5": 48
+    },
+    "function_stubs": 0,
+    "cpu_userop_patches": 0,
+    "comparison": "receiver-radio-irq-comparison.json"
+  },
+  "key_behaviors": [
+    "CRCOK and additive checksum gate acceptance; length decremented before16B copy",
+    "new ACK sequence pops selected queue; duplicate sequence does not pop",
+    "reply queued entry is peeked first-nonempty class0..5; no pop at TX preparation",
+    "no queued entry creates class0 seq 1..7 sync record opcode1F with BE16 event counter",
+    "CC7 thresholds5280/13280 disable late TX; early path writes auxiliary440 and000",
+    "RX window START task timing at3200/8000 thresholds; subscriptions driven by slot",
+    "successful receive pends both SWI4 and SWI3; NVIC final raw store alone loses first request",
+    "SWI4 executes existing business consumer/stat/dispatch_finish then failure-stat update"
+  ],
+  "limits": [
+    "MODE4 only; globalstate5 BLE route unsupported",
+    "TIMER CC1 selected branch only; CC0 has priority and returns model -2 before mutation",
+    "TIMER CC2 hop/eventcounter/retry timeout/disconnect branches not recovered here",
+    "register snapshot environment does not execute PHY, DPPI, NVIC priority or passage of time",
+    "integrated SWI4 fixtures class0/1/3/5; class2/4 and USB pending are linked existing modules but not new IRQ-chain fixtures",
+    "USB driver0E0622BC explicit pending/resume supported by linked business flow; not exercised by these192 integrated cases",
+    "RAM domain valid pointers/queue metadata, slot0..5, bounded DMA; no claim arbitrary corrupt RAM safe",
+    "C return values0/-1/-2 are model API statuses rather than original void IRQ return values"
+  ],
+  "component_integration": {
+    "status": "PASS",
+    "component_cases": 192,
+    "nvic_write_action_regressions": 48,
+    "queued_ack": 175,
+    "sync_fallback": 17,
+    "late_tx_cancel": 96,
+    "scope": "C IRQ -> C SWI4 business -> explicitly supplied subsequent TIMER CC1 event",
+    "original_instruction_cases_added": 0,
+    "limitations": [
+      "explicit slot/event/capture inputs, not automatic hardware or NVIC",
+      "no RF operation"
+    ]
+  },
+  "artifact_hashes": {
+    "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+    "recovered-code/portable/receiver_radio_irq.h": "5cacf40a1a07fed46730c0ef772900ca10bf6986fa49e8f0b11828c722c7af40",
+    "analysis/verify_receiver_radio_irq.py": "b16126f5b561fb4beab38e45192cb4d4458855a1b7f941525447665501c65734",
+    "analysis/test_receiver_radio_irq_integration.py": "a82ee604bc94dcf7c854ab3591ece3c542e33e4dad1b5c85c6ee0f4920e38aea",
+    "ghidra-scripts/EmulateReceiverRadioIrq.java": "4c845a866020665cb0a7a6835300f95b0cfdf19dfb9c15718fc59641ad7f2752"
+  },
+  "nvic_review_fix": {
+    "confirmed_bug": "stale last-store mask incorrectly counted as fresh SWI request",
+    "condition": "length 1..127 AND class0 AND opcode2B",
+    "regressions": 48,
+    "original_diff_rerun": 1536,
+    "component_rerun": 192,
+    "state": "fixed and refrozen"
+  }
+}

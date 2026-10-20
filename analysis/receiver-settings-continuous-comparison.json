@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "cycles": 64,
+  "loads": 128,
+  "external_reads": 256,
+  "external_writes": 192,
+  "failed_writes": 64,
+  "published_and_consumed": 64,
+  "not_added_to_original_count": true,
+  "checks": [
+    "Independent Python binascii CRC verification of every write request",
+    "Invalid records retain22middle bytes; chip identity fallback precedes dirty marking",
+    "Failed A write retains dirty bit; B success clears its own bit; later flush retries A",
+    "Explicit acknowledged-record reload requests no further write",
+    "Loaded identity feeds original ten-slot queue, radio initialization and key install"
+  ],
+  "limits": [
+    "External dictionary and injected success/failure are test inputs; no flash persistence implementation",
+    "Serialized components, fixed RTC and explicit old-stack bytes; no physical receiver or CPU stack switching"
+  ],
+  "sources": {
+    "analysis/test_receiver_settings_continuous.py": "b7e9e8cb83692bb8fc5eb0cb7daf060eb4581c29714f2980bf790a7e259ed416",
+    "recovered-code/portable/receiver_settings.c": "db585b985a86c19f84f2f77baf1a985953ae1b2c3e40f7e6cd26e300f4537fd8",
+    "recovered-code/portable/receiver_settings.h": "31021c218e09a4461eb102b11ccd19d94b1005c3a03417ab7df6c8729a3c7ade",
+    "recovered-code/portable/receiver_config_producer.c": "394e27aa5dd4b02f6521b00dc48d49c760a987e60d2c52b768430232afad48a1",
+    "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+    "recovered-code/portable/receiver_initialization.c": "b2f24a53c713d974ee10c31ff8ac4f7244cc451c273a988cd6ec8669d97063f9",
+    "firmware-extracted-1.20/Suit1FWData__radio_radio.bin": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162"
+  }
+}

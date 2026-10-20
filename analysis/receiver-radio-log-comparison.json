@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "original_cases": 3328,
+  "original_steps": 3315467,
+  "endings": {
+    "returned": 3072,
+    "boundary": 256
+  },
+  "format_groups": {
+    "0:returned": 439,
+    "1:returned": 439,
+    "2:returned": 439,
+    "3:returned": 439,
+    "4:returned": 439,
+    "5:returned": 439,
+    "6:returned": 438,
+    "6:boundary": 37,
+    "0:boundary": 37,
+    "1:boundary": 37,
+    "2:boundary": 37,
+    "3:boundary": 36,
+    "4:boundary": 36,
+    "5:boundary": 36
+  },
+  "distinct_signed32_inputs": 1284,
+  "signed8_lowbyte_coverage": {
+    "1": 256,
+    "2": 256
+  },
+  "failure_count": 0,
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/receiver_radio_test_log.c": "d71f816821c4d2fbe9fd7b1cc945cf2194d52641279542e91a68b6572f1e3f25",
+    "recovered-code/portable/receiver_radio_test_log.h": "71fb89bad5f15fd8b2bbe9fa069e372c531e17ffa18476115d6579e8a32573c7",
+    "recovered-code/portable/receiver_radio_test_bus.h": "d7afa1276b5d8842c653d87a738b0873139446f4cd85297602ea3bf038f2d39b",
+    "ghidra-scripts/EmulateReceiverRadioLog.java": "487680108f696f3788062f28130db144d28bd4e7a601b0d90f32d292c3e251bc",
+    "analysis/receiver-radio-log-run.py": "d574611d131deef0c113cf7c2f03afe8998326b09060620840ebd74e83321d7c",
+    "analysis/receiver-radio-log-verify.py": "2be43214a3032d9c9a373e59d8c8324a69ff4b494f187a65f72341af1f197e07",
+    "analysis/receiver-radio-log-original.jsonl": "ec947e7e0c4dd7087a19a29d94686860b57801d204731f1165bc77630e9e9606"
+  },
+  "libraries": {
+    "analysis/libreceiver_radio_log_phase62.dylib": "54c3109c66860c96068e2fe087ccc4feb679b5cf38f9c5e59ed8a0c9c888b1de"
+  },
+  "limits": [
+    "Actual original printf formatter and default sink executed; no callback result was stubbed",
+    "Full128KiBRAM and six4KiB inert MMIO snapshots compared; stack-local scratch excluded",
+    "3,072 meaningful original return counts and256 actual changed-sink boundaries compared",
+    "Exactly seven validated RF format ROM strings; no claim of generic printf recovery",
+    "No physical device output or peripheral timing behavior tested"
+  ]
+}

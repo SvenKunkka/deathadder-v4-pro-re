@@ -1,0 +1,276 @@
+{
+  "status": "PASS",
+  "scope": "C component integration, not new original-instruction samples or RF test",
+  "scenarios": 24,
+  "cycles": 288,
+  "timer_events": 2496,
+  "radio_events": 768,
+  "business_calls": 768,
+  "sentinel255_new_ack_pop_projections": 112,
+  "results": [
+    {
+      "scenario": 0,
+      "mode": 1,
+      "interval": 1,
+      "cycles": 12,
+      "timer_events": 132,
+      "radio_events": 48,
+      "business_calls": 48,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 1,
+      "mode": 1,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 108,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 2,
+      "mode": 2,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 72,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 14
+    },
+    {
+      "scenario": 3,
+      "mode": 1,
+      "interval": 1,
+      "cycles": 12,
+      "timer_events": 132,
+      "radio_events": 48,
+      "business_calls": 48,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 4,
+      "mode": 1,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 108,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 5,
+      "mode": 2,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 72,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 14
+    },
+    {
+      "scenario": 6,
+      "mode": 1,
+      "interval": 1,
+      "cycles": 12,
+      "timer_events": 132,
+      "radio_events": 48,
+      "business_calls": 48,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 7,
+      "mode": 1,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 108,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 8,
+      "mode": 2,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 72,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 14
+    },
+    {
+      "scenario": 9,
+      "mode": 1,
+      "interval": 1,
+      "cycles": 12,
+      "timer_events": 132,
+      "radio_events": 48,
+      "business_calls": 48,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 10,
+      "mode": 1,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 108,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 11,
+      "mode": 2,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 72,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 14
+    },
+    {
+      "scenario": 12,
+      "mode": 1,
+      "interval": 1,
+      "cycles": 12,
+      "timer_events": 132,
+      "radio_events": 48,
+      "business_calls": 48,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 13,
+      "mode": 1,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 108,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 14,
+      "mode": 2,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 72,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 14
+    },
+    {
+      "scenario": 15,
+      "mode": 1,
+      "interval": 1,
+      "cycles": 12,
+      "timer_events": 132,
+      "radio_events": 48,
+      "business_calls": 48,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 16,
+      "mode": 1,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 108,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 17,
+      "mode": 2,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 72,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 14
+    },
+    {
+      "scenario": 18,
+      "mode": 1,
+      "interval": 1,
+      "cycles": 12,
+      "timer_events": 132,
+      "radio_events": 48,
+      "business_calls": 48,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 19,
+      "mode": 1,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 108,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 20,
+      "mode": 2,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 72,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 14
+    },
+    {
+      "scenario": 21,
+      "mode": 1,
+      "interval": 1,
+      "cycles": 12,
+      "timer_events": 132,
+      "radio_events": 48,
+      "business_calls": 48,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 22,
+      "mode": 1,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 108,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 0
+    },
+    {
+      "scenario": 23,
+      "mode": 2,
+      "interval": 4,
+      "cycles": 12,
+      "timer_events": 72,
+      "radio_events": 24,
+      "business_calls": 24,
+      "sentinel255_new_ack_pop_projections": 14
+    }
+  ],
+  "checks": [
+    "three complete slot schedules return to slot0",
+    "explicit incoming snapshots reach real selected peer SWI",
+    "queued ACK selection and actual timer-generated255 pop projection",
+    "no fabricated hardware events or scheduler success"
+  ],
+  "sources": {
+    "analysis/test_receiver_legacy_continuous.py": "da28063632356d14675db2c120d4374a7b8910f338b80526ff8e2ab7d72481d3",
+    "recovered-code/portable/receiver_legacy_timer.c": "cce0510e045210cb4da44576c870653301487b2bb69bd9782b2bfdc887b7707e",
+    "recovered-code/portable/receiver_legacy_radio.c": "d286da465bae26d74e70ebc30f1b9b46ebd247b4cfa37418f653f445db044bc0",
+    "recovered-code/portable/receiver_legacy_business.c": "6b54875b1def2d228d24f505e00cd19ba05452bbbf695df4b269be9b2b7cffac",
+    "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+    "recovered-code/portable/receiver_timeout.c": "e08d18e42ad9dd1d3cb88d2e8c066a18b131f783509df689e2ee46ed7f504d8b",
+    "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+    "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+    "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+    "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+    "recovered-code/portable/handshake.c": "09f89dcd4131b0bca0bc403c23518d1a89c1e0d0f404eee01b25c53aa28faef8"
+  }
+}

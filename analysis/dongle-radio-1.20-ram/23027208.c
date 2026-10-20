@@ -1,0 +1,10 @@
+/* Automatically decompiled from Suit1FWData__radio_radio.bin at 23027208. Types and names are inferred; NOT original source. */
+
+void thunk_FUN_0e05ba10(void)
+
+{
+  FUN_0e05ba10();
+  return;
+}
+
+

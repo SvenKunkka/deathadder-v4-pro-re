@@ -1,0 +1,953 @@
+{
+  "status": "static continuation map; no newly executed tests",
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "source_hashes": {
+    "analysis/runtime-images/dongle-ram-gnu-disassembly.txt": "4bde1268417567df70c13022224fcba13b34ac93d741c151db5e74af0fd803af"
+  },
+  "mode_routes": {
+    "1": {
+      "RADIO": "0x23023498",
+      "TIMER": "0x23023C60",
+      "SWI4_business": "0x23023968",
+      "RX_context_selector": "u16 at23006274"
+    },
+    "2": {
+      "RADIO": "0x23022A50",
+      "TIMER": "0x23022ED4",
+      "SWI4_business": "0x23022D90",
+      "RX_context_selector": "u16 slot at230032D0"
+    }
+  },
+  "entry_evidence": [
+    {
+      "address": "0x23020a00",
+      "role": "RADIO vector route",
+      "gnu_line": 1004,
+      "firmware_offset": "0x119c",
+      "first16_hex": "094b1a88052a07d09b88042b08d0012b"
+    },
+    {
+      "address": "0x23022a50",
+      "role": "mode2 RADIO handler",
+      "gnu_line": 4079,
+      "firmware_offset": "0x31ec",
+      "first16_hex": "8e4bd3f80422012a04bf0022c3f80422"
+    },
+    {
+      "address": "0x23023498",
+      "role": "mode1 RADIO handler",
+      "gnu_line": 5016,
+      "firmware_offset": "0x3c34",
+      "first16_hex": "2de9f84f944bd3f80422012a04bf0022"
+    },
+    {
+      "address": "0x23021bbc",
+      "role": "TIMER vector route",
+      "gnu_line": 2690,
+      "firmware_offset": "0x2358",
+      "first16_hex": "084b1a88012a06d99b88042b04d0012b"
+    },
+    {
+      "address": "0x23022ed4",
+      "role": "mode2 TIMER handler",
+      "gnu_line": 4468,
+      "firmware_offset": "0x3670",
+      "first16_hex": "2de9f047c74b82b0d3f8401101293bd0"
+    },
+    {
+      "address": "0x23023c60",
+      "role": "mode1 TIMER handler",
+      "gnu_line": 5726,
+      "firmware_offset": "0x43fc",
+      "first16_hex": "38b500bfbf4bd3f84021012a4dd0d3f8"
+    },
+    {
+      "address": "0x23021be4",
+      "role": "SWI4 vector route",
+      "gnu_line": 2707,
+      "firmware_offset": "0x2380",
+      "first16_hex": "0d4b9b88042b04d0012b0cd0022b0ed0"
+    },
+    {
+      "address": "0x23022d90",
+      "role": "mode2 business dispatcher",
+      "gnu_line": 4355,
+      "firmware_offset": "0x352c",
+      "first16_hex": "2de9f04740f6847400fb04f4294f84b0"
+    },
+    {
+      "address": "0x23023968",
+      "role": "mode1 business dispatcher",
+      "gnu_line": 5452,
+      "firmware_offset": "0x4104",
+      "first16_hex": "40f684732de9f04f00fb03f3594f85b0"
+    },
+    {
+      "address": "0x23021c24",
+      "role": "write selected peer and pend SWI4",
+      "gnu_line": 2734,
+      "firmware_offset": "0x23c0",
+      "first16_hex": "4ff080520249034b0880c3f808217047"
+    },
+    {
+      "address": "0x230223f0",
+      "role": "receiver handshake response state machine",
+      "gnu_line": 3479,
+      "firmware_offset": "0x2b8c",
+      "first16_hex": "2de9f04f40f6847700fb07f7ac4c0546"
+    },
+    {
+      "address": "0x23022360",
+      "role": "handshake offer builder",
+      "gnu_line": 3424,
+      "firmware_offset": "0x2afc",
+      "first16_hex": "70b5014640f6847500220b2301fb05f5"
+    },
+    {
+      "address": "0x23021dbc",
+      "role": "apply negotiated protocol and timers",
+      "gnu_line": 2883,
+      "firmware_offset": "0x2558",
+      "first16_hex": "10b50e4a0446d388042b938004d0012b"
+    },
+    {
+      "address": "0x2302546c",
+      "role": "connection message type1",
+      "gnu_line": 7969,
+      "firmware_offset": "0x5c08",
+      "first16_hex": "0121024610b58ab000680191516802ab"
+    },
+    {
+      "address": "0x230254f8",
+      "role": "disconnect message type2",
+      "gnu_line": 8027,
+      "firmware_offset": "0x5c94",
+      "first16_hex": "0221024610b58ab000680191516802ab"
+    },
+    {
+      "address": "0x23025580",
+      "role": "pairing message type5",
+      "gnu_line": 8084,
+      "firmware_offset": "0x5d1c",
+      "first16_hex": "0246052110b58ab00068019151689268"
+    },
+    {
+      "address": "0x230226c8",
+      "role": "mode2 radio subscriptions and address/frequency",
+      "gnu_line": 3744,
+      "firmware_offset": "0x2e64",
+      "first16_hex": "f8b540f6847500fb05f5654e04467259"
+    },
+    {
+      "address": "0x23022888",
+      "role": "mode2 timer radio state helper",
+      "gnu_line": 3911,
+      "firmware_offset": "0x3024",
+      "first16_hex": "2de9f84340f684736a4d044603fb0053"
+    },
+    {
+      "address": "0x23022e48",
+      "role": "mode2 peer timeout",
+      "gnu_line": 4417,
+      "firmware_offset": "0x35e4",
+      "first16_hex": "2de9f04140f6847400fb04f41d4f82b0"
+    },
+    {
+      "address": "0x23023268",
+      "role": "mode1 selected context and subscription stop",
+      "gnu_line": 4785,
+      "firmware_offset": "0x3a04",
+      "first16_hex": "154a164b928eb3f8a030012a13d063b1"
+    },
+    {
+      "address": "0x230232d0",
+      "role": "mode1 slot subscriptions",
+      "gnu_line": 4833,
+      "firmware_offset": "0x3a6c",
+      "first16_hex": "38b5314b9b8e012b06d1304ab2f8a030"
+    },
+    {
+      "address": "0x230233b0",
+      "role": "mode1 RX state action",
+      "gnu_line": 4918,
+      "firmware_offset": "0x3b4c",
+      "first16_hex": "38b5344cd4f880200b2a09d00c2a06d1"
+    },
+    {
+      "address": "0x23023708",
+      "role": "mode1 failure/channel candidate update",
+      "gnu_line": 5228,
+      "firmware_offset": "0x3ea4",
+      "first16_hex": "324b10b193f8a22042b11a68032a06d0"
+    },
+    {
+      "address": "0x230237e0",
+      "role": "mode1 queued ACK builder",
+      "gnu_line": 5315,
+      "firmware_offset": "0x3f7c",
+      "first16_hex": "70b50025aeb231460020fcf7ffff0135"
+    },
+    {
+      "address": "0x23023b5c",
+      "role": "mode1 end-cycle counting and frequency",
+      "gnu_line": 5626,
+      "firmware_offset": "0x42f8",
+      "first16_hex": "40f6847210b500fb02f2154b99581344"
+    },
+    {
+      "address": "0x230254a0",
+      "role": "shared RX and peer-aware stats",
+      "gnu_line": 7993,
+      "firmware_offset": "0x5c3c",
+      "first16_hex": "38b5bdf81050dbb20446c9b2c0b2fff7"
+    },
+    {
+      "address": "0x2302552c",
+      "role": "shared peer-aware stats only",
+      "gnu_line": 8051,
+      "firmware_offset": "0x5cc8",
+      "first16_hex": "09b3ff291fd010b4114b041d53f82420"
+    },
+    {
+      "address": "0x23025004",
+      "role": "shared fragment reassembly",
+      "gnu_line": 7540,
+      "firmware_offset": "0x57a0",
+      "first16_hex": "2de9f04f1578dff8c4918db08df80f30"
+    },
+    {
+      "address": "0x23020128",
+      "role": "shared cipher wrapper",
+      "gnu_line": 117,
+      "firmware_offset": "0x8c4",
+      "first16_hex": "70b505460c7888b068460e4622462946"
+    },
+    {
+      "address": "0x23024c88",
+      "role": "shared management consumer",
+      "gnu_line": 7167,
+      "firmware_offset": "0x5424",
+      "first16_hex": "0b78ab2b0ad0ac2b03d0a42b08d00020"
+    },
+    {
+      "address": "0x23020250",
+      "role": "shared business consumer",
+      "gnu_line": 240,
+      "firmware_offset": "0x9ec",
+      "first16_hex": "70b5564b8446b3f802e00c46bef1010f"
+    },
+    {
+      "address": "0x230268b0",
+      "role": "shared USB queue",
+      "gnu_line": 10106,
+      "firmware_offset": "0x704c",
+      "first16_hex": "f8b5184b1d789db1174b184f1e5c184b"
+    },
+    {
+      "address": "0x23021dfc",
+      "role": "fallback protocol2 configuration",
+      "gnu_line": 2907,
+      "firmware_offset": "0x2598",
+      "first16_hex": "70b5022200254ff480714ff0ff36174b"
+    },
+    {
+      "address": "0x230221a4",
+      "role": "disconnect flag and RTOS semaphore",
+      "gnu_line": 3245,
+      "firmware_offset": "0x2940",
+      "first16_hex": "40f684710122034b01fb00331a710248"
+    },
+    {
+      "address": "0x23020c30",
+      "role": "clear CRC events",
+      "gnu_line": 1224,
+      "firmware_offset": "0x13cc",
+      "first16_hex": "0022034bc3f82c22c3f83022704700bf"
+    },
+    {
+      "address": "0x2302073c",
+      "role": "queue pop",
+      "gnu_line": 751,
+      "firmware_offset": "0xed8",
+      "first16_hex": "40f68472084b02fb0033194491f86021"
+    },
+    {
+      "address": "0x230207ec",
+      "role": "queue peek",
+      "gnu_line": 816,
+      "firmware_offset": "0xf88",
+      "first16_hex": "40f68473114a10b503fb002353fa81fc"
+    },
+    {
+      "address": "0x23023ae4",
+      "role": "mode1 peer0 timeout/disconnect",
+      "gnu_line": 5581,
+      "firmware_offset": "0x4280",
+      "first16_hex": "30b51a4c83b02368022b0ad9b4f88830"
+    },
+    {
+      "address": "0x23023bcc",
+      "role": "mode1 ACK scheduler and context gate",
+      "gnu_line": 5667,
+      "firmware_offset": "0x4368",
+      "first16_hex": "38b5204c04f58053d3f8883f0d2b00d0"
+    }
+  ],
+  "direct_call_sites": [
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022aa4",
+      "target": "0x23020c30",
+      "instruction": "b.w",
+      "gnu_line": 4111
+    },
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022b68",
+      "target": "0x23020f1c",
+      "instruction": "bl",
+      "gnu_line": 4176
+    },
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022b6e",
+      "target": "0x23021dbc",
+      "instruction": "bl",
+      "gnu_line": 4178
+    },
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022b92",
+      "target": "0x2302546c",
+      "instruction": "bl",
+      "gnu_line": 4190
+    },
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022ba8",
+      "target": "0x230223f0",
+      "instruction": "bl",
+      "gnu_line": 4197
+    },
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022bc0",
+      "target": "0x23020f1c",
+      "instruction": "bl",
+      "gnu_line": 4206
+    },
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022c00",
+      "target": "0x230209a8",
+      "instruction": "bl",
+      "gnu_line": 4223
+    },
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022c1c",
+      "target": "0x230209b4",
+      "instruction": "bl",
+      "gnu_line": 4231
+    },
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022c5a",
+      "target": "0x2302073c",
+      "instruction": "bl",
+      "gnu_line": 4252
+    },
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022c7a",
+      "target": "0x23021c24",
+      "instruction": "bl",
+      "gnu_line": 4261
+    },
+    {
+      "owner": "0x23022a50",
+      "site": "0x23022d0c",
+      "target": "0x23020e84",
+      "instruction": "b.w",
+      "gnu_line": 4311
+    },
+    {
+      "owner": "0x23023498",
+      "site": "0x2302351e",
+      "target": "0x23020f1c",
+      "instruction": "bl",
+      "gnu_line": 5066
+    },
+    {
+      "owner": "0x23023498",
+      "site": "0x23023532",
+      "target": "0x23020c30",
+      "instruction": "bl",
+      "gnu_line": 5074
+    },
+    {
+      "owner": "0x23023498",
+      "site": "0x230235fc",
+      "target": "0x230209a8",
+      "instruction": "bl",
+      "gnu_line": 5137
+    },
+    {
+      "owner": "0x23023498",
+      "site": "0x23023614",
+      "target": "0x230209b4",
+      "instruction": "bl",
+      "gnu_line": 5144
+    },
+    {
+      "owner": "0x23023498",
+      "site": "0x23023652",
+      "target": "0x2302073c",
+      "instruction": "bl",
+      "gnu_line": 5165
+    },
+    {
+      "owner": "0x23023498",
+      "site": "0x23023672",
+      "target": "0x23021c24",
+      "instruction": "bl",
+      "gnu_line": 5174
+    },
+    {
+      "owner": "0x23023498",
+      "site": "0x2302367c",
+      "target": "0x230209c8",
+      "instruction": "bl",
+      "gnu_line": 5177
+    },
+    {
+      "owner": "0x23023498",
+      "site": "0x230236e8",
+      "target": "0x23023708",
+      "instruction": "bl",
+      "gnu_line": 5213
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x23022f88",
+      "target": "0x23022888",
+      "instruction": "bl",
+      "gnu_line": 4527
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x23022fd0",
+      "target": "0x23020f1c",
+      "instruction": "bl",
+      "gnu_line": 4551
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x23023040",
+      "target": "0x23021654",
+      "instruction": "bl",
+      "gnu_line": 4591
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x2302305a",
+      "target": "0x23022e48",
+      "instruction": "bl",
+      "gnu_line": 4599
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x23023060",
+      "target": "0x23022e48",
+      "instruction": "bl",
+      "gnu_line": 4601
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x23023066",
+      "target": "0x230226c8",
+      "instruction": "bl",
+      "gnu_line": 4603
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x2302309e",
+      "target": "0x230226c8",
+      "instruction": "bl",
+      "gnu_line": 4623
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x230230ec",
+      "target": "0x230209dc",
+      "instruction": "bl",
+      "gnu_line": 4649
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x2302313c",
+      "target": "0x2302098c",
+      "instruction": "bl",
+      "gnu_line": 4674
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x23023186",
+      "target": "0x23022888",
+      "instruction": "bl",
+      "gnu_line": 4699
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x23023196",
+      "target": "0x230226c8",
+      "instruction": "bl",
+      "gnu_line": 4705
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x230231d4",
+      "target": "0x230207ec",
+      "instruction": "bl",
+      "gnu_line": 4727
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x2302322c",
+      "target": "0x230207ec",
+      "instruction": "bl",
+      "gnu_line": 4762
+    },
+    {
+      "owner": "0x23022ed4",
+      "site": "0x23023250",
+      "target": "0x23020f1c",
+      "instruction": "bl",
+      "gnu_line": 4775
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023cfc",
+      "target": "0x230232d0",
+      "instruction": "bl",
+      "gnu_line": 5783
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023d06",
+      "target": "0x230233b0",
+      "instruction": "b.w",
+      "gnu_line": 5786
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023d4e",
+      "target": "0x230233b0",
+      "instruction": "b.w",
+      "gnu_line": 5809
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023d78",
+      "target": "0x230233b0",
+      "instruction": "b.w",
+      "gnu_line": 5824
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023e08",
+      "target": "0x23023b5c",
+      "instruction": "bl",
+      "gnu_line": 5873
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023e10",
+      "target": "0x23023ae4",
+      "instruction": "b.w",
+      "gnu_line": 5875
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023e5e",
+      "target": "0x230233b0",
+      "instruction": "b.w",
+      "gnu_line": 5899
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023e6c",
+      "target": "0x230232d0",
+      "instruction": "b.w",
+      "gnu_line": 5903
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023e96",
+      "target": "0x230233b0",
+      "instruction": "bl",
+      "gnu_line": 5919
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023ea0",
+      "target": "0x230232d0",
+      "instruction": "bl",
+      "gnu_line": 5922
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023eaa",
+      "target": "0x23023bcc",
+      "instruction": "b.w",
+      "gnu_line": 5925
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023eb8",
+      "target": "0x230232d0",
+      "instruction": "b.w",
+      "gnu_line": 5929
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023ed8",
+      "target": "0x230233b0",
+      "instruction": "b.w",
+      "gnu_line": 5937
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023ef8",
+      "target": "0x23023268",
+      "instruction": "bl",
+      "gnu_line": 5947
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023f22",
+      "target": "0x230232d0",
+      "instruction": "bl",
+      "gnu_line": 5960
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023f2c",
+      "target": "0x23023bcc",
+      "instruction": "b.w",
+      "gnu_line": 5963
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023f5c",
+      "target": "0x230233b0",
+      "instruction": "b.w",
+      "gnu_line": 5979
+    },
+    {
+      "owner": "0x23023c60",
+      "site": "0x23023f9e",
+      "target": "0x23023268",
+      "instruction": "b.w",
+      "gnu_line": 6002
+    },
+    {
+      "owner": "0x23022d90",
+      "site": "0x23022dbc",
+      "target": "0x230209f8",
+      "instruction": "bl",
+      "gnu_line": 4370
+    },
+    {
+      "owner": "0x23022d90",
+      "site": "0x23022dc4",
+      "target": "0x230209e4",
+      "instruction": "bl",
+      "gnu_line": 4373
+    },
+    {
+      "owner": "0x23022d90",
+      "site": "0x23022e06",
+      "target": "0x230254a0",
+      "instruction": "bl",
+      "gnu_line": 4395
+    },
+    {
+      "owner": "0x23022d90",
+      "site": "0x23022e22",
+      "target": "0x2302552c",
+      "instruction": "b.w",
+      "gnu_line": 4404
+    },
+    {
+      "owner": "0x23022d90",
+      "site": "0x23022e36",
+      "target": "0x23027240",
+      "instruction": "bl",
+      "gnu_line": 4410
+    },
+    {
+      "owner": "0x23023968",
+      "site": "0x2302399a",
+      "target": "0x230209f8",
+      "instruction": "bl",
+      "gnu_line": 5469
+    },
+    {
+      "owner": "0x23023968",
+      "site": "0x230239a2",
+      "target": "0x230209e4",
+      "instruction": "bl",
+      "gnu_line": 5472
+    },
+    {
+      "owner": "0x23023968",
+      "site": "0x230239e6",
+      "target": "0x230254a0",
+      "instruction": "bl",
+      "gnu_line": 5494
+    },
+    {
+      "owner": "0x23023968",
+      "site": "0x23023a50",
+      "target": "0x2302552c",
+      "instruction": "b.w",
+      "gnu_line": 5531
+    }
+  ],
+  "shared_business_chain": [
+    "230254A0 -> 23025004 -> [23020128 /23024C88] ->23020250 ->230268B0",
+    "230254A0 ->2302552C-equivalent stats; actual word addressing stride4",
+    "SWI4 reads peer at230071A4 set by23021C24"
+  ],
+  "critical_differences": [
+    "mode1 accepts END==1; mode2 processes data on DISABLED==1",
+    "mode1 additionally requires nonzero DMA length; mode2 state12 CRCOK path does not have that length guard",
+    "neither mode1/2 receive path removes mode4 additive checksum byte",
+    "mode1/2 ACK selected queue uses nonzero sentinel and resets0, while mode4 checks queue<6 and resets255",
+    "mode2 class0 only invokes statistics; mode1 class0 handles17/2C then stats; cannot invoke mode4 control path unchanged",
+    "mode1 data calls shared RX wrapper withpeer0; mode2 preserves selectedpeer",
+    "mode1/2 dispatcher does not apply mode4 dispatch_finish counters/epoch rules wholesale"
+  ],
+  "external_boundaries": [
+    {
+      "entry": "0x0E06CBDC",
+      "via": [
+        "2302546C",
+        "230254F8",
+        "23025580"
+      ],
+      "meaning": "RTOS message queue put; failure loop purges at0E06CD54"
+    },
+    {
+      "entry": "0x0E06D0D0",
+      "via": [
+        "230221A4"
+      ],
+      "meaning": "semaphore give / waiting thread wake"
+    },
+    {
+      "entry": "0x0E0622BC",
+      "via": [
+        "23020250",
+        "230268B0"
+      ],
+      "meaning": "USB driver boundary in shared consumer"
+    },
+    {
+      "entry": "0x0E05D099",
+      "via": [
+        "23020A00 ifstate3230==5"
+      ],
+      "meaning": "separate globalstate5 route; excluded"
+    }
+  ],
+  "limits": [
+    "GNU direct-call extraction uses bounded routine ranges; target semantic descriptions cross-read final exports",
+    "static analysis only; no new emulator runs or portable edits",
+    "mode1/2 timing and invalid packet/corrupt RAM behavior still need separate original-instruction validation",
+    "existing mode4 flow wrapper is not an exact mode1/2 dispatcher"
+  ],
+  "registers": {
+    "RADIO_base": "0x5302C000",
+    "RADIO_offsets": {
+      "TASK_STOP": "0x00C",
+      "TASK_DISABLE": "0x010",
+      "SUBSCRIBE_TXEN": "0x100",
+      "SUBSCRIBE_RXEN": "0x104",
+      "SUBSCRIBE_DISABLE": "0x110",
+      "TXREADY": "0x204",
+      "RXREADY": "0x208",
+      "ADDRESS": "0x20C",
+      "END": "0x218",
+      "DISABLED": "0x220",
+      "CRCOK": "0x22C",
+      "CRCERROR": "0x230",
+      "SHORTS": "0x400",
+      "FREQUENCY": "0x708",
+      "BASE1": "0xE30",
+      "TXADDRESS": "0xE3C",
+      "RXADDRESSES": "0xE40",
+      "PACKETPTR": "0xED0"
+    },
+    "TIMER_base": "0x53028000",
+    "COMPARE_events": "0x140+4*n",
+    "CC": "0x540+4*n",
+    "NVIC_ISPR_write": "0xE000E208 mask0x10000000"
+  },
+  "next_units": [
+    {
+      "unit": "mode1 radio",
+      "entry": "23023498",
+      "reuse": [
+        "queue pop",
+        "task state helper"
+      ],
+      "new": [
+        "END processing",
+        "6274 context selector",
+        "low-nibble counters",
+        "failure candidate advance"
+      ]
+    },
+    {
+      "unit": "mode2 radio/acquisition",
+      "entry": "23022A50",
+      "reuse": [
+        "handshake",
+        "queue pop"
+      ],
+      "new": [
+        "DISABLED state7..13 dispatch",
+        "negotiated-protocol transition",
+        "type1 notification boundary"
+      ]
+    },
+    {
+      "unit": "mode1/2 SWI adapters",
+      "entry": [
+        "23023968",
+        "23022D90"
+      ],
+      "reuse": [
+        "business_rx",
+        "business_cipher",
+        "dongle_business_consumer",
+        "business statistics"
+      ],
+      "new": [
+        "mode-specific dedup/control/motion input",
+        "peer forwarding",
+        "shared metadata stats order"
+      ]
+    },
+    {
+      "unit": "mode1 timer",
+      "entry": "23023C60",
+      "new": [
+        "341C==1 schedule",
+        "other interval schedule",
+        "candidate/retry logic",
+        "timeout boundary"
+      ]
+    },
+    {
+      "unit": "mode2 timer",
+      "entry": "23022ED4",
+      "new": [
+        "three-slot schedule",
+        "peer0/1 acquisition and combined ACK",
+        "two peer timeout boundaries"
+      ]
+    }
+  ],
+  "radio_states": {
+    "mode1": {
+      "12_END": "CRCOK==1 AND DMA len!=0 -> copy16B, ACK sequence/queue, SWI4; failure flag/candidate logic; both returnstate11",
+      "13_END": "trigger DISABLE",
+      "13_DISABLED": "channel failure>2 may advance candidate, then reset failure; CRC events cleared"
+    },
+    "mode2": {
+      "8_DISABLED": "state7",
+      "9_DISABLED": "CRCOK -> handshake223F0; return<2=>7; return2=>DISABLE,state10; CRCbad=>7",
+      "10_DISABLED": "clear subscriptions, apply negotiated protocol21DBC, type1 notification2546C",
+      "11_DISABLED": "state11",
+      "12_DISABLED": "CRCOK -> copy16B ACK/queue/SWI4 without independent len guard; thenstate11",
+      "13_DISABLED": "state13"
+    }
+  },
+  "timer_routes": {
+    "mode2": {
+      "CC0": [
+        16000,
+        4160,
+        4640
+      ],
+      "slots": [
+        0,
+        1,
+        2
+      ],
+      "CC2_slot1": [
+        8800,
+        9600
+      ],
+      "CC2_slot2": [
+        14720,
+        0
+      ],
+      "timeouts": [
+        "23022E48(peer0)",
+        "23022E48(peer1)"
+      ],
+      "ack_builder": "inside23022ED4; peer0 thenpeer1 queues,2098C header"
+    },
+    "mode1": {
+      "interval1": {
+        "CC0": [
+          16000,
+          2880,
+          3840,
+          11200
+        ],
+        "slots": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "other_interval": {
+        "CC0": [
+          16000,
+          3680,
+          4640,
+          2560
+        ],
+        "slots": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "helpers": [
+        "230232D0",
+        "23023268",
+        "230233B0",
+        "23023BCC",
+        "230237E0",
+        "23023B5C"
+      ],
+      "timeout": "23023AE4(peer0)",
+      "CC3": "active RX timeout/STOP action, not simple eventclear"
+    }
+  },
+  "freeze": {
+    "portable_changed": false,
+    "emulation_run": false,
+    "new_test_cases": 0,
+    "report_sha256": "aa8a2fbb5874fda930019ddd58d6e33defdda915abfee50b5aa909b253f27422"
+  }
+}

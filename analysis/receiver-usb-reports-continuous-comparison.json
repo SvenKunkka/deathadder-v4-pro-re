@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "cycles": 64,
+  "counts": {
+    "enqueued": 576,
+    "full_rejects": 192,
+    "real_driver_boundaries": 64,
+    "driver_attempts": 768,
+    "external_failure": 192,
+    "retry_same_payload": 192,
+    "external_success": 576
+  },
+  "class_to_ring": {
+    "1": 0,
+    "2": 2,
+    "4": 1
+  },
+  "sources": {
+    "recovered-code/portable/receiver_usb_reports.c": "8e2f411e2b781d05321035e0dde02f05283e4da8b61de7471d6d9a0605e0fd82",
+    "recovered-code/portable/receiver_usb_reports.h": "65bfc447decad9e00eeb6b08af2ce7f79beefa9d9b7d970aab47621bcdb7d05b",
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+    "recovered-code/portable/dongle_business_consumer.h": "db0d78b4311984afe58f6766256d299c8b23f12d3def08e879e8c20748142afd",
+    "analysis/test_receiver_usb_reports_continuous.py": "a0f45ff1f7f6fa356b92ef5c72f0bbd9fc44a46b3dad310627bb1d2910357005",
+    "analysis/libreceiver_usb_reports.dylib": "2325a44c2a4b7243d15578609303b460a3989d9d6ec52eece74a5cf2c2a9bda0"
+  },
+  "limits": [
+    "Component producer/callback sequencing is explicit, not recovered work-thread execution",
+    "AllUSB results and completion state are explicit external inputs; no physicalUSB/RF",
+    "Not additional original-instruction input cases"
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "status": "PASS within documented valid input domain",
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "validation": {
+    "original_entrypoint_cases": 3456,
+    "by_mode": {
+      "1": 1728,
+      "2": 1728
+    },
+    "by_context": {
+      "0": 1152,
+      "1": 1152,
+      "2": 1152
+    },
+    "full_returns": 3444,
+    "real_usb_boundary": 12,
+    "explicit_result_continuations": 12,
+    "original_steps": 1113696,
+    "continuation_steps": 522,
+    "function_stubs": 0,
+    "cpu_userop_patches": 0,
+    "checks": "all65536 RAM bytes, USB boundary pointer, NVIC unchanged, continuation final RAM"
+  },
+  "semantics": {
+    "mode1_data_forward_peer": 0,
+    "mode2_data_forward_peer": "selected",
+    "class0_stats_peer": "selected both modes",
+    "mode1_class0": [
+      "17 BE16 payload+1 -> context+8C",
+      "2C byte+1 ->context+36, BE16+2 ->context+38",
+      "other opcode no control mutation; stats still happen"
+    ],
+    "mode2_class0": "stats only",
+    "mode1_duplicate_class1": "reply==1 clears shared motion; always clear selected interval",
+    "mode2_duplicate": "no mutation",
+    "fresh_data_tail": "forwarded-peer stats followed by selected-context interval clear",
+    "pending_tail": "USB actual driver boundary before stats and interval clear; explicit resume executes tail"
+  },
+  "sources": [
+    {
+      "va": "0x23023968",
+      "offset": "0x4104",
+      "first16": "40f684732de9f04f00fb03f3594f85b0",
+      "gnu_line": 5452,
+      "role": "mode1 business entry"
+    },
+    {
+      "va": "0x23022d90",
+      "offset": "0x352c",
+      "first16": "2de9f04740f6847400fb04f4294f84b0",
+      "gnu_line": 4355,
+      "role": "mode2 business entry"
+    },
+    {
+      "va": "0x230239fe",
+      "offset": "0x419a",
+      "first16": "b8f1010fc0d196f89d30012b04d10022",
+      "gnu_line": 5501,
+      "role": "mode1 duplicate class1"
+    },
+    {
+      "va": "0x23023a26",
+      "offset": "0x41c2",
+      "first16": "6378172b50d02c2b05d1a378f386b4f8",
+      "gnu_line": 5515,
+      "role": "mode1 class0 opcode17/2C"
+    },
+    {
+      "va": "0x23023a54",
+      "offset": "0x41f0",
+      "first16": "b4f8052096f89de0b4f803601f4b76ba",
+      "gnu_line": 5532,
+      "role": "mode1 motion delta"
+    },
+    {
+      "va": "0x23022e26",
+      "offset": "0x35c2",
+      "first16": "1a4600230df1090008f1ff388df80830",
+      "gnu_line": 4405,
+      "role": "mode2 class1 prepended fragment zero"
+    },
+    {
+      "va": "0x230254a0",
+      "offset": "0x5c3c",
+      "first16": "38b5bdf81050dbb20446c9b2c0b2fff7",
+      "gnu_line": 7993,
+      "role": "RX then forwarded-peer statistics"
+    },
+    {
+      "va": "0x23025004",
+      "offset": "0x57a0",
+      "first16": "2de9f04f1578dff8c4918db08df80f30",
+      "gnu_line": 7540,
+      "role": "RX fragment reassembly"
+    },
+    {
+      "va": "0x23024c88",
+      "offset": "0x5424",
+      "first16": "0b78ab2b0ad0ac2b03d0a42b08d00020",
+      "gnu_line": 7167,
+      "role": "management consumer"
+    },
+    {
+      "va": "0x23020250",
+      "offset": "0x9ec",
+      "first16": "70b5564b8446b3f802e00c46bef1010f",
+      "gnu_line": 240,
+      "role": "final consumer"
+    },
+    {
+      "va": "0x2302552c",
+      "offset": "0x5cc8",
+      "first16": "09b3ff291fd010b4114b041d53f82420",
+      "gnu_line": 8051,
+      "role": "class0 selected-peer statistics"
+    }
+  ],
+  "limits": [
+    "not original vendor source or full stack",
+    "no new legacy RADIO/TIMER IRQ implementation in this stage",
+    "same business_rx bounds including completed cipher8/16 retained; malformed copies/overflow not redefined as valid behavior",
+    "mode2 class1 tested packetlength8; larger malformed packet lengths that overflow original local stack not claimed",
+    "USB driver not executed; its result explicitly supplied for separate continuation",
+    "fixture peer2 extends argument/context checks, does not establish actual RF routing of peer2"
+  ],
+  "artifact_hashes": {
+    "recovered-code/portable/receiver_legacy_business.c": "6b54875b1def2d228d24f505e00cd19ba05452bbbf695df4b269be9b2b7cffac",
+    "recovered-code/portable/receiver_legacy_business.h": "7c202056c669648540aca29a2683a0ccfa917de15f3a7b9ab38d7d6773cf8eac",
+    "ghidra-scripts/EmulateReceiverLegacyBusiness.java": "4e5764e647b7360ec3b6fec27542d0c4c7754aab8835fd8d6835a6d58e96d9c0",
+    "analysis/verify_receiver_legacy_business.py": "982c49fef9e6dd9d3f6cae44c1e2fea05e74e51070bf0213be76aa2a1c949704",
+    "analysis/receiver-legacy-business-original.jsonl": "9755300ffeae7c6c4c1ac9d4448ba4033d9ad5877d3d15e8d768d8ee4c045713"
+  },
+  "frozen": true
+}

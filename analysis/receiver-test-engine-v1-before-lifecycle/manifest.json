@@ -1,0 +1,13 @@
+{
+  "reason": "Phase61 engine interface frozen before adding real lifecycle/log dependency interface",
+  "files": {
+    "recovered-code/portable/receiver_radio_test_engine.c": {
+      "sha256": "9430728072efef6d95a8555a38a84bdb8ec7d748fefccc749cdda1e6f3a1f882",
+      "frozen_path": "analysis/receiver-test-engine-v1-before-lifecycle/receiver_radio_test_engine.c"
+    },
+    "recovered-code/portable/receiver_radio_test_engine.h": {
+      "sha256": "35aaf99aede5c3063eafd995906ec34e2fc37cad7b5c3f38ccc03c50347b6f26",
+      "frozen_path": "analysis/receiver-test-engine-v1-before-lifecycle/receiver_radio_test_engine.h"
+    }
+  }
+}

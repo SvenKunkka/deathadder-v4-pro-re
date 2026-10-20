@@ -1,0 +1,88 @@
+{
+  "scope": "DeathAdder V4 Pro receiver radio firmware 1.20.00; static RF diagnostic candidate path only",
+  "artifact": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+  "artifact_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "source": "analysis/dongle-radio-1.20",
+  "normal_link_coverage": "Incomplete: low-latency code copied to RAM not yet included in this export",
+  "findings": [
+    {
+      "address": "0x0E05C9EC",
+      "name_inference": "configure_diagnostic_packet",
+      "confidence": "high for register effects; medium-high for diagnostic role",
+      "observed_effects": [
+        "RADIO_S.TIMING=1, CRCCNF=0, CRCPOLY=0, TXADDRESS=0, RXADDRESSES=1",
+        "Pattern selector 0 gives BASE0=0xABABABAB / PREFIX0=0xAB; selector 2 gives 0xCCCCCCCC / 0xCC; other selector gives 0x58FE811B / 0x6A",
+        "Zero supplied payload length maps to 255",
+        "Default PCNF0=8; PCNF1=payload_length|0x03040000",
+        "Mode 4 PCNF0=0x01000008; modes 5/6 PCNF0=0x63800008 and CRCCNF=0x103; mode15 PCNF0=0x02000008 and PCNF1=0x7F"
+      ],
+      "decoded_default_packet": {
+        "length_field_bits": 8,
+        "s0_bytes": 0,
+        "s1_bits": 0,
+        "preamble_bits": 8,
+        "base_address_bytes": 4,
+        "on_air_bit_order": "MSB first",
+        "whitening": true,
+        "crc_bytes": 0
+      },
+      "limitations": "These settings are supported diagnostic configurations, not established normal wireless link parameters. Function argument types are inferred by Ghidra."
+    },
+    {
+      "address": "0x0E05CAC4",
+      "name_inference": "prepare_diagnostic_transmit_payload",
+      "confidence": "high for data writes",
+      "observed_effects": [
+        "Buffer 0x23006730 contains length byte followed by data starting 0x23006731",
+        "Selector1 fills 255 bytes with 0xF0; selector2 fills 255 bytes with 0xCC; other nonzero selector fills with selector byte; selector0 calls generator at0x0E0621B8",
+        "Sets RADIO_S.PACKETPTR=0x23006730"
+      ]
+    },
+    {
+      "address": "0x0E05CC4C",
+      "name_inference": "start_diagnostic_receive",
+      "confidence": "high for state changes",
+      "observed_effects": [
+        "Disables radio and waits EVENTS_DISABLED; sets MODE from argument",
+        "SHORTS OR0x21 means READY_START and END_START",
+        "PACKETPTR=0x23006630; calls0x0E05C9EC; clears receive counters0x23006628/0x23006624",
+        "FREQUENCY from channel argument except mode15 maps channel11..26 to5*channel-50, invalid channels to5",
+        "INTENSET00=0x800 enables CRCOK event interrupt; starts RXEN directly or through EGU"
+      ],
+      "frequency_rule_from_svd": "MAP0 frequency=2400+FREQUENCY MHz, MAP1=2360+FREQUENCY MHz"
+    },
+    {
+      "address": "0x0E05C8FC",
+      "name_inference": "set_tx_power_from_dbm",
+      "confidence": "high; explicit log strings and SVD enumerations agree",
+      "observed_effects": [
+        "Maps requested dBm to Nordic TXPOWER encoding, defaults unsupported request to0dBm encoding0x0E",
+        "Known examples: +10dBm=0x1F, +4dBm=0x18, 0dBm=0x0E, -20dBm=0x03, -40dBm=0x01, -70dBm=0"
+      ],
+      "limitations": "Capability of this diagnostic setter does not establish selected power during ordinary mouse traffic."
+    },
+    {
+      "address": "0x0E05CD78",
+      "name_inference": "diagnostic_radio_command_dispatch",
+      "confidence": "high diagnostic role from callback log Unexpected test type; high branch/register observations",
+      "observed_effects": [
+        "Six cases0..5 dispatch unmodulated/carrier-like TX, patterned packet TX, RX, two timed operations, and duty-cycle packet TX",
+        "Case5 interval uses packet_airtime*(100-duty_percent)/duty_percent + packet_airtime; TIMER021 compare event triggers RADIO.TXEN through DPPI",
+        "Case1 uses SHORTS0x21 for ordinary PHY or0x100001 for coded/802.15.4 PHY; case5 SHORTS0x80001"
+      ],
+      "limitations": "Cases3/4 are TX/RX sweeps through callback0x0E05CD0C; this does not establish normal link hopping."
+    },
+    {
+      "address": "0x0E05CD0C",
+      "name_inference": "diagnostic_sweep_timer_callback",
+      "confidence": "high",
+      "observed_effects": [
+        "Test type3 calls diagnostic TX0x0E05CBB8 using current channel0x230071E1; type4 calls diagnostic RX0x0E05CC4C",
+        "Other types log Unexpected test type: %d",
+        "After operation next channel=current+step if unsigned byte result<=end, otherwise wraps to start",
+        "TX sweep uses struct bytes5,6,7 as start,end,step; RX sweep uses bytes4,5,6"
+      ],
+      "limitations": "This is an RF test sweep and is not proof of the mouse protocol frequency-hopping schedule."
+    }
+  ]
+}

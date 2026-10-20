@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "original_instruction_cases": 640,
+  "failures": [],
+  "coverage": {
+    "peer0:class1:forward0": 40,
+    "peer0:class2:forward0": 47,
+    "peer0:class3:forward0": 47,
+    "peer0:class4:forward0": 47,
+    "peer0:class5:forward0": 47,
+    "peer1:class1:forward0": 40,
+    "peer1:class2:forward0": 47,
+    "peer1:class3:forward0": 47,
+    "peer1:class4:forward0": 47,
+    "peer1:class5:forward0": 47,
+    "peer0:class1:forward1": 24,
+    "peer0:class2:forward1": 17,
+    "peer0:class3:forward1": 17,
+    "peer0:class4:forward1": 17,
+    "peer0:class5:forward1": 17,
+    "peer1:class1:forward1": 24,
+    "peer1:class2:forward1": 17,
+    "peer1:class3:forward1": 17,
+    "peer1:class4:forward1": 17,
+    "peer1:class5:forward1": 17
+  },
+  "sources": {
+    "analysis/business-dispatch-original.jsonl": "a3042c8e4beced4d10c96fbf61dd56f763f1099b454527e17fa0e3038235b614",
+    "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+    "recovered-code/portable/business_dispatch.h": "54e151a2cbccf44c246012fce8e79030ee73c4d1be9ae6ea105d3274d8e7cc74",
+    "ghidra-scripts/EmulateBusinessDispatch.java": "58f1353aa8b2ba8e19e45fc1368d7c2315fcc26f9eed1239f55fb7bf1b7958ab"
+  },
+  "boundaries": [
+    "class1..5 only; class0 control path outstanding",
+    "forwarded cases stop before230254a0; downstream and after-call suffix not executed in these cases",
+    "finish helper sourced from assembly; only no-forward invocation covered here",
+    "static RAM original execution, not real IRQ or RF"
+  ]
+}

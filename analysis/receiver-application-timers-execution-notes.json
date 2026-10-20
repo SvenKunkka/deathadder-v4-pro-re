@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "root_cause": "New combined emulator accidentally allocated2048B rather than4096B MMIO windows during a text substitution. Initial host comparison overran these buffers; no recovered C defect inferred.",
+  "resolution": "Corrected emulator allocations to4096, regenerated all2048 original records and added strict size assertions before C invocation. Full host comparison passed after correction.",
+  "invalid_run_directory": "analysis/receiver-app-harness-diagnostic",
+  "invalid_original_records_counted": false,
+  "sanitizer_attempt": "Standalone sanitizer diagnostic was terminated before yielding output; no sanitizer pass claimed.",
+  "valid_dataset_dimensions": {
+    "ram": 131072,
+    "MMIO_each": 4096,
+    "deviceid": 8
+  },
+  "valid_new_inputs": 6144,
+  "within_and_between_dataset_RAM_duplicates": 0,
+  "sources": {
+    "ghidra-scripts/EmulateReceiverRtcApplicationTimers.java": "3ab6d6adb1492a889007f1fe65573a51ed10d26d4665ed3957f11c2decec88c2",
+    "analysis/verify_receiver_rtc_application_timers.py": "144eea6abf614cc3a35ce8fa66b369b93edaf3d28747d0fcb47cfac002fcdecf"
+  }
+}

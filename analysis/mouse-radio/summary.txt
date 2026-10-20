@@ -1,0 +1,6 @@
+program=Suit2FWData__radio_radio.bin
+language=ARM:LE:32:v8-m
+base=0e06c000
+functions=520
+decompiled=520
+instructions=24035

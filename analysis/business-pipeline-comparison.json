@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "integration_cases": 662,
+  "fragments_processed": 3890,
+  "duplicate_dispatch_checks": 1728,
+  "out_of_order_then_restart_cases": 320,
+  "sources": {
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+    "analysis/verify_business_pipeline.py": "f4dbc979e7e3ae80b79ab8f284db284be566e5bbb785822004f1df908d81f578"
+  },
+  "coverage": [
+    "all16 installed key records; class2/4 zero padding, truncation, encrypt->fragment->decrypt",
+    "classes1..5 uplink TX/ring/dispatch/reassembly to consumer boundary",
+    "class3/5 downlink0..90 bytes, checksum then4-byte fragmentation/reassembly",
+    "per-class sequence wrapping; exact duplicates; last-fragment-first then restart"
+  ],
+  "limits": [
+    "C component integration only; NOT counted as new original-instruction cases",
+    "constructed packet headers; no full mode4 aggregation, ACK/PHY scheduler, radio or USB execution",
+    "downstream management/vendor work consumers not executed; checksum checked by test, consumer still pending"
+  ]
+}

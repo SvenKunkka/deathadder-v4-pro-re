@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "scenarios": 3,
+  "cycles": 192,
+  "worker_pend_to_CPU_boundaries": 192,
+  "explicit_context_handoffs": 384,
+  "delayed_callbacks": 192,
+  "worker_next_loop_segments": 192,
+  "results": [
+    {
+      "initial_priority": 0,
+      "wait_delayed_enqueue_callback_cycles": 64
+    },
+    {
+      "initial_priority": 16,
+      "wait_delayed_enqueue_callback_cycles": 64
+    },
+    {
+      "initial_priority": 128,
+      "wait_delayed_enqueue_callback_cycles": 64
+    }
+  ],
+  "sources": {
+    "analysis/test_mouse_worker_continuous.py": "9d23793a97f459340c04db0f3b1d0455951f302f38be88a37f24af4789dd4abb",
+    "recovered-code/portable/mouse_worker_runtime.c": "9d8263f50eef812d14f310176ed684464ae8993008f47431be622c190d2420f8",
+    "recovered-code/portable/mouse_worker_runtime.h": "d3b1404df8f4eec0861d9ab591f022b8582e593503a36228ec5a231a4c574c46",
+    "analysis/libmouse_worker_runtime.dylib": "9ac2981aa77eb8c0b1d5926851a942b2f0332eafcd6f990b46bdfa5dae4e8008"
+  },
+  "not_added_to_original_input_count": true,
+  "limits": [
+    "C integration with explicitly supplied context handoffs and delayed-callback arrival",
+    "CPU request and exception execution not modeled; no automatic RTC/IRQ/time or RF",
+    "Worker next-loop segment is not a thread return"
+  ]
+}

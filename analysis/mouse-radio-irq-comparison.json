@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "original_cases": 2944,
+  "coverage": {
+    "mode1_kind0": 128,
+    "mode2_kind0": 128,
+    "mode1_kind1": 128,
+    "mode2_kind1": 128,
+    "mode1_kind2": 128,
+    "mode2_kind2": 128,
+    "mode1_kind3": 128,
+    "mode2_kind3": 128,
+    "mode1_kind4": 128,
+    "mode2_kind4": 128,
+    "mode1_kind5": 128,
+    "mode2_kind5": 128,
+    "mode1_kind6": 128,
+    "mode2_kind6": 128,
+    "mode1_kind7": 128,
+    "mode2_kind7": 128,
+    "mode1_kind8": 640,
+    "mode1_kind9": 128,
+    "mode2_kind9": 128
+  },
+  "failures": [],
+  "boundary_tests": 4,
+  "comparison": [
+    "all65536 RAM bytes",
+    "all4096 RADIO inert bytes",
+    "all1536 TIMER020 inert bytes",
+    "NVIC E000E208 word",
+    "2688 whole mode1/2 handler cases plus256 explicit IRQ-return then SWI handoffs; no target stubs",
+    "CPU BASEPRI getter bridge only for256 handoff cases, actual work fast-return instructions"
+  ],
+  "source_sha256": "cb82fa0eb7f7e564263fde5c8c0e6f54b4280057328377ae2352988e11890e9b",
+  "code_sha256": {
+    "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/mouse_business_flow.c": "7ad6dcf3a9786a2d225c4efd7c69f86d8976830002e68f5b16ce10773100c2be",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/mouse_radio_irq.h": "5ef112e2ad0b27589a347b96229f31a1666064d952a2bf3df2d941ada841b8cf",
+    "ghidra-scripts/EmulateMouseRadioIrq.java": "e1f3988c2080a1bc3a85b416643b1747da59eb16756456d420cc6600e37078dc"
+  },
+  "limits": [
+    "Nonzero class3 ACK callback is explicit boundary",
+    "RX bank outside0/1 is explicit projection boundary",
+    "Direct handlers only; full23021704 dispatch is not modeled",
+    "256 handoffs explicitly invoke SWI after IRQ return; real scheduling, consumers, hardware event timing and concurrency not modeled",
+    "Queue pop IRQ instructions executed but C models serialized RAM, not PRIMASK"
+  ]
+}

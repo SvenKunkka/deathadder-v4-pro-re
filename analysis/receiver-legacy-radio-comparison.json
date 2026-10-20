@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "cases": 2688,
+  "by_operation": {
+    "0": 1536,
+    "1": 512,
+    "2": 256,
+    "3": 384
+  },
+  "by_mode": {
+    "1": 960,
+    "2": 1728
+  },
+  "original_steps": 576920,
+  "original_message_put_calls": 350,
+  "original_message_purge_calls": 50,
+  "full_returns": 2676,
+  "real_USB_boundary_cases": 12,
+  "explicit_USB_return_continuations": 12,
+  "continuation_steps": 729,
+  "checks": [
+    "all131072 RAM bytes at IRQ return and final SWI return/boundary",
+    "RADIO4096B TIMER2048B auxiliary2048B",
+    "NVIC last word and actual write request masks",
+    "CPU BASEPRI",
+    "USB pointer and delayed business tail"
+  ],
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/receiver_legacy_radio.c": "d286da465bae26d74e70ebc30f1b9b46ebd247b4cfa37418f653f445db044bc0",
+    "recovered-code/portable/receiver_legacy_business.c": "6b54875b1def2d228d24f505e00cd19ba05452bbbf695df4b269be9b2b7cffac",
+    "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+    "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+    "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+    "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+    "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+    "recovered-code/portable/handshake.c": "09f89dcd4131b0bca0bc403c23518d1a89c1e0d0f404eee01b25c53aa28faef8",
+    "recovered-code/portable/receiver_legacy_radio.h": "3f7d440c2e9eea1af4c331a1480f3d4365cf331bbe9fbda3edf5bcda7c355ec9",
+    "analysis/receiver-legacy-radio-original.jsonl": "26b3ef54f528a4a3176110ff380c63c0aeaf7676fc13b3a11e5607234cc3a1a4",
+    "ghidra-scripts/EmulateReceiverLegacyRadio.java": "a91d9784b8608e8fadbdb9d7ec811b002cf60ed85209d4b5fb9edb91368ad287"
+  },
+  "limits": [
+    "snapshot MMIO; no PHY/DPPI/time simulation",
+    "same-state SWI invoked explicitly after original IRQ return; not automatic NVIC dispatch",
+    "notification unused stack bytes supplied as explicit original environment provenance",
+    "real notification queue executes; these IRQ fixtures use no-waiter ring and full/purge/retry",
+    "USB0E0622BC not executed; separate explicit external-result continuation",
+    "RTOS timer/scheduler pending propagated through existing lifecycle contract; no reentry-as-resume",
+    "no actual hardware operation"
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "status": "PASS",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "original_inputs": 2048,
+  "normal_returns": 1536,
+  "before_exception_return": 512,
+  "entry_spans": [
+    {
+      "address": "0xe089d4c",
+      "role": "inert switch request",
+      "image_offset": "0x1dd4c",
+      "entry16_hex": "10b46ff00a040a4a0a4993684ff0000c"
+    },
+    {
+      "address": "0xe089d84",
+      "role": "selected current thread update",
+      "image_offset": "0x1dd84",
+      "entry16_hex": "30b4eff31183202383f31288bff36f8f"
+    },
+    {
+      "address": "0xe089dcc",
+      "role": "PendSV body",
+      "image_offset": "0x1ddcc",
+      "entry16_hex": "0e498a684ff030001044eff3098c80e8"
+    },
+    {
+      "address": "0xe089f3c",
+      "role": "PSPLIM assignment",
+      "image_offset": "0x1df3c",
+      "entry16_hex": "436f83f30b88704700b50e460c4b0d4d"
+    }
+  ],
+  "comparison": {
+    "status": "PASS",
+    "original_cases": 2048,
+    "original_steps": 42496,
+    "counts": {
+      "0": 512,
+      "1": 512,
+      "2": 512,
+      "3": 512
+    },
+    "normal_returns": 1536,
+    "before_exception_return_BX_LR": 512,
+    "failures": [],
+    "sources": {
+      "recovered-code/portable/mouse_context_switch.c": "eb41c00365b26172bc3dbbd2c0a95d3fc53709a9abe992b83bb04efbb96c6a47",
+      "recovered-code/portable/mouse_context_switch.h": "e232c97940f596ab5d27fc62d6266f15e6f36c3d36d82338c4d1cf89c4a9dc47",
+      "analysis/verify_mouse_context_switch.py": "fba8a3c8c7d03c6f661d7452a8d4558fdd7f560c4753af6042c2b4816a784383",
+      "ghidra-scripts/EmulateMouseContextSwitch.java": "af3c507b585cccd21e0a6af092b786e7ae7a3c64501690541a73ff894881abe8",
+      "analysis/mouse-context-switch-original.jsonl": "8dbf25ce980df4c7f52a547d39daf2731da2109294318561f9f76ccf22a9ec65"
+    },
+    "limits": [
+      "Privileged body execution; no asynchronous interrupt in request",
+      "PendSV original stops before BX LR at0e089e06; no architectural frame unstacking, exception entry or real concurrency",
+      "PSP uses emulator shared native CPU state; absent PSPLIM operation records literal assignment only, not memory fault enforcement",
+      "All13 registers, SP/LR/PC, PSP/PSPLIM/BASEPRI, five flag bits,32B MSP scratch,64KiB RAM and4KiB SCB snapshot compared",
+      "Inert ICSR snapshots record original writes, not hardware readback or interrupt delivery"
+    ]
+  },
+  "native_assembly": {
+    "status": "PASS",
+    "architecture": "Cortex-M33 Thumb ARMv8-M",
+    "compared_bytes": 200,
+    "spans": [
+      {
+        "start": "0xe089d4c",
+        "end_exclusive": "0xe089e0c",
+        "image_offset": "0x1dd4c",
+        "assembled_offset": "0x0",
+        "length": 192,
+        "sha256": "058e2f2f46e44c54079311d8eafc6c322cdfdd86919843146af9046ef2a7c386"
+      },
+      {
+        "start": "0xe089f3c",
+        "end_exclusive": "0xe089f44",
+        "image_offset": "0x1df3c",
+        "assembled_offset": "0x1f0",
+        "length": 8,
+        "sha256": "b5b063a6360a0101c1e907751d8f0b79c647561ab8332ec8e206944184efa52e"
+      }
+    ],
+    "sources": {
+      "recovered-code/cortex-m/mouse_context_switch.S": "072e10b4c787d0d0dc6af5d6c483712c8ed8893a04b8e3e7b6a1e24b1480de85",
+      "recovered-code/cortex-m/mouse_context_switch.ld": "51dc93f4c27787a9fce17a683f28aa4d424dc66e763ac9ab8ccb5f6a76682dfd",
+      "recovered-code/cortex-m/Makefile": "f6e16abeac9c570a753a4b13ca9314b1275f7bcdf418f5f8c9b9967bca6a6521",
+      "recovered-code/cortex-m/build/mouse_context_switch.o": "0e1aa24bb2b4ec01e8205f1b2c324d3392a09edc8d4bf1270bbce1891b0a256b",
+      "recovered-code/cortex-m/build/mouse_context_switch.elf": "fd1bd2519f6da3bed94c63929d3a7e8ec61fee5dc4e8905acb9c042ec7e2b55c",
+      "recovered-code/cortex-m/build/mouse_context_switch.bin": "9cf618b079099a02457c359cc7e6265d6ee55a6e32767063c9ff9d61a5c77db4"
+    },
+    "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+    "limits": [
+      "Exact source-assembled bytes for selected200 bytes, not full MCU image",
+      "Intervening304 bytes in fragment are placeholder padding and excluded, not original code",
+      "Fixed mouse1.20 addresses; no boot/vector/startup/full firmware linking or device execution",
+      "BX LR bytes match; architectural exception return is not executed in original-instruction fixture"
+    ]
+  },
+  "component_integration": {
+    "status": "PASS",
+    "scenarios": 4,
+    "switch_request_segments": 256,
+    "PendSV_body_segments": 256,
+    "results": [
+      {
+        "seed": 0,
+        "switch_body_segments": 64
+      },
+      {
+        "seed": 1,
+        "switch_body_segments": 64
+      },
+      {
+        "seed": 2,
+        "switch_body_segments": 64
+      },
+      {
+        "seed": 3,
+        "switch_body_segments": 64
+      }
+    ],
+    "sources": {
+      "analysis/test_mouse_context_continuous.py": "8b2ffb779802f5dffd3b04b49dc7d257d1a6cd65b712bdd6ab11fb72bd68bc7e",
+      "recovered-code/portable/mouse_context_switch.c": "eb41c00365b26172bc3dbbd2c0a95d3fc53709a9abe992b83bb04efbb96c6a47",
+      "recovered-code/portable/mouse_context_switch.h": "e232c97940f596ab5d27fc62d6266f15e6f36c3d36d82338c4d1cf89c4a9dc47",
+      "analysis/libmouse_context_switch.dylib": "625d3db239d71626aa3f4095e8f020d59000f0a08f08973383f59446218a72fb"
+    },
+    "not_added_to_original_input_count": true,
+    "limits": [
+      "C component sequence with explicitly provided thread execution and handler entry inputs",
+      "Stops before each hardware exception return; no frame unstacking or real autonomous task execution",
+      "NVIC ICSR is last-written snapshot only"
+    ]
+  },
+  "sources": {
+    "recovered-code/portable/mouse_context_switch.c": "eb41c00365b26172bc3dbbd2c0a95d3fc53709a9abe992b83bb04efbb96c6a47",
+    "recovered-code/portable/mouse_context_switch.h": "e232c97940f596ab5d27fc62d6266f15e6f36c3d36d82338c4d1cf89c4a9dc47",
+    "analysis/verify_mouse_context_switch.py": "fba8a3c8c7d03c6f661d7452a8d4558fdd7f560c4753af6042c2b4816a784383",
+    "ghidra-scripts/EmulateMouseContextSwitch.java": "af3c507b585cccd21e0a6af092b786e7ae7a3c64501690541a73ff894881abe8",
+    "analysis/mouse-context-switch-original.jsonl": "8dbf25ce980df4c7f52a547d39daf2731da2109294318561f9f76ccf22a9ec65",
+    "analysis/mouse-context-switch-comparison.json": "6615018b0afc542c7f339ef087f65241b84d872bb68ab8854e11380db271ddb2",
+    "analysis/mouse-context-native-comparison.json": "0df6bef105be9a2f52ed7ce55f9f382893365edd2ba99f89d24688b14fa21daa",
+    "analysis/mouse-context-continuous-comparison.json": "8b87ab0cf6374dcbb8f292b8a1b4d8d6e7a5472d53cb7a154bd6da468f1b33c7",
+    "analysis/mouse-context-switch-ghidra.log": "e5cc271c0016364db09a14de2472305009913458a97d9be6e7296480f4bb31cd"
+  },
+  "limits": [
+    "Privileged body execution; no asynchronous interrupt in request",
+    "PendSV original stops before BX LR at0e089e06; no architectural frame unstacking, exception entry or real concurrency",
+    "PSP uses emulator shared native CPU state; absent PSPLIM operation records literal assignment only, not memory fault enforcement",
+    "All13 registers, SP/LR/PC, PSP/PSPLIM/BASEPRI, five flag bits,32B MSP scratch,64KiB RAM and4KiB SCB snapshot compared",
+    "Inert ICSR snapshots record original writes, not hardware readback or interrupt delivery",
+    "Exact source-assembled bytes for selected200 bytes, not full MCU image",
+    "Intervening304 bytes in fragment are placeholder padding and excluded, not original code",
+    "Fixed mouse1.20 addresses; no boot/vector/startup/full firmware linking or device execution",
+    "BX LR bytes match; architectural exception return is not executed in original-instruction fixture"
+  ]
+}

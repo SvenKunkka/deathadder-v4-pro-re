@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "cases": 768,
+  "by_operation": {
+    "0": 768
+  },
+  "by_mode": {
+    "1": 384,
+    "2": 384
+  },
+  "original_steps": 103296,
+  "original_message_put_calls": 0,
+  "original_message_purge_calls": 0,
+  "full_returns": 768,
+  "real_USB_boundary_cases": 0,
+  "explicit_USB_return_continuations": 0,
+  "continuation_steps": 0,
+  "checks": [
+    "all131072 RAM bytes",
+    "RADIO4096B TIMER2048B auxiliary2048B",
+    "NVIC actual write requests",
+    "duplicate leaves original pop projection byte unchanged; new ACK increments original context+0x259 with cap at+0x25F"
+  ],
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/receiver_legacy_radio.c": "d286da465bae26d74e70ebc30f1b9b46ebd247b4cfa37418f653f445db044bc0",
+    "recovered-code/portable/receiver_legacy_business.c": "6b54875b1def2d228d24f505e00cd19ba05452bbbf695df4b269be9b2b7cffac",
+    "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+    "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+    "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+    "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+    "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+    "recovered-code/portable/handshake.c": "09f89dcd4131b0bca0bc403c23518d1a89c1e0d0f404eee01b25c53aa28faef8",
+    "recovered-code/portable/receiver_legacy_radio.h": "3f7d440c2e9eea1af4c331a1480f3d4365cf331bbe9fbda3edf5bcda7c355ec9",
+    "analysis/receiver-legacy-sentinel-original.jsonl": "38e37b9d8028e9a55ba692ec4cc29d8f7a0896e2b1744f7d8f1678169c33464b",
+    "ghidra-scripts/EmulateReceiverLegacySentinel.java": "8836934f72684fadd692f7c2c41ffb2f654e26daf92a65874b62a0364397c919"
+  },
+  "limits": [
+    "q255 is original TIMER sentinel; original q!=0 branch still performs out-of-array byte operation for a new confirmation",
+    "host projection of original offsets, not a valid sixth queue or a memory safety fix",
+    "no RF/time/IRQ preemption/driver validation"
+  ],
+  "scope": "q255 direct mode1/2 RADIO; no SWI or notifications in this dataset",
+  "duplicate_sequence_cases": 384,
+  "new_sequence_cases": 384
+}

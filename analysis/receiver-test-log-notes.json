@@ -1,0 +1,157 @@
+{
+  "status": "ORIGINAL_THUMB_EQUIVALENCE_PASS_FOR_SEVEN_RF_FORMATS",
+  "firmware": "outputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+  "sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "logging_entry": "0e05d634",
+  "formatter": {
+    "positive_path": "requires stream[2]&2. Emit bytes through callback cached from stream+4 at formatter entry; trampoline reloads23000494 for each byte",
+    "success_return": "emitted character count uint32, with normal printf-style decimal rendering for the seven RF literal formats",
+    "error_return": "if callback signed r0<0, stream[2]|=4, returnFFFFFFFF",
+    "writes": "formatter-local stack for digit/text scratch; stream+2 error flag; no direct RAM-global or MMIO writes",
+    "helpers": [
+      "E06B44C bounded strlen (read-only)",
+      "E06F3FE integer-to-reverse-digits (writes caller output buffer, here stack)"
+    ],
+    "integer_formats": "%d signextends32; %hhi signextends8 of promoted argument. Digit helper returns pointer after last generated digit, despite inferred void signature",
+    "other_formats": "general formatter includes flags/width/precision, c/s/o/u/x/p, lengths; floats emit literal *float*, not actual floating conversion"
+  },
+  "trampoline": "0e05d628",
+  "sink_pointer": "23000494",
+  "initial_sink": "0e05d625",
+  "initial_data_file_offset": "0001cce8",
+  "default_sink": {
+    "entry": "0e05d624",
+    "bytes": "00207047",
+    "instructions": [
+      "movs r0,#0",
+      "bx lr"
+    ],
+    "behavior": "returns0, no memory or MMIO reads/writes"
+  },
+  "wrapper": {
+    "entry_sp": "S",
+    "stream_address": "S-40",
+    "stream_words": [
+      "00020000",
+      "0e05d629",
+      "00000000",
+      "00000000"
+    ],
+    "va_list": "S-12 (saved r1), then saved r2/r3, then incoming stack args",
+    "return": "formatter result in r0 preserved; C decompiler inferred void is not evidence to discard it"
+  },
+  "references": {
+    "ghidra_sink_references": [
+      "E05D62A READ 23000494"
+    ],
+    "whole_image_absolute_23000494_occurrences": [
+      "file9630 ROM E05D630"
+    ],
+    "whole_image_sink_address_occurrences": [
+      "file1CCE8 initial data for23000494"
+    ],
+    "claim_boundary": "No direct setter found; derived pointers or external writes not disproved. Always inspect runtime pointer."
+  },
+  "formats": [
+    {
+      "address": "0e06fbfc",
+      "text": "TX power to enumerator conversion failed, defaulting to 0 dBm\n",
+      "argument_kind": "none",
+      "literal_length": 62,
+      "rendered_count_rule": "62"
+    },
+    {
+      "address": "0e06fc3c",
+      "text": "Requested tx output power: %hhi dBm\n",
+      "argument_kind": "signed8",
+      "literal_length": 36,
+      "rendered_count_rule": "32 + decimal_digits_with_sign(value)"
+    },
+    {
+      "address": "0e06fc64",
+      "text": "Tx output power set to: %hhi dBm\n",
+      "argument_kind": "signed8",
+      "literal_length": 33,
+      "rendered_count_rule": "29 + decimal_digits_with_sign(value)"
+    },
+    {
+      "address": "0e06fc88",
+      "text": "Unexpected test type: %d\n",
+      "argument_kind": "signed32",
+      "literal_length": 25,
+      "rendered_count_rule": "23 + decimal_digits_with_sign(value)"
+    },
+    {
+      "address": "0e06fca4",
+      "text": "nrfx_timer_init failed with: %d\n",
+      "argument_kind": "signed32",
+      "literal_length": 32,
+      "rendered_count_rule": "30 + decimal_digits_with_sign(value)"
+    },
+    {
+      "address": "0e06fcc8",
+      "text": "Failed to allocate gppi channel.\n",
+      "argument_kind": "none",
+      "literal_length": 33,
+      "rendered_count_rule": "33"
+    },
+    {
+      "address": "0e06fcec",
+      "text": "ppi_radio_start = %d\n",
+      "argument_kind": "signed32",
+      "literal_length": 21,
+      "rendered_count_rule": "19 + decimal_digits_with_sign(value)"
+    }
+  ],
+  "reconstruction_options": [
+    {
+      "option": "default-sink exact RF formats",
+      "precondition": "read32(23000494)==0e05d625 and valid known firmware literal/argument",
+      "implementation": "render exact known string/decimal argument or compute exact count, follow actual sink0; return count and no global/MMIO writes. Legitimate recovered default sink, not injected external success",
+      "limits": "Scope explicitly seven RF formats; add original Thumb cases for signed8 all256, signed32 min/max/0, initialized sink, modified sink."
+    },
+    {
+      "option": "dynamic callback boundary",
+      "precondition": "runtime sink differs from exact default pointer",
+      "implementation": "execute format parsing to first emitted byte then stop at actual trampoline/callback with character r0 and stream pointer r1. Preserve stream bytes if stack included. Do not invent sink return."
+    },
+    {
+      "option": "generic formatter port",
+      "implementation": "port E06EEA8/E06F3FE/E06B44C and sink dispatch to preserve all general format behavior; broader than needed for seven RF paths"
+    }
+  ],
+  "artifacts": [
+    "receiver-test-log-expansion/ (6 decompiles, formatter raw disassembly)",
+    "receiver-test-log-expansion/sink-references.tsv",
+    "receiver-test-log-expansion.log",
+    "../ghidra-scripts/ExpandReceiverTestLog.java"
+  ],
+  "limitations": [
+    "No device access, writes, UART assumption, or sink hardware simulation",
+    "Only new logger C/h authored; no existing source/manifests changed.",
+    "Original execution scope: seven firmware strings; stack scratch not projected; no hardware output."
+  ],
+  "implementation": {
+    "files": [
+      "../recovered-code/portable/receiver_radio_test_log.c",
+      "../recovered-code/portable/receiver_radio_test_log.h"
+    ],
+    "api": "int rr_receiver_radio_test_log(rr_rt_bus*,const uint32_t args[5],uint32_t *result,rr_rt_pending*)",
+    "compile": "clang -std=c11 -Wall -Wextra -Werror -pedantic -O2 -c succeeded",
+    "domain": "Exactly seven listed addresses with exact ROM string bytes including NUL; no universal printf claim",
+    "default_sink": "Exact pointer E05D625; returns exact count including LF, no CR",
+    "other_sink": "Odd pointer creates boundary at pointer&~1 with first ASCII character arg0,arg_mask1; local stream pointer intentionally not projected; even/null sink returns -2",
+    "verification": "receiver-radio-log-comparison.json PASS:3328 cases,3315467 original steps,3072 returns,256 genuine changed-sink boundaries"
+  },
+  "original_verification": {
+    "cases": 3328,
+    "steps": 3315467,
+    "default_sink_returns": 3072,
+    "changed_sink_boundaries": 256,
+    "distinct_signed32_inputs": 1284,
+    "signed8_lowbytes_per_format": 256,
+    "memory": "Full128KiBRAM and six4096B MMIO snapshots",
+    "result": "PASS zero differences",
+    "result_file": "receiver-radio-log-comparison.json"
+  }
+}

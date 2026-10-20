@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "assertions": 2094,
+  "single_byte_corruptions_rejected": 1530,
+  "one_byte_payloads_exhaustive": 256,
+  "fixed_vectors": [
+    [
+      "00",
+      "0100"
+    ],
+    [
+      "0100",
+      "020000"
+    ],
+    [
+      "01ff",
+      "02ff01"
+    ],
+    [
+      "05b203171234",
+      "06b203171234ee"
+    ],
+    [
+      "08010801ff0001ffff",
+      "09010801ff0001fffff8"
+    ]
+  ],
+  "scope": "Static reconstruction consistency only; no RF capture, emulation or target execution."
+}

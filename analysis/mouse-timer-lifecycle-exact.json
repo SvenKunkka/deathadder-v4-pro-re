@@ -1,0 +1,197 @@
+{
+  "status": "PASS",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "original_instruction_inputs": 2304,
+  "original_instruction_steps": 721406,
+  "entry_spans": [
+    {
+      "address": "0xe096594",
+      "image_offset": "0x2a594",
+      "name": "abort timer",
+      "entry16_hex": "f8b5eff31186202383f31288bff36f8f",
+      "sha256": "78e1a07ebbf78212b4c8e4979bc81bd8069b32caf05df585e0b2474111f74327"
+    },
+    {
+      "address": "0xe09643c",
+      "image_offset": "0x2a43c",
+      "name": "unlink delta queue",
+      "entry16_hex": "10b40c4b5a68036882420ad04bb1d3e9",
+      "sha256": "4b4d2ef0c6f57b62cdd403ad8d0c494f00be04cb60d727b3a7a3392b1126c338"
+    },
+    {
+      "address": "0xe096ac4",
+      "image_offset": "0x2aac4",
+      "name": "stop timer",
+      "entry16_hex": "10b50446fff764fda8b9636a0bb12046",
+      "sha256": "3dbd04a88eac5997588c094def2679b4cf1da20f1ef4cb6f3b9631c668b478b5"
+    },
+    {
+      "address": "0x23028b70",
+      "image_offset": "0x930c",
+      "name": "elapsed ticks",
+      "entry16_hex": "00b583b0684601f005f80749009b0a68",
+      "sha256": "44791eb7bbe99e4a610e165e84e584469ba3f846c3b349e4629bd088d8f9bd86"
+    },
+    {
+      "address": "0x23028b9c",
+      "image_offset": "0x9338",
+      "name": "program next tick",
+      "entry16_hex": "30b5431c85b028d020eae070c5176d01",
+      "sha256": "79be0cb78719e268e347b1496d84a2c90f0d0bcf1c22f96f1ee22c58554599db"
+    },
+    {
+      "address": "0x230298e4",
+      "image_offset": "0xa080",
+      "name": "read counter",
+      "entry16_hex": "00b590f808c0bcf1070f33d0bcf10d0f",
+      "sha256": "9e1bef428e88d188d26bf275c1807ab96031f2492adcfbadf1eff02932445ed0"
+    },
+    {
+      "address": "0x23029adc",
+      "image_offset": "0xa278",
+      "name": "compare channel",
+      "entry16_hex": "2de9f04101264ef2800c017a9df81870",
+      "sha256": "0ab637290a56d5e515bd114cf5e82118d4b3eff553b067055b137aeebab79673"
+    },
+    {
+      "address": "0x23029b84",
+      "image_offset": "0xa320",
+      "name": "compare API",
+      "entry16_hex": "00220023f0b5c0e90023eff311852023",
+      "sha256": "2173020c3293181118880f322465e2373e9e71803b08e4b4fcc2cd599b19a9fc"
+    },
+    {
+      "address": "0x23022d88",
+      "image_offset": "0x3524",
+      "name": "disconnect",
+      "entry16_hex": "70b500240546144b82b0224621462046",
+      "sha256": "b7d09a4ce7f337ce65b9d77a2f4dc9dfcfe70199ad8031dd93244511a502ab28"
+    },
+    {
+      "address": "0x23025c2c",
+      "image_offset": "0x63c8",
+      "name": "disconnect ACK",
+      "entry16_hex": "08b5044806f0bafb034bd87bbde80840",
+      "sha256": "044aea5754aa019fc80cd4c28cf07ba18c78ebf3eebd3485f80e2b8c3622bafc"
+    },
+    {
+      "address": "0x23025eb4",
+      "image_offset": "0x6650",
+      "name": "ACK callback dispatch",
+      "entry16_hex": "4388032b00d0704710b5034c236813b1",
+      "sha256": "49faa863eedce86508e9f4b45e428b70cc6dbd53fe0004936265e014ab589955"
+    },
+    {
+      "address": "0x230235ec",
+      "image_offset": "0x3d88",
+      "name": "mode1 teardown",
+      "entry16_hex": "38b50c4d002228460b49fef7cbfa0024",
+      "sha256": "1f40bb6a88b27af0059bc854a9bfa40eeae732cf80c4eb3d2e5a0ae7e565ac10"
+    },
+    {
+      "address": "0x23024590",
+      "image_offset": "0x4d2c",
+      "name": "mode2 teardown",
+      "entry16_hex": "38b50c4d002228460b49fdf7f9fa0024",
+      "sha256": "1ef4feff42c3a9e4a708839528833751baac67fc463a54f09b51ca2436dd7be1"
+    },
+    {
+      "address": "0x23025838",
+      "image_offset": "0x5fd4",
+      "name": "mode4 teardown",
+      "entry16_hex": "38b5104d002228460f49fcf7a5f90024",
+      "sha256": "32cb86366e8be122b30bb0ce2134d66f195f711de1763845ffecdb516f1b2d95"
+    },
+    {
+      "address": "0x23025ed0",
+      "image_offset": "0x666c",
+      "name": "empty notification",
+      "entry16_hex": "704700bf47f6122c40f2e732002130b5",
+      "sha256": "31bd3a1aa52fcc3efeb697f4bc53373825376227bfb3ecfc6eb84e57368599b7"
+    }
+  ],
+  "validation": {
+    "status": "PASS",
+    "original_instruction_cases": 2304,
+    "counts": {
+      "op0:shape0": 64,
+      "op0:shape1": 64,
+      "op0:shape2": 64,
+      "op0:shape3": 64,
+      "op0:shape4": 64,
+      "op0:shape5": 64,
+      "op1:shape0": 64,
+      "op1:shape1": 64,
+      "op1:shape2": 64,
+      "op1:shape3": 64,
+      "op1:shape4": 64,
+      "op1:shape5": 64,
+      "op2:shape0": 64,
+      "op2:shape1": 64,
+      "op2:shape2": 64,
+      "op2:shape3": 64,
+      "op2:shape4": 64,
+      "op2:shape5": 64,
+      "op3:shape0": 64,
+      "op3:shape1": 64,
+      "op3:shape2": 64,
+      "op3:shape3": 64,
+      "op3:shape4": 64,
+      "op3:shape5": 64,
+      "op4:shape0": 64,
+      "op4:shape1": 64,
+      "op4:shape2": 64,
+      "op4:shape3": 64,
+      "op4:shape4": 64,
+      "op4:shape5": 64,
+      "op5:shape0": 64,
+      "op5:shape1": 64,
+      "op5:shape2": 64,
+      "op5:shape3": 64,
+      "op5:shape4": 64,
+      "op5:shape5": 64
+    },
+    "failures": [],
+    "checks": [
+      "all65536 RAM bytes",
+      "RADIO4096 TIMER1536 RTC4096 clock8 byte windows",
+      "abort original return value",
+      "original BASEPRI restored"
+    ],
+    "sources": {
+      "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+      "recovered-code/portable/mouse_timer_lifecycle.h": "0724d6c805f20f89424ba4cc96f2f07addbebf234a92e5d0bcd689a5520eb064",
+      "analysis/verify_mouse_timer_lifecycle.py": "07bd79998fdabc01a4b19c75ab62180267b2405b62ed6579b3ffaf70166a89b2",
+      "ghidra-scripts/EmulateMouseTimerLifecycle.java": "e1bd0c8a9197018538ddf825d968005570a5c7921a5351970e10a5cb2e62b817",
+      "analysis/mouse-timer-lifecycle-original.jsonl": "6d0d944291703137006b374f138daddc562895a84c874e8fa2d5177156fedd1e",
+      "analysis/mouse-ack-lifecycle-original.jsonl": "27086698538c12eeec2852b74c8bfc57152448359d66872c7621034661bdce01",
+      "ghidra-scripts/EmulateMouseAckLifecycle.java": "26b3e790206434cfce9b431bb1bdc556e5418077be473277fde71327f2d17d95",
+      "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+      "recovered-code/portable/mouse_radio_irq.h": "5ef112e2ad0b27589a347b96229f31a1666064d952a2bf3df2d941ada841b8cf",
+      "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+      "recovered-code/portable/business_tx.h": "3a5b7e92635053631e6e95e5ca2eb4e5107e3cd86147fc1b5e4dced70343270a",
+      "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+      "recovered-code/portable/business_cipher.h": "176e03bac6ad07d95aa9759b84f3510ae06bf1a07950258be02878961828ad53"
+    },
+    "limits": [
+      "active timer callbacks and waiting threads remain explicit boundaries",
+      "RTC snapshot, no time advancement; BASEPRI getter uses same emulator ArmCpuState",
+      "disconnect notification23025ed0 is original empty return",
+      "arbitrary pointers/corrupt linked lists outside declared memory domain"
+    ]
+  },
+  "coverage": {
+    "abort": 384,
+    "stop": 384,
+    "disconnect": 384,
+    "ACK_body": 384,
+    "ACK_dispatch": 384,
+    "mode1_mode2_full_IRQ_through_ACK": 384
+  },
+  "limits": [
+    "Only valid linked-list states and declared memory windows",
+    "Known callback23025c2d only; arbitrary callback and timer stop callback are boundaries",
+    "Real waiting-thread and scheduling remain boundaries",
+    "RTC/MMIO are fixed input snapshots; no time advance or hardware IRQ scheduling"
+  ]
+}

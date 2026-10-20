@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "original_entrypoint_cases": 3456,
+  "by_class": {
+    "0": 576,
+    "1": 576,
+    "2": 576,
+    "3": 576,
+    "4": 576,
+    "5": 576
+  },
+  "by_mode": {
+    "1": 1728,
+    "2": 1728
+  },
+  "by_context": {
+    "0": 1152,
+    "1": 1152,
+    "2": 1152
+  },
+  "original_steps_to_boundary_or_return": 1113696,
+  "continuation_steps": 522,
+  "full_returns": 3444,
+  "real_driver_boundary_cases": 12,
+  "explicit_environment_result_continuations": 12,
+  "short_B1_input_fixtures": 90,
+  "checks": [
+    "all65536 RAM bytes",
+    "NVIC pending word",
+    "driver boundary device pointer",
+    "delayed peer-aware statistics and selected-peer interval clear after explicit resume"
+  ],
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/receiver_legacy_business.c": "6b54875b1def2d228d24f505e00cd19ba05452bbbf695df4b269be9b2b7cffac",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+    "analysis/receiver-legacy-business-original.jsonl": "9755300ffeae7c6c4c1ac9d4448ba4033d9ad5877d3d15e8d768d8ee4c045713",
+    "ghidra-scripts/EmulateReceiverLegacyBusiness.java": "4e5764e647b7360ec3b6fec27542d0c4c7754aab8835fd8d6835a6d58e96d9c0"
+  },
+  "limits": [
+    "USB driver0E0622BC not executed; return supplied explicitly for separate continuation checks",
+    "RX cipher completion length8/16 domain retained",
+    "no RF/hardware/IRQ timing validation"
+  ]
+}

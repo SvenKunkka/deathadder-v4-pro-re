@@ -1,0 +1,193 @@
+{
+  "status": "STATIC_VERIFIED_RAW_INSTRUCTIONS_NOT_EXECUTION_TESTED",
+  "firmware": "outputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+  "sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "scope": "Timer helpers, initialization, and timer-to-radio sweep callback analysis. New portable TIMER C/h implementation only; no existing sources or manifests changed.",
+  "instance": {
+    "address": "0e06fd14",
+    "raw_hex": "0090025301080000",
+    "base": "53029000",
+    "index": 1,
+    "channel_count": 8,
+    "callback": "23006e4c",
+    "context": "23006e50",
+    "state_byte": "23006e54"
+  },
+  "functions": {
+    "0e069ee8": {
+      "name": "timer_initialize",
+      "args": [
+        "instance",
+        "config_or_null",
+        "callback"
+      ],
+      "semantics": [
+        "index=u8(instance+4); state=23006e40+12*index",
+        "if u8(state+8)!=0 return 0bad000c without writes",
+        "store32(state,callback)",
+        "if config==0: store8(state+8,1); return 0bad0000, context unchanged",
+        "otherwise store32(state+4,read32(config+8)); call E069E04(instance,config); state+8=(result==0bad0000); return result"
+      ]
+    },
+    "0e069e04": {
+      "name": "timer_configure",
+      "semantics": [
+        "base=read32(instance); sourceHz=320000000 for 5f8e2000/5f8e3000; 32000000 for 53028000/53029000/5302a000; otherwise16000000",
+        "freq=read32(config); quotient=sourceHz/freq, remainder=sourceHz-freq*quotient; reject remainder!=0 OR freq>sourceHz OR (quotient&(quotient-1))!=0 OR quotient>512 with 0bad0004",
+        "accept: read config bytes 5 and4; mode +504=(old&~3)|(config[4]&3); bitmode +508=(old&~3)|(config[5]&3); prescaler +510=ctz(quotient)",
+        "clear all eight compare events +140..15c in ascending order, each with write0 followed by readback",
+        "call E0612AC((base>>12)&511); return 0bad0000"
+      ],
+      "zero_frequency": "ARM UDIV result0 unless trap enabled; then remainder nonzero returns invalid; host model must not divide C by0"
+    },
+    "0e069f3c": {
+      "name": "timer_start",
+      "semantics": [
+        "write32(base+0,1)",
+        "state[index].state=2"
+      ]
+    },
+    "0e069f5c": {
+      "name": "timer_stop_and_clear",
+      "semantics": [
+        "write32(base+4,1)",
+        "reload instance base, write32(base+12,1)",
+        "state[index].state=1"
+      ]
+    },
+    "0e069f7c": {
+      "name": "timer_clear",
+      "semantics": [
+        "write32(base+12,1)"
+      ]
+    },
+    "0e069f84": {
+      "name": "microseconds_to_ticks",
+      "source_multiplier": [
+        320,
+        32,
+        16
+      ],
+      "semantics": [
+        "multiplier selected from same base groups; read prescaler p at base+510",
+        "uint64 product = uint32(argument)*multiplier; hi=product>>32; lo=(uint32)product",
+        "return LSR(lo,p)|LSL(hi,32-p)|LSR(hi,p-32), ARM register shifts use low8 shift and yield0 for shifts>=32. For p in0..63 this is low32(product>>p). Outside range do not replace by unchecked C shift."
+      ]
+    },
+    "0e069ff0": {
+      "name": "milliseconds_to_ticks",
+      "source_multiplier": [
+        320000,
+        32000,
+        16000
+      ],
+      "semantics": [
+        "Same multiply/shift algorithm as E069F84; factor1000 larger. Not microseconds."
+      ]
+    },
+    "0e06a064": {
+      "name": "timer_compare_configure",
+      "args": [
+        "instance",
+        "channel",
+        "compare_value",
+        "shorts_mask",
+        "u8(enable_irq) at entrySP"
+      ],
+      "semantics": [
+        "m=ARM_LSL(0x10000,channel); c=ARM_LSL(1,channel)",
+        "base+200=(old&~(m|c)); reloadbase and shorts; base+200=old|shorts_mask",
+        "enable0: write32(base+308,m)",
+        "enable!=0: write32(base+140+channel*4,0), readback, write32(base+304,m)",
+        "reload base; write32(base+(channel+0x150)*4,compare_value)",
+        "No explicit channel bounds in firmware; host bounds must be reported as model-domain restriction"
+      ]
+    },
+    "0e069d98": {
+      "name": "timer_irq_common",
+      "args": [
+        "base",
+        "state_pointer"
+      ],
+      "semantics": [
+        "snapshot pending events by scanning eight +140..15c; clear and read back every nonzero event even if interrupt masked, record bit16+i",
+        "after all clears snapshot enabled=read32(base+304)&00ff0000",
+        "for each ascending channel where pending&enabled bit set: reload callback32(state); if nonzero reload context32(state+4); indirectcall(callback,event_offset=140+4*i,context)",
+        "Event offset is uint16; 8 channels means140..15c. enabled snapshot is not reloaded after callbacks; callback/context are."
+      ]
+    },
+    "0e06a0c4": {
+      "name": "timer021_irq",
+      "semantics": [
+        "tailcall E069D98(53029000,23006e4c)"
+      ]
+    },
+    "0e05cd04": {
+      "name": "radio_sweep_timer_callback",
+      "args": [
+        "event_offset",
+        "descriptor"
+      ],
+      "semantics": [
+        "if event_offset!=140 return",
+        "type=descriptor[0]; if3 set71e0=1; call E05CBB8(mode=u8d1,power=s8d4,channel=u8[71e1]); reload start=d5,end=d6,step=d7",
+        "if type4 set71e0=1; call E05CC4C(mode=u8d1,channel=u8[71e1],pattern=u8d4); reload start=d4,end=d5,step=d6",
+        "for type3/4 after target returns: next=uint8(u8[71e1]+step); [71e1]=(next<=end?next:start); [71e0]=0",
+        "other types tailcall E05D634(format E06FC88, type); no subsequent writes"
+      ]
+    },
+    "0e05d1ac": {
+      "name": "radio_test_init",
+      "semantics": [
+        "stack config {u32frequency=1000000,u8mode=0,u8bitmode=2,u16padding0,u32context=argument}",
+        "call E069EE8(E06FD14,config,E05CD05); non-success calls logging E05D634 but continues",
+        "call E0612F0(IRQ41,prio5,flags0) writes u8E000E429=E0",
+        "write32(2300661c,argument)",
+        "call E06A658(&230071df); success0bad0000 logs channel and returns0; other result logs failure and returnsFFFFFFF2"
+      ],
+      "unrecovered_external_calls": [
+        "E06A658 GPPI allocate",
+        "E05D634 logging"
+      ]
+    },
+    "0e0612ac": {
+      "name": "irq_enable",
+      "semantics": [
+        "irq=signextend16(argument); if irq>=0 write32(E000E100+4*(irq>>5),1<<(irq&31))",
+        "For TIMER021 base53029000 IRQ41: write32(E000E104,0x200)"
+      ]
+    }
+  },
+  "evidence": [
+    "radio-test-timer-expansion/disassembly.txt",
+    "radio-test-timer-expansion/functions.tsv",
+    "radio-test-timer-expansion.log",
+    "dongle-radio-1.20-final/disassembly.txt"
+  ],
+  "limitations": [
+    "Only static analysis; no original Thumb equivalence corpus added by this subtask",
+    "Ghidra function body length for E05CD04 is8 due branch body sharing; full raw branch instructions CD0C..CD6A verified in prior full listing",
+    "Hardware MMIO readbacks/interrupt masks must be modeled explicitly; write to SET or CLR register cannot be treated as updating another register unless hardware model declares it"
+  ],
+  "implementation": {
+    "files": [
+      "../recovered-code/portable/receiver_radio_test_timer.c",
+      "../recovered-code/portable/receiver_radio_test_timer.h"
+    ],
+    "build_check": "clang -std=c11 -Wall -Wextra -Werror -pedantic -O2 -c succeeded",
+    "equivalence": "Parent validation PASS: receiver-radio-engine-comparison.json and receiver-radio-flow-comparison.json. Coverage is limited to declared corpus; no physical hardware proof.",
+    "coverage": [
+      "0e069e04",
+      "0e069ee8",
+      "0e069f3c",
+      "0e069f5c",
+      "0e069f7c",
+      "0e069f84",
+      "0e069ff0",
+      "0e06a064",
+      "0e069d98",
+      "0e06a0c4"
+    ],
+    "api": "args[5] includes compare IRQ byte from fifth stack arg; void result marker zero"
+  }
+}

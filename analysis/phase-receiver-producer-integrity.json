@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "datasets": 60,
+  "original_inputs": 125824,
+  "C_units": 43,
+  "validated_sources_and_build_records": 89,
+  "errors": [],
+  "scope": "Current artifact/source/build/data integrity and declared test status; complete firmware/RF objective remains incomplete"
+}

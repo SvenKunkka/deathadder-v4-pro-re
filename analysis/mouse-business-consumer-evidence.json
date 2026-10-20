@@ -1,0 +1,145 @@
+{
+  "target": "mouse1.20 business consumer23025e38",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "ram_sha256": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5",
+  "instruction_ranges": [
+    {
+      "start": "0x23025e38",
+      "end_exclusive": "0x23025eb0",
+      "label": "class/AC/checksum/length dispatch",
+      "raw_hex": "38b51a4d2878032819d1194c2378ac2b25d0184b1a785ab10023154902eb040e11f801cb63448e45dbb2f9d103b138bd013a0f4992b2bde83840fbf74bb80d4b1a78002af4d000230949541811f801cb6344a142dbb2f9d1002be8d1e8e72046fff756fd0028e2d12878d2e79b770023d06700239c770023",
+      "sha256": "dcba36656e8abcf74f929affec8f4b095d26c41e1023edbc4fff6a2855c80e07"
+    },
+    {
+      "start": "0x23020f0c",
+      "end_exclusive": "0x2302111c",
+      "label": "class3 A3/B1 and class5 5A",
+      "raw_hex": "032870b50c4612d0052803d115460a785a2a5ad0664c674a23781178994205d01370002b49d00022634b1a7070bd0b78a32b5ed0b12bedd1604b1888002800f0b5804b785e49012b22790b7076d05d4b1978002968d15c4d5c4b1a70002a7ed15b4bd978072908d85a485b4b0822197001235a4902700b702b7063794c4c237000f074f92b7823b1554b1b78002b40f08580544a23781178002b6dd1012906d1514a52481388018043f001031380414b1a78002abad000221a7043f6982001224b493d4b08601a7070bd4a4b002118460bf0c0faa11caa1e0bf010fb0122034664784548454983f858400270304c0a7091e70025424e2e4c35700bf037fa0122404b2e491b680d80354935705a60da6025700d700af074fb3b4b1b78012b7ff47aaf0bf07bfa76e7384d2a482d78012105700020244d187029708de72449c978072924d8082531481e4e01702148337005701d4d2b701d4b1a70002a85d01f4b1a78002a89d01c481a4a007801211070002229701a7080e7012901d1002111700c4a117899423ff451af13704be70f4b0d4d1a70002a3ff470afe0e70d4b0120197805f017fe00232b7072e70bf042fa967700230815002395770023e0760023247700237577002376770023717700235c4a00238177002372770023737700231f7700233f770023d2760023d67600239c670023fc3e002315770023977700237f7700234892090e2377002374770023",
+      "sha256": "67dc20248ef9a67598364628d7e998658195d204286da8c7c8892b9b3c2a5da8"
+    },
+    {
+      "start": "0x23025948",
+      "end_exclusive": "0x230259a0",
+      "label": "AC special helper",
+      "raw_hex": "034630b5b3f801408bb061ba002089b2fcf77ef9a4b10e48c38ba3b90024ff254ff0ac0cc4618df8093003210223204602aa00958df808c000f096f8054b1c6001200bb030bd828bb2fbf3f3dbb2e5e76c6b0023686b0023",
+      "sha256": "1d66394fb8350d301c8ef99666be3b06fa37f65488d9c4760644045f5361248a"
+    },
+    {
+      "start": "0x23021278",
+      "end_exclusive": "0x230212c0",
+      "label": "B1 reply and current rate forwarding",
+      "raw_hex": "30b50024ff20104b104d93f8e134104a87b0e97863f307040e4b0292aa7900901b7861f30f2462f3174463f31f64082303210deb03020020039404f0fdfbe87804f0dafc07b030bd",
+      "sha256": "0c8f9a8615b4bc85fb05fbd58503a3a907be3d91741078639fa9ce9a82f783ed"
+    },
+    {
+      "start": "0x23021c58",
+      "end_exclusive": "0x23021c6c",
+      "label": "AC truncation storage",
+      "raw_hex": "4ff46e62024b02fb003383f86810704778290023",
+      "sha256": "aea3e3a89d7c1b05ceb6ae0cb3ab478fc34f4630045616bf6c46c4d9fa8619b2"
+    },
+    {
+      "start": "0x23021c6c",
+      "end_exclusive": "0x23021d6c",
+      "label": "rate negotiation helper",
+      "raw_hex": "4a1e3f2a19d870b5274a0346128886b0022a8eb229d94ff46e64244a04fb0024a38e5bb9224a01291078a6862fd0d0b1012020494864137015e07047b2f892308df8091064335aba9db2adf80a202f23ff228df8083000920423002102aafff76ffce686258706b070bd4ff46e600f4a012900fb03239e860d4b1a780dd0002af1d0012000220b4948641a70ebe70028e9d1084b19641170e5e7002ae3d1054a11641970dfe700bf9427002378290023ee76002300e002534ff46e6c10b40f4c0cfb00400c1e18bf0124b2f1000c18bf4ff0010c80f8844080f885c021b10b23c0f8883010bc704722b91823c0f8883010bc70471f2bf9d910bc704778290023",
+      "sha256": "e165f3391ab95eada9113f637940927b4a9d15696fed464834236579c6f7487d"
+    },
+    {
+      "start": "0xe07ec54",
+      "end_exclusive": "0xe07ecd0",
+      "label": "A3 state cleanup",
+      "raw_hex": "0023094a30b409491370094a0b701370084c094d09480a490a4a2b70237003700b70137030bc70475e77002358770023557700235d7700232f7700235c77002361770023637700230023ff210b4a30b40b4813700b4a037013700b4c0b480c4a2370037013700b4d0b4c0c480c4a2b7023700370117030bc704700bf",
+      "sha256": "edfa8fd0442b893331ebd4e2d00082c31dc025b6ff52221acb628134cd775b74"
+    },
+    {
+      "start": "0xe07eee8",
+      "end_exclusive": "0xe07ef50",
+      "label": "A3 mode1 cleanup",
+      "raw_hex": "0e4a1378c3b9012110b40d480d4c037023700d480d4c037023700d480d4c038023700d480d4c037023800d480d4c03702370117010bc7047704700bf5e77002342770023437700235d77002341770023c47600235c7700235a7700239e760023597700235b770023",
+      "sha256": "633ddc59536511c65676f915578f8a68af767b817d3436b5246c5d12f51b63d4"
+    }
+  ],
+  "input": {
+    "class": "u8[2300779b]",
+    "length": "u8[2300779c]",
+    "payload": "230067d0",
+    "consumer_parameters": "none; globals",
+    "tailcall": "23020f0c(class,payload,(uint16)(length-1))"
+  },
+  "checksum": {
+    "algorithm": "sum(payload[0:n]) modulo256 must equal0",
+    "zero_length": "skip checksum; downstream length65535",
+    "AC_exception": "class3 + payload0AC calls23025948 before checksum and returns because helper returns1"
+  },
+  "AC": {
+    "length_checked": false,
+    "byte29e0": "payload[2] (low byte of BE16 pair)",
+    "reply_condition": "LE16(payload[1:3]) != 0",
+    "reply": "[AC, (u16[6b88]/u16[6b8a])&FF] or quotient0 if denominator0",
+    "resets": [
+      "u32[6b88]=0",
+      "u32[6b68]=0"
+    ],
+    "TX": "class3 length2 via23025ab0",
+    "finish_sync": false
+  },
+  "A3": {
+    "callbacks": [
+      "0e07ec54",
+      "2302b70c",
+      "optional0e07eee8"
+    ],
+    "state_clears": [
+      "u16[76e0]",
+      "byte777f",
+      "byte7796",
+      "byte771f"
+    ],
+    "MMIO": "5f9c2004=1;5f9c200c=1",
+    "unrecovered": "if byte7748!=0 && byte7747==0,0e096a50(timer23001b48,0,625,0,32,0) RTOS timer start"
+  },
+  "B1": {
+    "reboot_if": "u16[76e0]==0 ->0e085ed0 nonreturning",
+    "reply_bytes": "B1 00 BF 00 u8[4955] old_rate u8[4a62] u8[7733]",
+    "reply_class": 3,
+    "reply_length": 8,
+    "rate_helper": "23025c70 ->23021c6c; current old_rate supplied before local rate change",
+    "rate_change": "23026ce0(1,u8[7781]) if byte7776!=0 && byte771f!=0; clears7776 aftercall",
+    "unrecovered": [
+      "reboot path",
+      "active sensor reinit when774b or774c is nonzero AND actualratechange would occur"
+    ]
+  },
+  "class5_5A": {
+    "zero_fill_destination": "23003efc",
+    "zero_fill_size": 90,
+    "copy_source": "230067d2",
+    "copy_length": "((uint16)(n-1))-2 with32bit subtraction",
+    "metadata_write": "u8[23003efc+88]=payload[1]",
+    "flags": [
+      "u8[7715]=1",
+      "u8[7797]=1"
+    ],
+    "lengths": {
+      "0": "65533; skipped checksum; host unsupported",
+      "1": "copy underflow expression unreachable because sole byte5A cannot sumzero",
+      "2": "0xffffffff if payload1=A6 passes checksum; host unsupported",
+      "3..255": "copy0..252 bytes, no90-byte clamp"
+    }
+  },
+  "final_sync": "if byte1508 differs from7796 copy7796; nonzero clears7795; zero setsu32[679c]=15000 andbyte7795=1",
+  "verification": {
+    "status": "PASS",
+    "original_cases": 512,
+    "comparison": "mouse-business-consumer-comparison.json",
+    "no_target_function_stubs": true,
+    "CPU_userop_patches": false
+  },
+  "boundaries": [
+    "valid TX ring pointers/capacity per business_tx.h required",
+    "real IRQ/PRIMASK/peripheral timing excluded",
+    "negative status denotes host preflight before any mutation, not original return value",
+    "does not implement later transport response scheduling"
+  ]
+}

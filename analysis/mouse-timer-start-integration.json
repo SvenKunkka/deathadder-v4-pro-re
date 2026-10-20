@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "continuous_operations": 1024,
+  "counts": {
+    "relative": 253,
+    "absolute": 241,
+    "stop": 283,
+    "forever_noop": 247
+  },
+  "boundary_checks": [
+    "relative busy: callback written before elapsed read",
+    "absolute busy: node inserted before rearm read",
+    "paused list does not sample busy RTC",
+    "invalid timer extent",
+    "invalid list pointer",
+    "raw timeout accepts exact24-byte extent"
+  ],
+  "not_original_instruction_cases": true,
+  "checks": [
+    "independent cumulative deadlines and stable tie ordering",
+    "all prev/next/sentinel links",
+    "period/status/expiry thunk registration",
+    "no-op preserves all state",
+    "busy retains mutations at exact read boundary"
+  ],
+  "sources": {
+    "analysis/test_mouse_timer_start_integration.py": "b5056c91c84f2c7da8a6b6748825cc2ec5f85a09b61cd4db9c6de1f1ed1f3f4b",
+    "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+    "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7"
+  }
+}

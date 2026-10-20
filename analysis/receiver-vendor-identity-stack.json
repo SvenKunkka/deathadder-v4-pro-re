@@ -1,0 +1,250 @@
+{
+  "status": "static instruction/byte-derived ABI study; no headless, device activity, or C edits; not a differential execution result",
+  "source_hashes": {
+    "firmware-extracted-1.20/Suit1FWData__radio_radio.bin": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+    "analysis/dongle-radio-1.20-final/disassembly.txt": "4a77b642cdb1924f6c5b6b078523f2773254be1d872de3389b687269b48aee46",
+    "analysis/dongle-radio-1.20-final/230252a4.c": "703aa82f5d70417f03c11544e511ce9f52660c9789b4c4b5c68272747a72cf4c",
+    "analysis/dongle-radio-1.20-final/23025300.c": "cbb7c1eac446ca2530e9749371c458c6afcea38e12c7b21d90ee6d2149c96670",
+    "analysis/dongle-radio-1.20-final/2302604c.c": "40aef52f38ec9f3671f0ac986a2e99bbd751fc025d9b64ad6cff2eded52539d2",
+    "analysis/dongle-radio-1.20-final/23026090.c": "c7d53afd4eb0e94597317dea11030ddac7c01a1017ba579cb7feb78d1485bc33",
+    "analysis/dongle-radio-1.20-final/230205f8.c": "795eb22f69e4478d2f6f3c6e8a34056418b67f21fde176a949e1551206a5fb72",
+    "analysis/dongle-radio-1.20-final/0e06d19c.c": "94cef4ed9f2f9fee2e50c55ea7c41671e565d61c66217c1e0cbf60be98733c74",
+    "analysis/dongle-radio-1.20-final/0e06cbdc.c": "8b9496fe3584748fff3b6122480626b70316e83cc09d9cd03f31981ba96bce0d",
+    "analysis/dongle-radio-1.20-final/0e06cd54.c": "b6506bdaa2a5a1f875b01636d40912915d1b0e408266a72480309b7ee5d74adb",
+    "analysis/dongle-radio-1.20-final/23024e38.c": "382389dbdd78cf9174190c276c283598793aeb321dd0b5dcec627f21a8e621cc",
+    "analysis/dongle-radio-1.20-final/23020fcc.c": "f44fc23879cd9f68b3968b4b019273ceda75fb29dc252a10b31a2c05e7cccbd6",
+    "analysis/dongle-radio-1.20-final/23021094.c": "466502572b705f53594c2517c002b50834464f5d31aa54a8630543ffbfca2b35",
+    "analysis/dongle-radio-1.20-final/23020108.c": "79ad9ca035927f1f4293e99a646076363a3939e0d7652a53d74f2cece91b887f",
+    "analysis/dongle-radio-1.20-final/230226c8.c": "ddaccf25ff70a1fcaeb73235f04702d881de823640b4889369f17fa929133934",
+    "recovered-code/portable/receiver_config_producer.c": "394e27aa5dd4b02f6521b00dc48d49c760a987e60d2c52b768430232afad48a1",
+    "recovered-code/portable/receiver_config_control.c": "8d7238c18d684406ddc6b8616b47f0fdc436cec38219158491c07bb74e4062cc",
+    "recovered-code/portable/receiver_initialization.c": "b2f24a53c713d974ee10c31ff8ac4f7244cc451c273a988cd6ec8669d97063f9",
+    "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+    "recovered-code/portable/business_keys.c": "76bc4d99c53b0e4b2bbf0d5dac91569b1715e42dad2b2cc52d23ff8f5131b8fe",
+    "recovered-code/portable/receiver_legacy_timer.c": "cce0510e045210cb4da44576c870653301487b2bb69bd9782b2bfdc887b7707e",
+    "recovered-code/portable/receiver_vendor_commands.c": "fa34dcb45b79d6bfe0f92bcf3ac4e13b3f1374660be9818807e400a0654773f2",
+    "recovered-code/portable/receiver_vendor_flow.c": "3c704d9f32c97eff8061f9dac197bbf29e22e221a4411a81a7a703f09cf3bf9a"
+  },
+  "address_mapping": {
+    "ROM_base": "0x0e054000",
+    "RAM_code": "file_offset = address - 0x23020000 + 0x79c",
+    "RAM_initial_data": "file_offset = RAM_offset + 0x1c854"
+  },
+  "producer": {
+    "entries": {
+      "8": "0x230252a4",
+      "9": "0x23025300"
+    },
+    "entry_sp": "P",
+    "local_sp": "P-48",
+    "message_start": "P-44",
+    "message_length": 36,
+    "event": "LE32 at P-44",
+    "value": "LE32 at P-40",
+    "tail": "initial bytes [P-36,P-9], 28 bytes",
+    "saved_registers": {
+      "P-8": "r4",
+      "P-4": "lr"
+    },
+    "queue": "0x23001bb4",
+    "initial_message_size": 36,
+    "initial_capacity": 10,
+    "initial_ring_start": "0x230155f8",
+    "initial_ring_end": "0x23015760",
+    "put": "0x23027108 -> 0x0e06cbdc",
+    "purge": "0x230271a0 -> 0x0e06cd54",
+    "timeout": 0,
+    "retry": "loop: failed put -> purge -> retry until put returns zero"
+  },
+  "routes": [
+    {
+      "entry": "0x2302604c",
+      "sp_symbol": "S = initial SP at selected entry",
+      "class0_entry_sp_delta": 0,
+      "producer_entry_sp_delta": -16,
+      "producer_local_sp_delta": -64,
+      "message_36_start_delta": -60,
+      "tail_28_start_delta": -52,
+      "tail_28_last_delta": -25,
+      "tail_initial_bytes_preserved": true,
+      "domain": "one identity operation reaches producer; no asynchronous stack writer"
+    },
+    {
+      "entry": "0x23026090",
+      "sp_symbol": "S = initial SP at selected entry",
+      "class0_entry_sp_delta": -24,
+      "producer_entry_sp_delta": -40,
+      "producer_local_sp_delta": -88,
+      "message_36_start_delta": -84,
+      "tail_28_start_delta": -76,
+      "tail_28_last_delta": -49,
+      "tail_initial_bytes_preserved": true,
+      "domain": "one identity operation reaches producer; no asynchronous stack writer"
+    },
+    {
+      "entry": "0x230205f8",
+      "sp_symbol": "S = initial SP at selected entry",
+      "class0_entry_sp_delta": -32,
+      "producer_entry_sp_delta": -48,
+      "producer_local_sp_delta": -96,
+      "message_36_start_delta": -92,
+      "tail_28_start_delta": -84,
+      "tail_28_last_delta": -57,
+      "tail_initial_bytes_preserved": true,
+      "domain": "one identity operation reaches producer; no asynchronous stack writer"
+    },
+    {
+      "entry": "0x0e06d19c",
+      "sp_symbol": "S = initial SP at selected entry",
+      "class0_entry_sp_delta": -96,
+      "producer_entry_sp_delta": -112,
+      "producer_local_sp_delta": -160,
+      "message_36_start_delta": -156,
+      "tail_28_start_delta": -148,
+      "tail_28_last_delta": -121,
+      "tail_initial_bytes_preserved": true,
+      "domain": "first nonempty work iteration directly invokes 0x230205f9; no earlier callback/wait/scheduler"
+    }
+  ],
+  "prior_calls": {
+    "event8": [
+      "0x23026f30(4)",
+      "0x23026f30(2)",
+      "0x23020674 tail branch"
+    ],
+    "event9": [
+      "0x23026f68 BX LR",
+      "0x2302067c tail branch"
+    ],
+    "stack_writes_in_prior_helpers": []
+  },
+  "raw_evidence": {
+    "0x230252a4": {
+      "size": 14,
+      "hex": "082310b58ab0cde90130074c02e0"
+    },
+    "0x23025300": {
+      "size": 14,
+      "hex": "092310b58ab0cde90130074c02e0"
+    },
+    "0x23026090": {
+      "size": 4,
+      "hex": "2de9f041"
+    },
+    "0x2302617c": {
+      "size": 2,
+      "hex": "70b5"
+    },
+    "0x230205f8": {
+      "size": 14,
+      "hex": "08b505f049fdbde8084006f0e5bd"
+    },
+    "0xe06d19c": {
+      "size": 30,
+      "hex": "2de9f04f40254ff0ff384ff0ff39044687b000f1a003484e00f1980a0593"
+    },
+    "0x23026f30": {
+      "size": 48,
+      "hex": "04280bd0022800d070470020084a09491378088043f00103137070470020044a04491378088043f002031370704700bf"
+    },
+    "0x23026f68": {
+      "size": 2,
+      "hex": "7047"
+    },
+    "0x2302710c": {
+      "size": 4,
+      "hex": "ddcb060e"
+    },
+    "0x230271a4": {
+      "size": 4,
+      "hex": "55cd060e"
+    },
+    "0x23024e80": {
+      "size": 8,
+      "hex": "294f02231f4f0223"
+    },
+    "0x23020120": {
+      "size": 8,
+      "hex": "74fa060e20300023"
+    },
+    "0x23020fe4": {
+      "size": 8,
+      "hex": "3032002300c00253"
+    },
+    "0x2302109c": {
+      "size": 4,
+      "hex": "30320023"
+    },
+    "0x230215c0": {
+      "size": 4,
+      "hex": "a8300023"
+    }
+  },
+  "consumer": {
+    "entry": "0x23024e38",
+    "queue_get": "0x230271e8 -> 0x0e06cc94",
+    "frame_size": 80,
+    "message_address": "consumer_initial_SP-60",
+    "event8_table_word": "[0x23024e80]=0x23024f29",
+    "event9_table_word": "[0x23024e84]=0x23024f1f",
+    "event8": {
+      "calls": [
+        "0x23020fcc(0,value)",
+        "0x230215b4(value) tail call",
+        "0x23020108(low16(value))"
+      ],
+      "writes": [
+        {
+          "address": "0x5302ce30",
+          "width": 4,
+          "value": "value",
+          "register": "RADIO BASE1"
+        },
+        {
+          "address": "0x23003244",
+          "width": 4,
+          "value": "value"
+        },
+        {
+          "address": "0x2300324c",
+          "width": 4,
+          "value": "~value"
+        },
+        {
+          "address": "0x230030e6",
+          "width": 2,
+          "value": "low16(value XOR (value >> 16))"
+        },
+        {
+          "address": "0x23003020",
+          "width": 16,
+          "value": "ROM[0x0e06fa74+16*(value&15) : +16]"
+        }
+      ]
+    },
+    "event9": {
+      "call": "0x23021094(0,value)",
+      "immediate_write": {
+        "address": "0x23003240",
+        "width": 4,
+        "value": "value"
+      },
+      "immediate_radio_or_key_write": false,
+      "later_radio_path": "0x230226c8(peer), unsigned state[0x230033e8+0xf84*peer] <= 1; load 3240 at 230227b4, store to RADIO BASE1 at 230227b6"
+    },
+    "tail_usage": "events8/9 read only event and value, but entire 36 bytes are copied by queue"
+  },
+  "reuse": [
+    "rr_receiver_config_value_publish with event 8/9 and exact 28-byte tail",
+    "rr_receiver_config_iteration -> rr_receiver_config_control -> rr_receiver_config_event",
+    "rr_business_install_key",
+    "rr_receiver_legacy_timer mode2 subscribe2 for later event9 BASE1 selection"
+  ],
+  "open_issues": [
+    "No claim about second/subsequent work iterations or prior callbacks: recompute stack provenance or capture live bytes.",
+    "Entry205F8 restores frame then tailcalls E05C774; scheduler/context continuation must not restart producer.",
+    "Queue metadata/destination must not alias message/active stack unexpectedly; non-36 message sizes are outside portable model.",
+    "Uncontrolled interrupts or context switches can introduce additional stack writes; this static first-call domain excludes them.",
+    "Static proof needs parent original-byte oracle for full execution equivalence."
+  ]
+}

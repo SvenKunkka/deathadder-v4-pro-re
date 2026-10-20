@@ -1,0 +1,546 @@
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+23022fbc <.data+0x2fbc>:
+23022fbc:	4b48      	ldr	r3, [pc, #288]	@ (0x230230e0)
+23022fbe:	f8d3 2204 	ldr.w	r2, [r3, #516]	@ 0x204
+23022fc2:	2a01      	cmp	r2, #1
+23022fc4:	bf04      	itt	eq
+23022fc6:	2200      	moveq	r2, #0
+23022fc8:	f8c3 2204 	streq.w	r2, [r3, #516]	@ 0x204
+23022fcc:	4b44      	ldr	r3, [pc, #272]	@ (0x230230e0)
+23022fce:	f8d3 2208 	ldr.w	r2, [r3, #520]	@ 0x208
+23022fd2:	2a01      	cmp	r2, #1
+23022fd4:	bf04      	itt	eq
+23022fd6:	2200      	moveq	r2, #0
+23022fd8:	f8c3 2208 	streq.w	r2, [r3, #520]	@ 0x208
+23022fdc:	4b40      	ldr	r3, [pc, #256]	@ (0x230230e0)
+23022fde:	f8d3 220c 	ldr.w	r2, [r3, #524]	@ 0x20c
+23022fe2:	2a01      	cmp	r2, #1
+23022fe4:	bf04      	itt	eq
+23022fe6:	2200      	moveq	r2, #0
+23022fe8:	f8c3 220c 	streq.w	r2, [r3, #524]	@ 0x20c
+23022fec:	4b3c      	ldr	r3, [pc, #240]	@ (0x230230e0)
+23022fee:	f8d3 2218 	ldr.w	r2, [r3, #536]	@ 0x218
+23022ff2:	2a01      	cmp	r2, #1
+23022ff4:	bf04      	itt	eq
+23022ff6:	2200      	moveq	r2, #0
+23022ff8:	f8c3 2218 	streq.w	r2, [r3, #536]	@ 0x218
+23022ffc:	4b38      	ldr	r3, [pc, #224]	@ (0x230230e0)
+23022ffe:	f8d3 2220 	ldr.w	r2, [r3, #544]	@ 0x220
+23023002:	2a01      	cmp	r2, #1
+23023004:	d000      	beq.n	0x23023008
+23023006:	4770      	bx	lr
+23023008:	2200      	movs	r2, #0
+2302300a:	b570      	push	{r4, r5, r6, lr}
+2302300c:	4c35      	ldr	r4, [pc, #212]	@ (0x230230e4)
+2302300e:	b082      	sub	sp, #8
+23023010:	f8d4 108c 	ldr.w	r1, [r4, #140]	@ 0x8c
+23023014:	f8c3 2220 	str.w	r2, [r3, #544]	@ 0x220
+23023018:	2919      	cmp	r1, #25
+2302301a:	d01d      	beq.n	0x23023058
+2302301c:	291a      	cmp	r1, #26
+2302301e:	d004      	beq.n	0x2302302a
+23023020:	b002      	add	sp, #8
+23023022:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+23023026:	f7fe bc57 	b.w	0x230218d8
+2302302a:	bf00      	nop
+2302302c:	492e      	ldr	r1, [pc, #184]	@ (0x230230e8)
+2302302e:	f8c3 2104 	str.w	r2, [r3, #260]	@ 0x104
+23023032:	f8c3 2110 	str.w	r2, [r3, #272]	@ 0x110
+23023036:	f8c1 20dc 	str.w	r2, [r1, #220]	@ 0xdc
+2302303a:	f8d3 322c 	ldr.w	r3, [r3, #556]	@ 0x22c
+2302303e:	2b01      	cmp	r3, #1
+23023040:	d00e      	beq.n	0x23023060
+23023042:	2302      	movs	r3, #2
+23023044:	f884 20ae 	strb.w	r2, [r4, #174]	@ 0xae
+23023048:	f884 3058 	strb.w	r3, [r4, #88]	@ 0x58
+2302304c:	bf00      	nop
+2302304e:	bf00      	nop
+23023050:	2318      	movs	r3, #24
+23023052:	f8c4 308c 	str.w	r3, [r4, #140]	@ 0x8c
+23023056:	e7e3      	b.n	0x23023020
+23023058:	bf00      	nop
+2302305a:	f8c3 2100 	str.w	r2, [r3, #256]	@ 0x100
+2302305e:	e7df      	b.n	0x23023020
+23023060:	2601      	movs	r6, #1
+23023062:	6ce3      	ldr	r3, [r4, #76]	@ 0x4c
+23023064:	6d62      	ldr	r2, [r4, #84]	@ 0x54
+23023066:	2500      	movs	r5, #0
+23023068:	4313      	orrs	r3, r2
+2302306a:	bf08      	it	eq
+2302306c:	f8d1 355c 	ldreq.w	r3, [r1, #1372]	@ 0x55c
+23023070:	4a1e      	ldr	r2, [pc, #120]	@ (0x230230ec)
+23023072:	491f      	ldr	r1, [pc, #124]	@ (0x230230f0)
+23023074:	bf08      	it	eq
+23023076:	64e3      	streq	r3, [r4, #76]	@ 0x4c
+23023078:	6813      	ldr	r3, [r2, #0]
+2302307a:	f884 60aa 	strb.w	r6, [r4, #170]	@ 0xaa
+2302307e:	600b      	str	r3, [r1, #0]
+23023080:	6853      	ldr	r3, [r2, #4]
+23023082:	7015      	strb	r5, [r2, #0]
+23023084:	604b      	str	r3, [r1, #4]
+23023086:	f894 30a6 	ldrb.w	r3, [r4, #166]	@ 0xa6
+2302308a:	f8a4 5094 	strh.w	r5, [r4, #148]	@ 0x94
+2302308e:	4433      	add	r3, r6
+23023090:	b2db      	uxtb	r3, r3
+23023092:	2b08      	cmp	r3, #8
+23023094:	bf08      	it	eq
+23023096:	4633      	moveq	r3, r6
+23023098:	f884 30a6 	strb.w	r3, [r4, #166]	@ 0xa6
+2302309c:	4b15      	ldr	r3, [pc, #84]	@ (0x230230f4)
+2302309e:	f8b3 30a2 	ldrh.w	r3, [r3, #162]	@ 0xa2
+230230a2:	334c      	adds	r3, #76	@ 0x4c
+230230a4:	eb04 0343 	add.w	r3, r4, r3, lsl #1
+230230a8:	809d      	strh	r5, [r3, #4]
+230230aa:	6893      	ldr	r3, [r2, #8]
+230230ac:	608b      	str	r3, [r1, #8]
+230230ae:	68d3      	ldr	r3, [r2, #12]
+230230b0:	60cb      	str	r3, [r1, #12]
+230230b2:	f8b4 10a2 	ldrh.w	r1, [r4, #162]	@ 0xa2
+230230b6:	2905      	cmp	r1, #5
+230230b8:	d902      	bls.n	0x230230c0
+230230ba:	f7ff fa37 	bl	0x2302252c
+230230be:	e7c7      	b.n	0x23023050
+230230c0:	4628      	mov	r0, r5
+230230c2:	f7fe f9cb 	bl	0x2302145c
+230230c6:	f8b4 30a2 	ldrh.w	r3, [r4, #162]	@ 0xa2
+230230ca:	4668      	mov	r0, sp
+230230cc:	f8ad 5000 	strh.w	r5, [sp]
+230230d0:	f8ad 3002 	strh.w	r3, [sp, #2]
+230230d4:	f8ad 6004 	strh.w	r6, [sp, #4]
+230230d8:	f002 feec 	bl	0x23025eb4
+230230dc:	e7ed      	b.n	0x230230ba
+230230de:	bf00      	nop
+230230e0:	c000      	stmia	r0!, {}
+230230e2:	5302      	strh	r2, [r0, r4]
+230230e4:	2978      	cmp	r1, #120	@ 0x78
+230230e6:	2300      	movs	r3, #0
+230230e8:	8000      	strh	r0, [r0, #0]
+230230ea:	5302      	strh	r2, [r0, r4]
+230230ec:	2630      	movs	r6, #48	@ 0x30
+230230ee:	2300      	movs	r3, #0
+230230f0:	2a96      	cmp	r2, #150	@ 0x96
+230230f2:	2300      	movs	r3, #0
+230230f4:	2794      	movs	r7, #148	@ 0x94
+230230f6:	2300      	movs	r3, #0
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+230236ac <.data+0x36ac>:
+230236ac:	4b89      	ldr	r3, [pc, #548]	@ (0x230238d4)
+230236ae:	f8d3 2204 	ldr.w	r2, [r3, #516]	@ 0x204
+230236b2:	2a01      	cmp	r2, #1
+230236b4:	bf04      	itt	eq
+230236b6:	2200      	moveq	r2, #0
+230236b8:	f8c3 2204 	streq.w	r2, [r3, #516]	@ 0x204
+230236bc:	4b85      	ldr	r3, [pc, #532]	@ (0x230238d4)
+230236be:	f8d3 2208 	ldr.w	r2, [r3, #520]	@ 0x208
+230236c2:	2a01      	cmp	r2, #1
+230236c4:	bf04      	itt	eq
+230236c6:	2200      	moveq	r2, #0
+230236c8:	f8c3 2208 	streq.w	r2, [r3, #520]	@ 0x208
+230236cc:	4b81      	ldr	r3, [pc, #516]	@ (0x230238d4)
+230236ce:	f8d3 220c 	ldr.w	r2, [r3, #524]	@ 0x20c
+230236d2:	2a01      	cmp	r2, #1
+230236d4:	bf04      	itt	eq
+230236d6:	2200      	moveq	r2, #0
+230236d8:	f8c3 220c 	streq.w	r2, [r3, #524]	@ 0x20c
+230236dc:	4b7d      	ldr	r3, [pc, #500]	@ (0x230238d4)
+230236de:	f8d3 2218 	ldr.w	r2, [r3, #536]	@ 0x218
+230236e2:	2a01      	cmp	r2, #1
+230236e4:	d005      	beq.n	0x230236f2
+230236e6:	4b7b      	ldr	r3, [pc, #492]	@ (0x230238d4)
+230236e8:	f8d3 2220 	ldr.w	r2, [r3, #544]	@ 0x220
+230236ec:	2a01      	cmp	r2, #1
+230236ee:	d00a      	beq.n	0x23023706
+230236f0:	4770      	bx	lr
+230236f2:	2100      	movs	r1, #0
+230236f4:	4a78      	ldr	r2, [pc, #480]	@ (0x230238d8)
+230236f6:	f8d2 208c 	ldr.w	r2, [r2, #140]	@ 0x8c
+230236fa:	f8c3 1218 	str.w	r1, [r3, #536]	@ 0x218
+230236fe:	2a19      	cmp	r2, #25
+23023700:	d1f1      	bne.n	0x230236e6
+23023702:	bf00      	nop
+23023704:	e7ef      	b.n	0x230236e6
+23023706:	2100      	movs	r1, #0
+23023708:	b570      	push	{r4, r5, r6, lr}
+2302370a:	4c73      	ldr	r4, [pc, #460]	@ (0x230238d8)
+2302370c:	b082      	sub	sp, #8
+2302370e:	f8d4 008c 	ldr.w	r0, [r4, #140]	@ 0x8c
+23023712:	f8c3 1220 	str.w	r1, [r3, #544]	@ 0x220
+23023716:	281a      	cmp	r0, #26
+23023718:	d004      	beq.n	0x23023724
+2302371a:	b002      	add	sp, #8
+2302371c:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+23023720:	f7fe b8da 	b.w	0x230218d8
+23023724:	bf00      	nop
+23023726:	f8c3 1104 	str.w	r1, [r3, #260]	@ 0x104
+2302372a:	f8c3 1104 	str.w	r1, [r3, #260]	@ 0x104
+2302372e:	f8d3 0400 	ldr.w	r0, [r3, #1024]	@ 0x400
+23023732:	f420 2000 	bic.w	r0, r0, #524288	@ 0x80000
+23023736:	f8c3 0400 	str.w	r0, [r3, #1024]	@ 0x400
+2302373a:	f8d3 022c 	ldr.w	r0, [r3, #556]	@ 0x22c
+2302373e:	2801      	cmp	r0, #1
+23023740:	d014      	beq.n	0x2302376c
+23023742:	8ea0      	ldrh	r0, [r4, #52]	@ 0x34
+23023744:	2801      	cmp	r0, #1
+23023746:	d05d      	beq.n	0x23023804
+23023748:	4b64      	ldr	r3, [pc, #400]	@ (0x230238dc)
+2302374a:	f884 10ae 	strb.w	r1, [r4, #174]	@ 0xae
+2302374e:	f8b3 30a8 	ldrh.w	r3, [r3, #168]	@ 0xa8
+23023752:	2b01      	cmp	r3, #1
+23023754:	d053      	beq.n	0x230237fe
+23023756:	2b03      	cmp	r3, #3
+23023758:	d076      	beq.n	0x23023848
+2302375a:	2302      	movs	r3, #2
+2302375c:	f884 3058 	strb.w	r3, [r4, #88]	@ 0x58
+23023760:	bf00      	nop
+23023762:	bf00      	nop
+23023764:	2318      	movs	r3, #24
+23023766:	f8c4 308c 	str.w	r3, [r4, #140]	@ 0x8c
+2302376a:	e7d6      	b.n	0x2302371a
+2302376c:	8ea2      	ldrh	r2, [r4, #52]	@ 0x34
+2302376e:	f8c3 122c 	str.w	r1, [r3, #556]	@ 0x22c
+23023772:	2a01      	cmp	r2, #1
+23023774:	6ce3      	ldr	r3, [r4, #76]	@ 0x4c
+23023776:	d06c      	beq.n	0x23023852
+23023778:	6d62      	ldr	r2, [r4, #84]	@ 0x54
+2302377a:	4858      	ldr	r0, [pc, #352]	@ (0x230238dc)
+2302377c:	4313      	orrs	r3, r2
+2302377e:	d107      	bne.n	0x23023790
+23023780:	f8b0 30a8 	ldrh.w	r3, [r0, #168]	@ 0xa8
+23023784:	2b01      	cmp	r3, #1
+23023786:	f000 808a 	beq.w	0x2302389e
+2302378a:	2b03      	cmp	r3, #3
+2302378c:	f000 8099 	beq.w	0x230238c2
+23023790:	4b53      	ldr	r3, [pc, #332]	@ (0x230238e0)
+23023792:	4a54      	ldr	r2, [pc, #336]	@ (0x230238e4)
+23023794:	6819      	ldr	r1, [r3, #0]
+23023796:	6011      	str	r1, [r2, #0]
+23023798:	6859      	ldr	r1, [r3, #4]
+2302379a:	6051      	str	r1, [r2, #4]
+2302379c:	6899      	ldr	r1, [r3, #8]
+2302379e:	6091      	str	r1, [r2, #8]
+230237a0:	68d9      	ldr	r1, [r3, #12]
+230237a2:	60d1      	str	r1, [r2, #12]
+230237a4:	2500      	movs	r5, #0
+230237a6:	f8b0 10a2 	ldrh.w	r1, [r0, #162]	@ 0xa2
+230237aa:	f101 024c 	add.w	r2, r1, #76	@ 0x4c
+230237ae:	eb04 0042 	add.w	r0, r4, r2, lsl #1
+230237b2:	8886      	ldrh	r6, [r0, #4]
+230237b4:	701d      	strb	r5, [r3, #0]
+230237b6:	2e02      	cmp	r6, #2
+230237b8:	d838      	bhi.n	0x2302382c
+230237ba:	2601      	movs	r6, #1
+230237bc:	f894 30a6 	ldrb.w	r3, [r4, #166]	@ 0xa6
+230237c0:	2500      	movs	r5, #0
+230237c2:	3301      	adds	r3, #1
+230237c4:	b2db      	uxtb	r3, r3
+230237c6:	2b08      	cmp	r3, #8
+230237c8:	bf08      	it	eq
+230237ca:	4633      	moveq	r3, r6
+230237cc:	f8b4 10a2 	ldrh.w	r1, [r4, #162]	@ 0xa2
+230237d0:	eb04 0042 	add.w	r0, r4, r2, lsl #1
+230237d4:	4a44      	ldr	r2, [pc, #272]	@ (0x230238e8)
+230237d6:	2905      	cmp	r1, #5
+230237d8:	f8a4 5094 	strh.w	r5, [r4, #148]	@ 0x94
+230237dc:	8085      	strh	r5, [r0, #4]
+230237de:	f884 30a6 	strb.w	r3, [r4, #166]	@ 0xa6
+230237e2:	f884 60aa 	strb.w	r6, [r4, #170]	@ 0xaa
+230237e6:	f884 50ae 	strb.w	r5, [r4, #174]	@ 0xae
+230237ea:	6015      	str	r5, [r2, #0]
+230237ec:	6055      	str	r5, [r2, #4]
+230237ee:	6095      	str	r5, [r2, #8]
+230237f0:	60d5      	str	r5, [r2, #12]
+230237f2:	6115      	str	r5, [r2, #16]
+230237f4:	6155      	str	r5, [r2, #20]
+230237f6:	d90a      	bls.n	0x2302380e
+230237f8:	f7fe fe98 	bl	0x2302252c
+230237fc:	e7b2      	b.n	0x23023764
+230237fe:	f884 30ad 	strb.w	r3, [r4, #173]	@ 0xad
+23023802:	e7aa      	b.n	0x2302375a
+23023804:	f884 10ae 	strb.w	r1, [r4, #174]	@ 0xae
+23023808:	f000 f872 	bl	0x230238f0
+2302380c:	e7a5      	b.n	0x2302375a
+2302380e:	4628      	mov	r0, r5
+23023810:	f7fd fe24 	bl	0x2302145c
+23023814:	f8b4 30a2 	ldrh.w	r3, [r4, #162]	@ 0xa2
+23023818:	4668      	mov	r0, sp
+2302381a:	f8ad 5000 	strh.w	r5, [sp]
+2302381e:	f8ad 3002 	strh.w	r3, [sp, #2]
+23023822:	f8ad 6004 	strh.w	r6, [sp, #4]
+23023826:	f002 fb45 	bl	0x23025eb4
+2302382a:	e7e5      	b.n	0x230237f8
+2302382c:	8085      	strh	r5, [r0, #4]
+2302382e:	4421      	add	r1, r4
+23023830:	f891 305d 	ldrb.w	r3, [r1, #93]	@ 0x5d
+23023834:	f894 0067 	ldrb.w	r0, [r4, #103]	@ 0x67
+23023838:	3301      	adds	r3, #1
+2302383a:	b2db      	uxtb	r3, r3
+2302383c:	4298      	cmp	r0, r3
+2302383e:	bf08      	it	eq
+23023840:	462b      	moveq	r3, r5
+23023842:	f881 305d 	strb.w	r3, [r1, #93]	@ 0x5d
+23023846:	e7b8      	b.n	0x230237ba
+23023848:	4611      	mov	r1, r2
+2302384a:	4610      	mov	r0, r2
+2302384c:	f000 f850 	bl	0x230238f0
+23023850:	e783      	b.n	0x2302375a
+23023852:	6d62      	ldr	r2, [r4, #84]	@ 0x54
+23023854:	4313      	orrs	r3, r2
+23023856:	4b22      	ldr	r3, [pc, #136]	@ (0x230238e0)
+23023858:	d114      	bne.n	0x23023884
+2302385a:	6819      	ldr	r1, [r3, #0]
+2302385c:	4a23      	ldr	r2, [pc, #140]	@ (0x230238ec)
+2302385e:	f8c4 111e 	str.w	r1, [r4, #286]	@ 0x11e
+23023862:	f8d2 055c 	ldr.w	r0, [r2, #1372]	@ 0x55c
+23023866:	685a      	ldr	r2, [r3, #4]
+23023868:	6899      	ldr	r1, [r3, #8]
+2302386a:	f8c4 2122 	str.w	r2, [r4, #290]	@ 0x122
+2302386e:	68da      	ldr	r2, [r3, #12]
+23023870:	64e0      	str	r0, [r4, #76]	@ 0x4c
+23023872:	f8c4 1126 	str.w	r1, [r4, #294]	@ 0x126
+23023876:	f8c4 212a 	str.w	r2, [r4, #298]	@ 0x12a
+2302387a:	4a18      	ldr	r2, [pc, #96]	@ (0x230238dc)
+2302387c:	2500      	movs	r5, #0
+2302387e:	f8b2 10a2 	ldrh.w	r1, [r2, #162]	@ 0xa2
+23023882:	e792      	b.n	0x230237aa
+23023884:	681a      	ldr	r2, [r3, #0]
+23023886:	6858      	ldr	r0, [r3, #4]
+23023888:	6899      	ldr	r1, [r3, #8]
+2302388a:	f8c4 211e 	str.w	r2, [r4, #286]	@ 0x11e
+2302388e:	68da      	ldr	r2, [r3, #12]
+23023890:	f8c4 0122 	str.w	r0, [r4, #290]	@ 0x122
+23023894:	f8c4 1126 	str.w	r1, [r4, #294]	@ 0x126
+23023898:	f8c4 212a 	str.w	r2, [r4, #298]	@ 0x12a
+2302389c:	e7ed      	b.n	0x2302387a
+2302389e:	4b10      	ldr	r3, [pc, #64]	@ (0x230238e0)
+230238a0:	4a12      	ldr	r2, [pc, #72]	@ (0x230238ec)
+230238a2:	6819      	ldr	r1, [r3, #0]
+230238a4:	f8c4 111e 	str.w	r1, [r4, #286]	@ 0x11e
+230238a8:	f8d2 255c 	ldr.w	r2, [r2, #1372]	@ 0x55c
+230238ac:	64e2      	str	r2, [r4, #76]	@ 0x4c
+230238ae:	685a      	ldr	r2, [r3, #4]
+230238b0:	6899      	ldr	r1, [r3, #8]
+230238b2:	f8c4 2122 	str.w	r2, [r4, #290]	@ 0x122
+230238b6:	68da      	ldr	r2, [r3, #12]
+230238b8:	f8c4 1126 	str.w	r1, [r4, #294]	@ 0x126
+230238bc:	f8c4 212a 	str.w	r2, [r4, #298]	@ 0x12a
+230238c0:	e770      	b.n	0x230237a4
+230238c2:	4a0a      	ldr	r2, [pc, #40]	@ (0x230238ec)
+230238c4:	4b06      	ldr	r3, [pc, #24]	@ (0x230238e0)
+230238c6:	f8d2 255c 	ldr.w	r2, [r2, #1372]	@ 0x55c
+230238ca:	6819      	ldr	r1, [r3, #0]
+230238cc:	3afa      	subs	r2, #250	@ 0xfa
+230238ce:	f8c4 111e 	str.w	r1, [r4, #286]	@ 0x11e
+230238d2:	e7eb      	b.n	0x230238ac
+230238d4:	c000      	stmia	r0!, {}
+230238d6:	5302      	strh	r2, [r0, r4]
+230238d8:	2978      	cmp	r1, #120	@ 0x78
+230238da:	2300      	movs	r3, #0
+230238dc:	2794      	movs	r7, #148	@ 0x94
+230238de:	2300      	movs	r3, #0
+230238e0:	2630      	movs	r6, #48	@ 0x30
+230238e2:	2300      	movs	r3, #0
+230238e4:	2a96      	cmp	r2, #150	@ 0x96
+230238e6:	2300      	movs	r3, #0
+230238e8:	2670      	movs	r6, #112	@ 0x70
+230238ea:	2300      	movs	r3, #0
+230238ec:	8000      	strh	r0, [r0, #0]
+230238ee:	5302      	strh	r2, [r0, r4]
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+230238f0 <.data+0x38f0>:
+230238f0:	4b26      	ldr	r3, [pc, #152]	@ (0x2302398c)
+230238f2:	b111      	cbz	r1, 0x230238fa
+230238f4:	f893 20ad 	ldrb.w	r2, [r3, #173]	@ 0xad
+230238f8:	b142      	cbz	r2, 0x2302390c
+230238fa:	4925      	ldr	r1, [pc, #148]	@ (0x23023990)
+230238fc:	880a      	ldrh	r2, [r1, #0]
+230238fe:	2a03      	cmp	r2, #3
+23023900:	d005      	beq.n	0x2302390e
+23023902:	2a04      	cmp	r2, #4
+23023904:	d00d      	beq.n	0x23023922
+23023906:	2200      	movs	r2, #0
+23023908:	f883 20ad 	strb.w	r2, [r3, #173]	@ 0xad
+2302390c:	4770      	bx	lr
+2302390e:	8e9a      	ldrh	r2, [r3, #52]	@ 0x34
+23023910:	2a08      	cmp	r2, #8
+23023912:	d925      	bls.n	0x23023960
+23023914:	2a10      	cmp	r2, #16
+23023916:	d12a      	bne.n	0x2302396e
+23023918:	f8b3 2092 	ldrh.w	r2, [r3, #146]	@ 0x92
+2302391c:	07d2      	lsls	r2, r2, #31
+2302391e:	d502      	bpl.n	0x23023926
+23023920:	e7f1      	b.n	0x23023906
+23023922:	2801      	cmp	r0, #1
+23023924:	d1ef      	bne.n	0x23023906
+23023926:	f8b1 00a2 	ldrh.w	r0, [r1, #162]	@ 0xa2
+2302392a:	f100 014c 	add.w	r1, r0, #76	@ 0x4c
+2302392e:	eb03 0141 	add.w	r1, r3, r1, lsl #1
+23023932:	888a      	ldrh	r2, [r1, #4]
+23023934:	3201      	adds	r2, #1
+23023936:	b292      	uxth	r2, r2
+23023938:	2a03      	cmp	r2, #3
+2302393a:	808a      	strh	r2, [r1, #4]
+2302393c:	d9e3      	bls.n	0x23023906
+2302393e:	4418      	add	r0, r3
+23023940:	f890 205d 	ldrb.w	r2, [r0, #93]	@ 0x5d
+23023944:	f893 c067 	ldrb.w	ip, [r3, #103]	@ 0x67
+23023948:	3201      	adds	r2, #1
+2302394a:	b2d2      	uxtb	r2, r2
+2302394c:	4594      	cmp	ip, r2
+2302394e:	bf08      	it	eq
+23023950:	2200      	moveq	r2, #0
+23023952:	f04f 0c00 	mov.w	ip, #0
+23023956:	f880 205d 	strb.w	r2, [r0, #93]	@ 0x5d
+2302395a:	f8a1 c004 	strh.w	ip, [r1, #4]
+2302395e:	e7d2      	b.n	0x23023906
+23023960:	f46f 708b 	mvn.w	r0, #278	@ 0x116
+23023964:	fa40 f202 	asr.w	r2, r0, r2
+23023968:	07d0      	lsls	r0, r2, #31
+2302396a:	d5dc      	bpl.n	0x23023926
+2302396c:	e7cb      	b.n	0x23023906
+2302396e:	2a20      	cmp	r2, #32
+23023970:	d104      	bne.n	0x2302397c
+23023972:	f8b3 2092 	ldrh.w	r2, [r3, #146]	@ 0x92
+23023976:	0790      	lsls	r0, r2, #30
+23023978:	d0d5      	beq.n	0x23023926
+2302397a:	e7c4      	b.n	0x23023906
+2302397c:	2a40      	cmp	r2, #64	@ 0x40
+2302397e:	d1c2      	bne.n	0x23023906
+23023980:	f8b3 2092 	ldrh.w	r2, [r3, #146]	@ 0x92
+23023984:	0752      	lsls	r2, r2, #29
+23023986:	d0ce      	beq.n	0x23023926
+23023988:	e7bd      	b.n	0x23023906
+2302398a:	bf00      	nop
+2302398c:	2978      	cmp	r1, #120	@ 0x78
+2302398e:	2300      	movs	r3, #0
+23023990:	2794      	movs	r7, #148	@ 0x94
+23023992:	2300      	movs	r3, #0
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+2302145c <.data+0x145c>:
+2302145c:	f44f 626e 	mov.w	r2, #3808	@ 0xee0
+23021460:	4b08      	ldr	r3, [pc, #32]	@ (0x23021484)
+23021462:	fb02 3300 	mla	r3, r2, r0, r3
+23021466:	4419      	add	r1, r3
+23021468:	f891 216a 	ldrb.w	r2, [r1, #362]	@ 0x16a
+2302146c:	b672      	cpsid	i
+2302146e:	f891 3164 	ldrb.w	r3, [r1, #356]	@ 0x164
+23021472:	3301      	adds	r3, #1
+23021474:	b2db      	uxtb	r3, r3
+23021476:	429a      	cmp	r2, r3
+23021478:	bf08      	it	eq
+2302147a:	2300      	moveq	r3, #0
+2302147c:	f881 3164 	strb.w	r3, [r1, #356]	@ 0x164
+23021480:	b662      	cpsie	i
+23021482:	4770      	bx	lr
+23021484:	2978      	cmp	r1, #120	@ 0x78
+23021486:	2300      	movs	r3, #0
+23021488:	f44f 626e 	mov.w	r2, #3808	@ 0xee0
+2302148c:	4b0c      	ldr	r3, [pc, #48]	@ (0x230214c0)
+2302148e:	fb02 3300 	mla	r3, r2, r0, r3
+23021492:	4419      	add	r1, r3
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+23025eb4 <.data+0x5eb4>:
+23025eb4:	8843      	ldrh	r3, [r0, #2]
+23025eb6:	2b03      	cmp	r3, #3
+23025eb8:	d000      	beq.n	0x23025ebc
+23025eba:	4770      	bx	lr
+23025ebc:	b510      	push	{r4, lr}
+23025ebe:	4c03      	ldr	r4, [pc, #12]	@ (0x23025ecc)
+23025ec0:	6823      	ldr	r3, [r4, #0]
+23025ec2:	b113      	cbz	r3, 0x23025eca
+23025ec4:	4798      	blx	r3
+23025ec6:	2300      	movs	r3, #0
+23025ec8:	6023      	str	r3, [r4, #0]
+23025eca:	bd10      	pop	{r4, pc}
+23025ecc:	6b68      	ldr	r0, [r5, #52]	@ 0x34
+23025ece:	2300      	movs	r3, #0
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+230218d8 <.data+0x18d8>:
+230218d8:	2200      	movs	r2, #0
+230218da:	4b03      	ldr	r3, [pc, #12]	@ (0x230218e8)
+230218dc:	f8c3 222c 	str.w	r2, [r3, #556]	@ 0x22c
+230218e0:	f8c3 2230 	str.w	r2, [r3, #560]	@ 0x230
+230218e4:	4770      	bx	lr
+230218e6:	bf00      	nop
+230218e8:	c000      	stmia	r0!, {}
+230218ea:	5302      	strh	r2, [r0, r4]
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+2302252c <.data+0x252c>:
+2302252c:	f04f 5280 	mov.w	r2, #268435456	@ 0x10000000
+23022530:	4b01      	ldr	r3, [pc, #4]	@ (0x23022538)
+23022532:	f8c3 2108 	str.w	r2, [r3, #264]	@ 0x108
+23022536:	4770      	bx	lr
+23022538:	e100      	b.n	0x2302273c
+2302253a:	e000      	b.n	0x2302253e
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+23025c2c <.data+0x5c2c>:
+23025c2c:	b508      	push	{r3, lr}
+23025c2e:	4804      	ldr	r0, [pc, #16]	@ (0x23025c40)
+23025c30:	f006 fbba 	bl	0x2302c3a8
+23025c34:	4b03      	ldr	r3, [pc, #12]	@ (0x23025c44)
+23025c36:	7bd8      	ldrb	r0, [r3, #15]
+23025c38:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+23025c3c:	f7fd b8a4 	b.w	0x23022d88
+23025c40:	15b0      	asrs	r0, r6, #22
+23025c42:	2300      	movs	r3, #0
+23025c44:	6b6c      	ldr	r4, [r5, #52]	@ 0x34
+23025c46:	2300      	movs	r3, #0
+23025c48:	4601      	mov	r1, r0
+23025c4a:	2000      	movs	r0, #0
+23025c4c:	f7fb bff8 	b.w	0x23021c40
+23025c50:	b508      	push	{r3, lr}
+23025c52:	f006 fc91 	bl	0x2302c578
+23025c56:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+23025c5a:	f006 bc41 	b.w	0x2302c4e0
+23025c5e:	bf00      	nop
+23025c60:	b508      	push	{r3, lr}
+23025c62:	f006 fc39 	bl	0x2302c4d8
+23025c66:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+23025c6a:	f006 bc39 	b.w	0x2302c4e0
+23025c6e:	bf00      	nop

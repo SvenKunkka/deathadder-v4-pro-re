@@ -1,0 +1,335 @@
+{
+  "verified_at": "2026-10-19T04:37:30.198660+00:00",
+  "method": "Static GNU arm-none-eabi-objdump Thumb disassembly plus little-endian literal decoding; no target execution",
+  "range_semantics": "half-open intervals",
+  "records": [
+    {
+      "version": "1.21",
+      "role": "mouse",
+      "path": "./firmware-extracted/Suit2FWData__radio_radio.bin",
+      "file_bytes": 201412,
+      "sha256": "bbd18ebd210dd7aeef8839c77d169c399e106441988d41aadb9f403a08b246bf",
+      "load_base": "0xe06c000",
+      "startup_address": "0xe09652c",
+      "third_copy_address": "0xe096e28",
+      "memcpy_thunk_address": "0xe094804",
+      "memcpy_address": "0xe0974c4",
+      "argument_order": {
+        "r0": "destination",
+        "r1": "source",
+        "r2": "byte_count"
+      },
+      "mappings": [
+        {
+          "kind": "initialized_data",
+          "lma_start": "0xe09b9c8",
+          "lma_end_exclusive": "0xe09d274",
+          "vma_start": "0x23000000",
+          "vma_end_exclusive": "0x230018ac",
+          "size": 6316,
+          "size_hex": "0x18ac",
+          "source_file_offset": "0x2f9c8",
+          "source_range_verified": true,
+          "sha256": "d494792dc97454d6aefaab03a27b7fc90449c670cfd0a8f50f1bf9e85a85387a",
+          "literal_addresses": [
+            "0xe09654c",
+            "0xe096550",
+            "0xe096554"
+          ],
+          "first_32_bytes": "000e0023f40d0023000000000000000000000000000000000000000000000000",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        },
+        {
+          "kind": "zero_length_copy",
+          "lma_start": "0xe09b9c8",
+          "lma_end_exclusive": "0xe09b9c8",
+          "vma_start": "0x23000000",
+          "vma_end_exclusive": "0x23000000",
+          "size": 0,
+          "size_hex": "0x0",
+          "source_file_offset": "0x2f9c8",
+          "source_range_verified": true,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "literal_addresses": [
+            "0xe096558",
+            "0xe09655c",
+            "0xe096560"
+          ],
+          "first_32_bytes": "",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        },
+        {
+          "kind": "ram_code",
+          "lma_start": "0xe06c79c",
+          "lma_end_exclusive": "0xe079034",
+          "vma_start": "0x23020000",
+          "vma_end_exclusive": "0x2302c898",
+          "size": 51352,
+          "size_hex": "0xc898",
+          "source_file_offset": "0x79c",
+          "source_range_verified": true,
+          "sha256": "ecbe6fff2d54ea6f7b58839bbeaeff3bc1ed939ffaf6581144a2d892cb197689",
+          "literal_addresses": [
+            "0xe096e34",
+            "0xe096e38",
+            "0xe096e3c"
+          ],
+          "first_32_bytes": "2de9f04fb14bb24d1b7880eae074298081eae175dff8bc92dff8bc82dff8bcc2",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        }
+      ],
+      "disassembly": {
+        "startup": "\noutputs/razer-radio-re/firmware-extracted/Suit2FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e09652c <.data+0x2a52c>:\n e09652c:\tb508      \tpush\t{r3, lr}\n e09652e:\t4807      \tldr\tr0, [pc, #28]\t@ (0xe09654c)\n e096530:\t4a07      \tldr\tr2, [pc, #28]\t@ (0xe096550)\n e096532:\t4908      \tldr\tr1, [pc, #32]\t@ (0xe096554)\n e096534:\t1a12      \tsubs\tr2, r2, r0\n e096536:\tf7fe f965 \tbl\t0xe094804\n e09653a:\t4a07      \tldr\tr2, [pc, #28]\t@ (0xe096558)\n e09653c:\t4907      \tldr\tr1, [pc, #28]\t@ (0xe09655c)\n e09653e:\t4808      \tldr\tr0, [pc, #32]\t@ (0xe096560)\n e096540:\tf7fe f960 \tbl\t0xe094804\n e096544:\te8bd 4008 \tldmia.w\tsp!, {r3, lr}\n e096548:\tf000 bc6e \tb.w\t0xe096e28\n",
+        "third_copy": "\noutputs/razer-radio-re/firmware-extracted/Suit2FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e096e28 <.data+0x2ae28>:\n e096e28:\t4a02      \tldr\tr2, [pc, #8]\t@ (0xe096e34)\n e096e2a:\t4903      \tldr\tr1, [pc, #12]\t@ (0xe096e38)\n e096e2c:\t4803      \tldr\tr0, [pc, #12]\t@ (0xe096e3c)\n e096e2e:\tf7fd bce9 \tb.w\t0xe094804\n e096e32:\tbf00      \tnop\n",
+        "thunk": "\noutputs/razer-radio-re/firmware-extracted/Suit2FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e094804 <.data+0x28804>:\n e094804:\tf002 be5e \tb.w\t0xe0974c4\n",
+        "byte_copy": "\noutputs/razer-radio-re/firmware-extracted/Suit2FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e0974c4 <.data+0x2b4c4>:\n e0974c4:\t440a      \tadd\tr2, r1\n e0974c6:\t1e43      \tsubs\tr3, r0, #1\n e0974c8:\t4291      \tcmp\tr1, r2\n e0974ca:\td100      \tbne.n\t0xe0974ce\n e0974cc:\t4770      \tbx\tlr\n e0974ce:\tb510      \tpush\t{r4, lr}\n e0974d0:\tf811 4b01 \tldrb.w\tr4, [r1], #1\n e0974d4:\t4291      \tcmp\tr1, r2\n e0974d6:\tf803 4f01 \tstrb.w\tr4, [r3, #1]!\n e0974da:\td1f9      \tbne.n\t0xe0974d0\n e0974dc:\tbd10      \tpop\t{r4, pc}\n"
+      }
+    },
+    {
+      "version": "1.21",
+      "role": "dongle",
+      "path": "./firmware-extracted/Suit1FWData__radio_radio.bin",
+      "file_bytes": 124836,
+      "sha256": "4bb1407be658655eb141c944facdeb054190aeba8ebfb9ebeafa77c6c7f72e9c",
+      "load_base": "0xe054000",
+      "startup_address": "0xe06e674",
+      "third_copy_address": "0xe06ef28",
+      "memcpy_thunk_address": "0xe06c8f0",
+      "memcpy_address": "0xe06f3f8",
+      "argument_order": {
+        "r0": "destination",
+        "r1": "source",
+        "r2": "byte_count"
+      },
+      "mappings": [
+        {
+          "kind": "initialized_data",
+          "lma_start": "0xe070904",
+          "lma_end_exclusive": "0xe072748",
+          "vma_start": "0x23000000",
+          "vma_end_exclusive": "0x23001e44",
+          "size": 7748,
+          "size_hex": "0x1e44",
+          "source_file_offset": "0x1c904",
+          "source_range_verified": true,
+          "sha256": "6f5145f83ccd402ae38e4bb2ae1d14658f7311ec5a2562db146f81ac12c1fdf9",
+          "literal_addresses": [
+            "0xe06e694",
+            "0xe06e698",
+            "0xe06e69c"
+          ],
+          "first_32_bytes": "7004002364040023000000000000000000000000000000000000000000000000",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        },
+        {
+          "kind": "zero_length_copy",
+          "lma_start": "0xe070904",
+          "lma_end_exclusive": "0xe070904",
+          "vma_start": "0x23000000",
+          "vma_end_exclusive": "0x23000000",
+          "size": 0,
+          "size_hex": "0x0",
+          "source_file_offset": "0x1c904",
+          "source_range_verified": true,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "literal_addresses": [
+            "0xe06e6a0",
+            "0xe06e6a4",
+            "0xe06e6a8"
+          ],
+          "first_32_bytes": "",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        },
+        {
+          "kind": "ram_code",
+          "lma_start": "0xe05479c",
+          "lma_end_exclusive": "0xe05bbd4",
+          "vma_start": "0x23020000",
+          "vma_end_exclusive": "0x23027438",
+          "size": 29752,
+          "size_hex": "0x7438",
+          "source_file_offset": "0x79c",
+          "source_range_verified": true,
+          "sha256": "9cb7c77c04f8752771807346c74b1d25a9b8b677f7511df29240ead28b300ace",
+          "literal_addresses": [
+            "0xe06ef34",
+            "0xe06ef38",
+            "0xe06ef3c"
+          ],
+          "first_32_bytes": "0346bab11088a1b119445a1e013912f8013f40ba80b25840c0f30313434083ea",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        }
+      ],
+      "disassembly": {
+        "startup": "\noutputs/razer-radio-re/firmware-extracted/Suit1FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e06e674 <.data+0x1a674>:\n e06e674:\tb508      \tpush\t{r3, lr}\n e06e676:\t4807      \tldr\tr0, [pc, #28]\t@ (0xe06e694)\n e06e678:\t4a07      \tldr\tr2, [pc, #28]\t@ (0xe06e698)\n e06e67a:\t4908      \tldr\tr1, [pc, #32]\t@ (0xe06e69c)\n e06e67c:\t1a12      \tsubs\tr2, r2, r0\n e06e67e:\tf7fe f937 \tbl\t0xe06c8f0\n e06e682:\t4a07      \tldr\tr2, [pc, #28]\t@ (0xe06e6a0)\n e06e684:\t4907      \tldr\tr1, [pc, #28]\t@ (0xe06e6a4)\n e06e686:\t4808      \tldr\tr0, [pc, #32]\t@ (0xe06e6a8)\n e06e688:\tf7fe f932 \tbl\t0xe06c8f0\n e06e68c:\te8bd 4008 \tldmia.w\tsp!, {r3, lr}\n e06e690:\tf000 bc4a \tb.w\t0xe06ef28\n",
+        "third_copy": "\noutputs/razer-radio-re/firmware-extracted/Suit1FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e06ef28 <.data+0x1af28>:\n e06ef28:\t4a02      \tldr\tr2, [pc, #8]\t@ (0xe06ef34)\n e06ef2a:\t4903      \tldr\tr1, [pc, #12]\t@ (0xe06ef38)\n e06ef2c:\t4803      \tldr\tr0, [pc, #12]\t@ (0xe06ef3c)\n e06ef2e:\tf7fd bcdf \tb.w\t0xe06c8f0\n e06ef32:\tbf00      \tnop\n",
+        "thunk": "\noutputs/razer-radio-re/firmware-extracted/Suit1FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e06c8f0 <.data+0x188f0>:\n e06c8f0:\tf002 bd82 \tb.w\t0xe06f3f8\n",
+        "byte_copy": "\noutputs/razer-radio-re/firmware-extracted/Suit1FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e06f3f8 <.data+0x1b3f8>:\n e06f3f8:\t440a      \tadd\tr2, r1\n e06f3fa:\t1e43      \tsubs\tr3, r0, #1\n e06f3fc:\t4291      \tcmp\tr1, r2\n e06f3fe:\td100      \tbne.n\t0xe06f402\n e06f400:\t4770      \tbx\tlr\n e06f402:\tb510      \tpush\t{r4, lr}\n e06f404:\tf811 4b01 \tldrb.w\tr4, [r1], #1\n e06f408:\t4291      \tcmp\tr1, r2\n e06f40a:\tf803 4f01 \tstrb.w\tr4, [r3, #1]!\n e06f40e:\td1f9      \tbne.n\t0xe06f404\n e06f410:\tbd10      \tpop\t{r4, pc}\n"
+      }
+    },
+    {
+      "version": "1.20",
+      "role": "mouse",
+      "path": "./firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_bytes": 201044,
+      "sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+      "load_base": "0xe06c000",
+      "startup_address": "0xe096404",
+      "third_copy_address": "0xe096d00",
+      "memcpy_thunk_address": "0xe0946dc",
+      "memcpy_address": "0xe09739c",
+      "argument_order": {
+        "r0": "destination",
+        "r1": "source",
+        "r2": "byte_count"
+      },
+      "mappings": [
+        {
+          "kind": "initialized_data",
+          "lma_start": "0xe09b888",
+          "lma_end_exclusive": "0xe09d100",
+          "vma_start": "0x23000000",
+          "vma_end_exclusive": "0x23001878",
+          "size": 6264,
+          "size_hex": "0x1878",
+          "source_file_offset": "0x2f888",
+          "source_range_verified": true,
+          "sha256": "620c20674da9291aa939662b4f5b8328ef77704a044207018d796261fcdb1048",
+          "literal_addresses": [
+            "0xe096424",
+            "0xe096428",
+            "0xe09642c"
+          ],
+          "first_32_bytes": "340e0023280e0023000000000000000000000000000000000000000000000000",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        },
+        {
+          "kind": "zero_length_copy",
+          "lma_start": "0xe09b888",
+          "lma_end_exclusive": "0xe09b888",
+          "vma_start": "0x23000000",
+          "vma_end_exclusive": "0x23000000",
+          "size": 0,
+          "size_hex": "0x0",
+          "source_file_offset": "0x2f888",
+          "source_range_verified": true,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "literal_addresses": [
+            "0xe096430",
+            "0xe096434",
+            "0xe096438"
+          ],
+          "first_32_bytes": "",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        },
+        {
+          "kind": "ram_code",
+          "lma_start": "0xe06c79c",
+          "lma_end_exclusive": "0xe078e4c",
+          "vma_start": "0x23020000",
+          "vma_end_exclusive": "0x2302c6b0",
+          "size": 50864,
+          "size_hex": "0xc6b0",
+          "source_file_offset": "0x79c",
+          "source_range_verified": true,
+          "sha256": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5",
+          "literal_addresses": [
+            "0xe096d0c",
+            "0xe096d10",
+            "0xe096d14"
+          ],
+          "first_32_bytes": "2de9f04fb14bb24d1b7880eae074298081eae175dff8bc92dff8bc82dff8bcc2",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        }
+      ],
+      "disassembly": {
+        "startup": "\noutputs/razer-radio-re/firmware-extracted-1.20/Suit2FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e096404 <.data+0x2a404>:\n e096404:\tb508      \tpush\t{r3, lr}\n e096406:\t4807      \tldr\tr0, [pc, #28]\t@ (0xe096424)\n e096408:\t4a07      \tldr\tr2, [pc, #28]\t@ (0xe096428)\n e09640a:\t4908      \tldr\tr1, [pc, #32]\t@ (0xe09642c)\n e09640c:\t1a12      \tsubs\tr2, r2, r0\n e09640e:\tf7fe f965 \tbl\t0xe0946dc\n e096412:\t4a07      \tldr\tr2, [pc, #28]\t@ (0xe096430)\n e096414:\t4907      \tldr\tr1, [pc, #28]\t@ (0xe096434)\n e096416:\t4808      \tldr\tr0, [pc, #32]\t@ (0xe096438)\n e096418:\tf7fe f960 \tbl\t0xe0946dc\n e09641c:\te8bd 4008 \tldmia.w\tsp!, {r3, lr}\n e096420:\tf000 bc6e \tb.w\t0xe096d00\n",
+        "third_copy": "\noutputs/razer-radio-re/firmware-extracted-1.20/Suit2FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e096d00 <.data+0x2ad00>:\n e096d00:\t4a02      \tldr\tr2, [pc, #8]\t@ (0xe096d0c)\n e096d02:\t4903      \tldr\tr1, [pc, #12]\t@ (0xe096d10)\n e096d04:\t4803      \tldr\tr0, [pc, #12]\t@ (0xe096d14)\n e096d06:\tf7fd bce9 \tb.w\t0xe0946dc\n e096d0a:\tbf00      \tnop\n",
+        "thunk": "\noutputs/razer-radio-re/firmware-extracted-1.20/Suit2FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e0946dc <.data+0x286dc>:\n e0946dc:\tf002 be5e \tb.w\t0xe09739c\n",
+        "byte_copy": "\noutputs/razer-radio-re/firmware-extracted-1.20/Suit2FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e09739c <.data+0x2b39c>:\n e09739c:\t440a      \tadd\tr2, r1\n e09739e:\t1e43      \tsubs\tr3, r0, #1\n e0973a0:\t4291      \tcmp\tr1, r2\n e0973a2:\td100      \tbne.n\t0xe0973a6\n e0973a4:\t4770      \tbx\tlr\n e0973a6:\tb510      \tpush\t{r4, lr}\n e0973a8:\tf811 4b01 \tldrb.w\tr4, [r1], #1\n e0973ac:\t4291      \tcmp\tr1, r2\n e0973ae:\tf803 4f01 \tstrb.w\tr4, [r3, #1]!\n e0973b2:\td1f9      \tbne.n\t0xe0973a8\n e0973b4:\tbd10      \tpop\t{r4, pc}\n"
+      }
+    },
+    {
+      "version": "1.20",
+      "role": "dongle",
+      "path": "./firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "file_bytes": 124596,
+      "sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+      "load_base": "0xe054000",
+      "startup_address": "0xe06e5d8",
+      "third_copy_address": "0xe06ee8c",
+      "memcpy_thunk_address": "0xe06c854",
+      "memcpy_address": "0xe06f35c",
+      "argument_order": {
+        "r0": "destination",
+        "r1": "source",
+        "r2": "byte_count"
+      },
+      "mappings": [
+        {
+          "kind": "initialized_data",
+          "lma_start": "0xe070854",
+          "lma_end_exclusive": "0xe07265c",
+          "vma_start": "0x23000000",
+          "vma_end_exclusive": "0x23001e08",
+          "size": 7688,
+          "size_hex": "0x1e08",
+          "source_file_offset": "0x1c854",
+          "source_range_verified": true,
+          "sha256": "d0fd080353b028b2c6b4bc131da56e1e5f4b8ff5c6b28a21553bde04bc538821",
+          "literal_addresses": [
+            "0xe06e5f8",
+            "0xe06e5fc",
+            "0xe06e600"
+          ],
+          "first_32_bytes": "a404002398040023000000000000000000000000000000000000000000000000",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        },
+        {
+          "kind": "zero_length_copy",
+          "lma_start": "0xe070854",
+          "lma_end_exclusive": "0xe070854",
+          "vma_start": "0x23000000",
+          "vma_end_exclusive": "0x23000000",
+          "size": 0,
+          "size_hex": "0x0",
+          "source_file_offset": "0x1c854",
+          "source_range_verified": true,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "literal_addresses": [
+            "0xe06e604",
+            "0xe06e608",
+            "0xe06e60c"
+          ],
+          "first_32_bytes": "",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        },
+        {
+          "kind": "ram_code",
+          "lma_start": "0xe05479c",
+          "lma_end_exclusive": "0xe05ba0c",
+          "vma_start": "0x23020000",
+          "vma_end_exclusive": "0x23027270",
+          "size": 29296,
+          "size_hex": "0x7270",
+          "source_file_offset": "0x79c",
+          "source_range_verified": true,
+          "sha256": "b433bd37e6dea78cda5295b6263a674fe0280268264a333d2e86e76cc559d0d6",
+          "literal_addresses": [
+            "0xe06ee98",
+            "0xe06ee9c",
+            "0xe06eea0"
+          ],
+          "first_32_bytes": "0346bab11088a1b119445a1e013912f8013f40ba80b25840c0f30313434083ea",
+          "analyst_role": "RAM code classification follows executable call targets; byte copy itself is assembly-proven"
+        }
+      ],
+      "disassembly": {
+        "startup": "\noutputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e06e5d8 <.data+0x1a5d8>:\n e06e5d8:\tb508      \tpush\t{r3, lr}\n e06e5da:\t4807      \tldr\tr0, [pc, #28]\t@ (0xe06e5f8)\n e06e5dc:\t4a07      \tldr\tr2, [pc, #28]\t@ (0xe06e5fc)\n e06e5de:\t4908      \tldr\tr1, [pc, #32]\t@ (0xe06e600)\n e06e5e0:\t1a12      \tsubs\tr2, r2, r0\n e06e5e2:\tf7fe f937 \tbl\t0xe06c854\n e06e5e6:\t4a07      \tldr\tr2, [pc, #28]\t@ (0xe06e604)\n e06e5e8:\t4907      \tldr\tr1, [pc, #28]\t@ (0xe06e608)\n e06e5ea:\t4808      \tldr\tr0, [pc, #32]\t@ (0xe06e60c)\n e06e5ec:\tf7fe f932 \tbl\t0xe06c854\n e06e5f0:\te8bd 4008 \tldmia.w\tsp!, {r3, lr}\n e06e5f4:\tf000 bc4a \tb.w\t0xe06ee8c\n",
+        "third_copy": "\noutputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e06ee8c <.data+0x1ae8c>:\n e06ee8c:\t4a02      \tldr\tr2, [pc, #8]\t@ (0xe06ee98)\n e06ee8e:\t4903      \tldr\tr1, [pc, #12]\t@ (0xe06ee9c)\n e06ee90:\t4803      \tldr\tr0, [pc, #12]\t@ (0xe06eea0)\n e06ee92:\tf7fd bcdf \tb.w\t0xe06c854\n e06ee96:\tbf00      \tnop\n",
+        "thunk": "\noutputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e06c854 <.data+0x18854>:\n e06c854:\tf002 bd82 \tb.w\t0xe06f35c\n",
+        "byte_copy": "\noutputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__radio_radio.bin:     file format binary\n\n\nDisassembly of section .data:\n\n0e06f35c <.data+0x1b35c>:\n e06f35c:\t440a      \tadd\tr2, r1\n e06f35e:\t1e43      \tsubs\tr3, r0, #1\n e06f360:\t4291      \tcmp\tr1, r2\n e06f362:\td100      \tbne.n\t0xe06f366\n e06f364:\t4770      \tbx\tlr\n e06f366:\tb510      \tpush\t{r4, lr}\n e06f368:\tf811 4b01 \tldrb.w\tr4, [r1], #1\n e06f36c:\t4291      \tcmp\tr1, r2\n e06f36e:\tf803 4f01 \tstrb.w\tr4, [r3, #1]!\n e06f372:\td1f9      \tbne.n\t0xe06f368\n e06f374:\tbd10      \tpop\t{r4, pc}\n"
+      }
+    }
+  ]
+}

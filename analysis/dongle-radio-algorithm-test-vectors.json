@@ -1,0 +1,320 @@
+{
+  "scope": "Static formula consistency; no target execution or RF validation",
+  "permutation_cases": 65536,
+  "channel_formula_cases": 5000,
+  "crc_reference": "123456789 ->0x29B1",
+  "vectors": [
+    {
+      "event_counter": 0,
+      "base1": "0x12345678",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 13018,
+        "unmapped_channel": 31,
+        "channel": 31,
+        "frequency_register": 68,
+        "frequency_mhz_if_map0": 2468
+      }
+    },
+    {
+      "event_counter": 1,
+      "base1": "0x12345678",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 28354,
+        "unmapped_channel": 12,
+        "channel": 12,
+        "frequency_register": 30,
+        "frequency_mhz_if_map0": 2430
+      }
+    },
+    {
+      "event_counter": 2,
+      "base1": "0x12345678",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 16470,
+        "unmapped_channel": 5,
+        "channel": 5,
+        "frequency_register": 14,
+        "frequency_mhz_if_map0": 2414
+      }
+    },
+    {
+      "event_counter": 15,
+      "base1": "0x12345678",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 32000,
+        "unmapped_channel": 32,
+        "channel": 32,
+        "frequency_register": 70,
+        "frequency_mhz_if_map0": 2470
+      }
+    },
+    {
+      "event_counter": 255,
+      "base1": "0x12345678",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 49914,
+        "unmapped_channel": 1,
+        "channel": 1,
+        "frequency_register": 6,
+        "frequency_mhz_if_map0": 2406
+      }
+    },
+    {
+      "event_counter": 65535,
+      "base1": "0x12345678",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 39674,
+        "unmapped_channel": 10,
+        "channel": 10,
+        "frequency_register": 24,
+        "frequency_mhz_if_map0": 2424
+      }
+    },
+    {
+      "event_counter": 0,
+      "base1": "0x12345678",
+      "enabled_mask": "0x100001",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 13018,
+        "unmapped_channel": 31,
+        "channel": 0,
+        "frequency_register": 4,
+        "frequency_mhz_if_map0": 2404
+      }
+    },
+    {
+      "event_counter": 1,
+      "base1": "0x12345678",
+      "enabled_mask": "0x100001",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 28354,
+        "unmapped_channel": 12,
+        "channel": 0,
+        "frequency_register": 4,
+        "frequency_mhz_if_map0": 2404
+      }
+    },
+    {
+      "event_counter": 2,
+      "base1": "0x12345678",
+      "enabled_mask": "0x100001",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 16470,
+        "unmapped_channel": 5,
+        "channel": 0,
+        "frequency_register": 4,
+        "frequency_mhz_if_map0": 2404
+      }
+    },
+    {
+      "event_counter": 15,
+      "base1": "0x12345678",
+      "enabled_mask": "0x100001",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 32000,
+        "unmapped_channel": 32,
+        "channel": 0,
+        "frequency_register": 4,
+        "frequency_mhz_if_map0": 2404
+      }
+    },
+    {
+      "event_counter": 255,
+      "base1": "0x12345678",
+      "enabled_mask": "0x100001",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 49914,
+        "unmapped_channel": 1,
+        "channel": 20,
+        "frequency_register": 46,
+        "frequency_mhz_if_map0": 2446
+      }
+    },
+    {
+      "event_counter": 65535,
+      "base1": "0x12345678",
+      "enabled_mask": "0x100001",
+      "expected": {
+        "channel_identifier": 17484,
+        "prn": 39674,
+        "unmapped_channel": 10,
+        "channel": 20,
+        "frequency_register": 46,
+        "frequency_mhz_if_map0": 2446
+      }
+    },
+    {
+      "event_counter": 0,
+      "base1": "0xeb8a542c",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 49062,
+        "prn": 23628,
+        "unmapped_channel": 22,
+        "channel": 22,
+        "frequency_register": 50,
+        "frequency_mhz_if_map0": 2450
+      }
+    },
+    {
+      "event_counter": 1,
+      "base1": "0xeb8a542c",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 49062,
+        "prn": 52052,
+        "unmapped_channel": 30,
+        "channel": 30,
+        "frequency_register": 66,
+        "frequency_mhz_if_map0": 2466
+      }
+    },
+    {
+      "event_counter": 2,
+      "base1": "0xeb8a542c",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 49062,
+        "prn": 54451,
+        "unmapped_channel": 24,
+        "channel": 24,
+        "frequency_register": 54,
+        "frequency_mhz_if_map0": 2454
+      }
+    },
+    {
+      "event_counter": 15,
+      "base1": "0xeb8a542c",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 49062,
+        "prn": 56881,
+        "unmapped_channel": 12,
+        "channel": 12,
+        "frequency_register": 30,
+        "frequency_mhz_if_map0": 2430
+      }
+    },
+    {
+      "event_counter": 255,
+      "base1": "0xeb8a542c",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 49062,
+        "prn": 34680,
+        "unmapped_channel": 11,
+        "channel": 11,
+        "frequency_register": 28,
+        "frequency_mhz_if_map0": 2428
+      }
+    },
+    {
+      "event_counter": 65535,
+      "base1": "0xeb8a542c",
+      "enabled_mask": "0x1fffffffff",
+      "expected": {
+        "channel_identifier": 49062,
+        "prn": 5240,
+        "unmapped_channel": 23,
+        "channel": 23,
+        "frequency_register": 52,
+        "frequency_mhz_if_map0": 2452
+      }
+    },
+    {
+      "event_counter": 0,
+      "base1": "0x89abcdef",
+      "enabled_mask": "0x400000",
+      "expected": {
+        "channel_identifier": 17476,
+        "prn": 49541,
+        "unmapped_channel": 35,
+        "channel": 22,
+        "frequency_register": 50,
+        "frequency_mhz_if_map0": 2450
+      }
+    },
+    {
+      "event_counter": 1,
+      "base1": "0x89abcdef",
+      "enabled_mask": "0x400000",
+      "expected": {
+        "channel_identifier": 17476,
+        "prn": 10493,
+        "unmapped_channel": 22,
+        "channel": 22,
+        "frequency_register": 50,
+        "frequency_mhz_if_map0": 2450
+      }
+    },
+    {
+      "event_counter": 2,
+      "base1": "0x89abcdef",
+      "enabled_mask": "0x400000",
+      "expected": {
+        "channel_identifier": 17476,
+        "prn": 28827,
+        "unmapped_channel": 4,
+        "channel": 22,
+        "frequency_register": 50,
+        "frequency_mhz_if_map0": 2450
+      }
+    },
+    {
+      "event_counter": 15,
+      "base1": "0x89abcdef",
+      "enabled_mask": "0x400000",
+      "expected": {
+        "channel_identifier": 17476,
+        "prn": 8566,
+        "unmapped_channel": 19,
+        "channel": 22,
+        "frequency_register": 50,
+        "frequency_mhz_if_map0": 2450
+      }
+    },
+    {
+      "event_counter": 255,
+      "base1": "0x89abcdef",
+      "enabled_mask": "0x400000",
+      "expected": {
+        "channel_identifier": 17476,
+        "prn": 62835,
+        "unmapped_channel": 9,
+        "channel": 22,
+        "frequency_register": 50,
+        "frequency_mhz_if_map0": 2450
+      }
+    },
+    {
+      "event_counter": 65535,
+      "base1": "0x89abcdef",
+      "enabled_mask": "0x400000",
+      "expected": {
+        "channel_identifier": 17476,
+        "prn": 2419,
+        "unmapped_channel": 14,
+        "channel": 22,
+        "frequency_register": 50,
+        "frequency_mhz_if_map0": 2450
+      }
+    }
+  ]
+}

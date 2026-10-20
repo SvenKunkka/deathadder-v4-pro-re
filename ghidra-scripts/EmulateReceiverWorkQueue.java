@@ -1,0 +1,44 @@
+import ghidra.app.script.GhidraScript;import ghidra.app.emulator.EmulatorHelper;import java.io.*;import java.util.*;import java.math.BigInteger;
+public class EmulateReceiverWorkQueue extends GhidraScript {
+ String hex(byte[]b){return HexFormat.of().formatHex(b);}String zip(byte[]b)throws Exception{ByteArrayOutputStream o=new ByteArrayOutputStream();try(java.util.zip.GZIPOutputStream z=new java.util.zip.GZIPOutputStream(o)){z.write(b);}return Base64.getEncoder().encodeToString(o.toByteArray());}
+ void w32(byte[]b,int a,long x){for(int i=0;i<4;i++)b[a+i]=(byte)(x>>>(8*i));}long u32(EmulatorHelper e,long a){byte[]b=e.readMemory(toAddr(a),4);return (b[0]&255L)|(b[1]&255L)<<8|(b[2]&255L)<<16|(b[3]&255L)<<24;}
+ public void run()throws Exception{
+ byte[]image=java.nio.file.Files.readAllBytes(java.nio.file.Path.of(getScriptArgs()[1]));if(!hex(java.security.MessageDigest.getInstance("SHA-256").digest(image)).equals("f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162")||!Arrays.equals(image,getBytes(toAddr(0xe054000L),image.length))||!Arrays.equals(Arrays.copyOfRange(image,0x79c,0x79c+0x7270),getBytes(toAddr(0x23020000L),0x7270)))throw new Exception("image/mapping");
+ Random random=new Random(0x1206d2dcL);int start=Integer.parseInt(getScriptArgs()[2]),end=Integer.parseInt(getScriptArgs()[3]);try(PrintWriter out=new PrintWriter(new FileOutputStream(getScriptArgs()[0],start>0),false,java.nio.charset.StandardCharsets.UTF_8)){for(int id=0;id<2816;id++){
+ int op=id/256,v=id%256;byte[]ram=new byte[131072],rtc=new byte[4096],pattern=new byte[256];random.nextBytes(pattern);for(int i=0;i<ram.length;i++)ram[i]=pattern[i%256];for(int i=0;i<rtc.length;i++)rtc[i]=pattern[i%256];
+ int work=v%2==0?0x3858:0x67c0;int flags=new int[]{0,1,2,3,4,5,6,7,8,9,12,13,0xffffff00,0xffffff01,0xffffff02,0xffffffff}[v%16];long owner=new long[]{0,0x23005000L,0x23002b18L}[(v/16)%3],queue=op==0?new long[]{0,0x23002b18L,0x23005000L}[(v/48)%3]:0x23002b18L;
+ long chosen=(flags&1)!=0?owner:queue==0?owner:queue;int q=chosen==0?0x2b18:(int)(chosen-0x23000000L),n=(v/16)%3;
+ for(int a:new int[]{0x2b18,0x5000,0x5600,0x5700,0x5800,0x5900,0x5c00,0x5d00}){Arrays.fill(ram,a,a+0xac,(byte)0);ram[a+0xe]=(byte)new int[]{-8,0,1,4,8,127}[(v+a/256)%6];}
+ Arrays.fill(ram,work,work+48,(byte)0);w32(ram,work+12,Integer.toUnsignedLong(flags));w32(ram,work+8,owner);
+ for(int a:new int[]{0x2b18,0x5000}){w32(ram,a+0x98,0x23000000L+a+0x98);w32(ram,a+0x9c,0x23000000L+a+0x98);w32(ram,a+0x90,v%3==0?0:0x23005400L);w32(ram,a+0x94,v%3==0?0:0x23005420L);w32(ram,a+0xa8,new long[]{0,1,3,5,9,13,0xffffffffL,17}[(v/8)%8]);}
+ w32(ram,0x5400,0x23005420L);w32(ram,0x5420,0);
+ w32(ram,q+0x98,n==0?0x23000000L+q+0x98:0x23005c00L);w32(ram,q+0x9c,n==0?0x23000000L+q+0x98:0x23005c00L+(n-1)*256);
+ for(int i=0;i<n;i++){int a=0x5c00+i*256;w32(ram,a,i+1==n?0x23000000L+q+0x98:0x23005d00L);w32(ram,a+4,i==0?0x23000000L+q+0x98:0x23005c00L);w32(ram,a+8,0x23000000L+q+0x98);ram[a+0xd]=(byte)new int[]{2,6,0x22,0x42}[(v/16)%4];w32(ram,a+0x14,0x12345678);w32(ram,a+0x8c,0x12345678);}
+ long current=v%3==0?0x23000000L+q:0x23005800L;w32(ram,0x7170,current);w32(ram,0x7174,0x23005900L);w32(ram,0x717c,v%11==0?0x23005900L:current);ram[0x7178]=0;ram[(int)(current-0x23000000L)+0xe]=(byte)new int[]{-1,0,4,127}[(v/32)%4];ram[(int)(current-0x23000000L)+0xd]=(byte)(v%5==0?4:0);
+ if(v%3==0){w32(ram,0x7180,0x23007180L);w32(ram,0x7184,0x23007180L);}else{w32(ram,0x7180,0x23005600L);w32(ram,0x7184,0x23005700L);w32(ram,0x5600,0x23005700L);w32(ram,0x5604,0x23007180L);w32(ram,0x5700,0x23007180L);w32(ram,0x5704,0x23005600L);ram[0x560d]=(byte)128;ram[0x570d]=(byte)128;ram[0x560e]=1;ram[0x570e]=8;}
+ ArrayList<Integer> ts=new ArrayList<>();if(v%3!=0)ts.add(0x5200);for(int i=0;i<n;i++){int a=0x5c18+i*256;if((v+i)%2==0)ts.add(a);}w32(ram,0x2c60,0);w32(ram,0x2c64,0);if(v%2==0)ts.add(0x2c60);
+ w32(ram,0xb48,ts.isEmpty()?0x23000b48L:0x23000000L+ts.get(0));w32(ram,0xb4c,ts.isEmpty()?0x23000b48L:0x23000000L+ts.get(ts.size()-1));for(int i=0;i<ts.size();i++){int a=ts.get(i);w32(ram,a,i+1==ts.size()?0x23000b48L:0x23000000L+ts.get(i+1));w32(ram,a+4,i==0?0x23000b48L:0x23000000L+ts.get(i-1));w32(ram,a+16,new long[]{0,1,10,100,0x7fffffffL}[(v+i)%5]);w32(ram,a+20,0);}
+ w32(ram,0x7194,new long[]{0,1,10,0x7fffffffL,0x80000000L,0xffffffffL}[(v/4)%6]);w32(ram,0x7190,0);w32(ram,0x7198,v%11==0?1:0);w32(ram,0x2c78,v%5);w32(ram,0x2c7c,0);w32(ram,0x2840,100);w32(ram,0x2844,0);w32(rtc,0x770,100+v*32+v%32);w32(rtc,0x774,0);ram[0x960]=(byte)new int[]{7,13,14,15}[v%4];w32(ram,0xab4,0);
+ long timeout=new long[]{-1,0,1,2,32,-2,-33,0x7fffffffL,0x80000000L,0x100000000L,Long.MAX_VALUE,Long.MIN_VALUE}[v%12];
+ // Explicit/default scheduling variants carry the same queue metadata.
+ if(op==2||op==3||op==5)queue=new long[]{0,0x23002b18L,0x23005000L}[(v/17)%3];
+ w32(ram,work+40,queue);
+ if((flags&8)!=0&&v%3!=0&&op>=3&&op<=6){long last=((ram[0xb4c]&255L)|(ram[0xb4d]&255L)<<8|(ram[0xb4e]&255L)<<16|(ram[0xb4f]&255L)<<24);w32(ram,work+16,0x23000b48L);w32(ram,work+20,last);w32(ram,(int)(last-0x23000000L),0x23000000L+work+16);w32(ram,0xb4c,0x23000000L+work+16);w32(ram,work+32,25);w32(ram,work+36,0);}
+ if(op==8){int own=v%2==0?0x2b18:0x5000;w32(ram,work+8,0x23000000L+own);int shape=(v/16)%4;w32(ram,own+0x90,shape==0?0:shape==1?0x23000000L+work:0x23005400L);w32(ram,own+0x94,shape==0?0:shape==3?0x23005420L:0x23000000L+work);w32(ram,0x5400,0x23000000L+work);w32(ram,work,shape==3?0x23005420L:0);w32(ram,0x5420,0);}
+ long callback=0x23026d29L;
+ final long initial=new long[]{0,0x10,0x80}[(v/3)%3];final int exception=v%4==0?0:60;
+ if(id<start||id>=end)continue;
+ EmulatorHelper e=new EmulatorHelper(currentProgram){protected ghidra.app.emulator.Emulator newEmulator(){return new ghidra.app.emulator.AdaptedEmulator(this);}};
+ try{
+ java.lang.reflect.Field field=ghidra.app.emulator.AdaptedEmulator.class.getDeclaredField("emu");field.setAccessible(true);ghidra.pcode.emu.PcodeMachine<?> machine=(ghidra.pcode.emu.PcodeMachine<?>)field.get(e.getEmulator());Object lib=machine.getUseropLibrary().getUserops().get("setBasePriority").getDefiningLibrary();field=lib.getClass().getDeclaredField("cpuState");field.setAccessible(true);ghidra.program.emulation.ArmCpuState cpu=(ghidra.program.emulation.ArmCpuState)field.get(lib);cpu.setBasePriority(initial);cpu.setPrivileged(true);cpu.setThreadMode(exception==0);
+ e.registerCallOtherCallback("getBasePriority",new ghidra.pcode.emulate.BreakCallBack(){public boolean pcodeCallback(ghidra.pcode.pcoderaw.PcodeOpRaw p){e.getEmulator().getMemState().setValue(p.getOutput(),cpu.getBasePriority());return true;}});e.registerCallOtherCallback("getCurrentExceptionNumber",new ghidra.pcode.emulate.BreakCallBack(){public boolean pcodeCallback(ghidra.pcode.pcoderaw.PcodeOpRaw p){e.getEmulator().getMemState().setValue(p.getOutput(),exception);return true;}});
+ e.setContextRegister(currentProgram.getRegister("TMode"),BigInteger.ONE);for(int i=0;i<=12;i++)e.writeRegister("r"+i,0);for(String f:new String[]{"CY","ZR","NG","OV","Q"})if(currentProgram.getRegister(f)!=null)e.writeRegister(f,0);
+ e.writeMemory(toAddr(0x23000000L),ram);e.writeMemory(toAddr(0x5f99c000L),rtc);e.writeMemoryValue(toAddr(0x2302e000L),4,queue);long entry=new long[]{0xe06d2dcL,0xe06d43cL,0xe06d3fcL,0xe06d5c8L,0xe06d630L,0xe06d69cL,0xe06d714L,0xe06d3a4L,0xe06d480L,0xe06d3f0L,0xe06d5b0L}[op];
+ e.writeRegister("r0",op==2||op==3||op==5?queue:0x23000000L+work+(op==7?16:0));e.writeRegister("r1",op==0?0x2302e000L:op>=9?callback:0x23000000L+work);e.writeRegister("r2",timeout&0xffffffffL);e.writeRegister("r3",timeout>>>32);
+ e.writeRegister("lr",0x2302df01L);e.writeRegister(e.getStackPointerRegister(),0x2302f000L);e.writeRegister(e.getPCRegister(),entry);
+ int steps=0;long boundary=0,arg0=0;while(e.getExecutionAddress().getOffset()!=0x2302df00L&&steps<12000){long pc=e.getExecutionAddress().getOffset();if(pc==0xe0611ccL){boundary=pc;arg0=e.readRegister("r0").longValue();break;}if(!e.step(monitor))throw new Exception("case"+id+" pc"+e.getExecutionAddress()+" "+e.getLastError());steps++;}if(steps>=12000)throw new Exception("bound"+id);
+ out.println("{\"timeout\":\""+Long.toUnsignedString(timeout)+"\",\"callback\":"+callback+",\"case\":"+id+",\"op\":"+op+",\"address\":"+(0x23000000L+work)+",\"queue\":"+queue+",\"queue_after\":"+u32(e,0x2302e000L)+",\"before_gzip\":\""+zip(ram)+"\",\"after_gzip\":\""+zip(e.readMemory(toAddr(0x23000000L),ram.length))+"\",\"rtc_before\":\""+zip(rtc)+"\",\"rtc_after\":\""+zip(e.readMemory(toAddr(0x5f99c000L),rtc.length))+"\",\"initial_priority\":"+initial+",\"exception\":"+exception+",\"final_priority\":"+cpu.getBasePriority()+",\"boundary\":"+boundary+",\"arg0\":"+arg0+",\"return\":"+e.readRegister("r0").longValue()+",\"steps\":"+steps+"}");
+ }finally{e.dispose();}
+ }}println("RECEIVER_WORK_QUEUE_RANGE="+start+":"+end+"");
+ }
+}

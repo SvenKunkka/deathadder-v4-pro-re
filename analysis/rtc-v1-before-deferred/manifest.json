@@ -1,0 +1,37 @@
+{
+  "scope": "Exact pre-refactor RTC sources/results retained; current original datasets remain untouched",
+  "files": {
+    "recovered-code/portable/mouse_rtc_dispatch.c": {
+      "frozen_path": "analysis/rtc-v1-before-deferred/mouse_rtc_dispatch.c",
+      "sha256": "65b04d5694efa221c1a8e2569369128c287ebfdc7d81cfbfc6c5b4a69120c60b"
+    },
+    "recovered-code/portable/mouse_rtc_dispatch.h": {
+      "frozen_path": "analysis/rtc-v1-before-deferred/mouse_rtc_dispatch.h",
+      "sha256": "e89f38d990869ce241ac3df04485073a48744b25194facf2827704d1d3dc1e4e"
+    },
+    "analysis/verify_mouse_rtc_dispatch.py": {
+      "frozen_path": "analysis/rtc-v1-before-deferred/verify_mouse_rtc_dispatch.py",
+      "sha256": "d5952102950de57288ca29cf431c17998e90a9c6220ee09288a2956241c7f895"
+    },
+    "analysis/mouse-rtc-dispatch-comparison.json": {
+      "frozen_path": "analysis/rtc-v1-before-deferred/mouse-rtc-dispatch-comparison.json",
+      "sha256": "a4bef4e0c6e63709af5d1501ee3221482f99de7991be9f54b02826e044a91a34"
+    },
+    "analysis/mouse-rtc-dispatch-exact.json": {
+      "frozen_path": "analysis/rtc-v1-before-deferred/mouse-rtc-dispatch-exact.json",
+      "sha256": "644ceff80ce8cff6398bbf2e485686b18238adb08c2d3e6111717ddd77676333"
+    },
+    "analysis/mouse-rtc-dispatch-exact.md": {
+      "frozen_path": "analysis/rtc-v1-before-deferred/mouse-rtc-dispatch-exact.md",
+      "sha256": "6d3d60c735abef5fbcdeedece249139fe4205eb558eef6bbe1b1b3c621de3527"
+    },
+    "analysis/mouse-rtc-continuous-comparison.json": {
+      "frozen_path": "analysis/rtc-v1-before-deferred/mouse-rtc-continuous-comparison.json",
+      "sha256": "bc96fddd8873013f345e18b580afeb7d79272143316f5bf1bf4a99f36117cb36"
+    },
+    "analysis/libmouse_rtc_dispatch.dylib": {
+      "frozen_path": "analysis/rtc-v1-before-deferred/libmouse_rtc_dispatch.dylib",
+      "sha256": "dd1f2a5aa513662adeaece2dfef5ab851988919d26dac257099615032e589a4f"
+    }
+  }
+}

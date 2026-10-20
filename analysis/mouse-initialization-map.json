@@ -1,0 +1,633 @@
+{
+  "classification": "static raw instruction and original image evidence; no execution/headless/device action; only this md/json added",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "source_sha256": {
+    "firmware-extracted-1.20/Suit2FWData__radio_radio.bin": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+    "analysis/mouse-radio-1.20-final/disassembly.txt": "a8ef6a7c6f09f107d6d42df38e8eca60d68452032589c3ed225ccd75dba9742c",
+    "analysis/key-install-caller-chain.json": "4aadbb56c512214833deef06d7cdc81732d143fdcfea01d8fd99a510f443f96f",
+    "analysis/mouse-radio-1.20-final/23022e28.c": "27c73853cbab9b0ab2d3238ed8d4ac3f8997582b46264897210c34d52545429e",
+    "analysis/mouse-radio-1.20-final/230259a4.c": "9ba39c99a730026603049a38aed51afdfe3a94755999f72e1a9d64222f5fd2ce",
+    "analysis/mouse-radio-1.20-final/230218ec.c": "6dd04c60a02ec4d59896153a70f9340e92ddab7a70ed255bb232f211cec6142f",
+    "analysis/mouse-radio-1.20-final/230225cc.c": "27cbfeb0ff48be0a9ce39d42951df829db44367db1f268b6b5d64a80dcc77c86",
+    "analysis/mouse-radio-1.20-final/23021528.c": "43401d5fa4d3c8acd2e325efbbe7772b5dfc88ea5f33b9dfed61e284efc94528",
+    "analysis/mouse-radio-1.20-final/23021800.c": "bb389644b37680957f153a7b7e2070ef6aae8409abdd682c155253a8003f1e2f",
+    "analysis/mouse-radio-1.20-final/230217a0.c": "d49608252cf560b8e7eda9913980dcd93b0b7c04fb10b4154f7b4a470bf526fb",
+    "analysis/mouse-radio-1.20-final/230217dc.c": "e2763f3af8eb06b4a3418d9bd1202a25a2440d33a0600eefc2bb25ebe0c62775",
+    "analysis/mouse-radio-1.20-final/23021c6c.c": "be3ef96ca1a9909ef58732f562a7cd19dfc416459035ebc251f42df9b8229b87",
+    "analysis/mouse-radio-1.20-final/23020e24.c": "db9ce94c5a8de89355d1924ff5987a2ad77c49826327c1ee96a70d44bd285066",
+    "recovered-code/portable/mouse_initialization.c": "0ba4fa0e38e67607ac04641287adccf6192909145f9fdbedceb668674cb0ec98",
+    "recovered-code/portable/mouse_initialization.h": "44ab17f00e09e1167cc98b6908c67f83ea6d3b2f646a5f7f31bdd258497e7d59",
+    "analysis/mouse-radio-1.20-final/23021150.c": "cf81b0146c50ecf8e358d640ccf3020e496139d7fb233f20f3662da210a6f226",
+    "analysis/mouse-radio-1.20-final/2302869c.c": "ca2a55937fb60805b7446ad1a94ca13d10c1cc2036a0f760d88b9ce6ca7dc036",
+    "analysis/mouse-radio-1.20-final/23025d1c.c": "093bd137283eb02ea8077375ef4a858231f15b7ef52e29eb79e569dab9a4e9b0",
+    "analysis/mouse-radio-1.20-final/23022d68.c": "560d569106beb779b0e1d45ee7fc9f19431b99ea7186b04a648ceb31dab55b2e",
+    "analysis/mouse-radio-1.20-final/23026a00.c": "92cafb7308a9781fabc693a450305fedfdc5364902c47ed2c77c5f645b954339",
+    "analysis/mouse-radio-1.20-final/0e07d23c.c": "5705d6d7e763f47ab957c3caa1de36891c41fe46955fd6db5d25e97f1063c4e5",
+    "analysis/mouse-radio-1.20-final/2302678c.c": "797cb7fad9f7835e3ac0ab1e406e911f13704f820d3a7461a26bc8ab7aae0a28",
+    "analysis/mouse-radio-1.20-final/23026800.c": "b9010c31cca613f2904e761bfc749a25f8a77eb28c7508e859068412e3ac7da7",
+    "analysis/mouse-radio-1.20-final/23026ce0.c": "607992eb402443d170a2c35d3bda623cdb0539903a7b69e28c67778c75148cd8",
+    "analysis/mouse-radio-1.20-final/0e0960a8.c": "3478a4c81351bf0002696121a65e3caafd20d0c87a72ba888d892969b4c765d0"
+  },
+  "mappings": {
+    "ROM": "file_offset=address-0x0e06c000",
+    "RAM_code": "file_offset=address-0x23020000+0x79c; mapped code size0xc6b0"
+  },
+  "call_tree": {
+    "0x230259a4": [
+      "0x23022e28",
+      "0x23020e24"
+    ],
+    "0x23022e28": [
+      "0x230225cc",
+      "0x23021800",
+      "0x230217dc BX LR",
+      "0x230217a0 BX LR",
+      "0x230218ec",
+      "0x23021c6c(0,LE16(input+12))",
+      "IRQ veneers for40,92,91"
+    ],
+    "0x230225cc": [
+      "0x2302c560 -> 0x0e0973ea memset three spans",
+      "0x23021528(0) tail"
+    ],
+    "0x230218ec": [
+      "0x2302c6a0 -> 0x0e089e48(44)",
+      "0x2302c590 -> 0x0e089e70(44,1,0)",
+      "0x2302c670 -> 0x0e089e2c(44) tail"
+    ],
+    "0x23021c6c_fullinit_path": "state2794 was cleared: only direct-rate path, no215AC queue call"
+  },
+  "wrapper": {
+    "frame_bytes": 40,
+    "descriptor": "LE32 id; LE32 7; LE16 r1; LE16 r2; LE16 r3. Last two bytes of descriptor unused.",
+    "low16_parameters": [
+      "r1",
+      "r2",
+      "r3"
+    ],
+    "post_init_key": "0x23020e24(low16(original_r0)) selects (id&15)*16 from0x0e098904 and copies16B to0x23002600",
+    "post_init_stores": [
+      {
+        "pc": "0x230259d4",
+        "address": "0x23006b72",
+        "width": 2,
+        "value": "low16(r1)"
+      },
+      {
+        "pc": "0x230259d6",
+        "address": "0x23006b74",
+        "width": 2,
+        "value": "low16(r2)"
+      },
+      {
+        "pc": "0x230259d8",
+        "address": "0x23006b68",
+        "width": 4,
+        "value": 0
+      },
+      {
+        "pc": "0x230259da",
+        "address": "0x23006b77",
+        "width": 1,
+        "value": 1
+      }
+    ]
+  },
+  "full_init": {
+    "frame_bytes": 64,
+    "descriptor_minimum_bytes": 14,
+    "reset_ranges_ordered": [
+      {
+        "start": "0x23002978",
+        "size": "0xee0",
+        "end_exclusive": "0x23003858"
+      },
+      {
+        "start": "0x23002794",
+        "size": "0x1e4",
+        "end_exclusive": "0x23002978"
+      },
+      {
+        "start": "0x23002688",
+        "size": "0x10c",
+        "end_exclusive": "0x23002794"
+      }
+    ],
+    "reset_union": "[0x23002688,0x23003858)",
+    "fill_ff": "word writes2a3a,2a3e,2a42,2a46 =>16B[2a3a,2a4a)",
+    "state_writes": [
+      {
+        "pc": "0x23022e46",
+        "address": "0x230027ac",
+        "width": 4,
+        "value": "LE32(input)"
+      },
+      {
+        "pc": "0x23022e4e",
+        "address": "0x2300279c",
+        "width": 2,
+        "value": "low16(LE32(input+4))"
+      },
+      {
+        "pc": "0x23022e58",
+        "address": "0x230027b4",
+        "width": 4,
+        "value": "~LE32(input)"
+      },
+      {
+        "pc": "0x23022e76",
+        "address": "0x2300297e",
+        "width": 4,
+        "value": "swap16(LE16(input+8)) | swap16(LE16(input+10))<<16"
+      }
+    ],
+    "phy": "fixed4: localSP+0x24 written4, radio argument=localSP+4, radio reads argument+0x20",
+    "stack_residue_consumed": false,
+    "rate": "unsigned LE16(input+12), valid1..64, initial state2794=0 guarantees direct path"
+  },
+  "queue_init_21528": [
+    {
+      "address": "0x23002adc",
+      "width": 4,
+      "value": 0,
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002ae0",
+      "width": 2,
+      "value": 0,
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002ad6",
+      "width": 4,
+      "value": 0,
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002ada",
+      "width": 2,
+      "value": 0,
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002ae6",
+      "width": 4,
+      "value": 269508640,
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002ae2",
+      "width": 4,
+      "value": 537920800,
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002aea",
+      "width": 4,
+      "value": 269488144,
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002af0",
+      "width": 4,
+      "value": "0x23002b08+peer*0xee0",
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002af4",
+      "width": 4,
+      "value": "0x23002d08+peer*0xee0",
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002af8",
+      "width": 4,
+      "value": "0x23002d58+peer*0xee0",
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002afc",
+      "width": 4,
+      "value": "0x23002e58+peer*0xee0",
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002b00",
+      "width": 4,
+      "value": "0x23003058+peer*0xee0",
+      "add_to_address": "peer*0xee0"
+    },
+    {
+      "address": "0x23002b04",
+      "width": 4,
+      "value": "0x23003258+peer*0xee0",
+      "add_to_address": "peer*0xee0"
+    }
+  ],
+  "dppi": {
+    "conditional": false,
+    "byte_map": {
+      "0x230076f5": 0,
+      "0x230076f4": 1,
+      "0x230076f3": 2,
+      "0x230076f2": 3,
+      "0x230076f1": 4,
+      "0x230076f0": 5,
+      "0x230076ef": 6
+    },
+    "writes": [
+      "530281c0+4*i=80000000|i, i0..5",
+      "5302c30c=80000006",
+      "53022504=0000007f"
+    ],
+    "preserves": "76ee; no CHEN read or early skip"
+  },
+  "radio_init": {
+    "frame_bytes": 40,
+    "descriptor_minimum_bytes": 33,
+    "mmio_stores": [
+      {
+        "pc": "0x23021922",
+        "address": "0x5302c010",
+        "width": 4,
+        "value": 1
+      },
+      {
+        "pc": "0x23021924",
+        "address": "0x5302c704",
+        "width": 4,
+        "value": 1
+      },
+      {
+        "pc": "0x23021928",
+        "address": "0x5302ce3c",
+        "width": 4,
+        "value": 1
+      },
+      {
+        "pc": "0x2302192c",
+        "address": "0x5302ce40",
+        "width": 4,
+        "value": 10
+      },
+      {
+        "pc": "0x23021934",
+        "address": "0x5302ce34",
+        "width": 4,
+        "value": 3284320743
+      },
+      {
+        "pc": "0x23021938",
+        "address": "0x5302ce38",
+        "width": 4,
+        "value": 3351692740
+      },
+      {
+        "pc": "0x23021940",
+        "address": "0x5302ce2c",
+        "width": 4,
+        "value": 3951711276
+      },
+      {
+        "pc": "0x23021948",
+        "address": "0x5302ce30",
+        "width": 4,
+        "value": "LE32(arg+4)"
+      },
+      {
+        "pc": "0x23021950",
+        "address": "0x5302c500",
+        "width": 4,
+        "value": "U8(arg+0x20)"
+      },
+      {
+        "pc": "0x23021956",
+        "address": "0x5302c710",
+        "width": 4,
+        "value": 24
+      },
+      {
+        "pc": "0x23021976",
+        "address": "0x5302ce20",
+        "width": 4,
+        "value": 16777221
+      },
+      {
+        "pc": "0x2302197c",
+        "address": "0x5302ce28",
+        "width": 4,
+        "value": 50528287
+      },
+      {
+        "pc": "0x23021986",
+        "address": "0x5302ce44",
+        "width": 4,
+        "value": 258
+      },
+      {
+        "pc": "0x2302198a",
+        "address": "0x5302ce48",
+        "width": 4,
+        "value": 69665
+      },
+      {
+        "pc": "0x2302198e",
+        "address": "0x5302ce4c",
+        "width": 4,
+        "value": 65535
+      },
+      {
+        "pc": "0x2302199e",
+        "address": "0x5302c400",
+        "width": 4,
+        "value": "old | 0x80001"
+      },
+      {
+        "pc": "0x230219a6",
+        "address": "0x5302c488",
+        "width": 4,
+        "value": 264
+      },
+      {
+        "pc": "0x230219ac",
+        "address": "0x5302c20c",
+        "width": 4,
+        "value": 0
+      },
+      {
+        "pc": "0x230219b0",
+        "address": "0x5302c200",
+        "width": 4,
+        "value": 0
+      },
+      {
+        "pc": "0x230219b4",
+        "address": "0x5302c218",
+        "width": 4,
+        "value": 0
+      },
+      {
+        "pc": "0x230219b8",
+        "address": "0x5302c220",
+        "width": 4,
+        "value": 0
+      }
+    ],
+    "ram_stores": [
+      {
+        "pc": "0x2302195a",
+        "address": "0x2300261b",
+        "width": 2,
+        "value": 257
+      },
+      {
+        "pc": "0x2302195e",
+        "address": "0x23002610",
+        "width": 4,
+        "value": 0
+      },
+      {
+        "pc": "0x23021960",
+        "address": "0x23002614",
+        "width": 4,
+        "value": 0
+      },
+      {
+        "pc": "0x23021962",
+        "address": "0x23002618",
+        "width": 2,
+        "value": 0
+      },
+      {
+        "pc": "0x23021964",
+        "address": "0x2300261a",
+        "width": 1,
+        "value": 3
+      },
+      {
+        "pc": "0x23021966",
+        "address": "0x23002610",
+        "width": 1,
+        "value": 5
+      },
+      {
+        "pc": "0x23021968",
+        "address": "0x23002618",
+        "width": 1,
+        "value": 31
+      },
+      {
+        "pc": "0x2302196c",
+        "address": "0x23002615",
+        "width": 1,
+        "value": 1
+      },
+      {
+        "pc": "0x23021972",
+        "address": "0x23002625",
+        "width": 1,
+        "value": 1
+      },
+      {
+        "pc": "0x23021974",
+        "address": "0x2300262c",
+        "width": 1,
+        "value": 1
+      },
+      {
+        "pc": "0x23021980",
+        "address": "0x23002620",
+        "width": 2,
+        "value": 5
+      },
+      {
+        "pc": "0x23021984",
+        "address": "0x23002622",
+        "width": 1,
+        "value": 0
+      },
+      {
+        "pc": "0x230219a4",
+        "address": "0x23002628",
+        "width": 4,
+        "value": 16908319
+      }
+    ],
+    "preserved_ram_holes": [
+      "261d..261f",
+      "2623..2624",
+      "2626..2627",
+      "262d onward outside other explicitly listed stores"
+    ],
+    "irq44": "disable ICER1=1000; priority veneer writes40 toE000E42C then caller overwrites00; ICPR1=1000; ISER1=1000",
+    "no_poll": "TASKS_DISABLE=1 is not followed by EVENTS_DISABLED polling"
+  },
+  "timer": {
+    "base": "0x53028000",
+    "word_writes": [
+      "+4=1",
+      "+c=1",
+      "+510=5",
+      "+504=old&~3",
+      "+508=(old&~3)|2",
+      "+540..+55c each=0",
+      "+308=00ff0000"
+    ],
+    "does_not_clear": "COMPARE event registers+140..15c; unrelated mode bits; other register values"
+  },
+  "irq_veneer": {
+    "0x0e089e48": "sxth irq; if>=0, write1<<(irq&31) toE000E180+4*(irq>>5); DSB,ISB",
+    "0x0e089e2c": "sxth irq; if>=0, write1<<(irq&31) toE000E100+4*(irq>>5)",
+    "0x0e089e70": "priority byte=((r1+1)<<5)&255; sxth irq>=0 writesE000E400+irq; negative writesE000ED14+(irq&15); r2 unused",
+    "exact_sequences": [
+      "IRQ44:priority40 then00; clear_pending1000; enable1000",
+      "IRQ40:priority40 then20; clear_pending100; enable100",
+      "IRQ92:priority60 then40; clear_pending10000000; enable10000000",
+      "IRQ91:priority60 then40; clear_pending08000000; enable08000000"
+    ],
+    "mock_vs_hardware": "plain register backing stores final written mask; real NVIC SET/CLEAR semantics are cumulative actions"
+  },
+  "rate": {
+    "guard": "unsigned(r1-1)<=63",
+    "invalid": "return without writes, including76ee",
+    "full_init_valid": "halfword29ac=rate",
+    "rate1": "if76ee==0:word5302e040=1;byte76ee=1; else preserve flag/hardware",
+    "rate2_64": "if76ee!=0:word5302e044=1;byte76ee=0; else preserve hardware",
+    "standalone_connected": "if half2794>2 and half(peerbase+34)!=0:215ac(peer,0,[2f,rate,BE16(half2a0a+100)],4,ff), store rate+36 and targettick+38; branch unreachable after full reset"
+  },
+  "test_fixture": {
+    "descriptor": "0x23010000, allocate>=40 bytes; disjoint from reset/state/MMIO and stack",
+    "stack": "example initialSP0x2301f000 with>=0x100 bytes backing below; wrapper->full->radio max144 bytes on ordinary full-init route",
+    "pattern_tests": [
+      "nonzero initialRAM reveals preserved holes",
+      "SHORTS nonzero pattern verifies OR",
+      "MODE/BITMODE high bits retained",
+      "76ee in{0,1,255}, rates{0,1,2,64,65,65535}",
+      "wrapper high16 bits distinct",
+      "endpoint sentinels2687,3858",
+      "descriptor params2/3 distinct bytes to check297e byte order"
+    ]
+  },
+  "boundaries": [
+    "No CPU scheduling or callback boundary in the valid nonaliasing fullinit/appwrapper/direct-radio paths.",
+    "MMIO task writes do not prove physical disable/enable completion; no waits present.",
+    "Input descriptor overlapping reset RAM or caller stack changes original read-after-write semantics; exclude from simple host-value model.",
+    "Standalone21C6C connected branch is outside fullinit reachability and needs its existing TX queue semantics."
+  ],
+  "raw_evidence": [
+    {
+      "address": "0x230259a4",
+      "file_offset": "0x6140",
+      "size": 68,
+      "hex": "f0b50646072785b068460d461446adf80c30adf80810adf80a2001970096fdf731fab0b2fbf72cfa00200122034b0449dd801c810860da7205b0f0bd6c6b0023686b0023",
+      "sha256": "36274bb68dabc42290f5897a810b81834cddfc401ccb20bdbae5fddc96b5d24b"
+    },
+    {
+      "address": "0x23022e28",
+      "file_offset": "0x35c4",
+      "size": 308,
+      "hex": "2de9f041054600248ab0fff7cbfbdff81481fef7e1fcfef7cdfc2a682346c8f818206a684048a8f808202a683f4ed243c8f8202029896a894fea112c6cf3070361f30f23110a61f3174362f31f63c0f80630fef791fcd8f818304027029304230deb03000993fef72dfda9892046fef7e9fe282009f000fc052501214ff47f0c2b4b22465960d960c3f81055d3f80455282025f00305c3f80455d3f8085525f0030545f00205c3f80855c3f84045c3f84445c3f84845c3f84c45c3f85045c3f85445c3f85845c3f85c45c3f808c309f04bfb4ff480732022282086f82823c6f8843109f0b1fb224602215c2009f03cfb4ff0805386f85c735c20c6f8883109f0a3fb224602215b2009f02efb4ff0006386f85b735b20c6f8883109f095fb0ab0bde8f081942700237829002300e100e000800253",
+      "sha256": "9f658411d3026738c427722e49429d209c5c21ed16a8366ee49081d8fb9d14e7"
+    },
+    {
+      "address": "0x230218ec",
+      "file_offset": "0x2088",
+      "size": 280,
+      "hex": "2de9f84f05462c200af0d4fe4ff00a0b01210024052240f2011e4ff018084ff01f0c03274ff481764ff6ff704ff4847a2e4bdff8bc901961c3f80417c3f83c1ec3f840bedff8acb0c3f834bec3f8389edff8a490c3f82c9ed5f80490c3f8309e95f82050c3f80055244dc3f81087a5f80be02c606c602c81af722a7085f808c069711f4f1f4d69712973c3f8207e1e4fc3f8287e2a801d4aac70c3f8446ec3f8482ec3f84c0ed3f800242c2042f400220a43c3f80024164aaa60c3f888a42246c3f80c42c3f80042c3f81842c3f820420af0e8fd4ff480520e4b2c2083f82c43c3f88421bde8f84f0af04cbe00c00253c4c5c6c7e7c1c2c32c548aeb1026002305000001202600231f000303211001001f00020100e100e0",
+      "sha256": "ce5226060d35e7fd1a0835efddf0309084d0d521959b11e17925e8909a36fc81"
+    },
+    {
+      "address": "0x230225cc",
+      "file_offset": "0x2d68",
+      "size": 84,
+      "hex": "10b5114c4ff46e620021204609f0c2ff4ff4f27200210d4809f0bcff4ff4867200210b4809f0b6ff4ff0ff33c4f8c230c4f8c630c4f8ca30c4f8ce300020bde81040fef78bbf00bf782900239427002388260023",
+      "sha256": "eedd2e4ba2324fcfdc89aa769369d93025d2ec05442ddeb92ff6bd4192566db8"
+    },
+    {
+      "address": "0x23021528",
+      "file_offset": "0x1cc4",
+      "size": 132,
+      "hex": "4ff46e6200214ff0103c02fb00f01a4b00f5b27230b499501a44918000f5af7299501a449180154c00f5b4711944c1f80640134d00f5c8741a181c44c1f80250c1f80ac0c2f8784100f5787100f564741c441944c2e95f4100f59c6400f5dc611c441944c2e9614100f50e601844c2f88c0130bc704700bf782900232060101020051020",
+      "sha256": "84d77def32b050fd4ca2059b6591291b4621690d51c532399de22a66ba14778e"
+    },
+    {
+      "address": "0x23021800",
+      "file_offset": "0x1f9c",
+      "size": 160,
+      "hex": "2de9f0414ff001080227032604254ff0050e00204ff0060c4ff000447f221649164b81f80080164918700f701549164b0e7016490d70164981f800e0154981f800c01549c3f8c041c3f8c4113c443944c3f8c841c3f8cc113c443944c3f8d041c3f8d4110d493c44a3f5c043c1f80c43c3f80425bde8f081f4760023f5760023f3760023f276002300800253f1760023f0760023ef7600230100008000c00253",
+      "sha256": "ccb59eb6f592aa4ed216e2649e070bd257319352775b20b73d4d372e276bfca1"
+    },
+    {
+      "address": "0x23021c6c",
+      "file_offset": "0x2408",
+      "size": 184,
+      "hex": "4a1e3f2a19d870b5274a0346128886b0022a8eb229d94ff46e64244a04fb0024a38e5bb9224a01291078a6862fd0d0b1012020494864137015e07047b2f892308df8091064335aba9db2adf80a202f23ff228df8083000920423002102aafff76ffce686258706b070bd4ff46e600f4a012900fb03239e860d4b1a780dd0002af1d0012000220b4948641a70ebe70028e9d1084b19641170e5e7002ae3d1054a11641970dfe700bf9427002378290023ee76002300e00253",
+      "sha256": "5109de94f94ad0a551553d97e5facdd3ae00a2f2fd348229340b16239035491e"
+    },
+    {
+      "address": "0x230217a0",
+      "file_offset": "0x1f3c",
+      "size": 2,
+      "hex": "7047",
+      "sha256": "c7dfbb7d02759eacb64dbc916c1bb6f21eabaff1c1032ea5c9176abf7fd28df8"
+    },
+    {
+      "address": "0x230217dc",
+      "file_offset": "0x1f78",
+      "size": 2,
+      "hex": "7047",
+      "sha256": "c7dfbb7d02759eacb64dbc916c1bb6f21eabaff1c1032ea5c9176abf7fd28df8"
+    },
+    {
+      "address": "0x23020e24",
+      "file_offset": "0x15c0",
+      "size": 32,
+      "hex": "054b10b400f00f00044c03eb00130fcb84e80f0010bc70470489090e00260023",
+      "sha256": "c327d8838ad6bf522455e32174ebdf7509df10b52d485640fe1302a789faae67"
+    },
+    {
+      "address": "0xe089e2c",
+      "file_offset": "0x1de2c",
+      "size": 114,
+      "hex": "00b2002807db012300f01f01024a40098b4042f82030704700e100e000b200280cdb01220649430900f01f002033824041f82320bff34f8fbff36f8f704700bf00e100e0013100b249010028c9b206db00f1604000f5614080f800137047034b00f00f0003441976704700bffcec00e00021",
+      "sha256": "c7f7203479ef2ea4e1ecbb4bf602b3fb5538b5511482e3237b97e5bb01862a1f"
+    },
+    {
+      "address": "0xe0973ea",
+      "file_offset": "0x2b3ea",
+      "size": 16,
+      "hex": "02440346934200d1704703f8011bf9e7",
+      "sha256": "9b992ee6e518ade6aeccbcc2f9595e3383491ddd472d229742a9aba1ea9f673f"
+    }
+  ],
+  "portable_review": {
+    "files": [
+      "mouse_initialization.c",
+      "mouse_initialization.h"
+    ],
+    "result": "No concrete mismatch found within declared final-memory/nonaliasing domain. No C edits or tests performed.",
+    "checks": [
+      "queue12B reset exact; capacity constants and six pointers exact",
+      "packed297E and halfword truncations exact",
+      "radio field widths and preserved holes exact",
+      "IRQ final priorities and last-written mask snapshots exact",
+      "fullinit fixedPHY4 and rate flag preservation exact",
+      "rate1 writes clock+0x40=1 before byte76EE=1, matching raw21D0C/21D0E"
+    ],
+    "limitations": [
+      "Intermediate veneer priority writes are not reproduced; header explicitly promises only final effects.",
+      "Input descriptor aliasing reset destinations is outside scalar-argument model."
+    ]
+  },
+  "upstream": {
+    "direct_caller": "23021150(id,rate) calls259A4(id,0xBF,0,rate) at23021164, then byte7799=1",
+    "first_time": "if byte779A==0, call25D1C, set779A=1, call2302C5F8->E096164(0x271,0) before fullinit",
+    "true_boundary": "E096164 -> E0960A8 timeout/thread state -> E089D4C CPU context switch.25D1C also creates thread/timers and may schedule. No assumed no-op.",
+    "caller_input": "2302869C(nonzero), at286B8 loads LE32[49AC+1F]=[49CB], at286BE REV, at286BC LDRB[4A5C+3]=rate; BL21150 at286C0",
+    "mode_entry": "23026A00 mode transition BL2869C(1) at26A6E; preceding shutdown/system callbacks remain to model",
+    "identity_source": "E07D23C callsE07DE2C(index0,keyA001,dest49AC,len29) atE07D27C; identity offset1F. Invalid allzero/allones identity gets device ID0FFFE010 big-endian bytes. Durable record backend and fallback deserve next independent proof.",
+    "rate_source": "E07D23C ->2678C(0)->26800. 26800 copies44 bytes from44CE+F4*U8[4477] to4A5C; rate byte is source+3. Profile record came fromA003 into4474 (length4E4) or ROM defaults; validity/CRC/backend domain not implemented in this report.",
+    "recommended_next": "Implement bounded21150 existing-infrastructure branch first; then25D1C creation+sleep continuation; connect2869C input provenance/profile load. Preserve real scheduler boundary before claiming whole wireless startup."
+  }
+}

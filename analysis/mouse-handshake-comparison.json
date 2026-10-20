@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "cases": 256,
+  "coverage": {
+    "output_state_0x16": 128,
+    "reply_0x12": 64,
+    "reply_0x14": 64,
+    "output_state_0x17": 64,
+    "reply_0x16": 64,
+    "output_state_0x13": 51,
+    "output_state_0x14": 13
+  },
+  "failures": [],
+  "source_sha256": "37c77f3908db611f666f02c708ed95284c233518b7ffb4a263bfb0d687b977f1",
+  "checked": [
+    "all 992 RAM-window bytes",
+    "15 selected register words"
+  ],
+  "limits": [
+    "inert MMIO memory, no hardware peripheral state evolution",
+    "pairing flag zero; no terminal state0x17 execution",
+    "software execution, no RF/interrupt timing validation"
+  ]
+}

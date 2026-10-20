@@ -1,0 +1,129 @@
+{
+  "status": "PASS",
+  "component_integration": {
+    "scenarios": 16,
+    "timer_events": 16408,
+    "valid_rx_business": 960,
+    "disconnect_boundaries": 8
+  },
+  "cases": [
+    {
+      "mode": 0,
+      "initial_failures": 0,
+      "traffic": false,
+      "periods": 100,
+      "disconnect": true
+    },
+    {
+      "mode": 0,
+      "initial_failures": 0,
+      "traffic": true,
+      "periods": 120,
+      "disconnect": false
+    },
+    {
+      "mode": 0,
+      "initial_failures": 98,
+      "traffic": false,
+      "periods": 2,
+      "disconnect": true
+    },
+    {
+      "mode": 0,
+      "initial_failures": 98,
+      "traffic": true,
+      "periods": 120,
+      "disconnect": false
+    },
+    {
+      "mode": 1,
+      "initial_failures": 0,
+      "traffic": false,
+      "periods": 100,
+      "disconnect": true
+    },
+    {
+      "mode": 1,
+      "initial_failures": 0,
+      "traffic": true,
+      "periods": 120,
+      "disconnect": false
+    },
+    {
+      "mode": 1,
+      "initial_failures": 98,
+      "traffic": false,
+      "periods": 2,
+      "disconnect": true
+    },
+    {
+      "mode": 1,
+      "initial_failures": 98,
+      "traffic": true,
+      "periods": 120,
+      "disconnect": false
+    },
+    {
+      "mode": 2,
+      "initial_failures": 0,
+      "traffic": false,
+      "periods": 100,
+      "disconnect": true
+    },
+    {
+      "mode": 2,
+      "initial_failures": 0,
+      "traffic": true,
+      "periods": 120,
+      "disconnect": false
+    },
+    {
+      "mode": 2,
+      "initial_failures": 98,
+      "traffic": false,
+      "periods": 2,
+      "disconnect": true
+    },
+    {
+      "mode": 2,
+      "initial_failures": 98,
+      "traffic": true,
+      "periods": 120,
+      "disconnect": false
+    },
+    {
+      "mode": 3,
+      "initial_failures": 0,
+      "traffic": false,
+      "periods": 100,
+      "disconnect": true
+    },
+    {
+      "mode": 3,
+      "initial_failures": 0,
+      "traffic": true,
+      "periods": 120,
+      "disconnect": false
+    },
+    {
+      "mode": 3,
+      "initial_failures": 98,
+      "traffic": false,
+      "periods": 2,
+      "disconnect": true
+    },
+    {
+      "mode": 3,
+      "initial_failures": 98,
+      "traffic": true,
+      "periods": 120,
+      "disconnect": false
+    }
+  ],
+  "original_instruction_cases_added": 0,
+  "limits": [
+    "events, CC7 and successful RX are explicit environment inputs",
+    "disconnect ends before actual RTOS semaphore-give",
+    "no time/RF/DPPI emulation"
+  ]
+}

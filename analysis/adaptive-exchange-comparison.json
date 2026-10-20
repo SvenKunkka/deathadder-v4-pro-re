@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "component_cases": 296,
+  "reports_delivered": 148,
+  "full_queue_side_effect_cases": 148,
+  "source_sha256": {
+    "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "analysis/verify_adaptive_exchange.py": "ba8b9e6278d0db77fa0d914160667ab5f7f7c1552263e1c4ee494fbbf79ff7c6"
+  },
+  "limits": [
+    "C integration only; not new original Thumb cases",
+    "IRQ delivery and DMA packet transfer explicit test actions",
+    "no RF event or actual NVIC scheduling"
+  ]
+}

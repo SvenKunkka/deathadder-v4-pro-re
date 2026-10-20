@@ -1,0 +1,250 @@
+{
+  "firmware": "official1.20 dongle radio",
+  "image": {
+    "path": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+    "sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162"
+  },
+  "status": "2736 differential cases PASS",
+  "validation": {
+    "fully_returned_entrypoint_cases": 2663,
+    "usb_driver_boundary_stops": 9,
+    "isolated_post_driver_continuations": 64,
+    "total": 2736,
+    "report": "analysis/dongle-business-consumer-comparison.json"
+  },
+  "entrypoints": {
+    "usb_enqueue": "230268B0",
+    "business_consume": "23020250",
+    "management": "23024C88",
+    "status_table": "23025B40",
+    "driver_boundary": "0E0622BC",
+    "continuation": "23026AF0"
+  },
+  "normal_mode": {
+    "address": "23002C82",
+    "width_bits": 16,
+    "value": 1
+  },
+  "usb_ring": {
+    "map": "2300048C",
+    "class_to_ring": [
+      0,
+      0,
+      2,
+      0,
+      1,
+      0
+    ],
+    "write": "23006838+ring",
+    "read": "23006834+ring",
+    "storage": "2300683C+(ring*4+index)*16",
+    "slots": 4,
+    "usable": 3,
+    "enabled": "230071E4",
+    "return": "success returns original enabled byte (not fixed1); failure0",
+    "invalid_write": "if write>=4 and uint8(write+1)!=read, clear all3read+3write bytes; equality path returns0 withoutclear"
+  },
+  "class1": {
+    "pending_flag": "23002C88 ==1",
+    "cache": "23002C8A..23002C91",
+    "merge": "d0|=cache0,d1+=cache2,d2+=cache3,d3+=cache1,d[4:6]+=cache[4:6]LE16,d[6:8]+=cache[6:8]LE16",
+    "clear": "23002C88..23002C91 tenbytes beforequeue attempt",
+    "failure": "setflag1 andcopyinput8bytes into cache",
+    "length_note": "copy toUSB uses low8 length; fixedfield access still8bytes"
+  },
+  "management_A4": {
+    "writes": [
+      "230065E2 u32=0x50000",
+      "23006590 u16=0",
+      "23002C80 bit1 cleared"
+    ],
+    "usb_report": "05 09 02 01 +12zero bytes toclass4",
+    "status": "FF resets3records to00000001littleend order bytes00 00 00 01 and71B9=0",
+    "queue_purge": "peer0 2300353C..23003547 twelveindiceszero",
+    "other_call": "230203FC(0x14,0,0) falls through"
+  },
+  "driver_boundary": {
+    "condition": "mode16!=1; class1/2 anynonzero(data[0:len]) OR class4 firstbyte1 andlen>1; 71E3==0 and71E6==3",
+    "argument": "r0=LE32[2300690C]",
+    "pre_driver": "noRAMmutation on recovered path",
+    "continuation": "afterdriver anyresult sets71E3=1; result0 clears6905/6839/6835 and enqueues8zero bytes asclass1 (ring0)",
+    "not_implemented": "0E0622BC mutex/driver indirect call and MMIO; no suppliedsuccessatentry"
+  },
+  "tables": [
+    {
+      "opcode": "E0",
+      "flash": "0xe06f7c0",
+      "file_offset": "0x1b7c0",
+      "bytes": 20,
+      "sha256": "a12b8107a24550122331babf5c47d29e36c7c8faf27477d83727c9a45ea70421"
+    },
+    {
+      "opcode": "E1",
+      "flash": "0xe06f7a4",
+      "file_offset": "0x1b7a4",
+      "bytes": 28,
+      "sha256": "d9dc8558c9d3edca43660529c678780df101081af156bd277f42d96cc215fc8b"
+    },
+    {
+      "opcode": "E2",
+      "flash": "0xe06f790",
+      "file_offset": "0x1b790",
+      "bytes": 20,
+      "sha256": "16d85e3b718def55f038a8553418a67258daba14e39e0e898ee0d075a9a3dab5"
+    },
+    {
+      "opcode": "E3",
+      "flash": "0xe06f7d4",
+      "file_offset": "0x1b7d4",
+      "bytes": 404,
+      "sha256": "bd0b3fca9558f94fb70aa5feeab552a002638d20a70d9d8cf71a0b42fb40d8e6"
+    }
+  ],
+  "raw_instruction_evidence": [
+    {
+      "ram_address": "23020252",
+      "file_offset": "0x9ee",
+      "bytes": "56 4b 84 46 b3 f8 02 e0 0c 46 be f1 01 0f 13 46 82 b0",
+      "meaning": "Normal-mode selector is uint16 at23002C82, not byte"
+    },
+    {
+      "ram_address": "23020334",
+      "file_offset": "0xad0",
+      "bytes": "23 4d 2a 78 01 2a 0f d0 21 46 01 20 da b2 06 f0 b5 fa 00 28 94 d1 01 23 20 68 61 68 1d 4a c5 f8 02 00 2b 70 51 60 8b e7",
+      "meaning": "class1 pending/queue/cache control"
+    },
+    {
+      "ram_address": "2302035c",
+      "file_offset": "0xaf8",
+      "bytes": "48 78 8a 78 00 21 95 f8 02 e0 26 78 b5 f8 08 c0 4e ea 06 0e ee 88 84 f8 00 e0 95 f8 04 e0 70 44 60 70 68 79 02 44 a2 70 a2 88 e8 78 32 44 92 b2 22 71 12 0a 62 71 e2 88 62 44 92 b2 a2 71 12 0a e2 71 e2 78 02 44 e2 70 c5 e9 00 11 29 81 c7 e7",
+      "meaning": "class1 input byte permutation during pending merge, then clears10bytes"
+    },
+    {
+      "ram_address": "230268b0",
+      "file_offset": "0x704c",
+      "bytes": "f8 b5 18 4b 1d 78 9d b1 17 4b 18 4f 1e 5c 18 4b b8 5d 13 f8 06 c0 44 1c e4 b2 04 2c 0b d0 64 45 06 d0 03 28 15 d9 00 22 3a 80 ba 70 1a 80 9a 70 00 25 28 46 f8 bd",
+      "meaning": "USB enable, class mapping, next/write/read, invalid-index reset"
+    },
+    {
+      "ram_address": "230268e6",
+      "file_offset": "0x7082",
+      "bytes": "bc f1 00 0f f9 d0 03 23 14 fb 06 33 00 24 0b 48 00 eb 03 10 00 f0 a1 fc bc 55 ef e7 08 4b 00 eb 86 00 03 eb 00 10 00 f0 98 fc bc 55 e6 e7",
+      "meaning": "USB wrap enqueue and normal enqueue; return original enable byte"
+    },
+    {
+      "ram_address": "230202ac",
+      "file_offset": "0xa48",
+      "bytes": "0a 78 5a 2a e0 d1 3f 4d 9a 1e 28 46 02 31 06 f0 c1 ff 63 78 85 f8 58 30 d6 e7",
+      "meaning": "class5 copieslen-2 at23002D1C and secondbyte to23002D74"
+    },
+    {
+      "ram_address": "230202e6",
+      "file_offset": "0xa82",
+      "bytes": "0b 78 b1 2b c3 d1 a2 79 e3 79 49 79 31 4d 31 4e 2f 4c e1 20 32 70 23 70 29 70 05 f0 1e fc 31 78 e2 20 05 f0 1a fc e3 20 21 78 05 f0 16 fc 01 22 2a 4b 28 78 1a 70 02 b0 bd e8 70 40 04 f0 e9 bf",
+      "meaning": "B1 class3 status updates and230252F8 followup"
+    },
+    {
+      "ram_address": "23024ca8",
+      "file_offset": "0x5444",
+      "bytes": "10 b5 00 24 4f f4 a0 22 07 4b 21 46 01 20 c3 f8 52 20 1c 80 fb f7 7a fa 22 46 21 46 14 20 fb f7 99 fb 01 20 10 bd",
+      "meaning": "A4 state, complete201B4 callback, op14 no-op"
+    },
+    {
+      "ram_address": "23026ad8",
+      "file_offset": "0x7274",
+      "bytes": "10 b5 08 4c 23 78 53 b9 07 4b 1b 78 03 2b 06 d1 06 4b 18 68 00 f0 84 fb 01 23 23 70 10 bd 4f f0 ff 30",
+      "meaning": "non-normal USB resume gating and driver call"
+    },
+    {
+      "ram_address": "23026af0",
+      "file_offset": "0x728c",
+      "bytes": "01 23 23 70 10 bd",
+      "meaning": "post-driver sets71E3 before returning"
+    },
+    {
+      "ram_address": "2302027c",
+      "file_offset": "0xa18",
+      "bytes": "04 46 00 28 f8 d1 01 20 06 f0 50 fb 08 22 69 46 01 20 cd e9 00 44 06 f0 0d fb ed e7",
+      "meaning": "driver result0 clearsqueue1 bookkeeping and sendszero8byteclass1"
+    },
+    {
+      "ram_address": "23021080",
+      "file_offset": "0x181c",
+      "bytes": "40 f6 84 72 02 4b 02 fb 00 33 99 86 70 47",
+      "meaning": "B1 followup writes2300341C halfword"
+    }
+  ],
+  "sources": [
+    {
+      "path": "recovered-code/portable/dongle_business_consumer.c",
+      "sha256": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86"
+    },
+    {
+      "path": "recovered-code/portable/dongle_business_consumer.h",
+      "sha256": "db0d78b4311984afe58f6766256d299c8b23f12d3def08e879e8c20748142afd"
+    },
+    {
+      "path": "ghidra-scripts/EmulateDongleBusinessConsumer.java",
+      "sha256": "181ef7912376ee313cd50ed53cd947dcc200ba5caa72e65d3c3b569a7adb0bc6"
+    },
+    {
+      "path": "analysis/verify_dongle_business_consumer.py",
+      "sha256": "61d8cfbbf614ce1ebadd965a5b288031c7bbd132fcd649d2a9442c11ef04bf01"
+    },
+    {
+      "path": "analysis/dongle-business-consumer-comparison.json",
+      "sha256": "6fe0a04edb42f02c0f48bb531ad2fc016d266bf67df0cc84dd2ec5862843eac9"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23020250.c",
+      "sha256": "69b9374489a24ac8ac8890a2e5f79eeef578fca96ed5b47daac28619128a9d2c"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23024c88.c",
+      "sha256": "3f26c7b0dbf0278f8dbd274cc3bdd9dda200c92bf6a5884e6c69dacb17d449a4"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230268b0.c",
+      "sha256": "4f76e7d4ae5f3bea87e75d862453eabb604bf16e71f36f684b6ac71edff1fd49"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23025b40.c",
+      "sha256": "b4d5fc23a79c2c87af8350857fbd8703d6046255cdf9e0eccbb130561af93b6b"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23020160.c",
+      "sha256": "51599a84aba41b90da68df611e9e2f7a30b0a3370be5b3b8b4b21e8e68705544"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230201b4.c",
+      "sha256": "f8d4c386ec260a84db1d7c96aa067470e342b612c47a771abfee8815d267585b"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230203fc.c",
+      "sha256": "e82b0729b90dc293399c4b53316e2f7e9941c8eb936b31f7eb099fc697c0ce68"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230207a4.c",
+      "sha256": "151f7be205a44243aab05f7679f1a8ba90a0af8bb12eaebe3b92b004f3679d88"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23026ad8.c",
+      "sha256": "a68fd703c86bcb7be41878069cea0cb048e5b9a3bff3d6399cd6e0f0cf8e70fa"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23026928.c",
+      "sha256": "04d0b185cd663484e95630f492865d35eeb379bca95224d2b5b1397c3ff9c52a"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/0e0622bc.c",
+      "sha256": "a550a9a20a029fd461507833e82cc39928c2c6fea9aeecfe244319e2ce1d1c16"
+    }
+  ],
+  "unknown": [
+    "actual USB transfer completion",
+    "driver/RTOS resume effects",
+    "interrupt concurrency",
+    "full application command dictionary",
+    "hardware/RF"
+  ]
+}

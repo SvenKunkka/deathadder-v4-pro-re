@@ -1,0 +1,76 @@
+{
+  "firmware_version": "mouse 1.20",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "ram_sha256": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5",
+  "function": "0x230227b8",
+  "instruction_evidence": [
+    {
+      "start": "0x230227d2",
+      "end_exclusive": "0x230227f6",
+      "meaning": "state16 event5 TX-completion",
+      "raw_hex": "0528fbd100bf0025ac4b1422c3f80051ab4904f18c00fff7d2f9a94bc4f8d63000bfebe7",
+      "sha256": "f44f4b8f476276eef4057e92633f8388daf986f1ad0fca4f058a9e0bb01de656"
+    },
+    {
+      "start": "0x23022904",
+      "end_exclusive": "0x2302293c",
+      "meaning": "offer flags, capability guard, pairing identity filter and byte reversal",
+      "raw_hex": "b4f8e630644ec3f3c01284f89120c3f3801262833289a6f8b23003f00f031a42b8d0636943b1a369b3f5803f3ff469afd4f8e2301bbaf361",
+      "sha256": "7b1a17e03319f3e168773905381e6d2b8166a6f0cee5f72d9208357d7040ba99"
+    },
+    {
+      "start": "0x23021b90",
+      "end_exclusive": "0x23021bac",
+      "meaning": "state+event clears+RXEN task helper",
+      "raw_hex": "30b400240125054b0260c3f80042c3f81842c3f820420d6030bc7047",
+      "sha256": "0c6c3a4f93efb01fde3fa0d029c2dfcf6499f667b505baa3e78eb3b0b3a5bb68"
+    }
+  ],
+  "identity": {
+    "phase": 0,
+    "packet_type": 17,
+    "pairing_flag_address": "0x2300298c",
+    "precondition": "valid event5 RX, CRCOK=1, packet[1]&0xc0=0, length byte11, capability intersection nonzero",
+    "flags_updated_first": [
+      "u16[23002846]=LE16(packet[8:10])",
+      "u8[23002a09]=packet[8]>>7",
+      "u16[23002992]=(packet[8]>>6)&1"
+    ],
+    "reject": "pairing_flag != 0 AND u32[23002990] == 0x00010000 after upper-half update",
+    "reject_side_effects": "preserve flag writes; reset timer/phase/state to 0x13; do not update identity",
+    "identity_update": "if nonzero pairing flag and not rejected, u32[230027b0]=BE32(packet[4:8])",
+    "pairing_flag_cleared": false
+  },
+  "state16": {
+    "event_guard": 5,
+    "CRC_checked": false,
+    "writes": [
+      "RADIO_SUBSCRIBE_TXEN=0",
+      "u32[23002a04]=0x14",
+      "RADIO_EVENTS_READY@5302c200=0",
+      "RADIO_EVENTS_END@5302c218=0",
+      "RADIO_EVENTS_DISABLED@5302c220=0",
+      "RADIO_TASKS_RXEN@5302c004=1",
+      "u32[23002a4e]=0x50001"
+    ],
+    "untouched": [
+      "handshake phase23002a4a",
+      "counter23002a52",
+      "packet",
+      "identity",
+      "TIMER020_SUBSCRIBE_CLEAR"
+    ],
+    "other_events": "no changes"
+  },
+  "interfaces": {
+    "retained": "rr_mouse_handshake_rx: zero-initialized projection of15 selected MMIO words",
+    "new": "rr_mouse_handshake_step:19-word in/out, untouched values preserved",
+    "python": "transition(...,extended_registers=True,initial_registers=...)"
+  },
+  "verification_file": "mouse-handshake-extended-comparison.json",
+  "limits": [
+    "state17 terminal lifecycle remains pending",
+    "inert MMIO no hardware behavior",
+    "not full radio implementation"
+  ]
+}

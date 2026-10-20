@@ -1,0 +1,79 @@
+{
+  "scope": "key install+wrapper and bounded class0 control execution",
+  "original_instruction_cases": 1952,
+  "key_wrapper": 1056,
+  "control": 896,
+  "spans": [
+    {
+      "image": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "start": "0x23020e24",
+      "end_exclusive": "0x23020e7c",
+      "offset": "0x15c0",
+      "bytes": "054b10b400f00f00044c03eb00130fcb84e80f0010bc70470489090e0026002370b505460c7888b068460e46224629460bf0d8fba10804d06846064afff776ff34782246694628460bf0ccfb012008b070bd00bf00260023",
+      "sha256": "d5177eedb6ee8d7d3db861e8cfbcddab5883eb4ba78df6bc54b82fe5e12f1992"
+    },
+    {
+      "image": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "start": "0x23025f1c",
+      "end_exclusive": "0x23025f44",
+      "offset": "0x66b8",
+      "bytes": "47f23050074ad38bb2f81cc001339bb2834288bf00236144918394bfd383d361704700bf6c6b0023",
+      "sha256": "fcd5f89ee4b611bd34391db2f78c89cfb9df843eef6d00b0b39d1abcfae65fb4"
+    },
+    {
+      "image": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "start": "0x23021c6c",
+      "end_exclusive": "0x23021d0c",
+      "offset": "0x2408",
+      "bytes": "4a1e3f2a19d870b5274a0346128886b0022a8eb229d94ff46e64244a04fb0024a38e5bb9224a01291078a6862fd0d0b1012020494864137015e07047b2f892308df8091064335aba9db2adf80a202f23ff228df8083000920423002102aafff76ffce686258706b070bd4ff46e600f4a012900fb03239e860d4b1a780dd0002af1d0012000220b4948641a70ebe70028e9d1084b19641170e5e7002ae3d1054a",
+      "sha256": "cf0911e018d60a9f4fdfe7e265ee9687138c07bb028a3f6ad6f9343fe5a0f45c"
+    },
+    {
+      "image": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "start": "0x23020108",
+      "end_exclusive": "0x23020160",
+      "offset": "0x8a4",
+      "bytes": "054b10b400f00f00044c03eb00130fcb84e80f0010bc704774fa060e2030002370b505460c7888b068460e462246294607f082f8a10804d06846064afff77aff347822466946284607f076f8012008b070bd00bf20300023",
+      "sha256": "bd924850e0cb9a672daed476424d6dc108b7601833e79fc0dab2444118501435"
+    },
+    {
+      "image": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "start": "0x2302552c",
+      "end_exclusive": "0x23025580",
+      "offset": "0x5cc8",
+      "bytes": "09b3ff291fd010b4114b041d53f824200a4443f82420841d53f82420013243f8242000f1080203eb820294680a300c449460052203eb80008168a3f856200131816010bc70470522014ba3f85620704790650023",
+      "sha256": "0d737ca44a0d4650408897ba8ecb9c4ccb465e42caf78e1d4c74155bc4cd358d"
+    },
+    {
+      "image": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "start": "0x230254a0",
+      "end_exclusive": "0x230254f8",
+      "offset": "0x5c3c",
+      "bytes": "38b5bdf81050dbb20446c9b2c0b2fff7a9fd104bd5b1ff2d18d0211d53f821202a4443f82120a11d53f82120013243f8212004f1080203eb820291680a3403eb84040d44a16895600131a1600522a3f8562038bd90650023",
+      "sha256": "8833697e521e598f17ffdcbd049a3a2a08397cd5d02168b040a4679676101de3"
+    },
+    {
+      "image": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "start": "0x230214bc",
+      "end_exclusive": "0x23021524",
+      "offset": "0x1c58",
+      "bytes": "30b50021ff252823194c85b094f836208df808308df8092094f8372005238df80a2094f8382008468df80b2094f8392000958df80c2002aafff7e0f900214ff0290c94f83a0000958df8090009480523b0f8a60102aa40baadf80a0008468df80c108df808c0fff7",
+      "sha256": "1bead6a412694941e20b399492a20b12b21031a33bacb3cd8acb176d60f1a557"
+    }
+  ],
+  "sources": {
+    "recovered-code/portable/business_keys.c": "76bc4d99c53b0e4b2bbf0d5dac91569b1715e42dad2b2cc52d23ff8f5131b8fe",
+    "recovered-code/portable/business_keys.h": "72298c0f1d59dca2614d104d799b3849f646c111b2138cba06522bb1bebc26d2",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_control.h": "b17c9c6353c8648491b52d8acebc5342461c58441005c429f1451772f78eb6b2",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_cipher.h": "176e03bac6ad07d95aa9759b84f3510ae06bf1a07950258be02878961828ad53",
+    "analysis/business-keys-original-comparison.json": "1497e4ffa9b60e7059b9871cdd45441aadcdd5d009a386fb5905fb8febc921c2",
+    "analysis/business-control-original-comparison.json": "0fef1cc4de2c0280d4da9ee48f9b06a6d34558353e69af6be046be55a4158a6a"
+  },
+  "limits": [
+    "connection callers/full scheduling not yet linked",
+    "no IRQ or physical timing semantics",
+    "adaptive error report and full mode4 control remains outstanding"
+  ]
+}

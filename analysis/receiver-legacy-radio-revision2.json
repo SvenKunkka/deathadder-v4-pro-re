@@ -1,0 +1,22 @@
+{
+  "status": "frozen_revision2",
+  "reason": "actual mode2 TIMER producesselectedqueue255",
+  "old_stage1_freeze": "analysis/receiver-legacy-radio-stage1-freeze.json",
+  "old_cases_regression": 2688,
+  "new_sentinel_cases": 768,
+  "duplicate_cases": 384,
+  "new_sequence_cases": 384,
+  "shared_business_tx_unchanged": true,
+  "new_domain": "0..5 or255",
+  "original_byte_pop_offsets": [
+    "context+0x259",
+    "context+0x25F"
+  ],
+  "sources": {
+    "recovered-code/portable/receiver_legacy_radio.c": "d286da465bae26d74e70ebc30f1b9b46ebd247b4cfa37418f653f445db044bc0",
+    "recovered-code/portable/receiver_legacy_radio.h": "3f7d440c2e9eea1af4c331a1480f3d4365cf331bbe9fbda3edf5bcda7c355ec9",
+    "analysis/receiver-legacy-radio-comparison.json": "86e6c5605796fcada5b43b3640af5d78c3cb7bb0afc619ee3d07011e2ea866e0",
+    "analysis/receiver-legacy-sentinel-comparison.json": "ebca64c77068ce0e84b7fb48a55f31aaf97e38c5ecae105007503fbd1702e206",
+    "analysis/receiver-legacy-radio-stage1-freeze.json": "f2d40b1bcbe1cd4d5c47381099b3f1cb6f466717ad903a66e5779b249025165f"
+  }
+}

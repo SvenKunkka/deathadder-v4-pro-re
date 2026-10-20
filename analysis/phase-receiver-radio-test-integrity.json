@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "datasets": 82,
+  "original_inputs": 188160,
+  "C_units": 60,
+  "validated_sources_and_build_records": 123,
+  "errors": [],
+  "historical_source_bindings_checked": [
+    "recovered-code/portable/receiver_rtc_dispatch.c",
+    "recovered-code/portable/receiver_rtc_dispatch.h",
+    "recovered-code/portable/receiver_timer_expiry.c",
+    "recovered-code/portable/receiver_timer_expiry.h"
+  ],
+  "scope": "Current artifact/source/build/data integrity and declared test status; complete firmware/RF objective remains incomplete"
+}

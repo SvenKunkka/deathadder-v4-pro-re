@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "scope": "mouse radio1.20 timer start and delta timeout insertion; stable inert RTC",
+  "original_cases": 4096,
+  "statistics": {
+    "raw_timeout_entries": 2048,
+    "timer_start_entries": 2048,
+    "active_timer_inputs": 1024,
+    "active_timer_restarts": 968,
+    "forever_noops": 224,
+    "absolute_inputs": 1120,
+    "basepri_values": [
+      0,
+      32,
+      128
+    ],
+    "maximum_steps": 570
+  },
+  "independent_continuous_operations": 1024,
+  "host_contract_checks": 6,
+  "slices": [
+    {
+      "name": "timeout-start",
+      "start": "0xe096474",
+      "end_exclusive": "0xe096594",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "source_offset": "0x2a474",
+      "sha256": "9edb225baf7eb5ded7de0aeae764bc4ea50fad3041d3d4f41f08cf88a641503e"
+    },
+    {
+      "name": "timer-start",
+      "start": "0xe096a50",
+      "end_exclusive": "0xe096ac4",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "source_offset": "0x2aa50",
+      "sha256": "73767ef0ded46040928bbed1d46066f4d759557ef4c88a7d22611d5d824d9305"
+    },
+    {
+      "name": "elapsed-and-arm",
+      "start": "0x23028b70",
+      "end_exclusive": "0x23028c44",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin",
+      "source_offset": "0x8b70",
+      "sha256": "32a2ee1413f65c917eea20aa4678e44cfdd2cf98735e62f86d286ab953e0915b"
+    },
+    {
+      "name": "rtc-compare",
+      "start": "0x23029adc",
+      "end_exclusive": "0x23029b84",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin",
+      "source_offset": "0x9adc",
+      "sha256": "3e03a79024907859cc65b768870ba33984b41e579d1198c18a6c9370e9fdc4d3"
+    }
+  ],
+  "sources": {
+    "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+    "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+    "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+    "recovered-code/portable/mouse_timer_lifecycle.h": "0724d6c805f20f89424ba4cc96f2f07addbebf234a92e5d0bcd689a5520eb064",
+    "ghidra-scripts/EmulateMouseTimerStart.java": "4eb7ec89ef9785afce0c69a4a2c20a2674cdc687a33ea866f3f30ff42001f062",
+    "analysis/verify_mouse_timer_start.py": "24ef862a1def78856e640e9ec16964f26a960d5615c5df552f6d59dec81689a0",
+    "analysis/test_mouse_timer_start_integration.py": "b5056c91c84f2c7da8a6b6748825cc2ec5f85a09b61cd4db9c6de1f1ed1f3f4b",
+    "analysis/mouse-timer-start-original.jsonl": "95bcd66f15fca49ebf8afb31c4efd13d567f07bd23bbb779e1efff69608df948",
+    "analysis/mouse-timer-start-comparison.json": "322bc42d95fd83e09a38faf5e1e2c3b22d16352da31f8c7d35a1fd7190405feb",
+    "analysis/mouse-timer-start-integration.json": "61a4ec17e48e224fcbf130ee366660c21e10149f2116f5811d73d35b153a4dd1",
+    "firmware-extracted-1.20/Suit2FWData__radio_radio.bin": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48"
+  },
+  "boundaries": [
+    "raw timeout object must be unlinked; no duplicate insertion support",
+    "malformed address/list returns -1 with earlier writes preserved; walk bounded2730",
+    "RTC busy read returns -4 instead of unbounded hardware poll; mutations before read preserved",
+    "expiration function0e096950 registered as0e096951 but not executed by start",
+    "inert RTC snapshot and no concurrent ISR; original CPU BASEPRI verified but C caller supplies serialization",
+    "ISB userop is inert in Ghidra; no physical instruction barrier or hardware timing claim"
+  ],
+  "not_claimed": [
+    "expiry interrupt delivery",
+    "callback execution",
+    "periodic timer expiry/reinsert",
+    "OS thread scheduling",
+    "on-device radio or connection validation"
+  ]
+}

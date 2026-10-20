@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "assertions": 6664,
+  "random_differential_cases": 2048,
+  "table_sha256": "d33f232d47337cb1d80b47ef7c78787df4e8fc49f532155fbd35e06df70841f7",
+  "fixed_vectors": [
+    {
+      "plaintext": "0001020304050607",
+      "key": "000102030405060708090a0b0c0d0e0f",
+      "ciphertext": "1f6acf9e18e5c6cf"
+    },
+    {
+      "plaintext": "000102030405060708090a0b0c0d0e0f",
+      "key": "000102030405060708090a0b0c0d0e0f",
+      "ciphertext": "557024c2068744014b13416b0a583175"
+    }
+  ],
+  "validation_level": "Python vs newly authored native-host C + roundtrip, NOT original ARM execution or RF capture"
+}

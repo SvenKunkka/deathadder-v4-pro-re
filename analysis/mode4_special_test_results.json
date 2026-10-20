@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "assertions": 2087,
+  "original_instruction_spans_checked": 6,
+  "scope": "static branch model and existing RAM bytes; no target execution or RF validation"
+}

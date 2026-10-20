@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "cycles": 64,
+  "identity_initializations": 64,
+  "full_queue_purges": 64,
+  "config_messages_consumed": 960,
+  "mode_wrappers_and_consumers": 192,
+  "not_added_to_original_count": true,
+  "checks": [
+    "Official ten-slot configuration queue object and ring bounds",
+    "Stored identity byte-swap to actual initialization and key-install event",
+    "Statistics reset before subsequent queue consumption",
+    "Full queue purges all ten older messages and retains newest",
+    "Ten-message FIFO and wrapping with complete28-byte tail",
+    "Mode40/44/41 producers through actual queue and radio/timer consumer"
+  ],
+  "limits": [
+    "Serialized software event chain; no CPU stack switching or hardware",
+    "Old-stack PHY explicitly0 and message tails explicit inputs",
+    "Event43 LED hardware boundary independently tested, excluded from continuing loop",
+    "Identity source RAM is supplied; persistent storage read not simulated"
+  ],
+  "sources": {
+    "analysis/test_receiver_config_producer_continuous.py": "ebfa94a1c77865a055b8aa8ec07fcc27c768456f9ba5cf20d890f7bb73ae2a89",
+    "recovered-code/portable/receiver_config_producer.c": "394e27aa5dd4b02f6521b00dc48d49c760a987e60d2c52b768430232afad48a1",
+    "recovered-code/portable/receiver_config_producer.h": "73b91a8238e0414b9f1a4d4f25fe0348e24f76fe7086c19c6f9d747862953b90",
+    "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+    "recovered-code/portable/receiver_config_control.c": "8d7238c18d684406ddc6b8616b47f0fdc436cec38219158491c07bb74e4062cc",
+    "recovered-code/portable/receiver_initialization.c": "b2f24a53c713d974ee10c31ff8ac4f7244cc451c273a988cd6ec8669d97063f9",
+    "recovered-code/portable/receiver_timeout.c": "e08d18e42ad9dd1d3cb88d2e8c066a18b131f783509df689e2ee46ed7f504d8b",
+    "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+    "firmware-extracted-1.20/Suit1FWData__radio_radio.bin": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162"
+  }
+}

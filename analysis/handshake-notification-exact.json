@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "target": "DeathAdder V4 Pro receiver radio firmware 1.20",
+  "analysis_date": "2026-10-19",
+  "scope": "handshake state3 final notification only; static analysis; no device action",
+  "provenance": {
+    "firmware_path": "outputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+    "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+    "ram_path": "outputs/razer-radio-re/analysis/runtime-images/dongle-ram-1.20.bin",
+    "ram_sha256": "b433bd37e6dea78cda5295b6263a674fe0280268264a333d2e86e76cc559d0d6",
+    "ram_LMA": "0x0e05479c",
+    "ram_VMA": "0x23020000",
+    "ram_size": 29296,
+    "decompilation_directory": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final"
+  },
+  "branch": {
+    "function": "0x230223f0",
+    "slot_stride": "0xf84",
+    "conditions": [
+      "packet[1] bit7 == 0",
+      "u16[0x230034b0 + stride*slot] == 3",
+      "packet[3] == 0x16",
+      "packet[0] == 0x0b"
+    ],
+    "notification_guard": "u32[0x230033fc + stride*slot] != 0",
+    "notification_payload_pack": "<HHIHH",
+    "notification_payload_values": [
+      "slot & 0xffff",
+      1,
+      "u32[0x23003244]",
+      "u8[0x230033ee+s]<<8 | u8[0x230033ef+s]",
+      "u8[0x230033f0+s]<<8 | u8[0x230033f1+s]"
+    ],
+    "notification_order": [
+      "enqueue event5 until success",
+      "clear current pending u32 at 0x230033fc+s",
+      "clear current u16 at 0x23003402+s",
+      "if pending slot0 and slot1 both zero, call 0x23020bd4(0xff)"
+    ],
+    "unconditional_success_writes": [
+      {
+        "address": "0x230034b4+s",
+        "width": 4,
+        "value": 0
+      },
+      {
+        "address": "0x230034b0+s",
+        "width": 2,
+        "value": 6
+      }
+    ],
+    "return": 2,
+    "slot_bounds_checked": false
+  },
+  "queue": {
+    "address": "0x23001b8c",
+    "initializer_file_offset": "0x1e3e0",
+    "initial_words": [
+      "0x23001b8c",
+      "0x23001b8c",
+      "0x24",
+      "0x5",
+      "0x23015760",
+      "0x23015814",
+      "0x23015760",
+      "0x23015760",
+      "0x0",
+      "0x0"
+    ],
+    "message_size": 36,
+    "max_messages": 5,
+    "buffer_start": "0x23015760",
+    "buffer_end_exclusive": "0x23015814",
+    "message_layout": [
+      {
+        "offset": 0,
+        "size": 4,
+        "value": 5,
+        "encoding": "uint32 little endian"
+      },
+      {
+        "offset": 4,
+        "size": 12,
+        "value": "input payload <HHIHH"
+      },
+      {
+        "offset": 16,
+        "size": 20,
+        "value": null,
+        "status": "uninitialized stack bytes; do not assume zero"
+      }
+    ],
+    "put": "0x0e06cbdc",
+    "put_timeout_words": [
+      0,
+      0
+    ],
+    "put_success": 0,
+    "full_error_signed": -35,
+    "purge": "0x0e06cd54",
+    "retry": "on any nonzero put return purge entire queue and retry",
+    "purge_effects": [
+      "wake/remove all waiters with result -35",
+      "count=0",
+      "read_ptr=write_ptr"
+    ],
+    "critical_section": "save BASEPRI; BASEPRI_MAX 0x40; ISB; restore/scheduler exit",
+    "put_success_paths": [
+      "direct copy into waiter+0x14 destination; waiter+0x8c=0; wake",
+      "copy to write pointer; advance/wrap; count++"
+    ],
+    "consumer": "0x230253c4",
+    "consumer_registered_by": "0x2302532c",
+    "consumer_entry_thumb": "0x230253c5",
+    "handled_events": [
+      1,
+      2
+    ],
+    "event5_action": "dequeue/direct receive then ignore and receive again",
+    "consumer_get_return_checked": false,
+    "consumer_timeout_words": [
+      "0xffffffff",
+      "0xffffffff"
+    ],
+    "persistence_evidence": false
+  },
+  "hardware": {
+    "function": "0x23020bd4",
+    "argument": 255,
+    "register": "RADIO_S_RXADDRESSES",
+    "address": "0x5302ce40",
+    "operation": "read-modify-write: value & 0xfffffffe",
+    "cleared_bits": [
+      0
+    ],
+    "mask_by_argument": {
+      "0": 10,
+      "1": 12,
+      "2": 6,
+      "7": 128,
+      "default": 1
+    },
+    "TASKS_DISABLE_written_by_this_function": false
+  },
+  "caller": {
+    "function": "0x23020a00",
+    "irq": "RADIO_0",
+    "irq_number": 44,
+    "vector_value": "0x23020a01",
+    "conditions": [
+      "u16[0x23003234]==2",
+      "EVENTS_DISABLED==1",
+      "u32[0x23003230]>1",
+      "u32[0x23003468+s]==9",
+      "EVENTS_CRCOK==1"
+    ],
+    "slot_source": "u16[0x230032d0]",
+    "packet_address": "0x230034bc+s",
+    "return2_effects": [
+      "0x23020f1c sets radio state10",
+      "clears READY/END/DISABLED events",
+      "writes TASKS_DISABLE=1"
+    ],
+    "separate_from_event5": true
+  },
+  "evidence": [
+    {
+      "start": "0x23020988",
+      "end_exclusive": "0x2302098c",
+      "description": "header high-bit helper",
+      "raw_hex": "c0097047",
+      "sha256": "529af9c2628e87807031296f8b4290ac353212074384485a55232389ba22f364"
+    },
+    {
+      "start": "0x23022568",
+      "end_exclusive": "0x23022598",
+      "description": "final packet guards and state completion",
+      "raw_hex": "f378162b7ff452af33780b2b7ff44eafd9f81430002b5bd140f68473002105fb03f34c4ac83302204ff00608d1503ee7",
+      "sha256": "160a175da8e718cde57bf524debd862ba5a01f715f9849bf8d060e0cf2f3e531"
+    },
+    {
+      "start": "0x23022638",
+      "end_exclusive": "0x2302268e",
+      "description": "event payload construction and pending/RX mask sequence",
+      "raw_hex": "019001201d4b99f806105b69adf80e00049399f8073003a843ea0123adf8143099f8081099f80930adf80c5043ea0123adf8163002f088ff019ac9f814206369a9f81a20d4f8982f13437ff47dafff20fef7a4fa78e7",
+      "sha256": "de9e3cb087c0597d06c59377f2b8af556c8082ffef4cff91b7a340e8f9adb485"
+    },
+    {
+      "start": "0x23025580",
+      "end_exclusive": "0x230255b8",
+      "description": "event5 producer",
+      "raw_hex": "0246052110b58ab0006801915168926802ab07c3074c02e0204601f001fe00220023204601a901f0affd0028f4d10ab010bd00bf8c1b0023",
+      "sha256": "4380b634ff16704e2463921b9c500e3c5b16015c3349ca4a6e97639b138c9cae"
+    },
+    {
+      "start": "0x230253dc",
+      "end_exclusive": "0x230253f6",
+      "description": "consumer event dispatch",
+      "raw_hex": "4ff0ff3203a94ff0ff33404601f0fefe0399012916d00229f2d1",
+      "sha256": "d3114a21b3f1c10150be1bce3d60e0287ad6c7d4cc9a5b76bf760ba0e547a330"
+    },
+    {
+      "start": "0x23020bd4",
+      "end_exclusive": "0x23020c30",
+      "description": "RXADDRESSES mask switch",
+      "raw_hex": "154a072805d8dfe800f0201912040404040bd2f8403e23f00103c2f8403e7047d2f8403e23f08003c2f8403e7047d2f8403e23f00603c2f8403e7047d2f8403e23f00c03c2f8403e7047d2f8403e23f00a03c2f8403e704700c00253",
+      "sha256": "c848c9b4a6e425dd22c3342536fce6f72026970b0a437c823c4450cebd4a137e"
+    },
+    {
+      "start": "0xe06cbdc",
+      "end_exclusive": "0xe06cc94",
+      "description": "queue put",
+      "raw_hex": "2de9f04104460d46964682b000f10807eff311864ff0400c8cf31288bff36f8f026ac1688a420bd35eea030234d16ff0220086f31188bff36f8f02b0bde8f08101f0a8f9804690b1a26800242946406902f096fb4046c8f88c4001f075f83846314601f01bfa204602b0bde8f0812946a268e06902f084fbe369a16862690b449342e36108bf23694ff0000008bfe361236a01332362cce7064c0246a468314665613846cde900e301f020f902b0bde8f08100bf68710023",
+      "sha256": "af4b21a2e896d2cfb4f8d44112a10f92a645c524ed8693aa1c1ed264a6e433c1"
+    },
+    {
+      "start": "0xe06cd54",
+      "end_exclusive": "0xe06cd9a",
+      "description": "queue purge",
+      "raw_hex": "f8b5044600f10806eff31187402383f31288bff36f8f01f001f950b16ff02205c0f88c5000f0d4ff204601f0f7f80028f6d10023e2692362a26139463046bde8f84001f06fb9",
+      "sha256": "db1b323bbf03cca35b75a8471e0590b3013fb06d670355c086f87c7cb40aa48c"
+    },
+    {
+      "start": "0x23022b98",
+      "end_exclusive": "0x23022bc6",
+      "description": "caller invokes handshake and transitions to radio state10",
+      "raw_hex": "40f6847406fb04f404f1d40130462944fff722fc012867d902287ff474af04f180000a2236492844fef7acf96be7",
+      "sha256": "5035bb190d7d7b4e8c5e3e9618494b152bca12a4916293502599a45f5f5ad58a"
+    }
+  ],
+  "verification": {
+    "RAM_matches_LMA": true,
+    "queue_initializer_assertions": true,
+    "key_Thumb_opcode_assertions": true,
+    "prose_fragment_cases_passed": 6
+  },
+  "limits": [
+    "No runtime or device confirmation",
+    "No full RTOS concurrency reconstruction",
+    "No proof excluding every indirect queue alias or dynamic rewrite",
+    "u32[0x23003244] semantic meaning unknown",
+    "Not persistence; event5 ignored by registered direct consumer",
+    "Not full pairing implementation"
+  ]
+}

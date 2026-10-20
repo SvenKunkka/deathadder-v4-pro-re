@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "cases": 96,
+  "coverage": {
+    "pending_zero": 14,
+    "pending_nonzero": 82,
+    "initial_queue_count_1": 13,
+    "mask_changed": 20,
+    "initial_queue_count_2": 14,
+    "initial_queue_count_3": 14,
+    "initial_queue_count_4": 14,
+    "initial_queue_count_5": 14,
+    "initial_queue_count_0": 13
+  },
+  "failures": [],
+  "cpu_support_calls": {
+    "get_BASEPRI": 412,
+    "get_IPSR": 5
+  },
+  "checked": [
+    "224 slot bytes",
+    "40 queue bytes",
+    "180 ring bytes including explicit 20-byte prior-stack tail",
+    "RXADDRESSES",
+    "function return",
+    "BASEPRI restored"
+  ],
+  "assumptions": [
+    "no waiters; serialized queue operations",
+    "BASEPRI getter reads built-in ArmCpuState used by real setter; initial 0/0x20/0x80, IPSR=60 fixture",
+    "ISB has no scheduling/cache model; built-in Ghidra TODO warning retained",
+    "no peripheral event evolution or physical device action"
+  ],
+  "sources": {
+    "analysis/handshake-notification-original.jsonl": "5679322fe5a7fbc2d0cb67321b446c38cb80439a5eb5a51dcaf388934c4ffc4d",
+    "recovered-code/portable/handshake_notification.c": "664cf0fa10811170516e335be8d726fa477fc5175922df658c034bfc3a10def1",
+    "recovered-code/portable/handshake_notification.h": "4f53b3accf755e6739c4e817f916129224d0848daab524dd86f431c7ba12bfe3",
+    "ghidra-scripts/EmulateHandshakeNotification.java": "4e1171a15222a31ecfd3649fc666679bdc397c0affd81e9bbd3d70999a814314"
+  }
+}

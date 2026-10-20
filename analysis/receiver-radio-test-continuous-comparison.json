@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "cycles": 64,
+  "counts": {
+    "A_set_to_work_descriptor": 384,
+    "B_set_read_roundtrips": 64,
+    "counter_callback_readbacks": 64,
+    "B_work_descriptors": 64,
+    "unsupported_pointer_no_mutation": 64
+  },
+  "descriptor_kinds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "sources": {
+    "analysis/test_receiver_radio_test_continuous.py": "a657c8c127891b82951a57713270e1234a2c55ef5fb3ce4da5ffcc09eab14d1e",
+    "recovered-code/portable/receiver_radio_test_control.c": "b3517f46ae168e6d16deecba5adb6cd2cd6123434dbb3d1cdf330199251680e5",
+    "recovered-code/portable/receiver_radio_test_control.h": "7ba239d8c6a8080502c0817a8dd6cdc6a26901ba0e86ebea9db4345d4da80797"
+  },
+  "libraries": {
+    "analysis/libreceiver_radio_test_control.dylib": "b81d5f9e89c5f795cf3b841a6b8810ea9342c9b4a887c916dae5cf4cc0851e92"
+  },
+  "limits": [
+    "Host component sequence only; not additional original instruction cases",
+    "Descriptor calls stop before actual test engine; following fixtures explicitly reset state, not simulated returns",
+    "No physical receiver, RF traffic, test-engine MMIO or initialization proof"
+  ]
+}

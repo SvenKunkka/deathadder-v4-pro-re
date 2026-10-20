@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "datasets": 86,
+  "original_inputs": 201984,
+  "C_units": 65,
+  "validated_sources_and_build_records": 134,
+  "errors": [],
+  "historical_source_bindings_checked": [
+    "recovered-code/portable/receiver_radio_test_engine.c",
+    "recovered-code/portable/receiver_radio_test_engine.h",
+    "recovered-code/portable/receiver_rtc_dispatch.c",
+    "recovered-code/portable/receiver_rtc_dispatch.h",
+    "recovered-code/portable/receiver_timer_expiry.c",
+    "recovered-code/portable/receiver_timer_expiry.h"
+  ],
+  "scope": "Current artifact/source/build/data integrity and declared test status; complete firmware/RF objective remains incomplete"
+}

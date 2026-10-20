@@ -1,0 +1,145 @@
+{
+  "status": "PASS",
+  "original_cases": 4096,
+  "original_steps": 7486183,
+  "endings": {
+    "full_return": 1755,
+    "cpu_request": 635,
+    "next_loop_head": 1664,
+    "synthetic_stop_callback": 42
+  },
+  "by_op": {
+    "0": {
+      "cases": 2048,
+      "endings": {
+        "full_return": 1755,
+        "CPU_request": 293
+      }
+    },
+    "1": {
+      "cases": 2048,
+      "endings": {
+        "CPU_request": 342,
+        "next_loop_head": 1664,
+        "synthetic_stop_callback": 42
+      }
+    }
+  },
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "entry_spans": [
+    {
+      "name": "message_get",
+      "address": "0xe06cc94",
+      "image_offset": "0x18c94",
+      "entry16_hex": "f0b504468e4683b000f10807eff31186"
+    },
+    {
+      "name": "pend_current",
+      "address": "0xe06dec8",
+      "image_offset": "0x19ec8",
+      "entry16_hex": "f8b51248124b8468069f1c60079e0c46"
+    },
+    {
+      "name": "waiter_insert",
+      "address": "0xe06da74",
+      "image_offset": "0x19a74",
+      "entry16_hex": "38b590f90d200446002a0d46437b09da"
+    },
+    {
+      "name": "pop_and_abort_timeout",
+      "address": "0xe06df70",
+      "image_offset": "0x19f70",
+      "entry16_hex": "f8b5eff31185402383f31288bff36f8f"
+    },
+    {
+      "name": "ready_locked",
+      "address": "0xe06dd24",
+      "image_offset": "0x19d24",
+      "entry16_hex": "10b5eff31184402383f31288bff36f8f"
+    },
+    {
+      "name": "unlock_or_switch",
+      "address": "0xe06e078",
+      "image_offset": "0x1a078",
+      "entry16_hex": "49b9eff3058030b9054b5a699b689a42"
+    },
+    {
+      "name": "config_thread_entry",
+      "address": "0x23024e38",
+      "image_offset": "0x55d4",
+      "entry16_hex": "2de9f0410027614d614e624c8eb04ff0"
+    },
+    {
+      "name": "config_loop",
+      "address": "0x23024e46",
+      "image_offset": "0x55e2",
+      "entry16_hex": "4ff0ff334ff0ff32204605a902f0c9f9"
+    },
+    {
+      "name": "config_dispatch",
+      "address": "0x23024e56",
+      "image_offset": "0x55f2",
+      "entry16_hex": "059b013b2b2bf3d801a252f823f04d4f"
+    }
+  ],
+  "sources": {
+    "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+    "recovered-code/portable/receiver_queue_runtime.h": "193f49ba93e162de9f36d79381863b9ae98bbffd0600908ce753869bc813f95c",
+    "ghidra-scripts/EmulateReceiverQueueRuntime.java": "e0ae4790b1226ac271eed60dc1a60a37aa468ea7e7e80420006d2dae54f3b2a4",
+    "analysis/verify_receiver_queue_runtime.py": "9d4d9c14da962e43060fb759ad4b541144d69b000b1285a709b8fb376d0efa86",
+    "analysis/receiver-queue-runtime-original.jsonl": "1d4422bcb2be7c63601ddb57fdc8eb20f2d636fd9caf9c7fe3832cf3e7d63e19",
+    "analysis/receiver-queue-runtime-comparison.json": "fdc83973dc03cd09503f582476690d05157e3e6cb605c82828e7064b5bb6bd6b",
+    "analysis/receiver-queue-continuous-comparison.json": "ff0e761fa3e7df203756efa92da822940fb1a95667863272b826ac365f580521",
+    "analysis/dongle-radio-1.20-final/0e06cc94.c": "6a48c5ccc068a249d7c2e4e1aba44f14b4c305974f18c9869a538066c0cd9d51",
+    "analysis/dongle-radio-1.20-final/0e06dec8.c": "7c61e0bd2df1fb2a6fc5d0c9caa93f70dd392893c5d2202a60305812faa453fa",
+    "analysis/dongle-radio-1.20-final/0e06da74.c": "d09e4b09101414b20136022bced38cf85c4922e4ac5e74f416874a41a6b3960e",
+    "analysis/dongle-radio-1.20-final/0e06df70.c": "7b1054fccbc6e862b95557ccb4155b58f36c589d034208a884cffc75be5b7411",
+    "analysis/dongle-radio-1.20-final/0e06dd24.c": "7a0251fe9add417e923214386444562b22250d0b1f957eec6f36eea6f1c8d2b7",
+    "analysis/dongle-radio-1.20-final/0e06e078.c": "195c00bf5055a07efdc4bac1ef07f2642640ef064d4ffdb742a0fc5f06e5c327",
+    "analysis/dongle-radio-1.20-final/23024e38.c": "382389dbdd78cf9174190c276c283598793aeb321dd0b5dcec627f21a8e621cc",
+    "analysis/dongle-radio-1.20-final/23024e46.c": "74740b449db1b69f416bea183964a4696359edbeb1b7b4609813d24204daf456"
+  },
+  "component_integration": {
+    "status": "PASS",
+    "cycles": 128,
+    "buffered_messages": 640,
+    "direct_waiter_deliveries": 128,
+    "full_queue_rejections": 128,
+    "finite_waits_canceled": 64,
+    "explicit_context_handoffs": 256,
+    "post_get_dispatch_segments": 128,
+    "not_added_to_original_count": true,
+    "checks": [
+      "Full36-byte FIFO including old tail",
+      "Queue capacity rejection preserves RAM/RTC",
+      "Read and write pointers wrap across repeated batches",
+      "Empty wait records destination, flags, wait queue and CPU request",
+      "Real restored producer delivers directly to waiter and cancels finite timeout",
+      "Config event9 commits each dequeued value to RAM3240"
+    ],
+    "limits": [
+      "Explicit context handoff, not CPU exception/stack restoration",
+      "After blocked get, separately invoke existing after-get dispatch with actually delivered message",
+      "Shared RAM destination replaces thread-private stack; no real RF/IRQ/time"
+    ],
+    "sources": {
+      "analysis/test_receiver_queue_continuous.py": "277de965cc4b33a18b990921b27db872f86fc7635a5055b8f958882e26762e41",
+      "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+      "recovered-code/portable/receiver_queue_runtime.h": "193f49ba93e162de9f36d79381863b9ae98bbffd0600908ce753869bc813f95c",
+      "recovered-code/portable/receiver_config_control.c": "8d7238c18d684406ddc6b8616b47f0fdc436cec38219158491c07bb74e4062cc",
+      "recovered-code/portable/receiver_timeout.c": "e08d18e42ad9dd1d3cb88d2e8c066a18b131f783509df689e2ee46ed7f504d8b",
+      "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+      "analysis/receiver-queue-runtime-original.jsonl": "1d4422bcb2be7c63601ddb57fdc8eb20f2d636fd9caf9c7fe3832cf3e7d63e19"
+    }
+  },
+  "limits": [
+    "Ten inert memory windows, no autonomous IRQ/RTC/radio hardware",
+    "Config iteration begins before message_get; stops at next loop, real CPU request, or synthetic stop callback",
+    "Synthetic stop callback 23024fd8 is a test boundary, not a claimed production registration",
+    "No nested continuation is fabricated; CPU/callback stack continuation, crosscore startup and real RF remain incomplete",
+    "Queue API specialized to observed36-byte messages",
+    "Old-stack PHY is read from actual original stack at23024e56 after message_get, then supplied explicitly to recovered init",
+    "Full128KiBRAM+9peripheral windows and36-byte output compared; other stack contents not compared",
+    "No MCU build or RF equivalence claim"
+  ]
+}

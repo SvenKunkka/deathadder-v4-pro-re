@@ -1,0 +1,43 @@
+{
+  "status": "frozen",
+  "case_count": 2688,
+  "full_returns": 2676,
+  "USB_boundaries": 12,
+  "USB_external_result_continuations": 12,
+  "no_Ghidra_run_pending": true,
+  "shared_modules_unchanged_by_this_subtask": true,
+  "files": {
+    "recovered-code/portable/receiver_legacy_radio.c": {
+      "size": 6562,
+      "sha256": "fcb39e2f999a0b6cd7ac10f340ff2c514ad8f1691d9d33f8e4fc8564604c612c"
+    },
+    "recovered-code/portable/receiver_legacy_radio.h": {
+      "size": 1228,
+      "sha256": "1c20ce41fa13784a7e4e30e8b801f33bd84ef860c0c38b3fda184fbfb78cc92e"
+    },
+    "ghidra-scripts/EmulateReceiverLegacyRadio.java": {
+      "size": 9328,
+      "sha256": "a91d9784b8608e8fadbdb9d7ec811b002cf60ed85209d4b5fb9edb91368ad287"
+    },
+    "analysis/verify_receiver_legacy_radio.py": {
+      "size": 5615,
+      "sha256": "4968acc1105587108db8bdb1cf1adf0e60158270351b5f84026e614dac5e860e"
+    },
+    "analysis/receiver-legacy-radio-original.jsonl": {
+      "size": 85064093,
+      "sha256": "26b3ef54f528a4a3176110ff380c63c0aeaf7676fc13b3a11e5607234cc3a1a4"
+    },
+    "analysis/receiver-legacy-radio-comparison.json": {
+      "size": 3188,
+      "sha256": "fa2b0787d3181498f6b703ef87e759fe8cd48c842789492f9bc33bf1cb75d3d9"
+    },
+    "analysis/receiver-legacy-radio-exact.md": {
+      "size": 6256,
+      "sha256": "fa51d8dc2347196d1ea30518f6fd58bf25ab8ada4925a2433fb2d548e22d990b"
+    },
+    "analysis/receiver-legacy-radio-exact.json": {
+      "size": 11376,
+      "sha256": "8e6e3ad306a9f90cec525f4a02142efff2c4ee4b675f763a847ec73b5ebf1c07"
+    }
+  }
+}

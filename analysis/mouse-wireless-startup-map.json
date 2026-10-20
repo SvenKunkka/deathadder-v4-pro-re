@@ -1,0 +1,328 @@
+{
+  "status": "Static original instruction/byte evidence; no headless or device execution; no C edits",
+  "source_hashes": {
+    "firmware-extracted-1.20/Suit2FWData__radio_radio.bin": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+    "analysis/mouse-radio-1.20-final/disassembly.txt": "a8ef6a7c6f09f107d6d42df38e8eca60d68452032589c3ed225ccd75dba9742c",
+    "analysis/mouse-radio-1.20-final/23021150.c": "cf81b0146c50ecf8e358d640ccf3020e496139d7fb233f20f3662da210a6f226",
+    "analysis/mouse-radio-1.20-final/23025d1c.c": "093bd137283eb02ea8077375ef4a858231f15b7ef52e29eb79e569dab9a4e9b0",
+    "analysis/mouse-radio-1.20-final/23022d68.c": "560d569106beb779b0e1d45ee7fc9f19431b99ea7186b04a648ceb31dab55b2e",
+    "analysis/mouse-radio-1.20-final/0e0957a8.c": "f66104cd5f3b9f977937cc79271f13397c6cf2fce8a25ecc020b629e6c1ffae3",
+    "analysis/mouse-radio-1.20-final/0e0898c4.c": "d4ca0fa35e6fa1d7c4150fa7a198102a94307002d4958e45d2ec4bb3dc3348c8",
+    "analysis/mouse-radio-1.20-final/0e089efc.c": "92af43d356f54755b62d2be565a331ed278e4b228a18e1546dc055b496fe7d6e",
+    "analysis/mouse-radio-1.20-final/0e09587c.c": "db9f58aca6bd909f5616a540bc91e9a51954f4cd161da0178ca0be2c5e26ab17",
+    "analysis/mouse-radio-1.20-final/0e096318.c": "dcfc086c9c6332cfa16e17113532637d9854fe4b9c72c0fd16d3d3862cd61a8e",
+    "analysis/mouse-radio-1.20-final/0e09600c.c": "cc4bd86e8b37a232c02a57d1285cff69cf33a9d5c60111a9a54095b44b4505e5",
+    "analysis/mouse-radio-1.20-final/0e095a10.c": "186b855a090cfdee69ab80439dc49d8e79da9cf35eec035b39b1a3beb2b8cc0d",
+    "analysis/mouse-radio-1.20-final/0e0960a8.c": "3478a4c81351bf0002696121a65e3caafd20d0c87a72ba888d892969b4c765d0",
+    "analysis/mouse-radio-1.20-final/0e096474.c": "f3ecf21b86852c6249e219ae60cc62c05880379f0ad1d71a5105f0a7ede70e69",
+    "analysis/mouse-radio-1.20-final/23028b70.c": "89983518a08d9073ee4142e05e330f0d905dafa944c3547c301c98d43a003f2b",
+    "analysis/mouse-radio-1.20-final/23029b84.c": "a097a17f34d942d87a2d20bc6275c8905caeeb898194c623842fb44f588fa44f",
+    "analysis/mouse-radio-1.20-final/0e079dc4.c": "7600970bad62da1f7f49d64d1cce36ef78ca9a35688308d1ca1d3bbea0134c5c"
+  },
+  "root": "23021150(identity,rate)",
+  "first_use": {
+    "flag": "2300779a",
+    "if_zero": [
+      "23025d1c",
+      "write byte779a=1",
+      "2302c5f8 -> E096164(delay64=0x271)",
+      "resume21182 ->2115c"
+    ],
+    "always": [
+      "259a4(identity,0xbf,0,rate)",
+      "write byte7799=1"
+    ]
+  },
+  "thread_create_abi": {
+    "call_pc": "23025d44",
+    "target": "2302c3e8 -> E0957A8",
+    "caller_frame_bytes": 48,
+    "registers": {
+      "r0": "23001bb8",
+      "r1": "230109e0",
+      "r2": "00000400",
+      "r3": "23025d91"
+    },
+    "stack_relative_to_callee_entry": {
+      "0": "arg1=0",
+      "4": "arg2=0",
+      "8": "arg3=0",
+      "12": "priority=10",
+      "16": "options=0",
+      "20": "uninitialized alignment padding, never read",
+      "24": "delay low32=0",
+      "28": "delay high32=0"
+    },
+    "delay_reader": "E0957BE LDRD r11,r10,[localSP+58h]; localSP=entrySP-40h => entrySP+18h",
+    "decompiler_correction": "12 pseudo parameters count alignment hole as param10; logical timeout follows 8-byte ABI alignment; no uninitialized delay"
+  },
+  "work_init": {
+    "helper": "E0952A0",
+    "writes": {
+      "0": "word0",
+      "4": "callback word",
+      "8": "word0",
+      "12": "word0"
+    },
+    "calls": [
+      {
+        "object": "23003858",
+        "handler": "23022621",
+        "via": "23022d68; then byte76f8=1"
+      },
+      {
+        "object": "230067c0",
+        "handler": "23025df1"
+      },
+      {
+        "object": "230067b0",
+        "handler": "23025eb1"
+      },
+      {
+        "object": "230067a0",
+        "handler": "23025e39"
+      }
+    ],
+    "tail": "25D60->2C648->E079DC4: byte76fb=0,byte76fa=0;25D64 r0=0"
+  },
+  "create_context": {
+    "stack_size_rounding": "rounded=(size+7)&~7 modulo32",
+    "top": "stack+rounded =23010de0",
+    "tls_helper": "E0898C4 constants0,8: memcpy(top-8,ROM,0); memset(top-8,0,8);TCB+84=top-16;returns16",
+    "reserve_aligned": 16,
+    "context_top": "top-16=23010dd0",
+    "hardware_frame": "top-48=23010db0",
+    "frame_words": {
+      "23010db0": "R0=entry23025d91",
+      "23010db4": "R1=arg1=0",
+      "23010db8": "R2=arg2=0",
+      "23010dbc": "R3=arg3=0",
+      "23010dc0": "R12 untouched",
+      "23010dc4": "LR untouched",
+      "23010dc8": "PC=E085EA4 (Thumb bit cleared fromE085EA5)",
+      "23010dcc": "xPSR=01000000",
+      "23010dd0": "untouched reserved word",
+      "23010dd4": "untouched reserved word",
+      "23010dd8": "zero",
+      "23010ddc": "zero"
+    },
+    "tcb_writes_before_ready": {
+      "08": "word0",
+      "0c": "byte low8(options)",
+      "0d": "byte4",
+      "0e": "byte low8(priority)",
+      "0f": "byte0",
+      "18": "word0",
+      "1c": "word0",
+      "50": "word frameSP23010db0",
+      "54": "word0",
+      "58": "word TCB+58",
+      "5c": "word TCB+58",
+      "6c": "byte0",
+      "70": "word0",
+      "74": "word stackbase230109e0",
+      "78": "word roundedsize400",
+      "7c": "word reserve16",
+      "80": "word current?current+80:0",
+      "84": "word contexttop23010dd0",
+      "88": "word0"
+    },
+    "tcb_preserved_examples": [
+      "00/04 until ready inserts links",
+      "20 callback,24,28/2c timeout payload until scheduled",
+      "30..4c callee-saved slots",
+      "60..6b",
+      "6d..6f",
+      "8c saved return until realCPU switch"
+    ],
+    "trampoline": "E085EA4 rearranges entry,arg1,arg2,arg3 from frame and BLX entry atE085EC4; it is the new-thread start, not caller continuation"
+  },
+  "ready": {
+    "start": "E095BF4 clears flag4 only if set; lock BASEPRI_MAX20",
+    "insert": "E0958BC skips ifflags&9f or TCB+18!=0; setsbit80, inserts signed-priority ascending, equal priority after existing equal entries",
+    "list": "head/sentinel23007668,tail2300766c; current23007654,idle23007658,next23007664",
+    "schedule": "E09587C(force): candidate=head or idle; withforce0 preserve current ifflags&1f==0,candidate+18==0,current half+e>=128; else choosecandidate,callE096318 ifdifferent",
+    "slice": "E096318 aborts node230025e0+24*byte765c, clears7674[cpu]; optionally startcallbackE0962F5 for slices using7678/767c",
+    "cpu_switch_gate": "oldBASEPRI==0 && IPSR==0 &&next!=current; tail E089D4C withr0=0"
+  },
+  "sleep": {
+    "entry": "E096164 takes timeout64 in r0/r1",
+    "zero": "E0960A8(0,0)->E09600C rotates current among signed-priority equals, selectsnext, tailE089D4C(oldpriority); then returns0",
+    "finite": "E0960A8 captures deadline, removes current ready node ifbit80, writes7670=current, schedules(force whethercurrentremoved), starts nodecurrent+18 withE0959A5, setsflag10, callsE089D4C(oldpriority)",
+    "finite_relative_deadline": "if signed64 timeout>=-2: low32(tick32()+timeoutlow); otherwise low32(-timeoutlow-2); public E096164 interceptsUINT64_MAX",
+    "after_resume": "E096110 reads tick32 again; returns unsigneddeadline-now when deadline>now else0; E096176..18E computes floor((remaining*1000+31249)/31250)",
+    "infinite": "E096164(UINT64_MAX) abortscurrent timeout, locks20; ifcurrentflag10 set restoreandreturnFFFFFFFF; elseE095A10(current,oldpriority,r2=0) suspends and mayCPU-switch, thenreturnFFFFFFFF",
+    "timeout_callback": "E0959A4 receives node=T+18; ifbyteT+6c nonzero clearonly; else ifflags&28 return; ifT+8 waitqueue unlink T,clearT+8,clearbit2; clearbits14;ready(T); restorepriority; requires timeoutnode alreadyunlinked"
+  },
+  "tick": {
+    "E0967B8": "lock20; ifword7680!=0 elapsed=0 elseelapsed=23028B70(); return low32(elapsed+word25f8);restorepriority",
+    "elapsed": "low32((RTCcounter64-LE64[21c0])>>5)",
+    "counter": "23029B84 locks20,polls RTC5F99C774<=3fffffff, reads low5F99C770 and hi&fffff; restorepriority",
+    "busy_boundary": "RTC high>3fffffff is realpoll, not zeroelapsed",
+    "timeout_support": "E096474 delta queue sentinel14f4,callbacknode+8,delay node+10/14; unsignedrelative delay+1 plus elapsed when7680=0; encodedabsolute convertsagainst25f8/25fc; head update programs28B9C"
+  },
+  "continuations": [
+    {
+      "boundary": "E089D4C from create",
+      "resume": "E095856 then25D48",
+      "r0_boundary": 0,
+      "sp": "createEntrySP-64",
+      "required_registers": "r4=TCB; callee-saved r5=0,r6=16,r7=entry,r8/r9=0,r10/r11=delayhi/lo;LR=E095857",
+      "remaining": "create epilogue;67c0/67b0/67a0 init;clear76fa/fb;then779a=1 andsleep"
+    },
+    {
+      "boundary": "E089D4C from finite sleep",
+      "resume": "E096110 thenE096176 then21182",
+      "r0_boundary": "oldBASEPRI",
+      "sp": "E0960A8_entrySP-24",
+      "required_registers": "r4=deadline32,r5=timeoutlow,r6=timeouthigh,r7=oldBASEPRI,r8=2300764c,LR=E096111",
+      "remaining": "tick/remainingconversion;21182 branch2115c;259a4 then7799=1"
+    },
+    {
+      "boundary": "E089D4C fromzero yield",
+      "resume": "E096156",
+      "sp": "E09600C framealready popped",
+      "required_registers": "LR=E096157;outerE0960A8 frameintact",
+      "remaining": "setr0=0;returnthroughE096164 conversion"
+    },
+    {
+      "boundary": "E089D4C frominfinite suspend",
+      "resume": "E0961CA",
+      "sp": "E095A10 framealready popped",
+      "required_registers": "LR=E0961CB;outerE096164frameintact",
+      "remaining": "branchE0961BE;returnFFFFFFFF"
+    }
+  ],
+  "cpu_entry_semantics": "E089D4C writes(current+88)=r0,(current+8c)=FFFFFFF5;setsSCBICSR.PENDSVSET;BASEPRI=0;reads actualcurrent+8c afterschedule. Do not fake immediate success/current update.",
+  "fixture_domains": [
+    "TCB1bb8 size90 andstack109e0..10de0 requireRAM128KiB, not64KiB",
+    "UsecallerSP2301f000 andinputstate23010000; do notoverlapcreatedstack orreset[2688,3858)",
+    "UsecurrentTCB below10000 forexistingRTOShelpers unlessbounds explicitlyexpanded",
+    "Usevaliddoublylinkedready/timeout lists;priority byte ordering signed;stateoptionsbyte+f should0 forsimplepriority cases",
+    "Patterninitialstack andTCB untouchedwords; varyalignmentpadding withoutchangingdelay",
+    "Testcreate delay0,UINT64_MAX,positive,encodedabsolute;low8option/priority;currentnull onlynon-ready paths orvalid idle/currentscenario",
+    "Test21150 alreadyinitialized779a!=0 bypassescreation/sleep; firststartup muststopattrueCPUboundarybefore779a/initpostwrites",
+    "Testtimeoutcallback withnode alreadyunlinked;cancelT+6c andflags28 domains",
+    "ProvideRTCstablecounter orreportbusy; vary7680 to exerciseelapsedskip"
+  ],
+  "open_issues": [
+    "FullCPU/contextswitch execution is distinct from reaching boundary; newthread mayrun beforecreator resumes.",
+    "E096318 timeslice can invoke RTC/timeouts before create switch; negativebusy cannotbe calledsuccess.",
+    "Standalonecreate arbitrarydelay/size/addressdomains needexplicitbounds andoverflowpolicy;stockstartup isknownzero-delay400bytes.",
+    "Actualthread25D90 messageconsumption and return/trampolineabort are beyondstartup-onlyprefix."
+  ],
+  "raw_evidence": [
+    {
+      "address": "0x23021150",
+      "size": 60,
+      "file_offset": "0x18ec",
+      "hex": "70b50c4e044633780d464bb12b460022bf21204604f01efc0122074b1a7070bd04f0d4fd01233370002140f271200bf03bfaebe79a77002399770023",
+      "sha256": "78130aa75c74770dcbc55b82f663b23b4a087b106e8204735b1890d59b739102"
+    },
+    {
+      "address": "0x23025d1c",
+      "size": 116,
+      "file_offset": "0x64b8",
+      "hex": "30b589b0fdf722f80020002100240a254ff480620e4bcde90601cde90354cde901440c4900940c4806f050fb0b490c4806f010fc0b490c4806f00cfc0b490c4806f008fc06f072fc204609b030bd00bf915d0223e0090123b81b0023f15d0223c0670023b15e0223b0670023395e0223a0670023",
+      "sha256": "72f5c3b9f1d26051ba0b8cc6b513e9a53502ce48faceee364e6e4f530ca07d28"
+    },
+    {
+      "address": "0x23022d68",
+      "size": 32,
+      "file_offset": "0x3504",
+      "hex": "08b50449044809f0fffb0122034b1a7008bd00bf2126022358380023f8760023",
+      "sha256": "fb8de43a5dc53bfd5f5157204a4d2eb240bf16e550f402045d20574b64825970"
+    },
+    {
+      "address": "0xe0957a8",
+      "size": 212,
+      "file_offset": "0x297a8",
+      "hex": "2de9f04f4ff0040c00254ff000084ff0000987b01f46dde916bad31d149a23f007030273139a0e46827300f15802c0e91622ca18114680f80dc0c0e906898560c573044605930492f4f768f88446059b049aa367129b0cf1070c0293119b31460193109b2046009366672cf007063b46e667921bf4f76efb144b65659b68256784f86c500bb1d3f88030baf1ff3f08bfbbf1ff3fc4f8803003d1204607b0bde8f08f5aea0b0306d1204600f0cff9204607b0bde8f08f04f118005a465346044900f004fe204607b0bde8f08f4c760023a559090e",
+      "sha256": "f0e8cce34dd6a36015f0fabfe9c0d79b9a69b7acc8284b8fb71a88cc384e707c"
+    },
+    {
+      "address": "0xe0898c4",
+      "size": 68,
+      "file_offset": "0x1d8c4",
+      "hex": "2de9f0410c4605460b4edff83080324606eb0807e41b204609490df05dfda01942460021083c0df07efdc5f8844007f10800bde8f08100bf00000000080000009c88090e",
+      "sha256": "37e5e60eacab18475041e30badbf40a36951070aa7691356ef8eff66b5f1bd8a"
+    },
+    {
+      "address": "0xe089efc",
+      "size": 64,
+      "file_offset": "0x1defc",
+      "hex": "30b44ff08075002442f8203c029b0b4942f81c3c039b21f0010142f8183c049b42f8045c42f8143ca2f1200342f8081cc0f88840036530bc704700bfa55e080e",
+      "sha256": "c6314674df8831679432de40ea2713e0631f0f4c7a0c49d5f41cff6f938296cc"
+    },
+    {
+      "address": "0xe0952a0",
+      "size": 12,
+      "file_offset": "0x292a0",
+      "hex": "00234160c0e9023303607047",
+      "sha256": "5ffad2c978aad01bde4c382add93a283903b47b694afbc8cd4b033e2e0039d87"
+    },
+    {
+      "address": "0xe095bf4",
+      "size": 76,
+      "file_offset": "0x29bf4",
+      "hex": "10b5eff31184202282f31288bff36f8f427b530704d484f31188bff36f8f10bd22f004024273fff74ffe002cf3d1eff305800028efd1044b9a699b689a42ead0bde81040f4f788b84c760023",
+      "sha256": "dbd4ce995044c5fe5f114a2be7a624901a89fc2c62fda68df3cf7b95c35e19cb"
+    },
+    {
+      "address": "0xe09587c",
+      "size": 64,
+      "file_offset": "0x2987c",
+      "hex": "38b50e4d2b4653f81c4f9c4214d09cb1ab6850b95a7bd20607d1a2692ab9da897f2a02d91c46ac6138bd9c42fbd0204600f034fdac6138bdec68e9e74c760023",
+      "sha256": "1b7d9aeecd4c5412f70a4fc6dfbeb5d4d1702057006ed013021a0f19a2ba8768"
+    },
+    {
+      "address": "0xe0958bc",
+      "size": 104,
+      "file_offset": "0x298bc",
+      "hex": "90f90d30427b002b03dbd30601d1836903b1704770b4134e62f07f023546427355f81c3f346aab4208bf00235bb193f90e1090f90e208a4201d091420bdca34201d01b68f2e7c0e9005420603062002070bcfff7b5bf5a68c0e9003210605860f5e700bf4c760023",
+      "sha256": "c16f6332f555f1f87c2a4f085ab205211f1e5aaf0035750e137d0f549e5795cf"
+    },
+    {
+      "address": "0xe0960a8",
+      "size": 188,
+      "file_offset": "0x2a0a8",
+      "hex": "50ea01032de9f0414fd0831c71f1ff3305460e4645da6ff00104241aeff31187202383f31288bff36f8fdff88480214ad8f8083093f90d10136000295a7b1fdb0120fff7c7fbd8f808001b492a463346183000f0bbf9d8f808203846537b43f010035373f3f71efe00f052fb201a63eb0303012873f1000300da0020bde8f08102f07f025a730022d3e90010016048601a605a60d8f80800c01ab0fa80f04009cfe700f035fb4419b8e7fff75bffe4e74c76002370760023a559090e",
+      "sha256": "7e95a352071be3bf4f3afa29b1290dc16fca65b5ddf51c36f4d25f2a89b4abb7"
+    },
+    {
+      "address": "0xe096164",
+      "size": 108,
+      "file_offset": "0x2a164",
+      "hex": "b1f1ff3f08bfb0f1ff3f10b510d0fff799ff47f6112e84464ff47a747046002147f612220023ccfb0401e3f723fa10bd0d4b9c6804f1180000f0faf9eff31181202383f31288bff36f8f637b13f0100206d081f31188bff36f8f4ff0ff3010bd2046fff723fcf8e74c760023",
+      "sha256": "9a62368632488f0304fae505ce352191c5c6833b4886816fe099771c087992af"
+    },
+    {
+      "address": "0xe089d4c",
+      "size": 56,
+      "file_offset": "0x1dd4c",
+      "hex": "10b46ff00a040a4a0a4993684ff0000cc3e922044b6843f080534b608cf31188bff36f8f936810bcd3f88c00704700bf4c76002300ed00e0",
+      "sha256": "241d3dacf3c4c3b6ba7504245fc4da28150c070abbc0ff85d12e79041a0b28d1"
+    },
+    {
+      "address": "0xe0959a4",
+      "size": 108,
+      "file_offset": "0x299a4",
+      "hex": "d0b5eff31184202383f31288bff36f8f90f8542010f80b3c3ab1002380f8543084f31188bff36f8fd0bd13f02802f7d150f8101c69b150e90631002600270b60596010f80b3c40e9066740f8102c03f0fd0323f0140300f80b3c1838fff75cff84f31188bff36f8fd0bd00bf",
+      "sha256": "fe96fb052bb0ee72810c9a831f70fb15aa381f4810157b879cdbe1d9756db1d6"
+    },
+    {
+      "address": "0xe0967b8",
+      "size": 56,
+      "file_offset": "0x2a7b8",
+      "hex": "10b5eff31184202383f31288bff36f8f074b1b6843b10020064b1b68c01884f31188bff36f8f10bd00f0aefef4e700bf80760023f8250023",
+      "sha256": "d9505feccb5e11c7382a86e141363578d5ccc74d98ab207f9e9f1edfc5ca728b"
+    },
+    {
+      "address": "0x23028b70",
+      "size": 44,
+      "file_offset": "0x930c",
+      "hex": "00b583b0684601f005f80749009b0a68019849689b1a60eb01005b0943eac06003b05df804fb00bfc0210023",
+      "sha256": "18dcc8e9674f6121a19542a6b5541598121ec76ebc515d96453f420737719c07"
+    }
+  ]
+}

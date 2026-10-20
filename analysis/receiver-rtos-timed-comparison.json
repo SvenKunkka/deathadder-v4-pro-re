@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "original_cases": 1536,
+  "original_steps": 494759,
+  "counts": {
+    "0": 384,
+    "1": 384,
+    "2": 384,
+    "3": 384
+  },
+  "boundaries": {
+    "0x0": 1501,
+    "0xe0611cc": 35
+  },
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/receiver_timeout.c": "e08d18e42ad9dd1d3cb88d2e8c066a18b131f783509df689e2ee46ed7f504d8b",
+    "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+    "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+    "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+    "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+    "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+    "recovered-code/portable/receiver_rtos_lifecycle.h": "0f537f04de20a55f667c76f868198ed461e4319656472a9a74edfa2eddfe432b",
+    "recovered-code/portable/receiver_timeout.h": "57189640faeaa59d15e1b80bd5f19271a52c21fe7995d7f95f962d09a322bc28",
+    "analysis/verify_receiver_rtos_timed.py": "79862525a66722a0eb9aa29c40569b6dd46aaece3f2306419dfab5caec8ba233",
+    "ghidra-scripts/EmulateReceiverRtosTimed.java": "ceb24e86dd2b9819f8e6955375f64257a5bf6169cb20d7a9cbce9303a5f6ed59",
+    "analysis/receiver-rtos-timed-original.jsonl": "ac8811a99f501285e257b381ff2f87f9560c3378efe5a20c90f6027bd130cb70"
+  },
+  "limits": [
+    "128KiB RAM and4KiB RTC snapshots plus serialized CPU priority/exception model",
+    "active timeout abort and timeslice start execute real original code; actual thread context switch remains a real boundary with prior side effects retained",
+    "message type2 copies24 bytes of explicit previous stack data, not initialized payload",
+    "no RF/device writes or actual scheduler execution"
+  ]
+}

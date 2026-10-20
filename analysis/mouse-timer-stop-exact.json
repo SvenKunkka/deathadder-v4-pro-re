@@ -1,0 +1,66 @@
+{
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "status": "PASS",
+  "original_inputs": 3072,
+  "original_steps": 551425,
+  "original_returns": {
+    "original_full_return": 1214,
+    "continuation_return": 1002
+  },
+  "boundaries": {
+    "0x0": 2216,
+    "0xe089d4c": 37,
+    "0x23028c54": 819
+  },
+  "coverage_observations": {
+    "op0_boundary_0x0": 1009,
+    "unpend_result_preserved": 1228,
+    "unpend_with_own_timeout_preserved": 176,
+    "op0_boundary_0xe089d4c": 15,
+    "op1_boundary_0x0": 205,
+    "op1_boundary_0x23028c54": 819,
+    "op2_boundary_0x0": 1002,
+    "op2_boundary_0xe089d4c": 22
+  },
+  "sources": {
+    "recovered-code/portable/mouse_timer_stop_runtime.c": "cc839e26de5904dde95a7aa4ffb9dd3284eb707514e6edeae510f9ee59c0dc1a",
+    "recovered-code/portable/mouse_timer_stop_runtime.h": "21cf1c384c1e6ff12e21a6ff12d7045b2bddfcb8dfa4513037e8ba64dbe1b908",
+    "analysis/verify_mouse_timer_stop.py": "447886302bb6ad9ccf178798500e5b60df93c8a47e664d1847e7080cf7b48b1e",
+    "analysis/mouse-timer-stop-original.jsonl": "b92e63d7a5002ae8a9ab79605d29d2f5eef0b33b28a117cbd8a61c3be8c71e94",
+    "analysis/mouse-timer-stop-comparison.json": "89ec3650cff7e32a9a4cbbb45b917b368a435cd3b94daed25cb80e47b893d8f1",
+    "ghidra-scripts/EmulateMouseTimerStop.java": "bb4fdc42de9247e82010b6bacf815ff6326bc3734c46842c56a83eed7a423a0a"
+  },
+  "entry_spans": [
+    {
+      "address": "0xe096ac4",
+      "image_offset": "0x2aac4",
+      "entry16_hex": "10b50446fff764fda8b9636a0bb12046"
+    },
+    {
+      "address": "0xe096ad6",
+      "image_offset": "0x2aad6",
+      "entry16_hex": "04f11800fff739f960b1fff778f8eff3"
+    },
+    {
+      "address": "0xe095d50",
+      "image_offset": "0x29d50",
+      "entry16_hex": "0346eff31182202181f31288bff36f8f"
+    },
+    {
+      "address": "0xe095bd4",
+      "image_offset": "0x29bd4",
+      "entry16_hex": "10b5eff31184202383f31288bff36f8f"
+    },
+    {
+      "address": "0xe095ecc",
+      "image_offset": "0x29ecc",
+      "entry16_hex": "034648b9eff3058232b9064a91699268"
+    }
+  ],
+  "limits": [
+    "Unknown callback23028c54 is synthetic and stops before execution; it is actually an allocator, not an identified timer callback registration",
+    "1024 continuation entries use caller-supplied post-callback state and synthetic ABI stack; callback execution is not established",
+    "Full timer stop entry and post-callback continuation are independently tested; existing legacy higher-level callers retain their frozen -2/-3 boundary APIs",
+    "No device writes or real CPU exception/RF validation"
+  ]
+}

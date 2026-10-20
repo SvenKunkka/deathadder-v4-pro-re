@@ -1,0 +1,49 @@
+{
+  "scope": "Original23021ea8 software body,23022f70 wrapper,23022f90 publication; serialized RAM, no actual interrupt delivery",
+  "image": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+  "image_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "original_cases": 1536,
+  "component_integration_cases": 296,
+  "instruction_spans": [
+    {
+      "start": "0x23021ea8",
+      "end_exclusive": "0x23022154",
+      "file_offset": "0x2644",
+      "bytes": "2de9f043044685b000294ed115464ff46e62a14b02fb003393f8842092b39f4eb6f8a03123b1013b9bb2a6f8a03133bb771997f8b931012b21d0b6f8a231f3b14ff0000905f1600836f81820a6f8a2911f2a53ba0ad905f1840106eb410148880146b1ebd20f40ba00f2e28005f1a80306eb43039a881346042b52ba37d805b0bde8f08393f88520002ac8d193f88120002ac4d0b3f88220042ac0d805211822a3f88210c3f88820b9e7012951d00229e5d14ff46e62784b02fb0033b3f872200f2a40f2a08093f86a0093f86b40b3f870102044091a023a89b292b2b1fbf2f0a3f87010a3f8722083f86900c7e7ff27204600244ff02b0cadf80c2036f8183021465bbaadf80a3005f03f0343f040038df8093002aa062300978df808c0fff7f1fa012321464a2235445d4885f8b931c6f89e410af0c0fa21464a2259480af0bbfa4a222146584805b0bde8f0430af0b3ba4ff46e62504802fb040292f86d30ff2b21d092f86a10002950d192f86b1082f86a30002950d14ff46e6202fb040292f86a1082f86b30994235d84ff46e6202fb0402b2f872100131a2f87210b2f870100b44a2f870304ff46e6303fb040393f88420002a7ff462af93f88520002a7ff45daf93f88120002a59d0b3f88220002a3ff454af93f86910013a481e92b24528a3f882204fd8012a51d9032a47d80e22c3f8882042e74ff46e6202fb040282f86a30c2e7002283f8692037e792f86b20002ab0d08b42eed34ff46e6202fb040292f86b10994238bf82f86b30ade7adf80a30ff2300932b2305f03f0c4946adf80c008df8083002aa062320468df809c0fff757fa012349464a22104887f8b931c6f89e910af027fa49464a220d480af022fa49464a220b480af01dfaf5e61822c3f88820fae60029f9d1002af7d10b22c3f88820f2e67829002394270023542800239e280023e8280023",
+      "sha256": "927c8470c59c9fac965671aa13b038ac19a133c296c551a50e3b19fe4ed367a4",
+      "meaning": "shared body and literal pool"
+    },
+    {
+      "start": "0x23022f70",
+      "end_exclusive": "0x23022f90",
+      "file_offset": "0x370c",
+      "bytes": "044b054a054900201b7812780978fef793bf00bf04150023f6760023f7760023",
+      "sha256": "9af174ae6a3bf32d08c8679a6c64e55640d8fc66ace4231324e18b6803e7922f",
+      "meaning": "published-state IRQ wrapper"
+    },
+    {
+      "start": "0x23022f90",
+      "end_exclusive": "0x23022fbc",
+      "file_offset": "0x372c",
+      "bytes": "30b44ff00064054b054d1970054b28701a70054bc3f8084130bc7047f6760023f77600230415002300e100e0",
+      "sha256": "ea5caae3298206ea4deae2f51f9d72aac2cef266c439c324dc0d48dcbbe85460",
+      "meaning": "publish and pending IRQ"
+    }
+  ],
+  "sources": {
+    "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+    "recovered-code/portable/mouse_adaptive_control.h": "7d961d19bad2ac5b8b5f6e40dd6dd783b26d45e0d410e9dabe5ccdf2a5948e1e",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "ghidra-scripts/EmulateMouseAdaptive.java": "6abeb5949f33a67a2d5908c9bb1983468ca3299cf0808a47f357d81a2b358dd1",
+    "analysis/verify_mouse_adaptive.py": "b7a7bd3da83ccc6f308666f10169929e56d7f324aa3fd5a0ec69f9225299de97",
+    "analysis/mouse-adaptive-original.jsonl": "97d99e99e196335a28bc5fcbb10ad50fb6b822bc908c6ef107b4dbc2d1586556",
+    "analysis/mouse-adaptive-comparison.json": "80fa1d33a59c0c37d99f4b378bec778fc1affa2c8d4a9c1ad44cdbba42da3c1a",
+    "analysis/verify_adaptive_exchange.py": "ba8b9e6278d0db77fa0d914160667ab5f7f7c1552263e1c4ee494fbbf79ff7c6",
+    "analysis/adaptive-exchange-comparison.json": "2617f1f6efc28c498c43a4c612ab2ab7946cc8adbaaa9a92e3b801201d93879f"
+  },
+  "limits": [
+    "peer0/1 channel0..255 domain",
+    "valid TX ring layout is caller precondition",
+    "no MCU/RF/peripheral timing or concurrent scheduling proof"
+  ]
+}

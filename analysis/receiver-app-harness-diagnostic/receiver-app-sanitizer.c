@@ -1,0 +1,4 @@
+#include "receiver_application_timers.h"
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc,char**argv){if(argc!=3)return 2;FILE*f=fopen(argv[1],"rb"),*image=fopen(argv[2],"rb");uint8_t*fw=malloc(124596);if(fread(fw,1,124596,image)!=124596)return 3;fclose(image);unsigned h[3];while(fread(h,4,3,f)==3){fprintf(stderr,"CASE %u\n",h[0]);uint8_t tail[32];if(fread(tail,1,32,f)!=32)return 4;uint8_t*mem[10];for(int i=0;i<10;i++){unsigned n=i==0?131072:i==9?8:4096;mem[i]=malloc(n);if(fread(mem[i],1,n,f)!=n)return 5;}rr_receiver_init_hw x={mem[0],mem[1],mem[2],mem[3],mem[4],mem[5],mem[6],mem[7],mem[8],mem[9]};rr_receiver_rtos c={h[1],h[2],0,0};rr_receiver_rtc_pending p;int rc=rr_receiver_rtc_application_timers(&x,fw,tail,&c,&p);if(rc<0)return 6;for(int i=0;i<10;i++)free(mem[i]);}free(fw);fclose(f);return 0;}

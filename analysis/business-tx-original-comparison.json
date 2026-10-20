@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "original_instruction_cases": 768,
+  "injected_interleaving_cases": 42,
+  "by_operation": {
+    "mouse_op0": 48,
+    "mouse_op1": 48,
+    "mouse_op2": 48,
+    "mouse_op3": 48,
+    "mouse_op4": 48,
+    "mouse_op5": 144,
+    "dongle_op0": 48,
+    "dongle_op1": 48,
+    "dongle_op2": 48,
+    "dongle_op3": 48,
+    "dongle_op4": 48,
+    "dongle_op5": 144
+  },
+  "checked": [
+    "all65536 RAM bytes",
+    "128 input/guard bytes",
+    "r0 except init/pop void semantics"
+  ],
+  "failures": [],
+  "sources": {
+    "analysis/mouse-business-tx-original.jsonl": "ab2319783ecfb91bfd8994cec58c92bc9dc7e83e494eae3af50b522e5b5ca903",
+    "analysis/dongle-business-tx-original.jsonl": "3659c8a298c40722cf9fba2e0cef30069fdf1a3b07ee4c8242c383f3d795e313",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_tx.h": "3a5b7e92635053631e6e95e5ca2eb4e5107e3cd86147fc1b5e4dced70343270a",
+    "ghidra-scripts/EmulateBusinessTx.java": "56c2795544a600a949d3e3c7347e482f67b0bcbef826d9be63e6ca0506dfb24d"
+  },
+  "limits": [
+    "software emulation; no RF or device validation",
+    "CPU interrupt masking/timing not asserted",
+    "explicit hook injections are external state interleavings, not recovered firmware code",
+    "bounded valid class/length domain; no claim for buffer overflow inputs"
+  ]
+}

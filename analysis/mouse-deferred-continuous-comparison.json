@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "scenarios": 4,
+  "cycles": 128,
+  "active_reschedules": 64,
+  "explicit_RTC_events": 128,
+  "indirect_delayed_callbacks": 128,
+  "worker_next_loop_segments": 128,
+  "explicit_context_handoffs": 256,
+  "sources": {
+    "analysis/test_mouse_deferred_continuous.py": "e1797ac3293d659068ca328d095d62c418efd0aa089fa271c88c1d295d1bc046",
+    "recovered-code/portable/mouse_deferred_work.c": "c6fa01f3ffa5a8770dc8faade4eec1d381637b2c5e2879572ade0720f6dab23a",
+    "recovered-code/portable/mouse_deferred_work.h": "c5b9418646651047ef9e490c84eb7ba1f82015f38ed1dceb65c44e0f159dd3b3",
+    "recovered-code/portable/mouse_rtc_dispatch.c": "316124a6271c46faf2aa811bf94d3a3a2a50f1494f16aa745e6258fb218cbc79",
+    "recovered-code/portable/mouse_rtc_dispatch.h": "daad4b65c7ab13ec1ac2c6ecfa5eeeba9b628ee60eb7c207f3320f1937c11681",
+    "analysis/libmouse_rtc_deferred.dylib": "0ef98e685a89540fabdc187351e2c8b04215741ba035979313d3a50ed3dea3ae"
+  },
+  "results": [
+    {
+      "channel": 7,
+      "cycles": 32,
+      "active_reschedules": 16
+    },
+    {
+      "channel": 13,
+      "cycles": 32,
+      "active_reschedules": 16
+    },
+    {
+      "channel": 14,
+      "cycles": 32,
+      "active_reschedules": 16
+    },
+    {
+      "channel": 15,
+      "cycles": 32,
+      "active_reschedules": 16
+    }
+  ],
+  "not_added_to_original_input_count": true,
+  "limits": [
+    "Clock/event/INTENSET readback and CPU handoffs are explicit environmental inputs",
+    "No direct delayed callback invocation: actual schedule/rearm and RTC announce policy dispatch it",
+    "No hardware exception timing, live RF or complete firmware boot"
+  ]
+}

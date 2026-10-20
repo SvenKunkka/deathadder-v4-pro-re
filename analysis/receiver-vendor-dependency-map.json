@@ -1,0 +1,190 @@
+{
+  "status": "static dependency map; no C edits/headless/device execution",
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "current_source_hashes": {
+    "firmware-extracted-1.20/Suit1FWData__radio_radio.bin": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+    "analysis/vendor-rom-expansion/0e05be8c.c": "20f906fbd27e735513d10009a8e67c379011123ff5452ef806b9dc3bfb230c2b",
+    "analysis/vendor-rom-expansion/disassembly.txt": "cead4422c552cc20be98fde4241996ae481f75eb27928ec18a827391e0f4b6b3",
+    "analysis/dongle-radio-1.20-final/disassembly.txt": "4a77b642cdb1924f6c5b6b078523f2773254be1d872de3389b687269b48aee46",
+    "analysis/dongle-radio-1.20-final/23025954.c": "5ac1302e6e823b0899f24e95acab75c8d91925cd60dd2392001c02645aebed40",
+    "analysis/dongle-radio-1.20-final/23025fe0.c": "f731ab60c614e23d76d0b6112279f462cde8becd40a038689c4889c314072d75",
+    "analysis/dongle-radio-1.20-final/23025ce0.c": "e27add067c676d9bdc7d3bee4900a7bf2085c8b0b311c19c3455eb85d9c15f88",
+    "analysis/dongle-radio-1.20-final/23024db4.c": "bdbc8b24f90d93eecf9cef81bb860e46a682b34a56bfddeb00290a53269b7c72",
+    "analysis/dongle-radio-1.20-final/230251e4.c": "5fe988e66b2649a13188c6bb31e7cfee590284662275f0abf779336f4205bb09",
+    "analysis/dongle-radio-1.20-final/230203cc.c": "37083e0ed36091029d45d962397bd314435618c049414376ba618f8f837dc4b0",
+    "analysis/dongle-radio-1.20-final/2302060c.c": "17c19727f9a5e2b1570f564c90ee01e57a77cb65d524f3660c93c598da3d5d41",
+    "analysis/dongle-radio-1.20-final/0e0680c0.c": "aa4930669575608d4742de42e1b4af266f63edf27a303bd29056e3ab4f1bc846",
+    "analysis/dongle-radio-1.20-final/0e068170.c": "ecb5605ef7a22c228025f0d87183f7d2feda926f73d9fd88030a01f322d7cdcc",
+    "analysis/dongle-radio-1.20-final/0e069c78.c": "5e6b740d5f6df78cf4430b61bebcbb0c0a47bc26fc322ac05b9ea94e803fc993",
+    "analysis/dongle-radio-1.20-final/0e069d20.c": "7069078be34c5865651f331e3cdce0fe884264fa12b95db6e0ac7694c8a560e8",
+    "analysis/dongle-radio-1.20-final/0e069ba8.c": "8d73f5aefb9e78e56833eaf543dd2003b5145e8c88a5cc68fb67d04cc785537c",
+    "analysis/dongle-radio-1.20-final/0e067318.c": "4414d3cacb9d05f4aa06888c5a1c8f881f81125019b2e5dbae3f5291f24098f9",
+    "analysis/dongle-radio-1.20-final/0e05fd94.c": "cab4adf58f7fba7f9266e095795c744df07af3c8a46f02500c4ad3c01fba2e2f",
+    "analysis/dongle-radio-1.20-final/0e05fde8.c": "964df4b1a658440668e0a98e1597fb61a9ecac8d3ce1652ff0a9b7f1e9fd96dd",
+    "analysis/dongle-radio-1.20-final/0e05fe20.c": "a919f97bae41c1a352f172858d6bb892c16053eca89cbc057d8ad24cd2883766",
+    "analysis/dongle-radio-1.20-final/0e05fe58.c": "2154d84dcbea36f88a8eed666845b09e7afa9ec4633db960a99d4ee9aa980ee9",
+    "analysis/dongle-radio-1.20-final/0e05fe68.c": "c0c94968498f6bd84b91de4edcbb8168f1711ac07be1ccf3162a3b42d2994789",
+    "analysis/dongle-radio-1.20-final/0e06c6c0.c": "28249b64c963e16be0d28e4dc69ada769a66589e43cd06a4b27914f4bdda92f3",
+    "recovered-code/portable/receiver_vendor_commands.c": "fa34dcb45b79d6bfe0f92bcf3ac4e13b3f1374660be9818807e400a0654773f2",
+    "recovered-code/portable/receiver_vendor_commands.h": "cbde5f2b407de14c2a0c6c5c53bac1dcedc7a4f117c07c7674a96010b6342e0a",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_tx.h": "3a5b7e92635053631e6e95e5ca2eb4e5107e3cd86147fc1b5e4dced70343270a",
+    "recovered-code/portable/receiver_config_control.c": "8d7238c18d684406ddc6b8616b47f0fdc436cec38219158491c07bb74e4062cc",
+    "recovered-code/portable/receiver_config_control.h": "9e94d73133c03564971236bc38b5f327b3593c0119a1c64a44568265b250eef7",
+    "recovered-code/portable/receiver_config_producer.c": "394e27aa5dd4b02f6521b00dc48d49c760a987e60d2c52b768430232afad48a1",
+    "recovered-code/portable/receiver_config_producer.h": "73b91a8238e0414b9f1a4d4f25fe0348e24f76fe7086c19c6f9d747862953b90",
+    "recovered-code/portable/receiver_application_timers.c": "1aa9f74d907d6b3933714589e866c28f3c0104b37d9b5c81391f68d9ed2604ed",
+    "recovered-code/portable/receiver_application_timers.h": "7f2f4d6966ff32b3417f5edf5187af6ceb0b16f77a06052d40bb9f3b25cc25b0",
+    "recovered-code/portable/receiver_storage_read.c": "1437c371a376f8a00a9da0c53d0e4e5854f1a1a27686572a8f488a8d9c6572ca",
+    "recovered-code/portable/receiver_storage_read.h": "1b12b1a42920d3605e756f0b87fb909a0ff1b85112c7ef86c9a1eb6ea4a8b79c",
+    "recovered-code/portable/receiver_storage_startup.c": "39805df4c1e84156072bad46413499b5ff71900d9e3ffc6d936db75bd6e5def6",
+    "recovered-code/portable/receiver_storage_startup.h": "5386e3aa34915c42071096b5c94acf4ceec88f2da14e8a213030b8376ee532e8"
+  },
+  "requested_entries": [
+    "0x0e05be8c",
+    "0x23025954",
+    "0x23025fe0",
+    "0x23024db4"
+  ],
+  "reuse": {
+    "23024db4": [
+      "rr_bt_dongle_tx(peer0,class3,AC+BE16(value),3)",
+      "rr_receiver_timer_start_control(timer23001ad8,100000,1000,cpu)",
+      "rr_receiver_timer_stop_control(timer23001ad8,cpu)",
+      "rr_receiver_application_timer(callback23025640)"
+    ],
+    "0e05be8c": [
+      "rr_receiver_storage_device_ready",
+      "rr_receiver_storage_mapped_read",
+      "rr_receiver_storage_mapped_write",
+      "rr_bt_dongle_tx via230203cc->2302060c"
+    ],
+    "23025954": [],
+    "23025fe0": []
+  },
+  "pwm": [
+    {
+      "group": 0,
+      "device": "0xe06f708",
+      "config": "0xe07064c",
+      "base": "0x5f9a4000",
+      "frequency": 16000000,
+      "sequence_buffer": "0x2fc13010",
+      "state": "0x23006da8",
+      "get_cycles": "0x0e0680c0",
+      "set_cycles": "0x0e068170",
+      "records": [
+        {
+          "channel": 0,
+          "period_ns": 2048000,
+          "flags": 0
+        },
+        {
+          "channel": 1,
+          "period_ns": 2048000,
+          "flags": 0
+        },
+        {
+          "channel": 2,
+          "period_ns": 2048000,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "group": 1,
+      "device": "0xe06f6f4",
+      "config": "0xe0705e8",
+      "base": "0x5f9b4000",
+      "frequency": 16000000,
+      "sequence_buffer": "0x2fc13008",
+      "state": "0x23006da0",
+      "get_cycles": "0x0e0680c0",
+      "set_cycles": "0x0e068170",
+      "records": [
+        {
+          "channel": 0,
+          "period_ns": 2048000,
+          "flags": 0
+        },
+        {
+          "channel": 1,
+          "period_ns": 2048000,
+          "flags": 0
+        },
+        {
+          "channel": 2,
+          "period_ns": 2048000,
+          "flags": 0
+        }
+      ]
+    },
+    {
+      "group": 2,
+      "device": "0xe06f6e0",
+      "config": "0xe070584",
+      "base": "0x5f9c4000",
+      "frequency": 16000000,
+      "sequence_buffer": "0x2fc13000",
+      "state": "0x23006d98",
+      "get_cycles": "0x0e0680c0",
+      "set_cycles": "0x0e068170",
+      "records": [
+        {
+          "channel": 0,
+          "period_ns": 2048000,
+          "flags": 0
+        },
+        {
+          "channel": 1,
+          "period_ns": 2048000,
+          "flags": 0
+        },
+        {
+          "channel": 2,
+          "period_ns": 2048000,
+          "flags": 0
+        }
+      ]
+    }
+  ],
+  "flash": {
+    "table_pointer": "0x230004f8",
+    "initial_table": "0x0e0700b4",
+    "count_word": "0x0e0700b0",
+    "count": 4,
+    "area3": {
+      "record": "0x0e0700c4",
+      "offset": "0x100000",
+      "size": "0xdb000",
+      "device": "0x0e06f6cc"
+    },
+    "api": "0x0e0703b4",
+    "read": "0x0e067488",
+    "write": "0x0e0674b4",
+    "erase": "0x0e0674f0",
+    "parameters": "0x0e067470",
+    "parameters_address": "0x0e070394",
+    "write_block_size": 16,
+    "erase_value": 255
+  },
+  "continuation": {
+    "FE33": "after realLED return setpacketstatus2; outerrouterchecksum/clear pending then optionalworkcommit",
+    "FE72": "after actualstats timer path return setpacketstatus2; do not repeat stats wrapper after CPU boundary",
+    "0004": "after realLED return clear71b2 then setstatus2; mode71bd already changed",
+    "class10": "handler setsstatus itself; outerrouter checksum/clear only after handler completion"
+  },
+  "stack_residue": {
+    "stats": "none escaped in normal classFE72 u16domain; exactly3 initialized bytes plusTX-generated checksum",
+    "led": "none for stockgetter writes both64-bitwords; originalflags stackargument initialized perchannel; decompiler spurious fiftharg not realAPI",
+    "class10": "no fixed36-bytequeue tail in230203cc/statusB1; incomingr0 not semantic handler input; raw switchbranch instruction export currently incomplete",
+    "existing_publishers": "value8/9 producers need explicit28-byte oldstacktail; do not replacewithzeros"
+  },
+  "unresolved": [
+    "new wrappers/continuations for requestedfourentries",
+    "PWM driverE068170 and cacheflushE067318 + PWMsequenceE069BA8/stopE069C78/waitE069D20; stock DMA/cacheregister windows absent inradio-onlybus",
+    "class10 partition adapter andbootrequestE0689C0, resetE05D698",
+    "E068A38 rawaddress transform lacks retained instruction/decompile export; do not call it allocator without verification",
+    "BE8C switchpaths1/2/4/5 present in decomp but absent retainedinstructionlisting; parent exportneededbefore machineequivalenceclaim"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "cases": 464,
+  "original_steps": 35071,
+  "results": [
+    {
+      "target": "mouse",
+      "cases": 304,
+      "original_steps": 28894,
+      "original_returns": 304,
+      "dataset_sha256": "81eace99f0b5932a1b5e7640d16e96549336927f63acd4feefec900ab956e5d4"
+    },
+    {
+      "target": "receiver",
+      "cases": 160,
+      "original_steps": 6177,
+      "original_returns": 160,
+      "dataset_sha256": "178cef8600cbfe9272d2bc1192a5369c79cef1fd1c05d60b20b91a65cddc88d7"
+    }
+  ],
+  "comparison": "entire 128 KiB RAM, 4 KiB TIMER, 4 KiB NVIC and unchanged BASEPRI",
+  "limits": [
+    "Static MMIO, explicit CC7 input, no timer progression or USB/RF edges",
+    "Bounded function executions; no end-to-end scheduler or physical sensor model",
+    "Does not verify sensor frame formation, latency or hardware synchronization precision"
+  ],
+  "verifier_sha256": "4358a536702212a55080fd605b56eff6eba212116c5c7928621c3be3b479340a",
+  "harness_sha256": "04313f4692156d7f0f467635c2721ce810b8af5e0485a5c45c4d3a85ae32779a"
+}

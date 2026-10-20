@@ -1,0 +1,75 @@
+{
+  "status": "superseded-verifier-error",
+  "reason": "Direct23020C44 reads config+4; harness stored capability at+4 but verifier passed config+0 identity",
+  "failed_by_op": {
+    "1": 1024
+  },
+  "examples": [
+    {
+      "case": 1024,
+      "op": 1,
+      "event": 1,
+      "errors": [
+        {
+          "window": "radio",
+          "diffs": 4,
+          "first": [
+            [
+              "0xe30",
+              73,
+              117
+            ],
+            [
+              "0xe31",
+              190,
+              57
+            ],
+            [
+              "0xe32",
+              77,
+              95
+            ],
+            [
+              "0xe33",
+              19,
+              57
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "case": 1025,
+      "op": 1,
+      "event": 8,
+      "errors": [
+        {
+          "window": "radio",
+          "diffs": 4,
+          "first": [
+            [
+              "0xe30",
+              114,
+              210
+            ],
+            [
+              "0xe31",
+              125,
+              3
+            ],
+            [
+              "0xe32",
+              52,
+              104
+            ],
+            [
+              "0xe33",
+              92,
+              24
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

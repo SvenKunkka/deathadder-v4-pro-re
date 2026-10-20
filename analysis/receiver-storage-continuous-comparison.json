@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "cycles": 64,
+  "mapped_driver_reads": 896,
+  "settings_records_read": 128,
+  "external_write_acknowledgements": 64,
+  "identity_messages_consumed": 64,
+  "not_added_to_original_count": true,
+  "checks": [
+    "Mapped snapshot to record search and data copy, then real settings CRC and fallback",
+    "All valid/invalidA/invalidB/zero-identity combinations",
+    "Expected write-boundary sequence and independent innerCRC verification",
+    "Loaded identity through real queue and initialization/key-install event"
+  ],
+  "limits": [
+    "Synthetic mounted contexts and flash snapshot; no mount discovery or actual hardware",
+    "Write acknowledgements explicit only; no record write/flash persistence asserted",
+    "Serialized components and explicit prior stack bytes/PHY; no autonomous CPU or RF"
+  ],
+  "sources": {
+    "analysis/test_receiver_storage_continuous.py": "c317965cc222843e25efffb15412c8da3a04423e6634fc91cc25d2fedf256c1b",
+    "recovered-code/portable/receiver_storage_read.c": "1437c371a376f8a00a9da0c53d0e4e5854f1a1a27686572a8f488a8d9c6572ca",
+    "recovered-code/portable/receiver_storage_read.h": "1b12b1a42920d3605e756f0b87fb909a0ff1b85112c7ef86c9a1eb6ea4a8b79c",
+    "recovered-code/portable/receiver_settings.c": "db585b985a86c19f84f2f77baf1a985953ae1b2c3e40f7e6cd26e300f4537fd8",
+    "recovered-code/portable/receiver_config_producer.c": "394e27aa5dd4b02f6521b00dc48d49c760a987e60d2c52b768430232afad48a1",
+    "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+    "recovered-code/portable/receiver_initialization.c": "b2f24a53c713d974ee10c31ff8ac4f7244cc451c273a988cd6ec8669d97063f9",
+    "firmware-extracted-1.20/Suit1FWData__radio_radio.bin": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162"
+  }
+}

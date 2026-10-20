@@ -1,0 +1,57 @@
+import ghidra.app.script.GhidraScript;import ghidra.app.emulator.EmulatorHelper;import java.io.*;import java.util.*;import java.math.BigInteger;
+public class EmulateMouseWirelessStartup extends GhidraScript {
+ String hex(byte[]b){return HexFormat.of().formatHex(b);}String zip(byte[]b)throws Exception{ByteArrayOutputStream o=new ByteArrayOutputStream();try(java.util.zip.GZIPOutputStream z=new java.util.zip.GZIPOutputStream(o)){z.write(b);}return Base64.getEncoder().encodeToString(o.toByteArray());}
+ void w32(byte[]b,int a,long v){for(int j=0;j<4;j++)b[a+j]=(byte)(v>>>(8*j));}
+ long reg(EmulatorHelper e,String n){return e.readRegister(n).longValue()&0xffffffffL;}
+ String regs(EmulatorHelper e){StringBuilder s=new StringBuilder("{");for(int i=0;i<16;i++){String n=i<13?"r"+i:i==13?"sp":i==14?"lr":"pc";if(i>0)s.append(',');s.append('"').append(n).append("\":").append(reg(e,n));}return s.append('}').toString();}
+ void chain(byte[]m,int sent,List<Integer>nodes){w32(m,sent,0x23000000L+(nodes.isEmpty()?sent:nodes.get(0)));w32(m,sent+4,0x23000000L+(nodes.isEmpty()?sent:nodes.get(nodes.size()-1)));for(int i=0;i<nodes.size();i++){int t=nodes.get(i);w32(m,t,0x23000000L+(i+1==nodes.size()?sent:nodes.get(i+1)));w32(m,t+4,0x23000000L+(i==0?sent:nodes.get(i-1)));}}
+ public void run()throws Exception{
+ String[]sa=getScriptArgs();byte[]image=java.nio.file.Files.readAllBytes(java.nio.file.Path.of(sa[1]));if(image.length!=201044||!hex(java.security.MessageDigest.getInstance("SHA-256").digest(image)).equals("c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48")||!Arrays.equals(image,getBytes(toAddr(0xe06c000L),image.length))||!Arrays.equals(Arrays.copyOfRange(image,0x79c,0x79c+0xc6b0),getBytes(toAddr(0x23020000L),0xc6b0)))throw new Exception("image/mapping");
+ int start=Integer.parseInt(sa[2]),end=Integer.parseInt(sa[3]);String[]names={"ram","radio","timer","nvic","dppi","clock","rtc"};long[]bases={0x23000000L,0x5302c000L,0x53028000L,0xe000e000L,0x53022000L,0x5302e000L,0x5f99c000L};
+ try(PrintWriter out=new PrintWriter(new FileOutputStream(sa[0],start>0),false,java.nio.charset.StandardCharsets.UTF_8)){for(int cid=start;cid<end;cid++){
+ int family=cid<3584?cid/512:3,v=cid<3584?cid%512:cid-3584;Random rng=new Random(0x12021150L+cid*7919L);byte[]pattern=new byte[256];rng.nextBytes(pattern);byte[][]windows=new byte[7][];
+ for(int j=0;j<7;j++){windows[j]=new byte[j==0?131072:4096];for(int i=0;i<windows[j].length;i++)windows[j][i]=pattern[(i+j*31)%256];}byte[]ram=windows[0],rtc=windows[6];
+ long delay=new long[]{-1L,0,1,625,0x100000000L,-2L,-102L}[v%7];int target=(family==3||family==4)&&v%2!=0?0x8800:0x1bb8;
+ for(int t:new int[]{0x2378,0x5000,0x5200,0x5400,0x1bb8,0x8800}){Arrays.fill(ram,t,t+0x90,(byte)0);w32(ram,t+0x58,0x23000000L+t+0x58);w32(ram,t+0x5c,0x23000000L+t+0x58);w32(ram,t+0x8c,0x12345678L);}
+ if(cid>=3584){for(int i=0x30;i<0x50;i++)ram[target+i]=(byte)rng.nextInt();for(int i=0x60;i<0x70;i++)ram[target+i]=(byte)rng.nextInt();}
+ ram[0x500d]=(byte)(family==6&&delay==-1L&&(v/7)%2!=0?0x10:0x80);ram[0x500e]=(byte)new int[]{-8,0,4,11,127}[(v/4)%5];ram[0x520d]=ram[0x540d]=(byte)0x80;ram[0x520e]=1;ram[0x540e]=8;
+ w32(ram,0x5080,new long[]{0,0x23008400L,0xabcdef01L}[v%3]);ram[0x237e]=127;
+ if(family==4){ram[target+0xd]=(byte)new int[]{4,0,16,0x84,0x14}[v%5];ram[target+0xe]=(byte)new int[]{-8,-1,0,10,127}[(v/5)%5];}
+ ArrayList<Integer>ready=new ArrayList<>();if((ram[0x500d]&128)!=0)ready.add(0x5000);if(v%3!=0)ready.add(0x5200);if(v%4!=0)ready.add(0x5400);if(family==4&&(ram[target+0xd]&128)!=0)ready.add(target);ready.sort((aa,bb)->Byte.compare(ram[aa+0xe],ram[bb+0xe]));chain(ram,0x7668,ready);
+ w32(ram,0x7654,0x23005000L);w32(ram,0x7658,0x23002378L);w32(ram,0x7664,0x23005000L);ram[0x765c]=0;w32(ram,0x7670,0);ram[0x7674]=0;
+ Arrays.fill(ram,0x25e0,0x25f8,(byte)0);Arrays.fill(ram,0x5c00,0x5c18,(byte)0);ArrayList<Integer>timeouts=new ArrayList<>();if(v%3!=0)timeouts.add(0x5c00);if(v%2==0)timeouts.add(0x25e0);if(family==6&&delay==-1L&&(v/14)%2!=0)timeouts.add(0x5018);chain(ram,0x14f4,timeouts);
+ for(int j=0;j<timeouts.size();j++){int t=timeouts.get(j);w32(ram,t+8,0xe0959a5L);w32(ram,t+16,new long[]{1,10,100,0x7fffffffL}[(v+j)%4]);w32(ram,t+20,0);}
+ w32(ram,0x767c,new long[]{0,1,8,32,0xffffffffL}[(v/4)%5]);w32(ram,0x7678,new long[]{0,4,0xfffffffeL}[(v/20)%3]);w32(ram,0x7680,(v/8)%2);w32(ram,0x25f8,new long[]{0,1,100,0xfffffff0L}[(v/7)%4]);w32(ram,0x25fc,v%23==0?0xffffffffL:0);
+ w32(ram,0x21c0,100);w32(ram,0x21c4,0);w32(rtc,0x770,100+v*32+v%32);w32(rtc,0x774,new long[]{0,1,0x3fffffffL}[(v/32)%3]);ram[0x1304]=(byte)new int[]{7,13,14,15}[v%4];w32(ram,0x1458,v%11==0?0xe080:0);w32(ram,0x12fc,0x23028c09L);
+ ram[0x779a]=(byte)(v%2==0?0:new int[]{1,2,255}[(v/2)%3]);ram[0x7799]=(byte)new int[]{0,2,255}[v%3];ram[0x76ee]=(byte)new int[]{0,1,2,255}[(v/6)%4];
+ long identity=Integer.toUnsignedLong(rng.nextInt());long rate=(Integer.toUnsignedLong(rng.nextInt())&0xffff0000L)|new long[]{0,1,2,64,65,65535}[(v/2)%6];
+ long[]args=new long[12];for(int i=0;i<args.length;i++)args[i]=Integer.toUnsignedLong(rng.nextInt());
+ if(family==0){args[0]=identity;args[1]=rate;}
+ if(family==3){args[0]=0x23000000L+target;args[1]=v%2==0?0x230109e0L:0x23012000L;args[2]=new long[]{0x40,0x3ff,0x400,0x401}[(v/2)%4];args[3]=0x23025d91L;args[7]=(Integer.toUnsignedLong(rng.nextInt())&0xffffff00L)|(new int[]{-8,-1,0,10,127}[(v/5)%5]&255);args[8]=(Integer.toUnsignedLong(rng.nextInt())&0xffffff00L)|new int[]{0,1,2,4,255}[(v/11)%5];args[10]=delay&0xffffffffL;args[11]=delay>>>32;}
+ if(family==4)args[0]=0x23000000L+target;
+ if(family==5||family==6){args[0]=delay&0xffffffffL;args[1]=delay>>>32;}
+ final long initial=new long[]{0,16,32,128}[(v/3)%4];final int exception=v%4==0?0:60;byte[]stack=new byte[576];rng.nextBytes(stack);for(int i=4;i<12;i++)w32(stack,512+(i-4)*4,args[i]);long sp=0x2302f000L;
+ long entry=new long[]{0x23021150L,0x23025d1cL,0x23022d68L,0xe0957a8L,0xe095bf4L,0xe0960a8L,0xe096164L}[family];boolean resultValid=family==1||family==3||family==5||family==6;
+ EmulatorHelper e=new EmulatorHelper(currentProgram){protected ghidra.app.emulator.Emulator newEmulator(){return new ghidra.app.emulator.AdaptedEmulator(this);}};
+ try{
+ java.lang.reflect.Field field=ghidra.app.emulator.AdaptedEmulator.class.getDeclaredField("emu");field.setAccessible(true);ghidra.pcode.emu.PcodeMachine<?> machine=(ghidra.pcode.emu.PcodeMachine<?>)field.get(e.getEmulator());Object lib=machine.getUseropLibrary().getUserops().get("setBasePriority").getDefiningLibrary();field=lib.getClass().getDeclaredField("cpuState");field.setAccessible(true);ghidra.program.emulation.ArmCpuState cpu=(ghidra.program.emulation.ArmCpuState)field.get(lib);cpu.setBasePriority(initial);cpu.setPrivileged(true);cpu.setThreadMode(exception==0);
+ e.registerCallOtherCallback("getBasePriority",new ghidra.pcode.emulate.BreakCallBack(){public boolean pcodeCallback(ghidra.pcode.pcoderaw.PcodeOpRaw p){e.getEmulator().getMemState().setValue(p.getOutput(),cpu.getBasePriority());return true;}});e.registerCallOtherCallback("getCurrentExceptionNumber",new ghidra.pcode.emulate.BreakCallBack(){public boolean pcodeCallback(ghidra.pcode.pcoderaw.PcodeOpRaw p){e.getEmulator().getMemState().setValue(p.getOutput(),exception);return true;}});
+ e.registerCallOtherCallback("DataMemoryBarrier",new ghidra.pcode.emulate.BreakCallBack(){public boolean pcodeCallback(ghidra.pcode.pcoderaw.PcodeOpRaw p){return true;}});
+ e.setContextRegister(currentProgram.getRegister("TMode"),BigInteger.ONE);for(int i=0;i<=12;i++)e.writeRegister("r"+i,Integer.toUnsignedLong(rng.nextInt()));for(String flag:new String[]{"CY","ZR","NG","OV","Q"})if(currentProgram.getRegister(flag)!=null)e.writeRegister(flag,0);
+ for(int i=0;i<7;i++)e.writeMemory(toAddr(bases[i]),windows[i]);e.writeMemory(toAddr(sp-512),stack);for(int i=0;i<4;i++)e.writeRegister("r"+i,args[i]);e.writeRegister("lr",0x2302df01L);e.writeRegister(e.getStackPointerRegister(),sp);e.writeRegister(e.getPCRegister(),entry);String regsBefore=regs(e);
+ int steps=0,kind=0,mask=0,threadStartSeen=0;long boundary=0;long[]bargs=new long[4];boolean scanSeen=false,initSeen=false,setupReturned=false;ArrayList<String>createObs=new ArrayList<>(),sleepObs=new ArrayList<>();
+ while(e.getExecutionAddress().getOffset()!=0x2302df00L&&steps<200000){long pc=e.getExecutionAddress().getOffset();
+  if(pc==0xe0957a8L){long observedSp=reg(e,"sp");createObs.add("{\"sp\":"+observedSp+",\"registers\":"+regs(e)+",\"stack_args\":\""+hex(e.readMemory(toAddr(observedSp),32))+"\"}");}
+  if(pc==0xe0960a8L||pc==0xe096164L)sleepObs.add("{\"entry\":"+pc+",\"registers\":"+regs(e)+"}");
+  if(pc==0xe095bf4L)threadStartSeen++;if(pc==0x23022d68L)scanSeen=true;if(pc==0x230259a4L)initSeen=true;if(pc==0x23021174L)setupReturned=true;
+  if(pc==0xe089d4cL){kind=1;boundary=pc;mask=1;bargs[0]=reg(e,"r0");break;}
+  if(!((pc>=0x23020000L&&pc<0x2302c6b0L)||(pc>=0xe06c000L&&pc<0xe06c000L+image.length))){kind=1;boundary=pc;mask=15;for(int i=0;i<4;i++)bargs[i]=reg(e,"r"+i);break;}
+  if(!e.step(monitor))throw new Exception("case"+cid+" pc"+e.getExecutionAddress()+" "+e.getLastError());steps++;
+ }if(steps>=200000)throw new Exception("bound"+cid+" "+e.getExecutionAddress());
+ long escapedSp=boundary==0?0:reg(e,"sp");String escapedStack=boundary==0?"":hex(e.readMemory(toAddr(escapedSp-64),192));
+ StringBuilder row=new StringBuilder("{\"case\":"+cid+",\"family\":"+family+",\"entry\":"+entry+",\"args\":"+Arrays.toString(args)+",\"delay\":\""+Long.toUnsignedString(delay)+"\",\"identity\":"+identity+",\"rate\":"+rate+",\"target\":"+(0x23000000L+target)+",\"stack_before\":\""+hex(stack)+"\",\"stack_base\":"+(sp-512)+",\"initial_sp\":"+sp+",\"registers_before\":"+regsBefore+",\"registers_after\":"+regs(e)+",\"escaped_sp\":"+escapedSp+",\"escaped_stack\":\""+escapedStack+"\",\"initial_priority\":"+initial+",\"exception\":"+exception+",\"final_priority\":"+cpu.getBasePriority()+",\"kind\":"+kind+",\"boundary\":"+boundary+",\"boundary_args\":"+Arrays.toString(bargs)+",\"arg_mask\":"+mask+",\"result_valid\":"+resultValid+",\"result\":"+(resultValid&&boundary==0?reg(e,"r0"):0)+",\"steps\":"+steps+",\"end_pc\":"+e.getExecutionAddress().getOffset()+",\"create_observations\":["+String.join(",",createObs)+"],\"sleep_observations\":["+String.join(",",sleepObs)+"],\"thread_start_seen\":"+threadStartSeen+",\"scan_work_init_seen\":"+scanSeen+",\"application_init_seen\":"+initSeen+",\"setup_returned\":"+setupReturned);
+ for(int i=0;i<7;i++)row.append(",\"").append(names[i]).append("_before\":\"").append(zip(windows[i])).append("\",\"").append(names[i]).append("_after\":\"").append(zip(e.readMemory(toAddr(bases[i]),windows[i].length))).append("\"");row.append('}');out.println(row);
+ }finally{e.dispose();}
+ }}println("MOUSE_WIRELESS_STARTUP_RANGE="+start+":"+end);
+ }
+}

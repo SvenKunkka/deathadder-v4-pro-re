@@ -1,0 +1,2479 @@
+{
+  "status": "static evidence; no native reconstruction or emulator validation in this worker",
+  "firmware": "outputs/razer-radio-re/firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+  "sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "dispatcher": "0x0e07d170",
+  "mailbox": "0x23003efc",
+  "length": 90,
+  "pending_flag": "0x23007715",
+  "radio_reply_flag": "0x23007797",
+  "class_to_handler": {
+    "00": "0e07ae74",
+    "02": "0e07b5e4",
+    "04": "0e07b948",
+    "05": "0e07c98c",
+    "07": "0e07c9e0",
+    "0B": "0e07c33c",
+    "10": "0e07daec",
+    "FE": "0e07cc50"
+  },
+  "supported_selectors": {
+    "00": [
+      "0x2",
+      "0x4",
+      "0x5",
+      "0x6",
+      "0xb",
+      "0xd",
+      "0xe",
+      "0x17",
+      "0x24",
+      "0x33",
+      "0x40",
+      "0x81",
+      "0x82",
+      "0x83",
+      "0x84",
+      "0x85",
+      "0x86",
+      "0x87",
+      "0x8d",
+      "0x8e",
+      "0x97",
+      "0xa4",
+      "0xb3",
+      "0xc0"
+    ],
+    "02": [
+      "0x2",
+      "0xc",
+      "0x18",
+      "0x82",
+      "0x84",
+      "0x8c",
+      "0x8e",
+      "0x98"
+    ],
+    "04": [
+      "0x0",
+      "0x2",
+      "0x3",
+      "0x4",
+      "0x5",
+      "0x6",
+      "0x80",
+      "0x82",
+      "0x83",
+      "0x84",
+      "0x85",
+      "0x86"
+    ],
+    "05": [
+      "0x80",
+      "0x81",
+      "0x8a"
+    ],
+    "07": [
+      "0x1",
+      "0x2",
+      "0x3",
+      "0xd",
+      "0x11",
+      "0x80",
+      "0x81",
+      "0x82",
+      "0x83",
+      "0x84",
+      "0x85",
+      "0x8d"
+    ],
+    "0B": [
+      "0x3",
+      "0x5",
+      "0xb",
+      "0x10",
+      "0x11",
+      "0x12",
+      "0x13",
+      "0x14",
+      "0x15",
+      "0x80",
+      "0x83",
+      "0x85",
+      "0x8b",
+      "0x8e",
+      "0x90",
+      "0x91",
+      "0x92",
+      "0x93",
+      "0x94",
+      "0x95"
+    ],
+    "10": [
+      "0x1",
+      "0x2",
+      "0x4",
+      "0x5",
+      "0x80",
+      "0x83"
+    ],
+    "FE": [
+      "0x31",
+      "0x32",
+      "0x33",
+      "0x35",
+      "0x36",
+      "0x37",
+      "0x70",
+      "0x71",
+      "0x73",
+      "0x7e",
+      "0xa9",
+      "0xb1",
+      "0xb6",
+      "0xc2",
+      "0xf1",
+      "0xf3",
+      "0xfe"
+    ]
+  },
+  "tables": [
+    {
+      "class": "class",
+      "instruction": "0xe07d1a4",
+      "base": "0xe07d1a8",
+      "index_bias": 0,
+      "width": 1,
+      "raw_hex": "312b342b373a2b3d2b2b2b402b2b2b2b2e",
+      "entries": [
+        {
+          "selector": "0x0",
+          "target": "0xe07d20a"
+        },
+        {
+          "selector": "0x1",
+          "target": "0xe07d1fe"
+        },
+        {
+          "selector": "0x2",
+          "target": "0xe07d210"
+        },
+        {
+          "selector": "0x3",
+          "target": "0xe07d1fe"
+        },
+        {
+          "selector": "0x4",
+          "target": "0xe07d216"
+        },
+        {
+          "selector": "0x5",
+          "target": "0xe07d21c"
+        },
+        {
+          "selector": "0x6",
+          "target": "0xe07d1fe"
+        },
+        {
+          "selector": "0x7",
+          "target": "0xe07d222"
+        },
+        {
+          "selector": "0x8",
+          "target": "0xe07d1fe"
+        },
+        {
+          "selector": "0x9",
+          "target": "0xe07d1fe"
+        },
+        {
+          "selector": "0xa",
+          "target": "0xe07d1fe"
+        },
+        {
+          "selector": "0xb",
+          "target": "0xe07d228"
+        },
+        {
+          "selector": "0xc",
+          "target": "0xe07d1fe"
+        },
+        {
+          "selector": "0xd",
+          "target": "0xe07d1fe"
+        },
+        {
+          "selector": "0xe",
+          "target": "0xe07d1fe"
+        },
+        {
+          "selector": "0xf",
+          "target": "0xe07d1fe"
+        },
+        {
+          "selector": "0x10",
+          "target": "0xe07d204"
+        }
+      ]
+    },
+    {
+      "class": "00",
+      "instruction": "0xe07ae86",
+      "base": "0xe07ae8a",
+      "index_bias": 2,
+      "width": 2,
+      "raw_hex": "cd01bf009b0183017c01bf00bf00bf00bf001f01bf0005011a02bf00bf00bf00bf00bf00bf00bf00bf00c400bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00c400bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf006702bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf003c02bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf001b015b0257026e02e001db01f501bf00bf00bf00bf00bf00f0010d02bf00bf00bf00bf00bf00bf00bf00bf00f600bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00f600bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf003802bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf00bf002902",
+      "entries": [
+        {
+          "selector": "0x2",
+          "target": "0xe07b224"
+        },
+        {
+          "selector": "0x3",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x4",
+          "target": "0xe07b1c0"
+        },
+        {
+          "selector": "0x5",
+          "target": "0xe07b190"
+        },
+        {
+          "selector": "0x6",
+          "target": "0xe07b182"
+        },
+        {
+          "selector": "0x7",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x8",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x9",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xa",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xb",
+          "target": "0xe07b0c8"
+        },
+        {
+          "selector": "0xc",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xd",
+          "target": "0xe07b094"
+        },
+        {
+          "selector": "0xe",
+          "target": "0xe07b2be"
+        },
+        {
+          "selector": "0xf",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x10",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x11",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x12",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x13",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x14",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x15",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x16",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x17",
+          "target": "0xe07b012"
+        },
+        {
+          "selector": "0x18",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x19",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x1a",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x1b",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x1c",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x1d",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x1e",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x1f",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x20",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x21",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x22",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x23",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x24",
+          "target": "0xe07b012"
+        },
+        {
+          "selector": "0x25",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x26",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x27",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x28",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x29",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x2a",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x2b",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x2c",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x2d",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x2e",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x2f",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x30",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x31",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x32",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x33",
+          "target": "0xe07b358"
+        },
+        {
+          "selector": "0x34",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x35",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x36",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x37",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x38",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x39",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x3a",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x3b",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x3c",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x3d",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x3e",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x3f",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x40",
+          "target": "0xe07b302"
+        },
+        {
+          "selector": "0x41",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x42",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x43",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x44",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x45",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x46",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x47",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x48",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x49",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x4a",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x4b",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x4c",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x4d",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x4e",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x4f",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x50",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x51",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x52",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x53",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x54",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x55",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x56",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x57",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x58",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x59",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x5a",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x5b",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x5c",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x5d",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x5e",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x5f",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x60",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x61",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x62",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x63",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x64",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x65",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x66",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x67",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x68",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x69",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x6a",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x6b",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x6c",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x6d",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x6e",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x6f",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x70",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x71",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x72",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x73",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x74",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x75",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x76",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x77",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x78",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x79",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x7a",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x7b",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x7c",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x7d",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x7e",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x7f",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x80",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x81",
+          "target": "0xe07b0c0"
+        },
+        {
+          "selector": "0x82",
+          "target": "0xe07b340"
+        },
+        {
+          "selector": "0x83",
+          "target": "0xe07b338"
+        },
+        {
+          "selector": "0x84",
+          "target": "0xe07b366"
+        },
+        {
+          "selector": "0x85",
+          "target": "0xe07b24a"
+        },
+        {
+          "selector": "0x86",
+          "target": "0xe07b240"
+        },
+        {
+          "selector": "0x87",
+          "target": "0xe07b274"
+        },
+        {
+          "selector": "0x88",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x89",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x8a",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x8b",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x8c",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x8d",
+          "target": "0xe07b26a"
+        },
+        {
+          "selector": "0x8e",
+          "target": "0xe07b2a4"
+        },
+        {
+          "selector": "0x8f",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x90",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x91",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x92",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x93",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x94",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x95",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x96",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x97",
+          "target": "0xe07b076"
+        },
+        {
+          "selector": "0x98",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x99",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x9a",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x9b",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x9c",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x9d",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x9e",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0x9f",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xa0",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xa1",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xa2",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xa3",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xa4",
+          "target": "0xe07b076"
+        },
+        {
+          "selector": "0xa5",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xa6",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xa7",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xa8",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xa9",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xaa",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xab",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xac",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xad",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xae",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xaf",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xb0",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xb1",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xb2",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xb3",
+          "target": "0xe07b2fa"
+        },
+        {
+          "selector": "0xb4",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xb5",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xb6",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xb7",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xb8",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xb9",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xba",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xbb",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xbc",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xbd",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xbe",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xbf",
+          "target": "0xe07b008"
+        },
+        {
+          "selector": "0xc0",
+          "target": "0xe07b2dc"
+        }
+      ]
+    },
+    {
+      "class": "02",
+      "instruction": "0xe07b5fc",
+      "base": "0xe07b600",
+      "index_bias": 130,
+      "width": 1,
+      "raw_hex": "35303c3030303030303049308930303030303030303090",
+      "entries": [
+        {
+          "selector": "0x82",
+          "target": "0xe07b66a"
+        },
+        {
+          "selector": "0x83",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x84",
+          "target": "0xe07b678"
+        },
+        {
+          "selector": "0x85",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x86",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x87",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x88",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x89",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x8a",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x8b",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x8c",
+          "target": "0xe07b692"
+        },
+        {
+          "selector": "0x8d",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x8e",
+          "target": "0xe07b712"
+        },
+        {
+          "selector": "0x8f",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x90",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x91",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x92",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x93",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x94",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x95",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x96",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x97",
+          "target": "0xe07b660"
+        },
+        {
+          "selector": "0x98",
+          "target": "0xe07b720"
+        }
+      ]
+    },
+    {
+      "class": "04",
+      "instruction": "0xe07b966",
+      "base": "0xe07b96a",
+      "index_bias": 128,
+      "width": 2,
+      "raw_hex": "750016007a00a200cf00d800ec00",
+      "entries": [
+        {
+          "selector": "0x80",
+          "target": "0xe07ba54"
+        },
+        {
+          "selector": "0x81",
+          "target": "0xe07b996"
+        },
+        {
+          "selector": "0x82",
+          "target": "0xe07ba5e"
+        },
+        {
+          "selector": "0x83",
+          "target": "0xe07baae"
+        },
+        {
+          "selector": "0x84",
+          "target": "0xe07bb08"
+        },
+        {
+          "selector": "0x85",
+          "target": "0xe07bb1a"
+        },
+        {
+          "selector": "0x86",
+          "target": "0xe07bb42"
+        }
+      ]
+    },
+    {
+      "class": "04",
+      "instruction": "0xe07b97c",
+      "base": "0xe07b980",
+      "index_bias": 0,
+      "width": 2,
+      "raw_hex": "07000b00100156018f01c2011000",
+      "entries": [
+        {
+          "selector": "0x0",
+          "target": "0xe07b98e"
+        },
+        {
+          "selector": "0x1",
+          "target": "0xe07b996"
+        },
+        {
+          "selector": "0x2",
+          "target": "0xe07bba0"
+        },
+        {
+          "selector": "0x3",
+          "target": "0xe07bc2c"
+        },
+        {
+          "selector": "0x4",
+          "target": "0xe07bc9e"
+        },
+        {
+          "selector": "0x5",
+          "target": "0xe07bd04"
+        },
+        {
+          "selector": "0x6",
+          "target": "0xe07b9a0"
+        }
+      ]
+    },
+    {
+      "class": "0B",
+      "instruction": "0xe07c34a",
+      "base": "0xe07c34e",
+      "index_bias": 3,
+      "width": 2,
+      "raw_hex": "8801a1006801a100a100a100a100a1009300a100a100a100a1001d01400136019901e000c001a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a100a1005901a100a1005d01a100f200a100a100a100a100a100c701a100a1003001a100ba01d800ce00b600ac00a400",
+      "entries": [
+        {
+          "selector": "0x3",
+          "target": "0xe07c65e"
+        },
+        {
+          "selector": "0x4",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x5",
+          "target": "0xe07c61e"
+        },
+        {
+          "selector": "0x6",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x7",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x8",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x9",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0xa",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0xb",
+          "target": "0xe07c474"
+        },
+        {
+          "selector": "0xc",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0xd",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0xe",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0xf",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x10",
+          "target": "0xe07c588"
+        },
+        {
+          "selector": "0x11",
+          "target": "0xe07c5ce"
+        },
+        {
+          "selector": "0x12",
+          "target": "0xe07c5ba"
+        },
+        {
+          "selector": "0x13",
+          "target": "0xe07c680"
+        },
+        {
+          "selector": "0x14",
+          "target": "0xe07c50e"
+        },
+        {
+          "selector": "0x15",
+          "target": "0xe07c6ce"
+        },
+        {
+          "selector": "0x16",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x17",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x18",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x19",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x1a",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x1b",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x1c",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x1d",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x1e",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x1f",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x20",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x21",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x22",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x23",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x24",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x25",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x26",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x27",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x28",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x29",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x2a",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x2b",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x2c",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x2d",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x2e",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x2f",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x30",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x31",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x32",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x33",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x34",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x35",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x36",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x37",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x38",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x39",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x3a",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x3b",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x3c",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x3d",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x3e",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x3f",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x40",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x41",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x42",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x43",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x44",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x45",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x46",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x47",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x48",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x49",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x4a",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x4b",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x4c",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x4d",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x4e",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x4f",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x50",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x51",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x52",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x53",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x54",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x55",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x56",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x57",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x58",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x59",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x5a",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x5b",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x5c",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x5d",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x5e",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x5f",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x60",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x61",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x62",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x63",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x64",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x65",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x66",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x67",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x68",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x69",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x6a",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x6b",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x6c",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x6d",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x6e",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x6f",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x70",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x71",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x72",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x73",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x74",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x75",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x76",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x77",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x78",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x79",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x7a",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x7b",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x7c",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x7d",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x7e",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x7f",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x80",
+          "target": "0xe07c600"
+        },
+        {
+          "selector": "0x81",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x82",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x83",
+          "target": "0xe07c608"
+        },
+        {
+          "selector": "0x84",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x85",
+          "target": "0xe07c532"
+        },
+        {
+          "selector": "0x86",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x87",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x88",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x89",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x8a",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x8b",
+          "target": "0xe07c6dc"
+        },
+        {
+          "selector": "0x8c",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x8d",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x8e",
+          "target": "0xe07c5ae"
+        },
+        {
+          "selector": "0x8f",
+          "target": "0xe07c490"
+        },
+        {
+          "selector": "0x90",
+          "target": "0xe07c6c2"
+        },
+        {
+          "selector": "0x91",
+          "target": "0xe07c4fe"
+        },
+        {
+          "selector": "0x92",
+          "target": "0xe07c4ea"
+        },
+        {
+          "selector": "0x93",
+          "target": "0xe07c4ba"
+        },
+        {
+          "selector": "0x94",
+          "target": "0xe07c4a6"
+        },
+        {
+          "selector": "0x95",
+          "target": "0xe07c496"
+        }
+      ]
+    },
+    {
+      "class": "07",
+      "instruction": "0xe07c9fc",
+      "base": "0xe07ca00",
+      "index_bias": 128,
+      "width": 1,
+      "raw_hex": "4f53575b61680808080808080834",
+      "entries": [
+        {
+          "selector": "0x80",
+          "target": "0xe07ca9e"
+        },
+        {
+          "selector": "0x81",
+          "target": "0xe07caa6"
+        },
+        {
+          "selector": "0x82",
+          "target": "0xe07caae"
+        },
+        {
+          "selector": "0x83",
+          "target": "0xe07cab6"
+        },
+        {
+          "selector": "0x84",
+          "target": "0xe07cac2"
+        },
+        {
+          "selector": "0x85",
+          "target": "0xe07cad0"
+        },
+        {
+          "selector": "0x86",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x87",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x88",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x89",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x8a",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x8b",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x8c",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x8d",
+          "target": "0xe07ca68"
+        }
+      ]
+    },
+    {
+      "class": "FE",
+      "instruction": "0xe07cc66",
+      "base": "0xe07cc6a",
+      "index_bias": 49,
+      "width": 2,
+      "raw_hex": "380140017b01790074009b01a40179007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900790079007900b401ba017900c0017900790079007900790079007900790079007900d401",
+      "entries": [
+        {
+          "selector": "0x31",
+          "target": "0xe07ceda"
+        },
+        {
+          "selector": "0x32",
+          "target": "0xe07ceea"
+        },
+        {
+          "selector": "0x33",
+          "target": "0xe07cf60"
+        },
+        {
+          "selector": "0x34",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x35",
+          "target": "0xe07cd52"
+        },
+        {
+          "selector": "0x36",
+          "target": "0xe07cfa0"
+        },
+        {
+          "selector": "0x37",
+          "target": "0xe07cfb2"
+        },
+        {
+          "selector": "0x38",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x39",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x3a",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x3b",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x3c",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x3d",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x3e",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x3f",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x40",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x41",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x42",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x43",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x44",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x45",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x46",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x47",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x48",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x49",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x4a",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x4b",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x4c",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x4d",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x4e",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x4f",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x50",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x51",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x52",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x53",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x54",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x55",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x56",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x57",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x58",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x59",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x5a",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x5b",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x5c",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x5d",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x5e",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x5f",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x60",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x61",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x62",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x63",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x64",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x65",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x66",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x67",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x68",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x69",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x6a",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x6b",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x6c",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x6d",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x6e",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x6f",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x70",
+          "target": "0xe07cfd2"
+        },
+        {
+          "selector": "0x71",
+          "target": "0xe07cfde"
+        },
+        {
+          "selector": "0x72",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x73",
+          "target": "0xe07cfea"
+        },
+        {
+          "selector": "0x74",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x75",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x76",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x77",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x78",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x79",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x7a",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x7b",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x7c",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x7d",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0x7e",
+          "target": "0xe07d012"
+        }
+      ]
+    },
+    {
+      "class": "FE",
+      "instruction": "0xe07cd14",
+      "base": "0xe07cd18",
+      "index_bias": 169,
+      "width": 1,
+      "raw_hex": "262222222222222248222222226922222222222222222222229a",
+      "entries": [
+        {
+          "selector": "0xa9",
+          "target": "0xe07cd64"
+        },
+        {
+          "selector": "0xaa",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xab",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xac",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xad",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xae",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xaf",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xb0",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xb1",
+          "target": "0xe07cda8"
+        },
+        {
+          "selector": "0xb2",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xb3",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xb4",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xb5",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xb6",
+          "target": "0xe07cdea"
+        },
+        {
+          "selector": "0xb7",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xb8",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xb9",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xba",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xbb",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xbc",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xbd",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xbe",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xbf",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xc0",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xc1",
+          "target": "0xe07cd5c"
+        },
+        {
+          "selector": "0xc2",
+          "target": "0xe07ce4c"
+        }
+      ]
+    },
+    {
+      "class": "10",
+      "instruction": "0xe07db04",
+      "base": "0xe07db08",
+      "index_bias": 1,
+      "width": 2,
+      "raw_hex": "2d0062009a001d00c400",
+      "entries": [
+        {
+          "selector": "0x1",
+          "target": "0xe07db62"
+        },
+        {
+          "selector": "0x2",
+          "target": "0xe07dbcc"
+        },
+        {
+          "selector": "0x3",
+          "target": "0xe07dc3c"
+        },
+        {
+          "selector": "0x4",
+          "target": "0xe07db42"
+        },
+        {
+          "selector": "0x5",
+          "target": "0xe07dc90"
+        }
+      ]
+    },
+    {
+      "class": "07",
+      "instruction": "0xe07ca20",
+      "base": "0xe07ca24",
+      "index_bias": 1,
+      "width": 4,
+      "raw_hex": "ddca070eefca070e01cb070e11ca070e11ca070e11ca070e11ca070e11ca070e11ca070e11ca070e11ca070e11ca070e15cb070e11ca070e11ca070e11ca070e63cb070e",
+      "entries": [
+        {
+          "selector": "0x1",
+          "target": "0xe07cadc"
+        },
+        {
+          "selector": "0x2",
+          "target": "0xe07caee"
+        },
+        {
+          "selector": "0x3",
+          "target": "0xe07cb00"
+        },
+        {
+          "selector": "0x4",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x5",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x6",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x7",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x8",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x9",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0xa",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0xb",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0xc",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0xd",
+          "target": "0xe07cb14"
+        },
+        {
+          "selector": "0xe",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0xf",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x10",
+          "target": "0xe07ca10"
+        },
+        {
+          "selector": "0x11",
+          "target": "0xe07cb62"
+        }
+      ]
+    }
+  ],
+  "handler_direct_calls_from_decomp": {
+    "00": [
+      "0e0798e0",
+      "0e07ae4c",
+      "0e07d4ac",
+      "0e07d590",
+      "0e07d6d8",
+      "0e07ddfc",
+      "0e08042c",
+      "0e085ed0",
+      "0e09739c",
+      "230212d8",
+      "23025c48",
+      "2302678c",
+      "23026ce0",
+      "23028044",
+      "2302843c"
+    ],
+    "02": [
+      "0e07d4ac",
+      "0e07f810"
+    ],
+    "04": [
+      "0e07d4ac",
+      "0e07f0c4",
+      "0e08042c",
+      "23021278"
+    ],
+    "05": [],
+    "07": [
+      "0e07ae4c",
+      "0e07d4ac",
+      "0e085658",
+      "0e085ed0",
+      "2302a948",
+      "2302ab40"
+    ],
+    "0B": [
+      "0e07d4ac",
+      "0e080538",
+      "0e080598",
+      "0e08494c",
+      "0e09739c",
+      "0e0973ea",
+      "23020354"
+    ],
+    "10": [
+      "0e085ed0",
+      "0e088910",
+      "0e088960",
+      "0e088964",
+      "0e08899c",
+      "0e0889d4",
+      "0e0889e4",
+      "0e090e58",
+      "0e090f94",
+      "0e09739c",
+      "0e0973ea",
+      "23026ce0"
+    ],
+    "FE": [
+      "0e07a298",
+      "0e07ae4c",
+      "0e07d4ac",
+      "0e07d590",
+      "0e07d6d8",
+      "0e07e048",
+      "0e084890",
+      "0e085ed0",
+      "0e096164",
+      "2302111c",
+      "2302118c",
+      "230212e8",
+      "230263ac",
+      "23026b2c",
+      "2302aa40",
+      "2302ab40"
+    ]
+  },
+  "export": "mouse-vendor-discovery-export",
+  "raw_checksum_boundaries": {
+    "input_xor_offsets": "2..87",
+    "checksum_offset": 88,
+    "not_covered": "0,1,89"
+  },
+  "radio_entries": {
+    "identity": "00:17/24 ->23025c48 ->23021c40",
+    "rate": "00:40 ->23026ce0;230212d8 ->23025c70 ->23021c6c",
+    "test_a": "FE:70 ->2302111c ->23025c50 ->E07A0C8 + E07A338",
+    "test_b": "FE:71 ->2302118c ->E07A1B0 + E07A338",
+    "channel_override": "FE:7E ->230212e8 ->23025c78 ->23021d24",
+    "test_b_read": "FE:F1 ->E07A298"
+  },
+  "limits": [
+    "Selector existence and dispatch table mapping do not prove arbitrary payload validity",
+    "Computed profile indexes and unbounded button-search paths require domain constraints",
+    "Boot/reset/update operations recorded statically only",
+    "Original-instruction differential verification remains future work"
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "kind": "static routing evidence",
+  "dispatch_pc": "0x23024e56",
+  "loop_header": "0x23024e46",
+  "queue": "0x23001bb4",
+  "message_stack_offset": 20,
+  "value_stack_offset": 24,
+  "table_offset": "0x5600",
+  "table_sha256": "a8dafb24275a3f24c2e3916fa4fd50f0205baae65731a03930a80179d70ef780",
+  "table": [
+    {
+      "event": 1,
+      "entry": "0x23024f4c",
+      "table_file_offset": "0x5600",
+      "word_hex": "4d4f0223"
+    },
+    {
+      "event": 2,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5604",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 3,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5608",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 4,
+      "entry": "0x23024f3a",
+      "table_file_offset": "0x560c",
+      "word_hex": "3b4f0223"
+    },
+    {
+      "event": 5,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5610",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 6,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5614",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 7,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5618",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 8,
+      "entry": "0x23024f28",
+      "table_file_offset": "0x561c",
+      "word_hex": "294f0223"
+    },
+    {
+      "event": 9,
+      "entry": "0x23024f1e",
+      "table_file_offset": "0x5620",
+      "word_hex": "1f4f0223"
+    },
+    {
+      "event": 10,
+      "entry": "0x23024f14",
+      "table_file_offset": "0x5624",
+      "word_hex": "154f0223"
+    },
+    {
+      "event": 11,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5628",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 12,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x562c",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 13,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5630",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 14,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5634",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 15,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5638",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 16,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x563c",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 17,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5640",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 18,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5644",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 19,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5648",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 20,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x564c",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 21,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5650",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 22,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5654",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 23,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5658",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 24,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x565c",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 25,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5660",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 26,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5664",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 27,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5668",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 28,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x566c",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 29,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5670",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 30,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5674",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 31,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5678",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 32,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x567c",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 33,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5680",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 34,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5684",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 35,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5688",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 36,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x568c",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 37,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5690",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 38,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5694",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 39,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x5698",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 40,
+      "entry": "0x23024f14",
+      "table_file_offset": "0x569c",
+      "word_hex": "154f0223"
+    },
+    {
+      "event": 41,
+      "entry": "0x23024f9e",
+      "table_file_offset": "0x56a0",
+      "word_hex": "9f4f0223"
+    },
+    {
+      "event": 42,
+      "entry": "0x23024e46",
+      "table_file_offset": "0x56a4",
+      "word_hex": "474e0223"
+    },
+    {
+      "event": 43,
+      "entry": "0x23024f8a",
+      "table_file_offset": "0x56a8",
+      "word_hex": "8b4f0223"
+    },
+    {
+      "event": 44,
+      "entry": "0x23024f64",
+      "table_file_offset": "0x56ac",
+      "word_hex": "654f0223"
+    }
+  ],
+  "out_of_range": "unsigned(event-1)>43 returns to loop header",
+  "limits": [
+    "Queue receive and producer provenance not inferred from jump table",
+    "Only1/8/9 plus ignored arms connected in receiver_initialization at this phase",
+    "Producer descriptions are static only; put/purge, wake and stack tails not executed in this dataset; config queue1BB4 differs from notification queue1B8C"
+  ],
+  "producer_static_entries": [
+    {
+      "address": "0x23024fd8",
+      "event": 1,
+      "detail": "word0=1, word1=input identity; put queue1BB4; purge/retry when put fails",
+      "entry16": "012310b58ab0cde90130074c02e02046",
+      "image_offset": "0x5774",
+      "decompiled_source": "analysis/dongle-radio-1.20-final/23024fd8.c",
+      "decompiled_source_sha256": "07c2c93186ac4a39357b8390ad82b2abac4a5064a0d0867002b69afa257c2b19"
+    },
+    {
+      "address": "0x230252a4",
+      "event": 8,
+      "detail": "word0=8, word1=input identity; same queue",
+      "entry16": "082310b58ab0cde90130074c02e02046",
+      "image_offset": "0x5a40",
+      "decompiled_source": "analysis/dongle-radio-1.20-final/230252a4.c",
+      "decompiled_source_sha256": "703aa82f5d70417f03c11544e511ce9f52660c9789b4c4b5c68272747a72cf4c"
+    },
+    {
+      "address": "0x23025300",
+      "event": 9,
+      "detail": "word0=9, word1=input metadata; same queue",
+      "entry16": "092310b58ab0cde90130074c02e02046",
+      "image_offset": "0x5a9c",
+      "decompiled_source": "analysis/dongle-radio-1.20-final/23025300.c",
+      "decompiled_source_sha256": "cbb7c1eac446ca2530e9749371c458c6afcea38e12c7b21d90ee6d2149c96670"
+    },
+    {
+      "address": "0x2302539c",
+      "event": null,
+      "detail": "word0=caller event; remaining stack bytes not initialized here",
+      "entry16": "10b58ab0074c019002e0204601f0fafe",
+      "image_offset": "0x5b38",
+      "decompiled_source": "analysis/dongle-radio-1.20-final/2302539c.c",
+      "decompiled_source_sha256": "c9d329920b62758f2170955e3fb519384104669d267bf1335c3b202be06613d7"
+    },
+    {
+      "address": "0x23020680",
+      "event": null,
+      "detail": "calls event1 producer with byte-reversed32-bit global2DCF; then resets statistics",
+      "entry16": "08b5054bd3f81f0000ba04f0a5fcbde8",
+      "image_offset": "0xe1c",
+      "decompiled_source": "analysis/dongle-radio-1.20-final/23020680.c",
+      "decompiled_source_sha256": "194561cf0ba44a21a44847418e1b9bdb79fe73248a7bef1a3093781fa90e6100"
+    }
+  ]
+}

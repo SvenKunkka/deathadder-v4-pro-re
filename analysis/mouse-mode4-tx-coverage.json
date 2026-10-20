@@ -1,0 +1,25 @@
+{
+  "status": "observed_original_outcomes",
+  "counts": {
+    "cases": 4352,
+    "prepared_dma": 2481,
+    "normal_checksum": 2353,
+    "deadline_cancel": 494,
+    "selected_q_255": 1737,
+    "no_packet_prepared": 1871,
+    "tx_state": 1987,
+    "normal_wire_length_0_17_32": 351,
+    "motion_popped": 120,
+    "selected_q_5": 88,
+    "selected_q_1": 108,
+    "selected_q_0": 90,
+    "selected_q_3": 132,
+    "selected_q_2": 146,
+    "selected_q_4": 52,
+    "special_02_55_00": 128
+  },
+  "limits": [
+    "Outcome counts are not all-branch coverage",
+    "Length0 here may be original byte255+1 wrap; no validity claim"
+  ]
+}

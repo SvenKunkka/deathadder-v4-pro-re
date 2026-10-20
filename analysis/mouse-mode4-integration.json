@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "component_integration": {
+    "scenarios": 8,
+    "periods": 256,
+    "receiver_timer_events": 3072,
+    "receiver_uplink_inputs": 256,
+    "receiver_generated_downlinks": 256,
+    "mouse_timer_events": 512,
+    "mouse_success_irqs": 336,
+    "mouse_crc_fail_irqs": 64,
+    "new_business_completions": 256,
+    "duplicate_business_rejections": 80,
+    "adaptive_services": 400,
+    "receiver_scan_irq_events": 256
+  },
+  "scenarios": [
+    {
+      "channel_mode": 0,
+      "initial_mouse_bank": 0,
+      "periods": 32,
+      "completed_class3_messages": 32
+    },
+    {
+      "channel_mode": 0,
+      "initial_mouse_bank": 2,
+      "periods": 32,
+      "completed_class3_messages": 32
+    },
+    {
+      "channel_mode": 1,
+      "initial_mouse_bank": 0,
+      "periods": 32,
+      "completed_class3_messages": 32
+    },
+    {
+      "channel_mode": 1,
+      "initial_mouse_bank": 2,
+      "periods": 32,
+      "completed_class3_messages": 32
+    },
+    {
+      "channel_mode": 2,
+      "initial_mouse_bank": 0,
+      "periods": 32,
+      "completed_class3_messages": 32
+    },
+    {
+      "channel_mode": 2,
+      "initial_mouse_bank": 2,
+      "periods": 32,
+      "completed_class3_messages": 32
+    },
+    {
+      "channel_mode": 3,
+      "initial_mouse_bank": 0,
+      "periods": 32,
+      "completed_class3_messages": 32
+    },
+    {
+      "channel_mode": 3,
+      "initial_mouse_bank": 2,
+      "periods": 32,
+      "completed_class3_messages": 32
+    }
+  ],
+  "original_instruction_cases_added": 0,
+  "limits": [
+    "serialized C event chains, not new original-instruction cases",
+    "uplinks and CRC/event delivery explicitly injected; no recovered mouse TX selection or RF/DPPI/time",
+    "receiver downlink comes from real restored class3 enqueue and timer selection",
+    "consumer remains deferred; real work.flags=4 natural fast return only",
+    "mouse timer exercised CC0 and slot5 CC2, not all transmit-selection slots",
+    "no nonzero ACK callback, concurrent IRQ/work scheduling or physical behavior"
+  ],
+  "source_sha256": {
+    "recovered-code/portable/mouse_mode4_radio.c": "97d91795be330a87c270c5657e76157dc11d3a780cc163b203d1dc83a1cfc23e",
+    "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+    "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+    "recovered-code/portable/mouse_business_flow.c": "7ad6dcf3a9786a2d225c4efd7c69f86d8976830002e68f5b16ce10773100c2be",
+    "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+    "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+    "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+    "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86"
+  }
+}

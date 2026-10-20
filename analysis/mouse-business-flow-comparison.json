@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "original_cases": 1600,
+  "coverage": {
+    "kind_0": 128,
+    "kind_1": 128,
+    "kind_2": 128,
+    "kind_3": 128,
+    "kind_4": 128,
+    "kind_5": 128,
+    "kind_6": 128,
+    "kind_7": 128,
+    "kind_8": 128,
+    "kind_9": 128,
+    "kind_10": 128,
+    "kind_11": 128,
+    "kind_12": 64
+  },
+  "events": {
+    "0:0:0:0": 704,
+    "1:0:0:0": 256,
+    "1:2:1:-16": 255,
+    "1:1:0:0": 256,
+    "1:2:1:0": 129
+  },
+  "failures": [],
+  "boundary_tests": 7,
+  "comparison": [
+    "all65536 RAM bytes",
+    "BASEPRI restored",
+    "whole original23022508 including real RX/memcpy/work-submit fast-return"
+  ],
+  "source_sha256": "8bf5cbea73339da54986a999f38bb28bbebada50787ffa373a0c46d2efb4f08b",
+  "code_sha256": {
+    "recovered-code/portable/mouse_business_flow.c": "7ad6dcf3a9786a2d225c4efd7c69f86d8976830002e68f5b16ce10773100c2be",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/mouse_business_flow.h": "09e0175d37102ef84c695650087fb019cb98eb963c6a71367f2e5fe70809dfc4",
+    "ghidra-scripts/EmulateMouseBusinessFlow.java": "57cd3f9580f7aae28159a9b13fcffb4d5e8b90b08a3676d7db0cea12153eb2f3"
+  },
+  "limits": [
+    "Real RTOS queue path not modeled; supports flags&6 natural fast-return",
+    "Accepted class6/7 not projected by six-class RX module",
+    "Copies beyond128B or malformed zero-size copies explicit preflight boundary",
+    "No asynchronous consumer call, RF timing or physical hardware validation",
+    "Missing Ghidra BASEPRI getter bridged to same ArmCpuState; ISB inert"
+  ]
+}

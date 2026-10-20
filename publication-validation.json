@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-20T01:36:38.962193+00:00",
+  "command": "make check",
+  "exit_code": 0,
+  "compiled_C_units": 69,
+  "compiler_flags": "-std=c11 -Wall -Wextra -Werror -pedantic -O2",
+  "host_library": "recovered-code/portable/build/librr_recovered.a",
+  "unit_tests": 4,
+  "tests": "test_handshake_codec",
+  "copied_file_hashes_verified": 8995,
+  "portable_C_and_headers_unchanged": true,
+  "scope": "Publication build and standalone contract tests only; no hardware or historical oracle replay"
+}

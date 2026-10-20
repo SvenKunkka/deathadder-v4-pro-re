@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "original_instruction_cases": 1280,
+  "per_side": {
+    "mouse": 576,
+    "dongle": 704
+  },
+  "coverage": {
+    "mouse": {
+      "class0:kind0": 32,
+      "class1:kind0": 32,
+      "class2:kind0": 32,
+      "class3:kind0": 32,
+      "class4:kind0": 32,
+      "class5:kind0": 32,
+      "class0:kind1": 32,
+      "class1:kind1": 32,
+      "class2:kind1": 32,
+      "class3:kind1": 32,
+      "class4:kind1": 32,
+      "class5:kind1": 32,
+      "class0:kind2": 32,
+      "class1:kind2": 32,
+      "class2:kind2": 32,
+      "class3:kind2": 32,
+      "class4:kind2": 32,
+      "class5:kind2": 32
+    },
+    "dongle": {
+      "class0:kind0": 32,
+      "class1:kind0": 32,
+      "class2:kind0": 32,
+      "class3:kind0": 32,
+      "class4:kind0": 32,
+      "class5:kind0": 32,
+      "class0:kind1": 32,
+      "class1:kind1": 32,
+      "class2:kind1": 32,
+      "class3:kind1": 32,
+      "class4:kind1": 32,
+      "class5:kind1": 32,
+      "class0:kind4": 32,
+      "class1:kind4": 32,
+      "class2:kind4": 96,
+      "class3:kind3": 32,
+      "class4:kind4": 96,
+      "class5:kind4": 32
+    }
+  },
+  "failures": [],
+  "sources": {
+    "analysis/mouse-rx-original.jsonl": "4b202618cd6ad3911d181d3e419aa93b8b7d94e95d1cbccaee03d91edd7611ad",
+    "analysis/dongle-rx-original.jsonl": "a500e1de696759ca489748c2a600237d1382d8335a62e99acf66feaad589ff6b",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_rx.h": "62157d3ed842022307b7e9311032ab806662ab2efaa6754a75666184f4e2acd8",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "ghidra-scripts/EmulateBusinessRx.java": "3c2e9055a8c84171295c9f506ed2ddfdb24ebf4d7b9e1e88c99a83499d797b72"
+  },
+  "boundaries": [
+    "original execution pauses before mouse work-submit or dongle management/consumer call",
+    "class2/4 final lengths8/16; other lengths explicitly unsupported, not original rejection",
+    "RAM/software execution, no physical RF or scheduler proof"
+  ]
+}

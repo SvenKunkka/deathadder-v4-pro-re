@@ -1,0 +1,103 @@
+{
+  "status": "PARTIAL_RECOVERY_VERIFIED",
+  "firmware": "mouse radio 1.20",
+  "entries": {
+    "radio": "0x23024650",
+    "action": "0x23024918",
+    "timer": "0x2302516c"
+  },
+  "original_instruction_cases": 3072,
+  "original_coverage": {
+    "kind0": 1536,
+    "kind1": 1024,
+    "kind2": 256,
+    "kind3": 256
+  },
+  "boundary_tests": 8,
+  "component": {
+    "scenarios": 8,
+    "periods": 256,
+    "receiver_timer_events": 3072,
+    "receiver_uplink_inputs": 256,
+    "receiver_generated_downlinks": 256,
+    "mouse_timer_events": 512,
+    "mouse_success_irqs": 336,
+    "mouse_crc_fail_irqs": 64,
+    "new_business_completions": 256,
+    "duplicate_business_rejections": 80,
+    "adaptive_services": 400,
+    "receiver_scan_irq_events": 256
+  },
+  "component_original_cases_added": 0,
+  "hashes": {
+    "firmware-extracted-1.20/Suit2FWData__radio_radio.bin": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+    "analysis/runtime-images/mouse-ram-1.20.bin": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5",
+    "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+    "recovered-code/portable/mouse_mode4_radio.h": "905647c54e5f387fe764e17860fc5cde9bc1dbcd76104167637b99079f2a58cf",
+    "ghidra-scripts/EmulateMouseMode4.java": "feef07bfe665a2811d99804a11d115ea03523ad90b3788f49eee27c88dd44b48",
+    "analysis/mouse-mode4-original.jsonl": "20f7e0d2be01dff46e1904b68e2520bf66785eb0a513a29bb80b37130b6141af",
+    "analysis/mouse-mode4-emulation.log": "bdb6fc4ed624d72e20766b26584af40ca61834ff93107dffd61c00a210eda7e1",
+    "analysis/verify_mouse_mode4.py": "4412b8ef61432149f16a399509322d3e5ce9cf2fc34f5567d0ef2331057a6b1b",
+    "analysis/mouse-mode4-comparison.json": "cf648934b4e1a5db0e340a91f5e69511b8a0a33c3dc123f59518e724c43d3ded",
+    "analysis/test_mouse_mode4_integration.py": "13e2e80b24e65a876ca9bbbaf9a6365487222f170db21dfaa000d8e67eb19c31",
+    "analysis/mouse-mode4-integration.json": "4459ee2a4d48cd548bed4cabc9ae8ee6f5b727b30bc42a3ab53756b0ad3b3a2e",
+    "analysis/mouse-mode4-exact.md": "8581998a891d71fb2c1abde1116ec65189ab69461d1685bd1ae717a99d3e203c"
+  },
+  "target_function_stubs": false,
+  "cpu_bridge": "BASEPRI getter only in 256 business handoff cases",
+  "device_io": false,
+  "unrestored": [
+    "nonzero class3 ACK callback",
+    "slot5 timeout disconnect",
+    "pending rate update",
+    "selector2/3 frequency-plan recompute",
+    "actual RTOS scheduling, concurrency, PHY/DPPI and real hardware behavior",
+    "old API keeps idle TX analysis boundary; new action_full/timer_full restore valid-domain TX"
+  ],
+  "historical_stage1_hashes": {
+    "firmware-extracted-1.20/Suit2FWData__radio_radio.bin": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+    "analysis/runtime-images/mouse-ram-1.20.bin": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5",
+    "recovered-code/portable/mouse_mode4_radio.c": "cbafef2145651203ac2424e5f4102ed887b0a054424e5e8cb1c23f79ea969b37",
+    "recovered-code/portable/mouse_mode4_radio.h": "34d1219ab8427f0c250baeadd8ae62a2156749a36e9d8d93862ac1068b4dbbf6",
+    "ghidra-scripts/EmulateMouseMode4.java": "feef07bfe665a2811d99804a11d115ea03523ad90b3788f49eee27c88dd44b48",
+    "analysis/mouse-mode4-original.jsonl": "20f7e0d2be01dff46e1904b68e2520bf66785eb0a513a29bb80b37130b6141af",
+    "analysis/mouse-mode4-emulation.log": "bdb6fc4ed624d72e20766b26584af40ca61834ff93107dffd61c00a210eda7e1",
+    "analysis/verify_mouse_mode4.py": "ffcaf5716fb448bb0b2d4cd95470da0128f0bbc483e5f6f4d57a1700915398a7",
+    "analysis/mouse-mode4-comparison.json": "2fe91015c512b671dc1cea23ea6f3ef1f46c0603cb087325d467f0722dc00552",
+    "analysis/test_mouse_mode4_integration.py": "d197ef888c90f5dc1387e0ff64de5ab20a2e2982d1ca8932596df72204153931",
+    "analysis/mouse-mode4-integration.json": "638fd6dfd5f1e236b1169d691735367cdbe8776ae59bdbcc7c40a6d4b1567896",
+    "analysis/mouse-mode4-exact.md": "8581998a891d71fb2c1abde1116ec65189ab69461d1685bd1ae717a99d3e203c"
+  },
+  "revision": {
+    "reason": "TX extension added through new APIs; old API behavior and3072/8 regression preserved",
+    "current_old_api_regression": "PASS",
+    "extension_report": "analysis/mouse-mode4-tx-exact.md",
+    "extension_evidence": "analysis/mouse-mode4-tx-exact.json",
+    "new_unit": "recovered-code/portable/mouse_mode4_tx.c",
+    "new_original_cases": 4352,
+    "old_api_idle_tx_boundary_retained": true
+  },
+  "historical_before_runtime_hashes": {
+    "firmware-extracted-1.20/Suit2FWData__radio_radio.bin": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+    "analysis/runtime-images/mouse-ram-1.20.bin": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5",
+    "recovered-code/portable/mouse_mode4_radio.c": "97d91795be330a87c270c5657e76157dc11d3a780cc163b203d1dc83a1cfc23e",
+    "recovered-code/portable/mouse_mode4_radio.h": "d31a8f7fd1c51f1749f6ba5f2f018fb8641ccfb8519ede116e826518f1786578",
+    "ghidra-scripts/EmulateMouseMode4.java": "feef07bfe665a2811d99804a11d115ea03523ad90b3788f49eee27c88dd44b48",
+    "analysis/mouse-mode4-original.jsonl": "20f7e0d2be01dff46e1904b68e2520bf66785eb0a513a29bb80b37130b6141af",
+    "analysis/mouse-mode4-emulation.log": "bdb6fc4ed624d72e20766b26584af40ca61834ff93107dffd61c00a210eda7e1",
+    "analysis/verify_mouse_mode4.py": "4412b8ef61432149f16a399509322d3e5ce9cf2fc34f5567d0ef2331057a6b1b",
+    "analysis/mouse-mode4-comparison.json": "2cb6688236f239a95fd5f36a7f6381ca1d482b34829fb190ec7275a175a27251",
+    "analysis/test_mouse_mode4_integration.py": "13e2e80b24e65a876ca9bbbaf9a6365487222f170db21dfaa000d8e67eb19c31",
+    "analysis/mouse-mode4-integration.json": "4459ee2a4d48cd548bed4cabc9ae8ee6f5b727b30bc42a3ab53756b0ad3b3a2e",
+    "analysis/mouse-mode4-exact.md": "8581998a891d71fb2c1abde1116ec65189ab69461d1685bd1ae717a99d3e203c"
+  },
+  "runtime_revision": {
+    "report": "analysis/mouse-mode4-runtime-exact.md",
+    "evidence": "analysis/mouse-mode4-runtime-exact.json",
+    "old_API_behavior_preserved": true,
+    "old_original_regression": "PASS",
+    "new_original_inputs": 2560,
+    "new_complete_returns": 2048,
+    "new_real_RTOS_boundaries": 512
+  }
+}

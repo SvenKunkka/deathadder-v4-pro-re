@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "original_cases": 3072,
+  "original_steps": 58056129,
+  "counts": {
+    "0": 1024,
+    "1": 1024,
+    "2": 1024
+  },
+  "endings": {
+    "full_return": 2048,
+    "next_loop_head": 1024
+  },
+  "initialization_stack_phy_values": 251,
+  "initialization_channel_pairs": 55,
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/receiver_initialization.c": "b2f24a53c713d974ee10c31ff8ac4f7244cc451c273a988cd6ec8669d97063f9",
+    "recovered-code/portable/business_keys.c": "76bc4d99c53b0e4b2bbf0d5dac91569b1715e42dad2b2cc52d23ff8f5131b8fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/receiver_initialization.h": "6311ae5c40ba68221c29d91476062faa2d22ad6d7e4e51f1174676c7ba76f751",
+    "analysis/verify_receiver_initialization.py": "c896dd56f228ab3f2115a54937bf0691e51573f459fc53207cf012e5a3e0c059",
+    "ghidra-scripts/EmulateReceiverInitialization.java": "544c794b2cd0308338f295f2ba0d94f62ae37a4a16fcc6e3ee1d340c5b5c461c",
+    "analysis/receiver-initialization-original.jsonl": "0662b98e6b7654d133fa317a1ec18e33261855ff4a7da82639a4ec0e18604df6"
+  },
+  "limits": [
+    "Ten inert memory windows; real RTC/readback/IRQ/radio not autonomous",
+    "Original PRNG and all called initialization instructions executed; constant RTC snapshot per case",
+    "Old stack byte explicitly supplied for full init; stack writes not compared",
+    "Config dispatch starts after dequeue and ends at next loop header; only events1/8/9 and ignored defaults covered",
+    "Other dispatch arms, queue wait, whole startup, crosscore identities and RF remain incomplete"
+  ]
+}

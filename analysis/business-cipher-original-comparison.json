@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "original_instruction_cases": 128,
+  "per_side": {
+    "mouse": 64,
+    "dongle": 64
+  },
+  "failures": [],
+  "coverage": "all16 key selectors, lengths8/16, two inputs each combination per side",
+  "checked": [
+    "C and Python independently match original transform output",
+    "16/24 trailing guard bytes unchanged",
+    "key memory unchanged"
+  ],
+  "sources": {
+    "analysis/mouse-cipher-original.jsonl": "f8b21fac3bdb01cfdc44304daccc8e84f87424f6d1d73f12fbe4043b09d9dee6",
+    "analysis/dongle-cipher-original.jsonl": "17491479d4a19736a0e8370d53eab86fbd1ea578437723877c7cd9642a59e4be",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_cipher.h": "176e03bac6ad07d95aa9759b84f3510ae06bf1a07950258be02878961828ad53",
+    "ghidra-scripts/EmulateBusinessCipher.java": "d34cebc7f996fb5788b77c1d31e6f3b622f9a151985896029b00d89c929bf5c9",
+    "analysis/business_software_cipher.py": "668d273d8c6e8dea6089afda415b9806be082d81d4d3af314a477695a612987e"
+  },
+  "limits": [
+    "pure transform entrypoints only; not key-install wrapper or framing",
+    "software emulation, no RF or authentication verification",
+    "no CPU-userop overrides in these cipher runs"
+  ]
+}

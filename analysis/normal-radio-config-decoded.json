@@ -1,0 +1,109 @@
+[
+  {
+    "register": "PCNF0",
+    "value": "0x1000005",
+    "fields": [
+      {
+        "field": "LFLEN",
+        "value": 5,
+        "meaning": []
+      },
+      {
+        "field": "S0LEN",
+        "value": 0,
+        "meaning": []
+      },
+      {
+        "field": "S1LEN",
+        "value": 0,
+        "meaning": []
+      },
+      {
+        "field": "S1INCL",
+        "value": 0,
+        "meaning": [
+          "Include S1 field in RAM only if S1LEN &gt; 0"
+        ]
+      },
+      {
+        "field": "CILEN",
+        "value": 0,
+        "meaning": []
+      },
+      {
+        "field": "PLEN",
+        "value": 1,
+        "meaning": [
+          "16-bit preamble"
+        ]
+      },
+      {
+        "field": "CRCINC",
+        "value": 0,
+        "meaning": [
+          "LENGTH does not contain CRC"
+        ]
+      },
+      {
+        "field": "TERMLEN",
+        "value": 0,
+        "meaning": []
+      }
+    ]
+  },
+  {
+    "register": "PCNF1",
+    "value": "0x303001f",
+    "fields": [
+      {
+        "field": "MAXLEN",
+        "value": 31,
+        "meaning": []
+      },
+      {
+        "field": "STATLEN",
+        "value": 0,
+        "meaning": []
+      },
+      {
+        "field": "BALEN",
+        "value": 3,
+        "meaning": []
+      },
+      {
+        "field": "ENDIAN",
+        "value": 1,
+        "meaning": [
+          "Most significant bit on air first"
+        ]
+      },
+      {
+        "field": "WHITEEN",
+        "value": 1,
+        "meaning": [
+          "Enable"
+        ]
+      }
+    ]
+  },
+  {
+    "register": "CRCCNF",
+    "value": "0x102",
+    "fields": [
+      {
+        "field": "LEN",
+        "value": 2,
+        "meaning": [
+          "CRC length is two bytes and CRC calculation is enabled"
+        ]
+      },
+      {
+        "field": "SKIPADDR",
+        "value": 1,
+        "meaning": [
+          "CRC calculation starting at first byte after address field."
+        ]
+      }
+    ]
+  }
+]

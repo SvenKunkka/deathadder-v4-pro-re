@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "original_cases": 2048,
+  "original_steps": 386396,
+  "counts": {
+    "4": 2048
+  },
+  "boundaries": {
+    "0xe096220": 34,
+    "0x0": 800,
+    "0xe09600c": 794,
+    "0xe09628c": 260,
+    "0x23022620": 160
+  },
+  "original_returns": {
+    "next_loop_header": 800
+  },
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/mouse_work_thread.c": "cc38c5a3c3b833a7a2e0bd2580e0128251de17396c19bb1a5bb72bc625393dfb",
+    "recovered-code/portable/mouse_timer_expiry.c": "78cfea2a6a9906102f54483b6fd23bea0fec9e4a18cc5a5a4914e9cf87791cc4",
+    "recovered-code/portable/mouse_work_queue.c": "18634efd7f5860b19c3d85a8ac7341b8635561b8f8ad2c1b163e401df564778e",
+    "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+    "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+    "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+    "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+    "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+    "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+    "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/mouse_work_thread.h": "f7daa4058a68d2dbbd8a038ad826e570c4da11c022e30efe3b9e628814b4ca46",
+    "recovered-code/portable/mouse_timer_expiry.h": "4d5d1a24c2e17cd287939e9efe1cad3dbde5d73a28c206131c366794b930f249",
+    "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+    "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+    "analysis/verify_mouse_work_thread.py": "80cb2ffd19b638eea5d8bbc5c2d5222c18306671dc4212e1faac4850258716da",
+    "ghidra-scripts/EmulateMouseWorkThread.java": "43e16212be85a0851d50858500a4477a35c3afe29283dbaab44d7ec075c09ca1",
+    "analysis/mouse-work-thread-original.jsonl": "bc68cd713d1e13bee438333a877eab905b7556ce574f5a5ed7d3792915ebb771"
+  },
+  "limits": [
+    "Original worker entry through one loop body; next loop header is a segment boundary, NOT thread exit",
+    "Known link-state callback executes original instructions; Flush/cancel semaphore give executes; unknown handler, drain wake, pend and yield stop at real callees",
+    "Yield takes no arguments; arg0 normalized0 on both sides, not a claim about incidental r0 bits",
+    "No real CPU/thread/IRQ scheduling or RF verification"
+  ]
+}

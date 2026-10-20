@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "original_cases": 2560,
+  "counts": {
+    "timer_returned": 1536,
+    "work_submit_boundary": 128,
+    "timer_start_boundary": 384,
+    "ack_returned": 512
+  },
+  "failures": [],
+  "checks": [
+    "all65536 RAM bytes",
+    "RADIO4096/TIMER1536/SPIM16/NVIC4/clock8 (runtime)",
+    "RADIO4096/TIMER1536/RTC4096/clock8/NVIC4 (ACK)",
+    "pending actual entry + meaningful original registers",
+    "BASEPRI getter reads same ArmCpuState; returned paths restore it"
+  ],
+  "limits": [
+    "512 timeout paths stop at real RTOS entry, not successful completion",
+    "work flags2/4 natural fast-return before timer-start; flags0 boundary before work submit",
+    "inert MMIO no physical timing/concurrency; arbitrary ACK callbacks and timer stop callbacks/waiters remain boundaries"
+  ],
+  "sha256": {
+    "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+    "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+    "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+    "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+    "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+    "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/mouse_mode4_lifecycle.h": "c7fe95e72ca902e9988e10e416e404138a7f0774c4637258ec578603bbb36ebb",
+    "recovered-code/portable/mouse_mode4_radio.h": "905647c54e5f387fe764e17860fc5cde9bc1dbcd76104167637b99079f2a58cf",
+    "analysis/verify_mouse_mode4_runtime.py": "eed259c4c61f47b6eac6f0ce121fb12bf863ddd108c1953836b5f69a3a779e90",
+    "ghidra-scripts/EmulateMouseMode4Runtime.java": "4e46374aa09b587fa5be724609e86dc5593077e09d369968d05272a84a8e17c7",
+    "ghidra-scripts/EmulateMouseMode4Ack.java": "5968cf683fd66d7b25900cedf905a204c28f0de0675255316b64830572142039",
+    "analysis/mouse-mode4-runtime-original.jsonl": "997c9e4cccaeb77e688c7c1aaa67c4f4b4effa22cb30511595fa562e9f8a9aba",
+    "analysis/mouse-mode4-ack-original.jsonl": "fa24b68c299e8a96605bac6156eb2270e5a232de13c2f8f8e8c72971e1cc7b77"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "cycles": 128,
+  "buffered_messages": 640,
+  "direct_waiter_deliveries": 128,
+  "full_queue_rejections": 128,
+  "finite_waits_canceled": 64,
+  "explicit_context_handoffs": 256,
+  "post_get_dispatch_segments": 128,
+  "not_added_to_original_count": true,
+  "checks": [
+    "Full36-byte FIFO including old tail",
+    "Queue capacity rejection preserves RAM/RTC",
+    "Read and write pointers wrap across repeated batches",
+    "Empty wait records destination, flags, wait queue and CPU request",
+    "Real restored producer delivers directly to waiter and cancels finite timeout",
+    "Config event9 commits each dequeued value to RAM3240"
+  ],
+  "limits": [
+    "Explicit context handoff, not CPU exception/stack restoration",
+    "After blocked get, separately invoke existing after-get dispatch with actually delivered message",
+    "Shared RAM destination replaces thread-private stack; no real RF/IRQ/time"
+  ],
+  "sources": {
+    "analysis/test_receiver_queue_continuous.py": "277de965cc4b33a18b990921b27db872f86fc7635a5055b8f958882e26762e41",
+    "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+    "recovered-code/portable/receiver_queue_runtime.h": "193f49ba93e162de9f36d79381863b9ae98bbffd0600908ce753869bc813f95c",
+    "recovered-code/portable/receiver_config_control.c": "8d7238c18d684406ddc6b8616b47f0fdc436cec38219158491c07bb74e4062cc",
+    "recovered-code/portable/receiver_timeout.c": "e08d18e42ad9dd1d3cb88d2e8c066a18b131f783509df689e2ee46ed7f504d8b",
+    "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+    "analysis/receiver-queue-runtime-original.jsonl": "1d4422bcb2be7c63601ddb57fdc8eb20f2d636fd9caf9c7fe3832cf3e7d63e19"
+  }
+}

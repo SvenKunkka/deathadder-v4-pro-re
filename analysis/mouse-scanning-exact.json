@@ -1,0 +1,341 @@
+{
+  "status": "PASS",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "original_inputs": 6144,
+  "full_function_returns": 5116,
+  "next_worker_loop_headers": 439,
+  "real_entry_boundaries": 589,
+  "entry_spans": [
+    {
+      "address": "0x23022620",
+      "role": "work3858 handler",
+      "image_offset": "0x2dbc",
+      "entry16_hex": "10b51d4b93f827404cbb1c4a117901b9"
+    },
+    {
+      "address": "0x23022cf0",
+      "role": "start scan and periodic timer1540",
+      "image_offset": "0x348c",
+      "entry16_hex": "30b54ff47a74002102201325154b164a"
+    },
+    {
+      "address": "0x23022310",
+      "role": "timer1540 scan callback",
+      "image_offset": "0x2aac",
+      "entry16_hex": "70b58ab000bf424cd4f88c30172b0fd8"
+    },
+    {
+      "address": "0x2302253c",
+      "role": "scan dwell/channel advance",
+      "image_offset": "0x2cd8",
+      "entry16_hex": "f8b51d4db5f8d6400134a4b2012ca5f8"
+    },
+    {
+      "address": "0x23022c8c",
+      "role": "handshake retry reset",
+      "image_offset": "0x3428",
+      "entry16_hex": "70b40022012113264ff4fe054ff40004"
+    },
+    {
+      "address": "0x23021af8",
+      "role": "radio mode setup",
+      "image_offset": "0x2294",
+      "entry16_hex": "022810b42ed0042827d0194bd3f8a028"
+    },
+    {
+      "address": "0x230218bc",
+      "role": "timer clear subscription",
+      "image_offset": "0x2058",
+      "entry16_hex": "044b054a1b78002043f00043c2f88c30"
+    },
+    {
+      "address": "0x230218ec",
+      "role": "discovery radio reinitialization",
+      "image_offset": "0x2088",
+      "entry16_hex": "2de9f84f05462c200af0d4fe4ff00a0b"
+    },
+    {
+      "address": "0x23021b90",
+      "role": "state transition and RADIO task",
+      "image_offset": "0x232c",
+      "entry16_hex": "30b400240125054b0260c3f80042c3f8"
+    },
+    {
+      "address": "0x230221e0",
+      "role": "frequency table lookup",
+      "image_offset": "0x297c",
+      "entry16_hex": "014b185c704700bf148a090e104ad389"
+    },
+    {
+      "address": "0x23021528",
+      "role": "peer0 business TX queues init",
+      "image_offset": "0x1cc4",
+      "entry16_hex": "4ff46e6200214ff0103c02fb00f01a4b"
+    },
+    {
+      "address": "0x23025f48",
+      "role": "optional application activity signal",
+      "image_offset": "0x66e4",
+      "entry16_hex": "044b1b7803b970470122034b1b68da60"
+    },
+    {
+      "address": "0xe089e48",
+      "role": "NVIC interrupt disable",
+      "image_offset": "0x1de48",
+      "entry16_hex": "00b200280cdb01220649430900f01f00"
+    },
+    {
+      "address": "0xe089e2c",
+      "role": "NVIC interrupt enable",
+      "image_offset": "0x1de2c",
+      "entry16_hex": "00b2002807db012300f01f01024a4009"
+    },
+    {
+      "address": "0xe089e70",
+      "role": "NVIC interrupt priority",
+      "image_offset": "0x1de70",
+      "entry16_hex": "013100b249010028c9b206db00f16040"
+    }
+  ],
+  "discovery_table": {
+    "index_flash": "0x0e098a3c",
+    "index_image_offset": "0x2ca3c",
+    "index_bytes": "25261627",
+    "frequency_flash": "0x0e098a14",
+    "frequency_image_offset": "0x2ca14",
+    "frequency_bytes": "0406080a0c0e10121416181c1e20222426282a2c2e30323436383a3c3e40424446484a4c4e021a50",
+    "selected_register_values": [
+      2,
+      26,
+      50,
+      80
+    ]
+  },
+  "comparison": {
+    "status": "PASS",
+    "original_cases": 6144,
+    "original_steps": 1300855,
+    "counts": {
+      "0": 1024,
+      "1": 1024,
+      "2": 1024,
+      "3": 1024,
+      "4": 1024,
+      "5": 1024
+    },
+    "boundaries": {
+      "0x0": 5555,
+      "0xe089d4c": 4,
+      "0xe096220": 17,
+      "0xe09600c": 438,
+      "0xe09628c": 130
+    },
+    "original_returns": {
+      "original_full_return": 5116,
+      "next_worker_header": 439
+    },
+    "failures": [],
+    "sources": {
+      "recovered-code/portable/mouse_scanning.c": "4b2d52a41de90de241c36360cf1f22f188fdd0d243b5f92ef7272798809418de",
+      "recovered-code/portable/mouse_work_thread.c": "cc38c5a3c3b833a7a2e0bd2580e0128251de17396c19bb1a5bb72bc625393dfb",
+      "recovered-code/portable/mouse_timer_expiry.c": "78cfea2a6a9906102f54483b6fd23bea0fec9e4a18cc5a5a4914e9cf87791cc4",
+      "recovered-code/portable/mouse_work_queue.c": "18634efd7f5860b19c3d85a8ac7341b8635561b8f8ad2c1b163e401df564778e",
+      "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+      "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+      "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+      "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+      "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+      "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+      "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+      "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+      "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+      "recovered-code/portable/mouse_scanning.h": "22d784038291fc59a908168a88bb56ab9d2ba905ea894ccf287b92c0c6b55396",
+      "recovered-code/portable/mouse_work_thread.h": "f7daa4058a68d2dbbd8a038ad826e570c4da11c022e30efe3b9e628814b4ca46",
+      "recovered-code/portable/mouse_timer_expiry.h": "4d5d1a24c2e17cd287939e9efe1cad3dbde5d73a28c206131c366794b930f249",
+      "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+      "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+      "analysis/verify_mouse_scanning.py": "195ba1c48d8144ac8ee109896f3c1ce57f797d33a56bf59ffaf4f26904728dc0",
+      "ghidra-scripts/EmulateMouseScanning.java": "2b26c5a890a359729290f2be523b36ac7f84964fca1c6d54d5dbbdaa86fc809c",
+      "analysis/mouse-scanning-original.jsonl": "f0a2ee088faf83d7e4cdbc5985591b06d4504974c9c7ce9233d324fec12350be"
+    },
+    "limits": [
+      "Snapshot MMIO and serialized privileged CPU; no real radio/clock/IRQ propagation",
+      "Direct scan functions plus actual1540 expiry and work3858 thread dispatch; no successful-return stubs",
+      "Worker next-loop-header is not thread exit; drain/pend/yield and CPU switch remain real entries",
+      "Only declared input domain; timer stop callbacks/waiters not certified by these complete-return fixtures"
+    ]
+  },
+  "component_integration": {
+    "status": "PASS",
+    "scenarios": 4,
+    "complete_timeout_restart_cycles": 8,
+    "explicit_application_timer_calls": 8000,
+    "actual_worker_segments": 8,
+    "sources": {
+      "analysis/test_mouse_scanning_continuous.py": "1bff682f95312fa245733905cad763a49a2e95f1750795efb8cc926bfc5dcbaa",
+      "recovered-code/portable/mouse_scanning.c": "4b2d52a41de90de241c36360cf1f22f188fdd0d243b5f92ef7272798809418de",
+      "recovered-code/portable/mouse_scanning.h": "22d784038291fc59a908168a88bb56ab9d2ba905ea894ccf287b92c0c6b55396",
+      "analysis/libmouse_scanning.dylib": "81c79593fbdbf5af7e12a050d535c2c0cabebd591e391836827541db9d757edf"
+    },
+    "results": [
+      {
+        "initial_scan_index": 0,
+        "cycles": [
+          {
+            "callbacks": 1000,
+            "first_eight_frequencies": [
+              2,
+              26,
+              50,
+              80,
+              2,
+              26,
+              50,
+              80
+            ],
+            "scanning_restarted": true
+          },
+          {
+            "callbacks": 1000,
+            "first_eight_frequencies": [
+              26,
+              50,
+              80,
+              2,
+              26,
+              50,
+              80,
+              2
+            ],
+            "scanning_restarted": true
+          }
+        ]
+      },
+      {
+        "initial_scan_index": 1,
+        "cycles": [
+          {
+            "callbacks": 1000,
+            "first_eight_frequencies": [
+              26,
+              50,
+              80,
+              2,
+              26,
+              50,
+              80,
+              2
+            ],
+            "scanning_restarted": true
+          },
+          {
+            "callbacks": 1000,
+            "first_eight_frequencies": [
+              50,
+              80,
+              2,
+              26,
+              50,
+              80,
+              2,
+              26
+            ],
+            "scanning_restarted": true
+          }
+        ]
+      },
+      {
+        "initial_scan_index": 2,
+        "cycles": [
+          {
+            "callbacks": 1000,
+            "first_eight_frequencies": [
+              50,
+              80,
+              2,
+              26,
+              50,
+              80,
+              2,
+              26
+            ],
+            "scanning_restarted": true
+          },
+          {
+            "callbacks": 1000,
+            "first_eight_frequencies": [
+              80,
+              2,
+              26,
+              50,
+              80,
+              2,
+              26,
+              50
+            ],
+            "scanning_restarted": true
+          }
+        ]
+      },
+      {
+        "initial_scan_index": 3,
+        "cycles": [
+          {
+            "callbacks": 1000,
+            "first_eight_frequencies": [
+              80,
+              2,
+              26,
+              50,
+              80,
+              2,
+              26,
+              50
+            ],
+            "scanning_restarted": true
+          },
+          {
+            "callbacks": 1000,
+            "first_eight_frequencies": [
+              2,
+              26,
+              50,
+              80,
+              2,
+              26,
+              50,
+              80
+            ],
+            "scanning_restarted": true
+          }
+        ]
+      }
+    ],
+    "not_added_to_original_input_count": true,
+    "limits": [
+      "C component integration only, not new original-instruction evidence",
+      "Application timer callback invoked explicitly; RTC snapshot supplied by test, no automatic expiry/IRQ dispatch",
+      "No receiver, no radio events/RX packets, no real RF verification"
+    ]
+  },
+  "sources": {
+    "recovered-code/portable/mouse_scanning.c": "4b2d52a41de90de241c36360cf1f22f188fdd0d243b5f92ef7272798809418de",
+    "recovered-code/portable/mouse_scanning.h": "22d784038291fc59a908168a88bb56ab9d2ba905ea894ccf287b92c0c6b55396",
+    "ghidra-scripts/EmulateMouseScanning.java": "2b26c5a890a359729290f2be523b36ac7f84964fca1c6d54d5dbbdaa86fc809c",
+    "analysis/mouse-scanning-original.jsonl": "f0a2ee088faf83d7e4cdbc5985591b06d4504974c9c7ce9233d324fec12350be",
+    "analysis/mouse-scanning-comparison.json": "6d7f6a4f7337a92ac56d2b5e7f470adee9decc295d84a8e0760ba75690333c72",
+    "analysis/verify_mouse_scanning.py": "195ba1c48d8144ac8ee109896f3c1ce57f797d33a56bf59ffaf4f26904728dc0",
+    "analysis/test_mouse_scanning_continuous.py": "1bff682f95312fa245733905cad763a49a2e95f1750795efb8cc926bfc5dcbaa",
+    "analysis/mouse-scanning-continuous-comparison.json": "ff5d1a6f08b37aeedaeea1291e69b2bbc49b278e9e7851100c995149e16f2d13",
+    "analysis/mouse-scanning-ghidra.log": "1962d0bd02b548e37575300a72686f1da472dacc1826992b47a004498bc9ee64"
+  },
+  "limits": [
+    "Official1.20 artifact; live device version match does not establish byte-identical flash",
+    "Snapshot MMIO/BASEPRI/IPSR; ISB/DSB have no real timing; no autonomous IRQ or RF effects",
+    "Existing APIs remain unchanged; scanning extensions explicitly execute the actual boundary continuation once",
+    "Worker next-loop-header is a software segment end, not a full thread return",
+    "Direct scan index domain0..3 for table lookup; malformed memory/list inputs are not certified",
+    "Timer stop callback/waiter branches retain prior analysis boundaries; RTC-busy path does not claim live waiting behavior",
+    "Actual CPU switch, worker pend/yield/drain, RTC announce and whole-system routing remain incomplete"
+  ]
+}

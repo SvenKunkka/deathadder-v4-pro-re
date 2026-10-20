@@ -1,0 +1,234 @@
+{
+  "status": "PASS",
+  "original_cases": 10240,
+  "original_steps": 2989995,
+  "endings": {
+    "full_return": 9190,
+    "cpu_request": 35,
+    "LED_driver_entry": 1015
+  },
+  "by_op": {
+    "0": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1023,
+        "CPU_request": 1
+      }
+    },
+    "1": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1023,
+        "CPU_request": 1
+      }
+    },
+    "2": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1023,
+        "CPU_request": 1
+      }
+    },
+    "3": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1023,
+        "CPU_request": 1
+      }
+    },
+    "4": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1023,
+        "CPU_request": 1
+      }
+    },
+    "5": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1024
+      }
+    },
+    "6": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1017,
+        "CPU_request": 7
+      }
+    },
+    "7": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1017,
+        "CPU_request": 7
+      }
+    },
+    "8": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1017,
+        "CPU_request": 7
+      }
+    },
+    "9": {
+      "cases": 1024,
+      "endings": {
+        "CPU_request": 9,
+        "LED_driver_entry": 1015
+      }
+    }
+  },
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "entry_spans": [
+    {
+      "name": "event1_value",
+      "address": "0x23024fd8",
+      "image_offset": "0x5774",
+      "entry16_hex": "012310b58ab0cde90130074c02e02046"
+    },
+    {
+      "name": "event8_value",
+      "address": "0x230252a4",
+      "image_offset": "0x5a40",
+      "entry16_hex": "082310b58ab0cde90130074c02e02046"
+    },
+    {
+      "name": "event9_value",
+      "address": "0x23025300",
+      "image_offset": "0x5a9c",
+      "entry16_hex": "092310b58ab0cde90130074c02e02046"
+    },
+    {
+      "name": "event_only",
+      "address": "0x2302539c",
+      "image_offset": "0x5b38",
+      "entry16_hex": "10b58ab0074c019002e0204601f0fafe"
+    },
+    {
+      "name": "stored_identity_to_event1",
+      "address": "0x23020680",
+      "image_offset": "0xe1c",
+      "entry16_hex": "08b5054bd3f81f0000ba04f0a5fcbde8"
+    },
+    {
+      "name": "statistics_reset",
+      "address": "0x230252d4",
+      "image_offset": "0x5a70",
+      "entry16_hex": "38b5074d044628220021284601f03eff"
+    },
+    {
+      "name": "mode41",
+      "address": "0x2302069c",
+      "image_offset": "0xe38",
+      "entry16_hex": "012208b5064b29205a8004f079fe0548"
+    },
+    {
+      "name": "mode40",
+      "address": "0x230206c4",
+      "image_offset": "0xe60",
+      "entry16_hex": "002208b5044b28205a8004f065febde8"
+    },
+    {
+      "name": "mode44",
+      "address": "0x230206e4",
+      "image_offset": "0xe80",
+      "entry16_hex": "10b50124054b2c205c8004f055fe0448"
+    },
+    {
+      "name": "mode43",
+      "address": "0x2302070c",
+      "image_offset": "0xea8",
+      "entry16_hex": "10b50024074b2b205c8004f041fe0648"
+    },
+    {
+      "name": "real_LED_entry_boundary",
+      "address": "0x23025954",
+      "image_offset": "0x60f0",
+      "entry16_hex": "0138c0b20328f8b510d80a490a4a0b4b"
+    }
+  ],
+  "queue_initializers": [
+    {
+      "name": "notification_queue_5_slots",
+      "address": "0x23001b8c",
+      "file_offset": "0x1e3e0",
+      "bytes": "8c1b00238c1b00232400000005000000605701231458012360570123605701230000000000000000"
+    },
+    {
+      "name": "config_queue_10_slots",
+      "address": "0x23001bb4",
+      "file_offset": "0x1e408",
+      "bytes": "b41b0023b41b0023240000000a000000f855012360570123f8550123f85501230000000000000000"
+    }
+  ],
+  "sources": {
+    "recovered-code/portable/receiver_config_producer.c": "394e27aa5dd4b02f6521b00dc48d49c760a987e60d2c52b768430232afad48a1",
+    "recovered-code/portable/receiver_config_producer.h": "73b91a8238e0414b9f1a4d4f25fe0348e24f76fe7086c19c6f9d747862953b90",
+    "ghidra-scripts/EmulateReceiverConfigProducer.java": "04a61097443280672298329391baf5294833d753d09ae108b619c98857d8baaa",
+    "analysis/verify_receiver_config_producer.py": "263171b848b330885de1ff0e11346dc863796a4ae28b8ee4588cef994b02e0ab",
+    "analysis/receiver-config-producer-original.jsonl": "947fa6939e8f4cdec953a9019bc155e9f01f9258f918f88bb5f6e370e6a5ce41",
+    "analysis/receiver-config-producer-comparison.json": "6ca75f9a547aba4e3f4a629771bed316a73bcf86b813b3a77265a22b3ec1bcb8",
+    "analysis/receiver-config-producer-continuous-comparison.json": "fbe9ccaa231e582af90d4e1fc472c1dadef0c7cfe93b9291c58f4c2e46ac275f",
+    "analysis/dongle-radio-1.20-final/23024fd8.c": "07c2c93186ac4a39357b8390ad82b2abac4a5064a0d0867002b69afa257c2b19",
+    "analysis/dongle-radio-1.20-final/230252a4.c": "703aa82f5d70417f03c11544e511ce9f52660c9789b4c4b5c68272747a72cf4c",
+    "analysis/dongle-radio-1.20-final/23025300.c": "cbb7c1eac446ca2530e9749371c458c6afcea38e12c7b21d90ee6d2149c96670",
+    "analysis/dongle-radio-1.20-final/2302539c.c": "c9d329920b62758f2170955e3fb519384104669d267bf1335c3b202be06613d7",
+    "analysis/dongle-radio-1.20-final/23020680.c": "194561cf0ba44a21a44847418e1b9bdb79fe73248a7bef1a3093781fa90e6100",
+    "analysis/dongle-radio-1.20-final/230206c4.c": "072b88da7be77851d597784da7823bdd27fe20373791ad1b0db2906be9dcbc60",
+    "analysis/dongle-radio-1.20-final/230206e4.c": "fb3689d5f9c0c7c2f774483eeb56c88f334d55b5bfd38644b74c1a7458ae4a09",
+    "analysis/dongle-radio-1.20-final/2302070c.c": "809fea6307a324d7f9953e48c32718cf2c2d228e69fdc5d6df2967d7a62a99d8",
+    "analysis/dongle-radio-1.20-final/23025954.c": "5ac1302e6e823b0899f24e95acab75c8d91925cd60dd2392001c02645aebed40"
+  },
+  "component_integration": {
+    "status": "PASS",
+    "cycles": 64,
+    "identity_initializations": 64,
+    "full_queue_purges": 64,
+    "config_messages_consumed": 960,
+    "mode_wrappers_and_consumers": 192,
+    "not_added_to_original_count": true,
+    "checks": [
+      "Official ten-slot configuration queue object and ring bounds",
+      "Stored identity byte-swap to actual initialization and key-install event",
+      "Statistics reset before subsequent queue consumption",
+      "Full queue purges all ten older messages and retains newest",
+      "Ten-message FIFO and wrapping with complete28-byte tail",
+      "Mode40/44/41 producers through actual queue and radio/timer consumer"
+    ],
+    "limits": [
+      "Serialized software event chain; no CPU stack switching or hardware",
+      "Old-stack PHY explicitly0 and message tails explicit inputs",
+      "Event43 LED hardware boundary independently tested, excluded from continuing loop",
+      "Identity source RAM is supplied; persistent storage read not simulated"
+    ],
+    "sources": {
+      "analysis/test_receiver_config_producer_continuous.py": "ebfa94a1c77865a055b8aa8ec07fcc27c768456f9ba5cf20d890f7bb73ae2a89",
+      "recovered-code/portable/receiver_config_producer.c": "394e27aa5dd4b02f6521b00dc48d49c760a987e60d2c52b768430232afad48a1",
+      "recovered-code/portable/receiver_config_producer.h": "73b91a8238e0414b9f1a4d4f25fe0348e24f76fe7086c19c6f9d747862953b90",
+      "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+      "recovered-code/portable/receiver_config_control.c": "8d7238c18d684406ddc6b8616b47f0fdc436cec38219158491c07bb74e4062cc",
+      "recovered-code/portable/receiver_initialization.c": "b2f24a53c713d974ee10c31ff8ac4f7244cc451c273a988cd6ec8669d97063f9",
+      "recovered-code/portable/receiver_timeout.c": "e08d18e42ad9dd1d3cb88d2e8c066a18b131f783509df689e2ee46ed7f504d8b",
+      "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+      "firmware-extracted-1.20/Suit1FWData__radio_radio.bin": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162"
+    }
+  },
+  "fixture_capacity_profiles": {
+    "synthetic5slot_original_cases": 5120,
+    "official10slot_layout_original_cases": 5120
+  },
+  "findings": [
+    "Official config queue1BB4 has10slots at155F8..15760; notification1B8C has5 at15760..15814",
+    "Removed over-narrow5slot precondition from new producer before delivery; previous queue get/put implementations already use object fields",
+    "Value producers initialize8bytes and retain28 prior-stack bytes; event-only initializes4and retains32",
+    "Identity publisher reverses RAM2DCF bytes, enqueues event1 then resets statistics65B8length40 and65B4=20002",
+    "Event43 enqueues before thread suspend and LED boundary; does not imply LED operation completed"
+  ],
+  "limits": [
+    "Ten inert memory windows; no autonomous IRQ/RTC/radio",
+    "Configuration producers retain28or32 explicit prior-stack bytes",
+    "Event43 stops at actual LED function23025954 with arg0=0; hardware body not fabricated",
+    "CPU boundary preserves all effects and arguments; no nested stack continuation",
+    "Input identity is read from existing RAM2DCF; persistence/load ancestry remains incomplete"
+  ]
+}

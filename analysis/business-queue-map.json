@@ -1,0 +1,619 @@
+{
+  "version": "1.20 official firmware",
+  "status": "static queue and business mapping; cipher independently original-instruction verified",
+  "no_hardware_operations": true,
+  "scope": "normal connected mode4 business paths; alternate dispatch when dongle23002C82!=1 is not expanded",
+  "classes": [
+    {
+      "class": 0,
+      "name": "link control",
+      "confidence": "confirmed control fields; command meanings partially inferred",
+      "producer": {
+        "mouse": [
+          "23021C6C: 2F interval + BE16 activation counter, 4 bytes",
+          "23022F70: 2B channel/reason + two BE16 statistics, 6 bytes"
+        ],
+        "dongle": [
+          "230214BC: 28 + four bytes, 5 bytes; 29 + one byte + BE16 counter + zero, 5 bytes"
+        ]
+      },
+      "consumer": {
+        "mouse": "23022508 handles 28/29",
+        "dongle": "2302455C handles 2B/2C/17"
+      },
+      "format": "direct queue body, bypass general fragment prefix/checksum; 17 status also directly constructed",
+      "unknown": [
+        "2F mode4 consumer not located",
+        "complete command meaning/enum"
+      ]
+    },
+    {
+      "class": 1,
+      "name": "motion/button/wheel",
+      "confidence": "confirmed source arithmetic and USB conversion",
+      "producer": {
+        "mouse": [
+          "23026CA4 -> 2302125C -> 23025AB0; 6-byte input",
+          "23026DA0 -> 23028290 -> 2302A8A8 sensor acquisition; accumulated into 230076D6/230076D4"
+        ]
+      },
+      "input_fields": [
+        {
+          "offset": 0,
+          "length": 1,
+          "meaning": "button OR bitmap"
+        },
+        {
+          "offset": 1,
+          "length": 1,
+          "meaning": "wheel accumulator"
+        },
+        {
+          "offset": 2,
+          "length": 2,
+          "meaning": "X accumulator, BE16"
+        },
+        {
+          "offset": 4,
+          "length": 2,
+          "meaning": "Y accumulator, BE16"
+        }
+      ],
+      "queue_rule": "230215AC strips fragment control for class1; mode4 aggregation makes cumulative values, retained until acknowledgement",
+      "consumer": {
+        "dongle": "RADIO 23020A00 -> mode4 23024190 -> pend SWI4 -> 23021BE4 -> 2302455C -> 230254A0 -> 23025004 -> 23020250 -> 230268B0 -> 23026D28"
+      },
+      "usb": {
+        "device": "hid_dev_0",
+        "ring": 0,
+        "length": 8,
+        "fields": [
+          "0 buttons & 0x7F",
+          "1,2 zero in base formatter",
+          "3 wheel",
+          "4..5 X LE16",
+          "6..7 Y LE16"
+        ]
+      },
+      "unknown": [
+        "full button bit labels",
+        "sensor part identity not derived from this path"
+      ]
+    },
+    {
+      "class": 2,
+      "name": "8-byte HID business report",
+      "confidence": "confirmed size/cipher/USB route; keyboard semantics inferred",
+      "producer": {
+        "mouse": [
+          "23026CA4 when 230076D2 bit3; source 23006720, length8",
+          "230277C8 edits modifier-like bitmap byte0 and six slots bytes2..7"
+        ]
+      },
+      "format": "XXTEA8 bytes before fragmentation; 2 fragments (6 + 2 data bytes)",
+      "consumer": {
+        "dongle": "23025004 -> 23020128 inverse transform -> 23020250 -> 230268B0 -> 23026D28"
+      },
+      "usb": {
+        "device": "hid_dev_2",
+        "ring": 2,
+        "length": 8
+      },
+      "unknown": [
+        "HID descriptor alignment and individual key fields need further verification"
+      ]
+    },
+    {
+      "class": 3,
+      "name": "management/status",
+      "confidence": "confirmed opcode dispatch and bytes; selected labels inferred",
+      "producer": {
+        "mouse": [
+          "23021278: B1 00 BF 00 plus four state bytes, total8",
+          "23025CAC: A4, length1; queue completion callback 23025C2D",
+          "23025948: AC average RSSI, length2"
+        ],
+        "dongle": [
+          "2302060C: B1 plus five state bytes, total6 before checksum",
+          "23024CD4: A3, length1 before checksum",
+          "23024DB4/23025640: AC plus interval fields; exact caller length not revalidated here"
+        ]
+      },
+      "consumer": {
+        "mouse": "23025E38 handles A3/B1; AC special 23025948 before general checksum test",
+        "dongle": "23024C88 handles A4/AC/AB; 23020250 B1 reads bytes5/6/7 and updates status"
+      },
+      "unknown": [
+        "complete management command enum",
+        "remaining state-byte names",
+        "AC caller exact ABI/length"
+      ]
+    },
+    {
+      "class": 4,
+      "name": "16-byte multiplex HID business report",
+      "confidence": "confirmed size/cipher/USB route; subtype meanings incomplete",
+      "producer": {
+        "mouse": [
+          "23026CA4 uses 230066F0,23006700,23006710 or constructed local report, length16"
+        ]
+      },
+      "format": "XXTEA16 bytes before fragmentation; 3 fragments (6 + 6 + 4 data bytes)",
+      "consumer": {
+        "dongle": "23025004 decrypts with23020128 and forces length16; 23020250 forwards and handles byte1==0x31 status update"
+      },
+      "usb": {
+        "device": "hid_dev_1",
+        "ring": 1,
+        "length": 16
+      },
+      "unknown": [
+        "complete report ID/subtype field dictionary",
+        "meaning of all16 bytes for each subtype"
+      ]
+    },
+    {
+      "class": 5,
+      "name": "host vendor command/response transport",
+      "confidence": "confirmed 0x5A envelope and host callback route; inner command dictionary incomplete",
+      "producer": {
+        "dongle": [
+          "23026D78 SET_REPORT: param2==3, hid_dev0, param4==0x5A; copies89 host bytes after leading byte into23002D1D",
+          "23026090 validates XOR and selects peer from high3 bits; constructs 5A + report XOR + report data at23002CB8",
+          "230205C8 -> 230251E4: length23002D21+10 before whole-message checksum"
+        ],
+        "mouse": [
+          "230211DC constructs5A + 23003F54 + data from23003EFC, trims trailing zeros with min10/max90, ->23025AB0"
+        ]
+      },
+      "consumer": {
+        "mouse": "230259EC -> 23025E38: class5, first5A, sum0; copies body+2 into90-byte23003EFC and body1 intooffset0x58; schedules local processing",
+        "dongle": "23025004 -> 23020250: first5A; copies body+2 into23002D1C, body1 into23002D74; USB GET_REPORT23026C08"
+      },
+      "unknown": [
+        "inner90-byte command dictionary",
+        "complete peer routing and local command dispatcher",
+        "cross-core IPC linkage"
+      ]
+    }
+  ],
+  "queue_infrastructure": {
+    "mouse": {
+      "context": "23002978",
+      "peer_stride": "0xEE0",
+      "enqueue": "230215AC",
+      "peek": "230214E0",
+      "pop": "2302145C",
+      "free": "23021488",
+      "init": "23021528",
+      "empty_all": "230216B0",
+      "write_indices": "23002AD6",
+      "read_indices": "23002ADC",
+      "capacity_address": "23002AE2",
+      "capacities": [
+        32,
+        5,
+        16,
+        32,
+        32,
+        96
+      ],
+      "stride_address": "23002AE8",
+      "entry_stride": 16,
+      "pointer_table": "23002AF0",
+      "queue_bases": [
+        "23002B08",
+        "23002D08",
+        "23002D58",
+        "23002E58",
+        "23003058",
+        "23003258"
+      ]
+    },
+    "dongle": {
+      "context": "230033E8",
+      "peer_stride": "0xF84",
+      "enqueue": "230208B8",
+      "peek": "230207EC",
+      "pop": "2302073C",
+      "free": "23020768",
+      "init": "2302083C",
+      "write_indices": "2300353C",
+      "read_indices": "23003542",
+      "capacity_address": "23003548",
+      "capacities": [
+        32,
+        16,
+        16,
+        32,
+        32,
+        96
+      ],
+      "stride_address": "2300354E",
+      "entry_stride": 16,
+      "pointer_table": "23003554",
+      "queue_bases": [
+        "2300356C",
+        "2300376C",
+        "2300386C",
+        "2300396C",
+        "23003B6C",
+        "23003D6C"
+      ]
+    },
+    "capacity_note": "ring reserves one empty entry; usable capacity N-1",
+    "entry_fields": [
+      {
+        "offset": 0,
+        "size": 1,
+        "meaning": "body length m"
+      },
+      {
+        "offset": 1,
+        "size": 1,
+        "meaning": "metadata supplied by caller, often FF"
+      },
+      {
+        "offset": 2,
+        "size": 1,
+        "meaning": "0 on enqueue, 1 on peek"
+      },
+      {
+        "offset": 3,
+        "size": 1,
+        "meaning": "unresolved/padding"
+      },
+      {
+        "offset": 4,
+        "size": 1,
+        "meaning": "DMA length m+2; peek returns entry+4"
+      },
+      {
+        "offset": 5,
+        "size": 1,
+        "meaning": "link header filled later"
+      },
+      {
+        "offset": 6,
+        "size": 1,
+        "meaning": "class<<3 | per-class sequence"
+      },
+      {
+        "offset": 7,
+        "size": "m",
+        "meaning": "body"
+      }
+    ]
+  },
+  "headers": {
+    "dma_byte2_class": "(b&0x3F)>>3",
+    "dma_byte2_sequence": "b&7, generated1..7, per class",
+    "dma_byte2_bits7_6": "additional mode4 motion aggregation flags/generation",
+    "distinct_from": "DMA byte1 link sequence/ACK"
+  },
+  "fragmentation": {
+    "control": "bit7=more, bits4:0=index; bits6:5 not used by these reassemblers",
+    "uplink": {
+      "function": "mouse23025AB0",
+      "chunk_bytes": 6,
+      "class1_exception": "enqueue strips fragment prefix; receiver synthesizes prefix0"
+    },
+    "downlink": {
+      "function": "dongle230251E4",
+      "whole_message_checksum": "append -sum(original message) mod256 BEFORE fragmentation",
+      "chunk_bytes": 4,
+      "class0_exception": "direct enqueue bypasses this routine"
+    },
+    "mouse_reassembly": {
+      "function": "230259EC",
+      "buffers": "23006850 + class*0x80",
+      "index": "23006B50 + class",
+      "length": "23006B58 + class",
+      "completed_buffer": "230067D0",
+      "completed_class": "2300779B",
+      "completed_length": "2300779C",
+      "consumer": "23025E38"
+    },
+    "dongle_reassembly": {
+      "function": "23025004",
+      "buffers": "23006278 + class*0x80",
+      "index": "23006578 + class",
+      "length": "23006580 + class"
+    },
+    "rules": "index0 restarts; nonzero mismatch clears index/length and returns; bit7 keeps accumulating; final dispatches",
+    "checksum_note": "whole-message downlink checksum is separate from normal mode4 uplink per-frame checksum; downlink has no corresponding extra mode4 per-frame checksum"
+  },
+  "usb_route": {
+    "table_address": "2300048C",
+    "bytes": [
+      0,
+      0,
+      2,
+      0,
+      1,
+      0
+    ],
+    "verified_in": "original initialized-data image",
+    "functions": [
+      "23020250",
+      "230268B0",
+      "23026D28"
+    ],
+    "devices": {
+      "class1": "hid_dev_0 /8B",
+      "class2": "hid_dev_2 /8B",
+      "class4": "hid_dev_1 /16B"
+    },
+    "source_file_offset": "0x1cce0"
+  },
+  "software_cipher": {
+    "classes": [
+      2,
+      4
+    ],
+    "report": "business-software-cipher.json",
+    "host_test": "business-cipher-test-results.json",
+    "original_instruction_test": "business-cipher-original-comparison.json",
+    "original_instruction_cases": 128
+  },
+  "cross_core": {
+    "status": "not yet linked",
+    "positive_observation": "business producer, sensor DMA, and USB consumer routines above all reside in radio image",
+    "inspected_application_functions": [
+      "mouse0E0E2B78",
+      "mouse0E0E2CD0",
+      "mouse0E0E2E7C",
+      "mouse0E0E2F14",
+      "mouse0E0E2EC0"
+    ],
+    "observed_strings": [
+      "ipc-2-12",
+      "ipc_to_sysctrl",
+      "dongle ipc-2-3"
+    ],
+    "limit": "no confirmed queue class to application-core IPC opcode mapping from these functions/call searches",
+    "sensor_dma_note": "2302A8A8 ->2302AC40 operates DMA buffers2FC13040/2FC13000 and peripheral pointer initial5F9B5000; not evidence of IPC"
+  },
+  "remaining": [
+    "executable full fragmentation/reassembly model plus original-instruction comparisons",
+    "complete class3/class4/class5 field semantics",
+    "alternate dongle dispatch23020160",
+    "verified application-core IPC endpoints",
+    "RF capture and physical device validation"
+  ],
+  "source_files": [
+    {
+      "path": "analysis/mouse-radio-1.20-final/230215ac.c",
+      "sha256": "d8998744e2683c0bb18c83feabe43238dfdc29fa7553c35ce588d9d117a93a59"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230214e0.c",
+      "sha256": "a30f14ed50589985cac8bff03cf06c1350f7f9dcc3e70a7b0a4983d4567815e9"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/2302145c.c",
+      "sha256": "41896dda529574610f3156aa01c9ce73bb240403a38c36c0e9bae9c6ddb39a40"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23021488.c",
+      "sha256": "6686b9cd741600d2cb9808053d29f51f8e372c220d2ce8d7fbb27caed3348780"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23021528.c",
+      "sha256": "43401d5fa4d3c8acd2e325efbbe7772b5dfc88ea5f33b9dfed61e284efc94528"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230216b0.c",
+      "sha256": "146b8ef0b1f17ba0819b6ffab874d3be61797673041425c108f28f9bbf59975b"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23025ab0.c",
+      "sha256": "d5f92f2843babc76501b7641e2b2d867cfba100547970e393d411dd8fe753411"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230259ec.c",
+      "sha256": "bb7d7a305bddb477906ba3da61682445d24494576ca77fa3804d33f3b40dceea"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23025e38.c",
+      "sha256": "995f002d99500e92eb868b83f98b71323253f765e54ac3db4d7094c0655d0c52"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23026ca4.c",
+      "sha256": "1b31f9249a725429fd036faf7c5251bc6afa832d50971aa70bd2db25d08fe530"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23026da0.c",
+      "sha256": "f1d465266a0d117b9a86d157a586ca880ded15a810b8d204b7ef70f9d4065843"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23028290.c",
+      "sha256": "493912ef8298cb407dc9a1e4cd580f366f0f7396386adde58ee7a2aea6accb10"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/2302a8a8.c",
+      "sha256": "277a381115501e67a3c63092152fb0902a915afa184c6648b91f2d0bf290b6a5"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/2302ac40.c",
+      "sha256": "9c4e10a288fb5f3e903e4a5a71a467fead72c3042f1dd60d41cc43a8a38cb440"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230277c8.c",
+      "sha256": "2564adda0142f155fe15769fc7ec5e1cdd5581641e7ee4329b8c2cdd6a8d49e6"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23021278.c",
+      "sha256": "5fdb61b0961b5d24b5389f830c6583a1019372f8aadb220c056a27b3e9aa81ed"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23025cac.c",
+      "sha256": "b8b33f4792d74e128a6d556ec82b57d1c61a576b9d168ac8af8036b23d83b8f9"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23025948.c",
+      "sha256": "348b8c620f124295c2f6734d4f7d6d6f7dd3919409a7aed1d1841629e4662b20"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230211dc.c",
+      "sha256": "8387ec5c8b71e643162cff61931ac02a87960e6330270af7bc68eae477d8f641"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23021c6c.c",
+      "sha256": "be3ef96ca1a9909ef58732f562a7cd19dfc416459035ebc251f42df9b8229b87"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23022f70.c",
+      "sha256": "8760212c6abffc0296abfa404bd66ae6e361c130ff791f50ca5e2d8b6ae830fa"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23022508.c",
+      "sha256": "c9f7cb4856f9564ed3f5b2b99285715f8bc18aece6231e00b01a43b0a55ca5bc"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230208b8.c",
+      "sha256": "dfaa8b2401ea9d5adf5cf0e6a52061fd32c1d1a77d8b225841b41c433240b3cc"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230207ec.c",
+      "sha256": "d945e8f203ced525b4d2a1354865b1a9fbdbb629e744979f0c9351f5d4e9d842"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/2302073c.c",
+      "sha256": "4b73eff999491c4441aa029c46c967f5fd315cb1d3378e4ec9713cbce18039b8"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23020768.c",
+      "sha256": "cfa0c8ab1e224315e4ce30e88cdc15c0fdd9d7d0dd3419d32cd5da754577a8af"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/2302083c.c",
+      "sha256": "e2aca7c9ca28fbed1605c4455135d5f4302a2506e6d042efc758d64241b4d8ec"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23025004.c",
+      "sha256": "bb2b229deae7286e97fbd4ed7f1cedf176db8d1a34b7e38664e7c752cf3ad3fd"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230251e4.c",
+      "sha256": "5fe988e66b2649a13188c6bb31e7cfee590284662275f0abf779336f4205bb09"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/2302455c.c",
+      "sha256": "44eea6a6d24718e31e5a3c31fcd40693396db00cdfcb0c09bff6e5bd1bb8e4de"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230254a0.c",
+      "sha256": "fc8ee348ed6792d656445b78db27f93785172b8ceaf72450972659eb9bf1b3bf"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23020250.c",
+      "sha256": "69b9374489a24ac8ac8890a2e5f79eeef578fca96ed5b47daac28619128a9d2c"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230268b0.c",
+      "sha256": "4f76e7d4ae5f3bea87e75d862453eabb604bf16e71f36f684b6ac71edff1fd49"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23026d28.c",
+      "sha256": "a3952e55a5e6d7d862bb873e9708e0c6cff5f0a3aca80c0ab5a60f36343e03c9"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230214bc.c",
+      "sha256": "0501b57a703f578107340927d51a418ca5ad7a81be2cdbebdabf88df2bec6a46"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/2302060c.c",
+      "sha256": "17c19727f9a5e2b1570f564c90ee01e57a77cb65d524f3660c93c598da3d5d41"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23024cd4.c",
+      "sha256": "4d166d43227a791c4e2a8e62bc6260b02f6ed47f9d633e8c9afb3749da47be24"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23024c88.c",
+      "sha256": "3f26c7b0dbf0278f8dbd274cc3bdd9dda200c92bf6a5884e6c69dacb17d449a4"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23026d78.c",
+      "sha256": "91e9e68fad0b62738db1acfab5dae9ac33745932acfdd03a4c3a0a5821adccd3"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23026090.c",
+      "sha256": "c7d53afd4eb0e94597317dea11030ddac7c01a1017ba579cb7feb78d1485bc33"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230205c8.c",
+      "sha256": "47bdaf371d53aac03aef46bdecd2b08b57ba3a7692457f6cd14a2740f44b2450"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23026c08.c",
+      "sha256": "25bcc0242e040fe5919711e519e046b24511fe2c3268fdbd75c744685f90d2c0"
+    }
+  ],
+  "raw_entrypoint_bytes": [
+    {
+      "role": "mouse",
+      "ram_address": "230215ac",
+      "radio_file_offset": "0x1d48",
+      "first_16_bytes": "2d e9 f0 41 8e 46 be f1 01 0f 11 46 bd f8 18 50",
+      "note": "entrypoint locator, not sufficient alone to prove full semantics"
+    },
+    {
+      "role": "mouse",
+      "ram_address": "23025ab0",
+      "radio_file_offset": "0x624c",
+      "first_16_bytes": "2d e9 f0 4f 05 29 9f b0 0a d8 9b 46 4b 1e 89 46",
+      "note": "entrypoint locator, not sufficient alone to prove full semantics"
+    },
+    {
+      "role": "mouse",
+      "ram_address": "230259ec",
+      "radio_file_offset": "0x6188",
+      "first_16_bytes": "2d e9 f8 4f 17 78 28 4e 17 f0 1f 00 94 46 0c 46",
+      "note": "entrypoint locator, not sufficient alone to prove full semantics"
+    },
+    {
+      "role": "mouse",
+      "ram_address": "23026ca4",
+      "radio_file_offset": "0x7440",
+      "first_16_bytes": "08 b5 01 f0 e9 f9 0b 4b 1b 78 04 2b 0a d0 01 2b",
+      "note": "entrypoint locator, not sufficient alone to prove full semantics"
+    },
+    {
+      "role": "dongle",
+      "ram_address": "230208b8",
+      "radio_file_offset": "0x1054",
+      "first_16_bytes": "2d e9 f0 41 40 f6 84 74 0e 46 2c 4d 11 46 04 fb",
+      "note": "entrypoint locator, not sufficient alone to prove full semantics"
+    },
+    {
+      "role": "dongle",
+      "ram_address": "23025004",
+      "radio_file_offset": "0x57a0",
+      "first_16_bytes": "2d e9 f0 4f 15 78 df f8 c4 91 8d b0 8d f8 0f 30",
+      "note": "entrypoint locator, not sufficient alone to prove full semantics"
+    },
+    {
+      "role": "dongle",
+      "ram_address": "230251e4",
+      "radio_file_offset": "0x5980",
+      "first_16_bytes": "2d e9 f0 4f 06 46 0f 46 15 46 93 b0 00 2b 54 d0",
+      "note": "entrypoint locator, not sufficient alone to prove full semantics"
+    },
+    {
+      "role": "dongle",
+      "ram_address": "2302455c",
+      "radio_file_offset": "0x4cf8",
+      "first_16_bytes": "40 f6 84 73 2d e9 f0 4f 00 fb 03 f3 96 4d 87 b0",
+      "note": "entrypoint locator, not sufficient alone to prove full semantics"
+    },
+    {
+      "role": "dongle",
+      "ram_address": "23026d28",
+      "radio_file_offset": "0x74c4",
+      "first_16_bytes": "70 b4 15 22 01 24 0b 49 0b 4e 0c 4d 8c 64 d1 f8",
+      "note": "entrypoint locator, not sufficient alone to prove full semantics"
+    }
+  ]
+}

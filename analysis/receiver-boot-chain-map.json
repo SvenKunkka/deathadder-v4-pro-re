@@ -1,0 +1,116 @@
+{
+  "kind": "static-call-chain-not-execution",
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "entry": "0x23026020",
+  "entry_image_offset": "0x67bc",
+  "bytes": "08b501f0d9f801f0f3f8fff70dfc00f09dfffff755ff00f00ffe00f019fffaf73ffafaf71dfb002008bd",
+  "conclusion": "Nine sequential calls; caller does not branch on their results, then returns0. This does not establish that initialization succeeded.",
+  "calls": [
+    {
+      "site": "0x23026022",
+      "branch_target": "0x230271d8",
+      "resolved_target": "0xe05be20",
+      "site_image_offset": "0x67be",
+      "call_bytes4": "01f0d9f8",
+      "target_image_offset": "0x7e20",
+      "entry16_hex": "38b50cf0fbfa4ff4803401220021054b",
+      "description": "RTC资源取得与寄存器初始化",
+      "recovery": "未接入"
+    },
+    {
+      "site": "0x23026026",
+      "branch_target": "0x23027210",
+      "resolved_target": "0xe05be4c",
+      "site_image_offset": "0x67c2",
+      "call_bytes4": "01f0f3f8",
+      "target_image_offset": "0x7e4c",
+      "entry16_hex": "10b50a4b0a4a82b0c3f8002600210948",
+      "description": "RTC比较/回调调度",
+      "recovery": "未接入"
+    },
+    {
+      "site": "0x2302602a",
+      "branch_target": "0x23025848",
+      "resolved_target": "0x23025848",
+      "site_image_offset": "0x67c6",
+      "call_bytes4": "fff70dfc",
+      "target_image_offset": "0x5fe4",
+      "entry16_hex": "002310b5064a074c07482370106001f0",
+      "description": "存储设备检查与两区挂载",
+      "recovery": "本轮恢复"
+    },
+    {
+      "site": "0x2302602e",
+      "branch_target": "0x23026f6c",
+      "resolved_target": "0x23026f6c",
+      "site_image_offset": "0x67ca",
+      "call_bytes4": "00f09dff",
+      "target_image_offset": "0x7708",
+      "entry16_hex": "2de9f043dff85481462342464af20101",
+      "description": "配置加载",
+      "recovery": "已有恢复模块"
+    },
+    {
+      "site": "0x23026032",
+      "branch_target": "0x23025ee0",
+      "resolved_target": "0x23025ee0",
+      "site_image_offset": "0x67ce",
+      "call_bytes4": "fff755ff",
+      "target_image_offset": "0x667c",
+      "entry16_hex": "2de9f04f384a394bb2f81110d27c87b0",
+      "description": "GPIO与PWM相关初始化",
+      "recovery": "未接入"
+    },
+    {
+      "site": "0x23026036",
+      "branch_target": "0x23026c58",
+      "resolved_target": "0x23026c58",
+      "site_image_offset": "0x67d2",
+      "call_bytes4": "00f00ffe",
+      "target_image_offset": "0x73f4",
+      "entry16_hex": "f8b500240120124b124d134a13491c80",
+      "description": "USB/事件相关对象注册",
+      "recovery": "语义待进一步核对"
+    },
+    {
+      "site": "0x2302603a",
+      "branch_target": "0x23026e70",
+      "resolved_target": "0x23026e70",
+      "site_image_offset": "0x67d6",
+      "call_bytes4": "00f019ff",
+      "target_image_offset": "0x760c",
+      "entry16_hex": "10b5002482b00749074800f059f96ff0",
+      "description": "工作队列/线程初始化",
+      "recovery": "未接入"
+    },
+    {
+      "site": "0x2302603e",
+      "branch_target": "0x230204c0",
+      "resolved_target": "0x230204c0",
+      "site_image_offset": "0x67da",
+      "call_bytes4": "faf73ffa",
+      "target_image_offset": "0xc5c",
+      "entry16_hex": "30b5002089b0002100240e254ff40062",
+      "description": "模式线程与工作项建立",
+      "recovery": "未接入"
+    },
+    {
+      "site": "0x23026042",
+      "branch_target": "0x23020680",
+      "resolved_target": "0x23020680",
+      "site_image_offset": "0x67de",
+      "call_bytes4": "faf71dfb",
+      "target_image_offset": "0xe1c",
+      "entry16_hex": "08b5054bd3f81f0000ba04f0a5fcbde8",
+      "description": "身份发布和统计复位",
+      "recovery": "已有恢复模块"
+    }
+  ],
+  "sources": {
+    "analysis/dongle-radio-1.20-final/23026020.c": "3bbf90521be383a6072d4e24aa0c5c2b5943a7663550945e5fc7cf1990856751",
+    "analysis/runtime-images/dongle-ram-gnu-disassembly.txt": "4bde1268417567df70c13022224fcba13b34ac93d741c151db5e74af0fd803af",
+    "analysis/dongle-radio-1.20-final/0e06cdac.c": "e11306d16045e3bae36a5c5b8acc2d9375cbc7499eed2a46e1ad898670577969",
+    "analysis/dongle-radio-1.20-final/0e06cea8.c": "ca060cc817ad3f9decd1397cb99606528f90ca4aaa63240d9d2a74d087259399"
+  },
+  "mutex_note": "CD9C initializes first16 bytes; CDAC writes saved owner priority at+16, so whole mutex state extends beyond16 bytes. Existing mount tests externalize lock/unlock and do not prove priority inheritance."
+}

@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "original_cases": 6144,
+  "original_steps": 2031745,
+  "counts": {
+    "0": 2048,
+    "1": 2048,
+    "2": 2048
+  },
+  "boundaries": {
+    "0x0": 5468,
+    "0xe095254": 626,
+    "0x23025f78": 28,
+    "0x23028c54": 22
+  },
+  "original_returns": {
+    "original_full_return": 5468
+  },
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/mouse_rtc_dispatch.c": "65b04d5694efa221c1a8e2569369128c287ebfdc7d81cfbfc6c5b4a69120c60b",
+    "recovered-code/portable/mouse_scanning.c": "4b2d52a41de90de241c36360cf1f22f188fdd0d243b5f92ef7272798809418de",
+    "recovered-code/portable/mouse_work_thread.c": "cc38c5a3c3b833a7a2e0bd2580e0128251de17396c19bb1a5bb72bc625393dfb",
+    "recovered-code/portable/mouse_timer_expiry.c": "78cfea2a6a9906102f54483b6fd23bea0fec9e4a18cc5a5a4914e9cf87791cc4",
+    "recovered-code/portable/mouse_work_queue.c": "18634efd7f5860b19c3d85a8ac7341b8635561b8f8ad2c1b163e401df564778e",
+    "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+    "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+    "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+    "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+    "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+    "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+    "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/mouse_rtc_dispatch.h": "e89f38d990869ce241ac3df04485073a48744b25194facf2827704d1d3dc1e4e",
+    "recovered-code/portable/mouse_scanning.h": "22d784038291fc59a908168a88bb56ab9d2ba905ea894ccf287b92c0c6b55396",
+    "recovered-code/portable/mouse_work_thread.h": "f7daa4058a68d2dbbd8a038ad826e570c4da11c022e30efe3b9e628814b4ca46",
+    "recovered-code/portable/mouse_timer_expiry.h": "4d5d1a24c2e17cd287939e9efe1cad3dbde5d73a28c206131c366794b930f249",
+    "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+    "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+    "analysis/verify_mouse_rtc_dispatch.py": "d5952102950de57288ca29cf431c17998e90a9c6220ee09288a2956241c7f895",
+    "ghidra-scripts/EmulateMouseRtcDispatch.java": "58907778007bb49c9a16df21b849c989fbdd8af88b9ee72455e0908b8327ff86",
+    "analysis/mouse-rtc-dispatch-original.jsonl": "872230af97bb47e1c4a6bc022fe7e415febdf850b6e6960f69ab9ca117a12dd8"
+  },
+  "limits": [
+    "Full inert RAM/MMIO and serialized privileged CPU comparisons; hardware readback/event generation not autonomous",
+    "Unknown timeout/user/RTC callbacks and actual CPU switch stop at actual entry with pending ABI",
+    "Supported timer/thread/timeslice callbacks and end-of-tick scheduler updates execute original instructions",
+    "Top generic ISR, exception return, real clock/RF/CPU concurrency remain unverified"
+  ]
+}

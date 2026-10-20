@@ -1,0 +1,7 @@
+program=Suit2FWData__application_application.bin
+language=ARM:LE:32:v8-m
+program_image_base=00000000
+memory=ram:0e0e2000:27604
+functions=185
+decompiled=185
+instructions=6304

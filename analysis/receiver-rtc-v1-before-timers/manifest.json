@@ -1,0 +1,29 @@
+{
+  "purpose": "Preserve52-unitRTC baseline before optional timeout handler extension",
+  "files": {
+    "recovered-code/portable/receiver_rtc_dispatch.c": {
+      "frozen_path": "analysis/receiver-rtc-v1-before-timers/receiver_rtc_dispatch.c",
+      "sha256": "bc79666b6979afc50d848aaa6b08d10d74be733a90e3b1fb27b43149f73a19c5"
+    },
+    "recovered-code/portable/receiver_rtc_dispatch.h": {
+      "frozen_path": "analysis/receiver-rtc-v1-before-timers/receiver_rtc_dispatch.h",
+      "sha256": "84785f049c1ed2b689ac2b950c32b3d9cf4eb93eece157d0f4c482f6aff4a2ee"
+    },
+    "analysis/receiver-rtc-dispatch-comparison.json": {
+      "frozen_path": "analysis/receiver-rtc-v1-before-timers/receiver-rtc-dispatch-comparison.json",
+      "sha256": "4db13083587afbf5fee97e921c284faf69b756ea906d0ef644b52ed8d496121f"
+    },
+    "analysis/receiver-rtc-continuous-comparison.json": {
+      "frozen_path": "analysis/receiver-rtc-v1-before-timers/receiver-rtc-continuous-comparison.json",
+      "sha256": "2c04d90c62d5ead3ecb1910c9b8c0c15c81d1824aacd48931124cf251e42dfae"
+    },
+    "analysis/receiver-rtc-dispatch-exact.json": {
+      "frozen_path": "analysis/receiver-rtc-v1-before-timers/receiver-rtc-dispatch-exact.json",
+      "sha256": "0d0256219a778f300945ed1179ee2e5d2041620e1c0a96bdc8e1d60f192834a1"
+    },
+    "analysis/libreceiver_rtc_dispatch.dylib": {
+      "frozen_path": "analysis/receiver-rtc-v1-before-timers/libreceiver_rtc_dispatch.dylib",
+      "sha256": "bf699ea24667094a115f3062e8c8b10dbbef1ff6760485457fc1c6f2beb54752"
+    }
+  }
+}

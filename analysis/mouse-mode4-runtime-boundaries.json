@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "boundary_cases": 4,
+  "cases": [
+    {
+      "case": 0,
+      "return": -2,
+      "callback_retained": true,
+      "queue_pop_and_prior_sequence_preserved": true,
+      "timer_unlinked": false
+    },
+    {
+      "case": 1,
+      "return": -2,
+      "callback_retained": true,
+      "queue_pop_and_prior_sequence_preserved": true,
+      "timer_unlinked": true
+    },
+    {
+      "case": 2,
+      "return": -3,
+      "callback_retained": true,
+      "queue_pop_and_prior_sequence_preserved": true,
+      "timer_unlinked": true
+    },
+    {
+      "case": 3,
+      "return": -4,
+      "callback_retained": true,
+      "queue_pop_and_prior_sequence_preserved": true,
+      "timer_unlinked": true
+    }
+  ],
+  "original_cases_added": 0,
+  "limits": [
+    "host boundary behavior, not original execution of unknown callbacks/waiter scheduler/busy RTC"
+  ]
+}

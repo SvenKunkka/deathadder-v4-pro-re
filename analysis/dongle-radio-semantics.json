@@ -1,0 +1,1144 @@
+{
+  "artifact_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "analysis": "static-only;no device write;no RF validation",
+  "basis": "Final Ghidra export+official Nordic SVD+literal bytes+IRQ vector binding",
+  "findings": [
+    {
+      "runtime_address": "0x23020c44",
+      "flash_source_address": "0xe0553e0",
+      "image_file_offset": "0x13e0",
+      "analyst_name": "radio_initialize",
+      "confidence": "high",
+      "observation": "Normal radio initialization; default PCNF0/1,addresses,CRC,power",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23020c44.c",
+      "source_sha256": "cd56ff0e787e2d3aa43118af0ef4f4c78525a6a6195dca02fd44d64ce64cbf87",
+      "selected_lines": [
+        {
+          "line": 12,
+          "text": "RADIO_S_TASKS_DISABLE = 1;"
+        },
+        {
+          "line": 13,
+          "text": "RADIO_S_TIMING = 1;"
+        },
+        {
+          "line": 14,
+          "text": "RADIO_S_TXADDRESS = 3;"
+        },
+        {
+          "line": 15,
+          "text": "RADIO_S_RXADDRESSES = 6;"
+        },
+        {
+          "line": 16,
+          "text": "RADIO_S_PREFIX0 = 0xc3c2c1e7;"
+        },
+        {
+          "line": 17,
+          "text": "RADIO_S_PREFIX1 = 0xc7c6c5c4;"
+        },
+        {
+          "line": 18,
+          "text": "RADIO_S_BASE0 = 0xeb8a542c;"
+        },
+        {
+          "line": 19,
+          "text": "RADIO_S_BASE1 = *(dword *)(param_1 + 4);"
+        },
+        {
+          "line": 20,
+          "text": "RADIO_S_MODE = (uint)*(byte *)(param_1 + 0x20);"
+        },
+        {
+          "line": 21,
+          "text": "RADIO_S_TXPOWER = 0x1a;"
+        },
+        {
+          "line": 29,
+          "text": "RADIO_S_PCNF0 = 0x1000005;"
+        },
+        {
+          "line": 30,
+          "text": "RADIO_S_PCNF1 = 0x303001f;"
+        },
+        {
+          "line": 33,
+          "text": "RADIO_S_CRCCNF = 0x102;"
+        },
+        {
+          "line": 34,
+          "text": "RADIO_S_CRCPOLY = 0x11021;"
+        },
+        {
+          "line": 35,
+          "text": "RADIO_S_CRCINIT = 0xffff;"
+        },
+        {
+          "line": 36,
+          "text": "dVar1 = RADIO_S_SHORTS;"
+        },
+        {
+          "line": 37,
+          "text": "RADIO_S_SHORTS = dVar1 | 0x80001;"
+        },
+        {
+          "line": 39,
+          "text": "RADIO_S_INTENSET00 = 0x100;"
+        },
+        {
+          "line": 40,
+          "text": "RADIO_S_EVENTS_ADDRESS = 0;"
+        },
+        {
+          "line": 41,
+          "text": "RADIO_S_EVENTS_READY = 0;"
+        },
+        {
+          "line": 42,
+          "text": "RADIO_S_EVENTS_END = 0;"
+        },
+        {
+          "line": 43,
+          "text": "RADIO_S_EVENTS_DISABLED = 0;"
+        }
+      ]
+    },
+    {
+      "runtime_address": "0x23020dd4",
+      "flash_source_address": "0xe055570",
+      "image_file_offset": "0x1570",
+      "analyst_name": "apply_alternate_packet_profile",
+      "confidence": "high",
+      "observation": "Alternate2-byte base/profile and PREFIX0 from complement of BASE1",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23020dd4.c",
+      "source_sha256": "a49511d0a3249d15eb34311e0550f4fe8baa8b6a5d2769d4608b914530436515",
+      "selected_lines": [
+        {
+          "line": 6,
+          "text": "RADIO_S_PREFIX0 = DAT_2300324c;"
+        },
+        {
+          "line": 7,
+          "text": "RADIO_S_PCNF0 ="
+        },
+        {
+          "line": 11,
+          "text": "RADIO_S_PCNF1 ="
+        }
+      ]
+    },
+    {
+      "runtime_address": "0x23020e84",
+      "flash_source_address": "0xe055620",
+      "image_file_offset": "0x1620",
+      "analyst_name": "select_phy_2_or_4mbps",
+      "confidence": "high",
+      "observation": "argument2=>MODE4;argument4=>MODE9;other undocumented tuning writes preserved",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23020e84.c",
+      "source_sha256": "2362ce4e86b6bd5b3150233e4d536d1173aa640a5eed0b1ae8ae11ca95a0691e",
+      "selected_lines": [
+        {
+          "line": 9,
+          "text": "RADIO_S_MODE = 4;"
+        },
+        {
+          "line": 12,
+          "text": "RADIO_S_MODE = 9;"
+        }
+      ]
+    },
+    {
+      "runtime_address": "0x23021534",
+      "flash_source_address": "0xe055cd0",
+      "image_file_offset": "0x1cd0",
+      "analyst_name": "select_hop_channel",
+      "confidence": "high",
+      "observation": "Three permutations/MAM rounds and remapping through enabled channel list",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23021534.c",
+      "source_sha256": "2fcd57d19c63107db5e6047219169f3c9d539c5af8fb5dcb0f5277a4f22e1e6c",
+      "selected_lines": []
+    },
+    {
+      "runtime_address": "0x23021700",
+      "flash_source_address": "0xe055e9c",
+      "image_file_offset": "0x1e9c",
+      "analyst_name": "build_enabled_channel_map",
+      "confidence": "high",
+      "observation": "37-channel mask table plus BASE1 halfword XOR identifier",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23021700.c",
+      "source_sha256": "6f9d726929e989697621773d49b35882fcc59a68a2c990dff86f63c5d0e36c1a",
+      "selected_lines": []
+    },
+    {
+      "runtime_address": "0x23021b8c",
+      "flash_source_address": "0xe056328",
+      "image_file_offset": "0x2328",
+      "analyst_name": "permute_each_byte",
+      "confidence": "high",
+      "observation": "Nibble-reversal table at0x0E06FB74",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23021b8c.c",
+      "source_sha256": "e5a07d1414d447622404bd80efacb22557ca0cbbe5504b1a6115fda6ea1ea949",
+      "selected_lines": []
+    },
+    {
+      "runtime_address": "0x23021654",
+      "flash_source_address": "0xe055df0",
+      "image_file_offset": "0x1df0",
+      "analyst_name": "map_hop_channel_to_frequency",
+      "confidence": "high",
+      "observation": "Modes2/3 use selector;0/1 use two groups of fixed frequencies",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23021654.c",
+      "source_sha256": "5863b4893bae5fc5e13dcf7949c13104447b09dab15497b58d09526ef21a65d1",
+      "selected_lines": []
+    },
+    {
+      "runtime_address": "0x230226c8",
+      "flash_source_address": "0xe056e64",
+      "image_file_offset": "0x2e64",
+      "analyst_name": "apply_link_phase_frequency",
+      "confidence": "high",
+      "observation": "Connection acquisition/channel state chooses FREQUENCY and DPPI RX/TX",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/230226c8.c",
+      "source_sha256": "ddaccf25ff70a1fcaeb73235f04702d881de823640b4889369f17fa929133934",
+      "selected_lines": [
+        {
+          "line": 18,
+          "text": "RADIO_S_FREQUENCY = dVar1;"
+        },
+        {
+          "line": 19,
+          "text": "RADIO_S_BASE1 = DAT_23003240;"
+        },
+        {
+          "line": 27,
+          "text": "RADIO_S_SUBSCRIBE_RXEN = *pbVar3 | 0x80000000;"
+        },
+        {
+          "line": 28,
+          "text": "RADIO_S_SUBSCRIBE_DISABLE = DAT_230071c5 | 0x80000000;"
+        },
+        {
+          "line": 29,
+          "text": "RADIO_S_PACKETPTR = (dword)(&DAT_230034bc + param_1 * 0xf84);"
+        },
+        {
+          "line": 34,
+          "text": "RADIO_S_FREQUENCY = (uint)DAT_23003222;"
+        },
+        {
+          "line": 35,
+          "text": "RADIO_S_BASE1 = DAT_23003244;"
+        },
+        {
+          "line": 46,
+          "text": "RADIO_S_SUBSCRIBE_TXEN = DAT_230071c4 | 0x80000000;"
+        },
+        {
+          "line": 51,
+          "text": "RADIO_S_SUBSCRIBE_RXEN = *pbVar3 | 0x80000000;"
+        },
+        {
+          "line": 52,
+          "text": "RADIO_S_SUBSCRIBE_DISABLE = DAT_230071c5 | 0x80000000;"
+        },
+        {
+          "line": 55,
+          "text": "RADIO_S_BASE1 = DAT_23003244;"
+        },
+        {
+          "line": 57,
+          "text": "RADIO_S_FREQUENCY = dVar1;"
+        },
+        {
+          "line": 58,
+          "text": "RADIO_S_PACKETPTR = (dword)(&DAT_230034bc + param_1 * 0xf84);"
+        },
+        {
+          "line": 61,
+          "text": "RADIO_S_SUBSCRIBE_TXEN = DAT_230071c6 | 0x80000000;"
+        },
+        {
+          "line": 64,
+          "text": "RADIO_S_SUBSCRIBE_TXEN = DAT_230071c4 | 0x80000000;"
+        },
+        {
+          "line": 81,
+          "text": "RADIO_S_SUBSCRIBE_RXEN = *pbVar3 | 0x80000000;"
+        },
+        {
+          "line": 82,
+          "text": "RADIO_S_SUBSCRIBE_DISABLE = DAT_230071c5 | 0x80000000;"
+        },
+        {
+          "line": 86,
+          "text": "dVar1 = RADIO_S_RXADDRESSES;"
+        },
+        {
+          "line": 87,
+          "text": "RADIO_S_RXADDRESSES = dVar1 | 1;"
+        }
+      ]
+    },
+    {
+      "runtime_address": "0x23022360",
+      "flash_source_address": "0xe056afc",
+      "image_file_offset": "0x2afc",
+      "analyst_name": "build_handshake_11",
+      "confidence": "high",
+      "observation": "Length11,command11,BASE1,capabilities,event counter",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23022360.c",
+      "source_sha256": "c4c9166eb53191dd854e1ee43e4d6ff96ae65505ff3d77296d95c8edd29898c5",
+      "selected_lines": []
+    },
+    {
+      "runtime_address": "0x230223f0",
+      "flash_source_address": "0xe056b8c",
+      "image_file_offset": "0x2b8c",
+      "analyst_name": "handshake_receive_and_reply",
+      "confidence": "high",
+      "observation": "12->13,14->15,16->completion with context states0,2,3,6",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/230223f0.c",
+      "source_sha256": "037d18f24a52ff6939d45bdc6622c470aa44fb1d9a381eb4c037ef581dee303b",
+      "selected_lines": []
+    },
+    {
+      "runtime_address": "0x23020a00",
+      "flash_source_address": "0xe05519c",
+      "image_file_offset": "0x119c",
+      "analyst_name": "radio_interrupt_handler",
+      "confidence": "high",
+      "observation": "Vector/SVD binding independently in interrupt-map.json;dispatches handshake and normal packet paths",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23020a00.c",
+      "source_sha256": "41031daf188c867dda9c0e1b208d286d5a14bfd790c55fc67efafbe7ddbc5edc",
+      "selected_lines": [
+        {
+          "line": 32,
+          "text": "dVar2 = RADIO_S_EVENTS_TXREADY;"
+        },
+        {
+          "line": 34,
+          "text": "RADIO_S_EVENTS_TXREADY = 0;"
+        },
+        {
+          "line": 36,
+          "text": "dVar2 = RADIO_S_EVENTS_RXREADY;"
+        },
+        {
+          "line": 37,
+          "text": "if ((dVar2 == 1) && (RADIO_S_EVENTS_RXREADY = 0, 1 < DAT_23003230)) {"
+        },
+        {
+          "line": 40,
+          "text": "dVar2 = RADIO_S_EVENTS_ADDRESS;"
+        },
+        {
+          "line": 42,
+          "text": "RADIO_S_EVENTS_ADDRESS = 0;"
+        },
+        {
+          "line": 44,
+          "text": "dVar2 = RADIO_S_EVENTS_END;"
+        },
+        {
+          "line": 45,
+          "text": "if ((dVar2 == 0) || (RADIO_S_EVENTS_END = 0, DAT_23003230 < 2)) {"
+        },
+        {
+          "line": 46,
+          "text": "dVar2 = RADIO_S_EVENTS_DISABLED;"
+        },
+        {
+          "line": 50,
+          "text": "dVar2 = RADIO_S_EVENTS_DISABLED;"
+        },
+        {
+          "line": 53,
+          "text": "RADIO_S_EVENTS_DISABLED = 0;"
+        },
+        {
+          "line": 65,
+          "text": "dVar2 = RADIO_S_EVENTS_TXREADY;"
+        },
+        {
+          "line": 67,
+          "text": "RADIO_S_EVENTS_TXREADY = 0;"
+        },
+        {
+          "line": 69,
+          "text": "dVar2 = RADIO_S_EVENTS_RXREADY;"
+        },
+        {
+          "line": 71,
+          "text": "RADIO_S_EVENTS_RXREADY = 0;"
+        },
+        {
+          "line": 73,
+          "text": "dVar2 = RADIO_S_EVENTS_ADDRESS;"
+        },
+        {
+          "line": 75,
+          "text": "RADIO_S_EVENTS_ADDRESS = 0;"
+        },
+        {
+          "line": 77,
+          "text": "dVar2 = RADIO_S_EVENTS_END;"
+        },
+        {
+          "line": 79,
+          "text": "if ((dVar2 == 1) && (RADIO_S_EVENTS_END = 0, 1 < DAT_23003230)) {"
+        },
+        {
+          "line": 83,
+          "text": "dVar2 = RADIO_S_EVENTS_CRCOK;"
+        },
+        {
+          "line": 85,
+          "text": "RADIO_S_EVENTS_CRCOK = 0;"
+        },
+        {
+          "line": 135,
+          "text": "FUN_23020f1c(&DAT_23003468 + uVar10 * 0x3e1,&RADIO_S_TASKS_DISABLE);"
+        },
+        {
+          "line": 138,
+          "text": "dVar2 = RADIO_S_EVENTS_DISABLED;"
+        },
+        {
+          "line": 140,
+          "text": "RADIO_S_EVENTS_DISABLED = 0;"
+        },
+        {
+          "line": 165,
+          "text": "dVar2 = RADIO_S_EVENTS_TXREADY;"
+        },
+        {
+          "line": 167,
+          "text": "RADIO_S_EVENTS_TXREADY = 0;"
+        },
+        {
+          "line": 169,
+          "text": "dVar2 = RADIO_S_EVENTS_RXREADY;"
+        },
+        {
+          "line": 171,
+          "text": "RADIO_S_EVENTS_RXREADY = 0;"
+        },
+        {
+          "line": 173,
+          "text": "dVar2 = RADIO_S_EVENTS_END;"
+        },
+        {
+          "line": 175,
+          "text": "RADIO_S_EVENTS_END = 0;"
+        },
+        {
+          "line": 177,
+          "text": "dVar2 = RADIO_S_EVENTS_DISABLED;"
+        },
+        {
+          "line": 179,
+          "text": "RADIO_S_EVENTS_DISABLED = 0;"
+        },
+        {
+          "line": 187,
+          "text": "dVar2 = RADIO_S_EVENTS_CRCOK;"
+        },
+        {
+          "line": 194,
+          "text": "FUN_23020f1c(&DAT_23003468 + uVar10 * 0x3e1,&RADIO_S_TASKS_DISABLE,10);"
+        },
+        {
+          "line": 202,
+          "text": "RADIO_S_SUBSCRIBE_TXEN = 0;"
+        },
+        {
+          "line": 203,
+          "text": "RADIO_S_SUBSCRIBE_RXEN = 0;"
+        },
+        {
+          "line": 204,
+          "text": "RADIO_S_SUBSCRIBE_DISABLE = 0;"
+        },
+        {
+          "line": 205,
+          "text": "RADIO_S_SUBSCRIBE_TXEN = 0;"
+        },
+        {
+          "line": 206,
+          "text": "RADIO_S_SUBSCRIBE_RXEN = 0;"
+        },
+        {
+          "line": 207,
+          "text": "RADIO_S_SUBSCRIBE_DISABLE = 0;"
+        },
+        {
+          "line": 208,
+          "text": "RADIO_S_SUBSCRIBE_TXEN = 0;"
+        },
+        {
+          "line": 209,
+          "text": "FUN_23020f1c(&DAT_23003468 + uVar10 * 0x3e1,&RADIO_S_TASKS_DISABLE);"
+        },
+        {
+          "line": 218,
+          "text": "dVar2 = RADIO_S_EVENTS_CRCOK;"
+        }
+      ]
+    },
+    {
+      "runtime_address": "0x23021bbc",
+      "flash_source_address": "0xe056358",
+      "image_file_offset": "0x2358",
+      "analyst_name": "timer020_interrupt_handler",
+      "confidence": "high IRQ mapping;partial field semantics",
+      "observation": "Tail-jump merged ISR includes several schedule modes;CC0=16000 ticks;timing not measured",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23021bbc.c",
+      "source_sha256": "3fcbd91a95fdca864f9216a5602efb8d209c54e5592d5e9c3f4ac56af7f6fa2c",
+      "selected_lines": [
+        {
+          "line": 30,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_0;"
+        },
+        {
+          "line": 32,
+          "text": "TIMER020_S_EVENTS_COMPARE_0 = 0;"
+        },
+        {
+          "line": 33,
+          "text": "TIMER020_S_CC_0 = 16000;"
+        },
+        {
+          "line": 36,
+          "text": "TIMER020_S_CC_1 = 0x1040;"
+        },
+        {
+          "line": 37,
+          "text": "TIMER020_S_CC_2 = 0x1220;"
+        },
+        {
+          "line": 42,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_1;"
+        },
+        {
+          "line": 44,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_2;"
+        },
+        {
+          "line": 46,
+          "text": "TIMER020_S_EVENTS_COMPARE_2 = 0;"
+        },
+        {
+          "line": 50,
+          "text": "TIMER020_S_CC_1 = 0x2260;"
+        },
+        {
+          "line": 51,
+          "text": "TIMER020_S_CC_2 = 0x2580;"
+        },
+        {
+          "line": 57,
+          "text": "TIMER020_S_CC_1 = 0x3980;"
+        },
+        {
+          "line": 58,
+          "text": "TIMER020_S_CC_2 = 0;"
+        },
+        {
+          "line": 85,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_3;"
+        },
+        {
+          "line": 87,
+          "text": "TIMER020_S_EVENTS_COMPARE_3 = 0;"
+        },
+        {
+          "line": 90,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_4;"
+        },
+        {
+          "line": 92,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_5;"
+        },
+        {
+          "line": 94,
+          "text": "TIMER020_S_EVENTS_COMPARE_5 = 0;"
+        },
+        {
+          "line": 97,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_6;"
+        },
+        {
+          "line": 99,
+          "text": "TIMER020_S_EVENTS_COMPARE_6 = 0;"
+        },
+        {
+          "line": 102,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_7;"
+        },
+        {
+          "line": 104,
+          "text": "TIMER020_S_EVENTS_COMPARE_7 = 0;"
+        },
+        {
+          "line": 109,
+          "text": "TIMER020_S_EVENTS_COMPARE_4 = 0;"
+        },
+        {
+          "line": 112,
+          "text": "TIMER020_S_EVENTS_COMPARE_1 = 0;"
+        },
+        {
+          "line": 210,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_0;"
+        },
+        {
+          "line": 212,
+          "text": "TIMER020_S_EVENTS_COMPARE_0 = 0;"
+        },
+        {
+          "line": 213,
+          "text": "TIMER020_S_CC_0 = 16000;"
+        },
+        {
+          "line": 217,
+          "text": "TIMER020_S_CC_1 = 0xb40;"
+        },
+        {
+          "line": 218,
+          "text": "TIMER020_S_CC_2 = 0xf00;"
+        },
+        {
+          "line": 219,
+          "text": "TIMER020_S_CC_3 = 0x2bc0;"
+        },
+        {
+          "line": 223,
+          "text": "TIMER020_S_CC_1 = 0xe60;"
+        },
+        {
+          "line": 224,
+          "text": "TIMER020_S_CC_2 = 0x1220;"
+        },
+        {
+          "line": 225,
+          "text": "TIMER020_S_CC_3 = 0xa00;"
+        },
+        {
+          "line": 231,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_1;"
+        },
+        {
+          "line": 233,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_2;"
+        },
+        {
+          "line": 235,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_3;"
+        },
+        {
+          "line": 237,
+          "text": "TIMER020_S_EVENTS_COMPARE_3 = 0;"
+        },
+        {
+          "line": 239,
+          "text": "TIMER020_S_CC_3 = 0;"
+        },
+        {
+          "line": 249,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_4;"
+        },
+        {
+          "line": 251,
+          "text": "TIMER020_S_EVENTS_COMPARE_4 = 0;"
+        },
+        {
+          "line": 254,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_5;"
+        },
+        {
+          "line": 256,
+          "text": "TIMER020_S_EVENTS_COMPARE_5 = 0;"
+        },
+        {
+          "line": 259,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_6;"
+        },
+        {
+          "line": 261,
+          "text": "TIMER020_S_EVENTS_COMPARE_6 = 0;"
+        },
+        {
+          "line": 264,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_7;"
+        },
+        {
+          "line": 266,
+          "text": "TIMER020_S_EVENTS_COMPARE_7 = 0;"
+        },
+        {
+          "line": 271,
+          "text": "TIMER020_S_EVENTS_COMPARE_2 = 0;"
+        },
+        {
+          "line": 292,
+          "text": "TIMER020_S_CC_1 = 0x3ac0;"
+        },
+        {
+          "line": 293,
+          "text": "TIMER020_S_CC_2 = 0;"
+        },
+        {
+          "line": 332,
+          "text": "TIMER020_S_CC_1 = dVar9;"
+        },
+        {
+          "line": 333,
+          "text": "TIMER020_S_CC_2 = dVar4;"
+        },
+        {
+          "line": 342,
+          "text": "TIMER020_S_CC_1 = dVar9;"
+        },
+        {
+          "line": 343,
+          "text": "TIMER020_S_CC_2 = dVar4;"
+        },
+        {
+          "line": 344,
+          "text": "TIMER020_S_CC_3 = dVar6;"
+        },
+        {
+          "line": 349,
+          "text": "TIMER020_S_CC_1 = 0x1b80;"
+        },
+        {
+          "line": 350,
+          "text": "TIMER020_S_CC_2 = 8000;"
+        },
+        {
+          "line": 351,
+          "text": "TIMER020_S_CC_3 = 0;"
+        },
+        {
+          "line": 365,
+          "text": "TIMER020_S_CC_1 = 0x3ac0;"
+        },
+        {
+          "line": 366,
+          "text": "TIMER020_S_CC_2 = 0;"
+        },
+        {
+          "line": 367,
+          "text": "TIMER020_S_CC_3 = 0;"
+        },
+        {
+          "line": 374,
+          "text": "TIMER020_S_EVENTS_COMPARE_1 = 0;"
+        },
+        {
+          "line": 453,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_0;"
+        },
+        {
+          "line": 455,
+          "text": "TIMER020_S_EVENTS_COMPARE_0 = 0;"
+        },
+        {
+          "line": 457,
+          "text": "TIMER020_S_CC_0 = 16000;"
+        },
+        {
+          "line": 459,
+          "text": "TIMER020_S_CC_1 = 0xaa0;"
+        },
+        {
+          "line": 460,
+          "text": "TIMER020_S_CC_4 = 0;"
+        },
+        {
+          "line": 461,
+          "text": "TIMER020_S_CC_2 = 0xc80;"
+        },
+        {
+          "line": 543,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_1;"
+        },
+        {
+          "line": 545,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_2;"
+        },
+        {
+          "line": 547,
+          "text": "TIMER020_S_EVENTS_COMPARE_2 = 0;"
+        },
+        {
+          "line": 549,
+          "text": "TIMER020_S_CC_1 = 0x1220;"
+        },
+        {
+          "line": 550,
+          "text": "TIMER020_S_CC_4 = 0x1220;"
+        },
+        {
+          "line": 551,
+          "text": "TIMER020_S_CC_2 = 0x14a0;"
+        },
+        {
+          "line": 560,
+          "text": "TIMER020_S_CC_1 = 0x1b80;"
+        },
+        {
+          "line": 561,
+          "text": "TIMER020_S_CC_4 = 0;"
+        },
+        {
+          "line": 562,
+          "text": "TIMER020_S_CC_2 = 8000;"
+        },
+        {
+          "line": 566,
+          "text": "TIMER020_S_CC_1 = 0x29e0;"
+        },
+        {
+          "line": 567,
+          "text": "TIMER020_S_CC_4 = 0;"
+        },
+        {
+          "line": 568,
+          "text": "TIMER020_S_CC_2 = 0x2bc0;"
+        },
+        {
+          "line": 574,
+          "text": "TIMER020_S_CC_1 = 0x3160;"
+        },
+        {
+          "line": 575,
+          "text": "TIMER020_S_CC_4 = 0x3160;"
+        },
+        {
+          "line": 576,
+          "text": "TIMER020_S_CC_2 = 0x33e0;"
+        },
+        {
+          "line": 583,
+          "text": "TIMER020_S_CC_1 = 0x3ac0;"
+        },
+        {
+          "line": 584,
+          "text": "TIMER020_S_CC_4 = 0;"
+        },
+        {
+          "line": 585,
+          "text": "TIMER020_S_CC_2 = 0;"
+        },
+        {
+          "line": 622,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_3;"
+        },
+        {
+          "line": 624,
+          "text": "TIMER020_S_EVENTS_COMPARE_3 = 0;"
+        },
+        {
+          "line": 627,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_4;"
+        },
+        {
+          "line": 629,
+          "text": "TIMER020_S_EVENTS_COMPARE_4 = 0;"
+        },
+        {
+          "line": 632,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_5;"
+        },
+        {
+          "line": 634,
+          "text": "TIMER020_S_EVENTS_COMPARE_5 = 0;"
+        },
+        {
+          "line": 637,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_6;"
+        },
+        {
+          "line": 639,
+          "text": "TIMER020_S_EVENTS_COMPARE_6 = 0;"
+        },
+        {
+          "line": 642,
+          "text": "dVar9 = TIMER020_S_EVENTS_COMPARE_7;"
+        },
+        {
+          "line": 644,
+          "text": "TIMER020_S_EVENTS_COMPARE_7 = 0;"
+        },
+        {
+          "line": 653,
+          "text": "TIMER020_S_EVENTS_COMPARE_1 = 0;"
+        },
+        {
+          "line": 715,
+          "text": "TIMER020_S_TASKS_CAPTURE_7 = 1;"
+        },
+        {
+          "line": 717,
+          "text": "dVar9 = TIMER020_S_CC_7;"
+        },
+        {
+          "line": 720,
+          "text": "else if ((DAT_230032d0 == 5) && (dVar9 = TIMER020_S_CC_7, 0x33e0 < dVar9)) {"
+        }
+      ]
+    },
+    {
+      "runtime_address": "0x23024190",
+      "flash_source_address": "0xe05892c",
+      "image_file_offset": "0x492c",
+      "analyst_name": "mode4_rx_validation",
+      "confidence": "high observations;medium field semantics",
+      "observation": "Hardware CRCOK plus negative-sum payload checksum;sequence candidate extraction",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23024190.c",
+      "source_sha256": "d08861a3e64205345c58c27f956915babb24f37051c40252555476f5378857dd",
+      "selected_lines": []
+    },
+    {
+      "runtime_address": "0x23022e48",
+      "flash_source_address": "0xe0575e4",
+      "image_file_offset": "0x35e4",
+      "analyst_name": "link_loss_threshold",
+      "confidence": "high observations;medium naming",
+      "observation": "Miss count>99 disables and resets link state;no conversion to milliseconds",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23022e48.c",
+      "source_sha256": "a0518215f0c0a663d5750e30a0d312f6945ee842a151343e7343c6c09c649141",
+      "selected_lines": []
+    },
+    {
+      "runtime_address": "0x230232d0",
+      "flash_source_address": "0xe057a6c",
+      "image_file_offset": "0x3a6c",
+      "analyst_name": "slot_switch_radio",
+      "confidence": "high",
+      "observation": "Frequency/base/address and DPPI subscriptions",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/230232d0.c",
+      "source_sha256": "eaa9fef1551cfd2e2d07c29421612829997434097c6508ab250adffb5fe5fc91",
+      "selected_lines": [
+        {
+          "line": 9,
+          "text": "RADIO_S_FREQUENCY = (uint)DAT_23003222;"
+        },
+        {
+          "line": 10,
+          "text": "RADIO_S_BASE1 = DAT_23003244;"
+        },
+        {
+          "line": 14,
+          "text": "RADIO_S_SUBSCRIBE_RXEN = DAT_230071c6 | 0x80000000;"
+        },
+        {
+          "line": 18,
+          "text": "RADIO_S_SUBSCRIBE_RXEN = DAT_230071c4 | 0x80000000;"
+        },
+        {
+          "line": 21,
+          "text": "RADIO_S_SUBSCRIBE_TXEN = DAT_230071c4 | 0x80000000;"
+        },
+        {
+          "line": 25,
+          "text": "RADIO_S_FREQUENCY = (uint)DAT_23003222;"
+        },
+        {
+          "line": 26,
+          "text": "RADIO_S_BASE1 = DAT_23003244;"
+        },
+        {
+          "line": 29,
+          "text": "RADIO_S_SUBSCRIBE_RXEN = DAT_230071c6 | 0x80000000;"
+        },
+        {
+          "line": 30,
+          "text": "dVar1 = RADIO_S_SHORTS;"
+        },
+        {
+          "line": 31,
+          "text": "RADIO_S_SHORTS = dVar1 | 0x20;"
+        },
+        {
+          "line": 37,
+          "text": "RADIO_S_SUBSCRIBE_TXEN = DAT_230071c4 | 0x80000000;"
+        },
+        {
+          "line": 38,
+          "text": "dVar1 = RADIO_S_SHORTS;"
+        },
+        {
+          "line": 39,
+          "text": "RADIO_S_SHORTS = dVar1 & 0xffffffdf;"
+        }
+      ]
+    },
+    {
+      "runtime_address": "0x23023fa4",
+      "flash_source_address": "0xe058740",
+      "image_file_offset": "0x4740",
+      "analyst_name": "slot_switch_radio_alt",
+      "confidence": "high",
+      "observation": "Mode-dependent frequency/base/address and DPPI subscriptions",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23023fa4.c",
+      "source_sha256": "ac0a0c9f62f681edf0ef117c8618be60525a5b99357fcf4b78eff07ae2f5251e",
+      "selected_lines": [
+        {
+          "line": 13,
+          "text": "RADIO_S_FREQUENCY = _DAT_23003226 & 0xffff;"
+        },
+        {
+          "line": 14,
+          "text": "RADIO_S_BASE1 = DAT_23003244;"
+        },
+        {
+          "line": 17,
+          "text": "RADIO_S_SUBSCRIBE_RXEN = DAT_230071c6 | 0x80000000;"
+        },
+        {
+          "line": 18,
+          "text": "dVar1 = RADIO_S_SHORTS;"
+        },
+        {
+          "line": 19,
+          "text": "RADIO_S_SHORTS = dVar1 & 0xfff7ffff;"
+        },
+        {
+          "line": 20,
+          "text": "dVar1 = RADIO_S_SHORTS;"
+        },
+        {
+          "line": 21,
+          "text": "RADIO_S_SHORTS = dVar1 | 0x20;"
+        },
+        {
+          "line": 27,
+          "text": "RADIO_S_SUBSCRIBE_STOP = DAT_230071c2 | 0x80000000;"
+        },
+        {
+          "line": 32,
+          "text": "RADIO_S_SUBSCRIBE_TXEN = DAT_230071c4 | 0x80000000;"
+        },
+        {
+          "line": 33,
+          "text": "dVar1 = RADIO_S_SHORTS;"
+        },
+        {
+          "line": 34,
+          "text": "RADIO_S_SHORTS = dVar1 | 0x80000;"
+        },
+        {
+          "line": 40,
+          "text": "RADIO_S_FREQUENCY = _DAT_23003222 & 0xffff;"
+        },
+        {
+          "line": 41,
+          "text": "RADIO_S_BASE1 = DAT_23003244;"
+        },
+        {
+          "line": 42,
+          "text": "RADIO_S_SUBSCRIBE_RXEN = DAT_230071c4 | 0x80000000;"
+        },
+        {
+          "line": 43,
+          "text": "dVar1 = RADIO_S_SHORTS;"
+        },
+        {
+          "line": 44,
+          "text": "RADIO_S_SHORTS = dVar1 & 0xfff7ffff;"
+        },
+        {
+          "line": 45,
+          "text": "dVar1 = RADIO_S_SHORTS;"
+        },
+        {
+          "line": 46,
+          "text": "RADIO_S_SHORTS = dVar1 | 0x20;"
+        }
+      ]
+    },
+    {
+      "runtime_address": "0x23020f3c",
+      "flash_source_address": "0xe0556d8",
+      "image_file_offset": "0x16d8",
+      "analyst_name": "set_rx_address_mask",
+      "confidence": "high",
+      "observation": "Selector0=10,1=12,2=6,7=128",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23020f3c.c",
+      "source_sha256": "08c5b45102af75f8a6a3813b8cfec97534efc655370392b75354d0e61cb1e49c",
+      "selected_lines": [
+        {
+          "line": 8,
+          "text": "RADIO_S_RXADDRESSES = 10;"
+        },
+        {
+          "line": 11,
+          "text": "RADIO_S_RXADDRESSES = 0xc;"
+        },
+        {
+          "line": 14,
+          "text": "RADIO_S_RXADDRESSES = 6;"
+        },
+        {
+          "line": 17,
+          "text": "RADIO_S_RXADDRESSES = 1;"
+        },
+        {
+          "line": 20,
+          "text": "RADIO_S_RXADDRESSES = 0x80;"
+        }
+      ]
+    },
+    {
+      "runtime_address": "0x23020f84",
+      "flash_source_address": "0xe055720",
+      "image_file_offset": "0x1720",
+      "analyst_name": "set_tx_logical_address",
+      "confidence": "high",
+      "observation": "Selector0=1,1=2,2=3,7=7",
+      "source_file": "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23020f84.c",
+      "source_sha256": "543f530865d3bf50a9888d5879551e47e031f14ebb164e4a6808d32b0dceaf02",
+      "selected_lines": [
+        {
+          "line": 8,
+          "text": "RADIO_S_TXADDRESS = 1;"
+        },
+        {
+          "line": 11,
+          "text": "RADIO_S_TXADDRESS = 2;"
+        },
+        {
+          "line": 14,
+          "text": "RADIO_S_TXADDRESS = 3;"
+        },
+        {
+          "line": 17,
+          "text": "RADIO_S_TXADDRESS = 0;"
+        },
+        {
+          "line": 20,
+          "text": "RADIO_S_TXADDRESS = 7;"
+        }
+      ]
+    }
+  ],
+  "algorithm_validation": {
+    "implementation": "analysis/dongle_radio_algorithms.py",
+    "verification": "analysis/verify_dongle_radio_algorithms.py",
+    "vectors": "analysis/dongle-radio-algorithm-test-vectors.json",
+    "scope": "65536 permutation and5000 formula equivalence cases;not target execution"
+  },
+  "limitations": [
+    "Not complete original source",
+    "Not a standalone buildable radio stack",
+    "No air-capture or device-execution verification",
+    "Decompiled types/function boundaries remain partially uncertain",
+    "Missing complete app-packet semantics,persistent pairing fields,timing guarantees,crypto coverage"
+  ],
+  "followup_correction": {
+    "source": "handshake-exact.md",
+    "finding": "23025580 queues event 5; resolved consumer230253c4 only handles1/2, so this path does not establish pairing persistence"
+  }
+}

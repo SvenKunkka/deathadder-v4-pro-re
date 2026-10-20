@@ -1,0 +1,154 @@
+{
+  "firmware": "official1.20",
+  "status": "768 original Thumb differential cases passed",
+  "code": [
+    "recovered-code/portable/business_tx.c",
+    "recovered-code/portable/business_tx.h"
+  ],
+  "validation": "analysis/business-tx-original-comparison.json",
+  "raw_instruction_evidence": [
+    {
+      "side": "mouse",
+      "ram_address": "23025ab0",
+      "file": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_offset": "0x624c",
+      "bytes": "2d e9 f0 4f 05 29 9f b0 0a d8 9b 46 4b 1e 89 46",
+      "meaning": "class>=6 returns0 before mutations"
+    },
+    {
+      "side": "mouse",
+      "ram_address": "23025b84",
+      "file": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_offset": "0x6320",
+      "bytes": "27 4b 6a 88 99 88 52 ba 0a 44 68 78 29 78 9a 80 aa 88 dc 88 52 ba 22 44 da 80 5a 78 02 44 5a 70 1a 78 0a 43 1a 70 2a 70 5a 78 6a 70 93 f9 05 20 aa 70 9a 88 ea 70 93 f9 07 20 2a 71 db 88 6b 71",
+      "meaning": "motion accumulation and caller input rewrite before capacity test"
+    },
+    {
+      "side": "mouse",
+      "ram_address": "23025bf8",
+      "file": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_offset": "0x6394",
+      "bytes": "00 22 0b 4b 1a 60 e1 e7",
+      "meaning": "class3 clears global23006B68 before capacity test"
+    },
+    {
+      "side": "mouse",
+      "ram_address": "23025b08",
+      "file": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_offset": "0x62a4",
+      "bytes": "03 9e 45 4b 49 46 50 46 77 1d a3 fb 07 37 fb f7 b7 fc bf 08 01 3f bf b2 b8 42 d5 d9",
+      "meaning": "(effective_len+5)/6-1 uint16 last index; require free>last"
+    },
+    {
+      "side": "mouse",
+      "ram_address": "23025b58",
+      "file": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_offset": "0x62f4",
+      "bytes": "fb f7 28 fd 01 34 a8 eb 06 06 a3 b2 00 28 4b d0 bb 42 1f fa 86 f8 47 d8",
+      "meaning": "enqueue failure bypasses updating remaining r8"
+    },
+    {
+      "side": "mouse",
+      "ram_address": "23025c00",
+      "file": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_offset": "0x639c",
+      "bytes": "b8 f1 00 0f 7f f4 66 af b9 f1 01 0f 08 bf 05 4b 03 98 08 bf c3 e9 00 88 1f b0 bd e8",
+      "meaning": "return effective length; only remaining0/class1 clears full8B motion state"
+    },
+    {
+      "side": "mouse",
+      "ram_address": "230215f6",
+      "file": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_offset": "0x1d92",
+      "bytes": "5a 1e 20 4e 11 f8 01 3f 92 b2 86 f8 a1 30 dd e7",
+      "meaning": "class1 strips firstbodybyte, adjusted length uint16; global23002A19 updated before full check"
+    },
+    {
+      "side": "mouse",
+      "ram_address": "23021626",
+      "file": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_offset": "0x1dc2",
+      "bytes": "d6 b2 c6 55 38 44 02 36 06 71 80 f8 02 c0 45 70 94 f8 b2 50 07 30 45 ea c3 03 00 f8 01 3c 0a f0 e0 ff",
+      "meaning": "stored length low8, DMA length+2; memcpy still full r2 length"
+    },
+    {
+      "side": "mouse",
+      "ram_address": "23021648",
+      "file": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_offset": "0x1de4",
+      "bytes": "94 f8 6a 21 72 b6 94 f8 5e 31 01 33 db b2 9a 42 08 bf 00 23 84 f8 5e 31 62 b6 01 20 94 f8 b2 30 03 44 db b2 08 2b 08 bf 03 46 84 f8 b2 30 bd e8",
+      "meaning": "write index equality wrap; sequence increment only wraps8to1"
+    },
+    {
+      "side": "dongle",
+      "ram_address": "23025210",
+      "file": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "file_offset": "0x59ac",
+      "bytes": "05 f8 03 c0 39 46 01 33 30 46 9c b2 fb f7 a4 fa 04 f1 03 0a 4f ea aa 0a 0a f1 ff 3a 1f fa 8a fa 50 45 31 d9",
+      "meaning": "append checksum to caller input before free-space check; remaining uint16"
+    },
+    {
+      "side": "dongle",
+      "ram_address": "2302526a",
+      "file": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "file_offset": "0x5a06",
+      "bytes": "fb f7 25 fb 08 f1 01 08 a4 eb 09 09 1f fa 88 f3 1f fa 89 f4 58 b1 53 45 09 d8 53 45 d9 d1 04 f1 01 0b 22 46 a1 46 00 20 1f fa 8b fb d6 e7 13 b0 bd e8",
+      "meaning": "fragment enqueue result inr0; decrements remaining even when enqueue fails"
+    },
+    {
+      "side": "dongle",
+      "ram_address": "2302091e",
+      "file": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "file_offset": "0x10ba",
+      "bytes": "d5 b2 3d 54 38 44 02 35 80 f8 01 e0 80 f8 02 c0 05 71 94 f8 a7 50 07 30 45 ea c3 03 00 f8 01 3c 06 f0 7f fc",
+      "meaning": "stored length low8 while memcpy receives fullr2"
+    },
+    {
+      "side": "dongle",
+      "ram_address": "23020942",
+      "file": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "file_offset": "0x10de",
+      "bytes": "94 f8 60 21 72 b6 94 f8 54 31 01 33 db b2 9a 42 08 bf 00 23 84 f8 54 31 62 b6 01 20 94 f8 a7 30 03 44 db b2 08 2b 08 bf 03 46 84 f8 a7 30 bd e8",
+      "meaning": "serialized write advance and perclass sequence update"
+    }
+  ],
+  "behavior": {
+    "init": "reset twelve read/write bytes, capacities, strides and6pointers only; sequences and oldentries unchanged",
+    "pop": "increments read even if empty; wraps only if uint8(next)==capacity",
+    "peek": "empty=>0; nonempty setsentry+2=1 returnsVMAentry+4",
+    "enqueue": "preflight uses uint8(write+1)>=capacity =>0; success publishes aftercopy, then seq uint8+1, if8=>1; failure does not publish or advance seq",
+    "mouse_class1_enqueue": "global23002A19=body[1] beforecapacity check, independentofpeer; len=uint16(len-1)",
+    "mouse_tx": "rejectclass>=6=>0; preprocess beforecapacity; last=uint16(uint32(effective+5)/6-1), admitsiffree>last; returns0onreject otherwiseeffectivelen evenpartialfailure; resetsentire8Bmotionblockonlyafterallfragmentsaccepted",
+    "dongle_tx": "writes checksum atdata[len] beforecapacity; uint16 remaining=len+1; max4Bfragment; noexplicitsemanticreturn; rawr0freeonreject orlastenqueue0/1",
+    "fragment_control": "(more?0x80:0)|uint8(index); no &0x1F at producer; bounded<=90 keepsindexwithinlow5bits",
+    "source_preconditions": "validclass/storage; tx<=90; mouseclass1length6; cipherinput<=32; externalinputbuffershave128bytesinfixtures; hostboundarynotoriginalvalidation"
+  },
+  "unknown": [
+    "not RF validated",
+    "not concurrent IRQ scheduler proof",
+    "invalid memory pointers/overflow lengths outside portable contract",
+    "original source-level return type of receiver wrapper unknown; r0 observed only"
+  ],
+  "sources": [
+    {
+      "path": "recovered-code/portable/business_tx.c",
+      "sha256": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe"
+    },
+    {
+      "path": "recovered-code/portable/business_tx.h",
+      "sha256": "3a5b7e92635053631e6e95e5ca2eb4e5107e3cd86147fc1b5e4dced70343270a"
+    },
+    {
+      "path": "analysis/verify_business_tx.py",
+      "sha256": "0a3422af2a55e2374c6228cf304ad7fa3e99a7b3ecf74eeb9cf03bfb7a8ab250"
+    },
+    {
+      "path": "ghidra-scripts/EmulateBusinessTx.java",
+      "sha256": "56c2795544a600a949d3e3c7347e482f67b0bcbef826d9be63e6ca0506dfb24d"
+    },
+    {
+      "path": "analysis/business-tx-original-comparison.json",
+      "sha256": "ed53cfc3a19a2c018c34efb3eb5910d707105182f7e6f4fc10d9b39333a16455"
+    }
+  ]
+}

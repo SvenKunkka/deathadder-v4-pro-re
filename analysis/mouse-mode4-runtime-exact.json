@@ -1,0 +1,92 @@
+{
+  "status": "PARTIAL_RECOVERY_WITH_PRECISE_RTOS_BOUNDARIES",
+  "original_inputs_added": 2560,
+  "datasets": {
+    "mouse-mode4-runtime-original.jsonl": 2048,
+    "mouse-mode4-ack-original.jsonl": 512
+  },
+  "counts": {
+    "timer_returned": 1536,
+    "work_submit_boundary": 128,
+    "timer_start_boundary": 384,
+    "ack_returned": 512
+  },
+  "complete_returns": 2048,
+  "real_RTOS_boundaries": 512,
+  "ack_detail": {
+    "total": 512,
+    "known_nonzero_callback": 472,
+    "zero_callback": 40,
+    "active_ack_timer": 393,
+    "active_link_timer": 235
+  },
+  "component": {
+    "scenarios": 8,
+    "periods": 256,
+    "receiver_timer_events": 3072,
+    "mouse_generated_uplinks": 256,
+    "receiver_generated_downlinks": 256,
+    "mouse_timer_events": 768,
+    "mouse_success_irqs": 192,
+    "mouse_crc_fail_irqs": 64,
+    "new_business_completions": 192,
+    "duplicate_business_rejections": 0,
+    "adaptive_services": 256,
+    "receiver_scan_irq_events": 256,
+    "actual_retries_after_lost_downlink": 56,
+    "queue_retained_on_failure": 64,
+    "queue_popped_on_success": 192,
+    "pending_rates_applied": 256,
+    "channel_map_commits": 256,
+    "channel_hops": 256
+  },
+  "host_boundary_cases": 4,
+  "old_regressions": {
+    "mode4_original": 3072,
+    "mode4_tx_original": 4352,
+    "status": "PASS"
+  },
+  "remaining": [
+    "timeout work submit real queue/scheduler",
+    "timeout actual timer-start0e096a50",
+    "unknown ACK/stop callbacks or waiting threads",
+    "physical clock/RTC/DMA/IRQ/DPPI concurrency and RF"
+  ],
+  "target_success_stubs": false,
+  "device_io": false,
+  "CPU_bridge": "BASEPRI getter reads same ArmCpuState; barrier remains inert",
+  "hashes": {
+    "firmware-extracted-1.20/Suit2FWData__radio_radio.bin": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+    "analysis/runtime-images/mouse-ram-1.20.bin": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5",
+    "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+    "recovered-code/portable/mouse_mode4_radio.h": "905647c54e5f387fe764e17860fc5cde9bc1dbcd76104167637b99079f2a58cf",
+    "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+    "recovered-code/portable/mouse_mode4_tx.h": "09030214347e744d25309c70146aa6a345b855e544b4977b3485ab4d8df93ed4",
+    "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+    "recovered-code/portable/mouse_mode4_lifecycle.h": "c7fe95e72ca902e9988e10e416e404138a7f0774c4637258ec578603bbb36ebb",
+    "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+    "recovered-code/portable/mouse_timer_lifecycle.h": "0724d6c805f20f89424ba4cc96f2f07addbebf234a92e5d0bcd689a5520eb064",
+    "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+    "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "ghidra-scripts/EmulateMouseMode4Runtime.java": "4e46374aa09b587fa5be724609e86dc5593077e09d369968d05272a84a8e17c7",
+    "ghidra-scripts/EmulateMouseMode4Ack.java": "5968cf683fd66d7b25900cedf905a204c28f0de0675255316b64830572142039",
+    "analysis/mouse-mode4-runtime-original.jsonl": "997c9e4cccaeb77e688c7c1aaa67c4f4b4effa22cb30511595fa562e9f8a9aba",
+    "analysis/mouse-mode4-ack-original.jsonl": "fa24b68c299e8a96605bac6156eb2270e5a232de13c2f8f8e8c72971e1cc7b77",
+    "analysis/mouse-mode4-runtime-emulation.log": "8134341358c7bee1a20b2bd14a7f1257c25c9fd9dec884119aaa459735637e24",
+    "analysis/mouse-mode4-ack-emulation.log": "53b988ac80b52e18670a7c7c4f5f141fec76c582f2531b6748fd6a1db926c4db",
+    "analysis/verify_mouse_mode4_runtime.py": "eed259c4c61f47b6eac6f0ce121fb12bf863ddd108c1953836b5f69a3a779e90",
+    "analysis/mouse-mode4-runtime-verification.log": "ea09a0acd55cca2beac6a72b92a2b7a403e4d8974db4cb369f495d79c1795499",
+    "analysis/mouse-mode4-runtime-comparison.json": "b39bd2ade8b9d6ba9f4e2650585709d260717f625cfc4e4219f2de1b3d166150",
+    "analysis/test_mouse_mode4_runtime_integration.py": "ea85022ec9f88103263112cabf4b21f0f39178c94e49493d49025729d744646b",
+    "analysis/mouse-mode4-runtime-integration.json": "566136e0f271ca89a6f641ee368561716135f916b51d531987c13f3d2685c6ed",
+    "analysis/test_mouse_mode4_runtime_boundaries.py": "55f31daa19a5731a7d2345714f2578407e9373c67e757952de1619f4c59de814",
+    "analysis/mouse-mode4-runtime-boundaries.json": "292d994754e21be6a88a38ea74aef827694aabcdea3cff0839e8233763615418",
+    "analysis/mouse-mode4-runtime-disassembly.txt": "ad7955118e5e3b0b2dedfff2f14905b695aead04ec754071f40571b4b307a179",
+    "analysis/mouse-mode4-runtime-exact.md": "245a6b85b3a80f13e096929d730e062b2332a7c97f8f1648d226cae14f0a9868",
+    "analysis/mouse-mode4-exact.json": "c819b8d051c6b3ad3d6022d9ed9adceb1cde0c2189d772e55001b6709f4ff47d",
+    "analysis/mouse-mode4-tx-exact.json": "9a5f62b866a8d38c0528d5815105a77ce3c564f78fd7e7e4220ca84291750b5d",
+    "analysis/mouse-mode4-comparison.json": "cf648934b4e1a5db0e340a91f5e69511b8a0a33c3dc123f59518e724c43d3ded",
+    "analysis/mouse-mode4-tx-comparison.json": "5362bab6ce3d366d27d7666127b2c27ed52b25c9a746c217292c2ccf28af49e8"
+  }
+}

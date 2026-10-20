@@ -1,0 +1,155 @@
+{
+  "version": "1.20.00_r1",
+  "scope": "handshake byte contracts, bounded transitions, original-instruction software differential evidence",
+  "sources": [
+    {
+      "file": "dongle-radio-1.20-final/23022360.c",
+      "sha256": "c4c9166eb53191dd854e1ee43e4d6ff96ae65505ff3d77296d95c8edd29898c5"
+    },
+    {
+      "file": "dongle-radio-1.20-final/230223f0.c",
+      "sha256": "037d18f24a52ff6939d45bdc6622c470aa44fb1d9a381eb4c037ef581dee303b"
+    },
+    {
+      "file": "dongle-radio-1.20-final/23025580.c",
+      "sha256": "8832664f751cfb1fd00c7c6c0510abc524aa103b813d980741b6f534e1380cb1"
+    },
+    {
+      "file": "dongle-radio-1.20-final/230253c4.c",
+      "sha256": "dc1b6d8260872a392e86865f7feac21c67cd02da65c524faf0dbca5920ddc15d"
+    },
+    {
+      "file": "mouse-radio-1.20-final/230227b8.c",
+      "sha256": "e1a405faac1c907025ffe9abc2b4576a50020a86d135dbf20f7b1c3d145df869"
+    },
+    {
+      "file": "mouse-radio-1.20-final/23025f44.c",
+      "sha256": "e954338982e55b7d54d99a797d863a3a3e99b6faa5fc43fb30b53ee9e2530ab2"
+    },
+    {
+      "file": "mouse-radio-1.20-final/23025dc0.c",
+      "sha256": "ad2390bdc9e96e7b38209ec88e75c62f4a97c9c9151125d43465f2a3b9c4aef3"
+    },
+    {
+      "file": "mouse-radio-1.20-final/23025df0.c",
+      "sha256": "bb9b182ba749024fdb96f5bac31321ae0255c5437b36fca4d87814a35bc80197"
+    }
+  ],
+  "mouse_empty_callback": {
+    "vma": "0x23025F44",
+    "instruction_hex": "704700bf",
+    "decoded": "BX LR; NOP"
+  },
+  "tests": {
+    "command": "python3 analysis/test_handshake_codec.py",
+    "result": "4 tests PASS; 256 capability combinations; fixed byte vectors; no firmware emulation"
+  },
+  "original_instruction_validation": {
+    "status": "PASS",
+    "cases": 128,
+    "function": "dongle 0x23022360",
+    "engine": "Ghidra 12.1.3 AdaptedEmulator (modern p-code)",
+    "sha256": "011683be66316ec043ff6afacf55683fd7677b92140404104ee0eaec3dc0a30c",
+    "checked": [
+      "all 12 produced bytes",
+      "sequence advancement"
+    ],
+    "limits": [
+      "software emulation, not silicon execution",
+      "one packet producer only",
+      "not PHY/radio/timing/peer interoperability validation",
+      "other five message types have static byte-write tests, not this emulation"
+    ],
+    "input_integrity": "Full loaded flash and 0x7270-byte runtime code copy equal the hash-verified original 1.20 image; see handshake-emulation-verified.log"
+  },
+  "additional_original_instruction_validation": {
+    "dongle_transitions": {
+      "status": "PASS",
+      "cases": 640,
+      "function": "dongle 0x230223f0",
+      "engine": "Ghidra 12.1.3 AdaptedEmulator",
+      "source_sha256": "8d63788970f7720323f20adb359ce26c616226e136897e1cb92c344984f418e1",
+      "checked": [
+        "all 224 bytes of selected slot state",
+        "global selected mode",
+        "return value"
+      ],
+      "coverage": {
+        "state_0_return_0": 113,
+        "state_0_return_1": 175,
+        "state_2_return_1": 140,
+        "state_3_return_2": 77,
+        "state_6_return_0": 32,
+        "state_65535_return_0": 32,
+        "state_2_return_0": 20,
+        "state_3_return_0": 19,
+        "state_1_return_0": 32
+      },
+      "failures": [],
+      "limits": [
+        "state3 with nonzero notification flag excluded",
+        "software execution only; no real radio/interrupt scheduling",
+        "no claim exhaustive full-state-space coverage"
+      ]
+    },
+    "mouse_rx": {
+      "status": "PASS",
+      "cases": 256,
+      "coverage": {
+        "output_state_0x16": 128,
+        "reply_0x12": 64,
+        "reply_0x14": 64,
+        "output_state_0x17": 64,
+        "reply_0x16": 64,
+        "output_state_0x13": 51,
+        "output_state_0x14": 13
+      },
+      "failures": [],
+      "source_sha256": "37c77f3908db611f666f02c708ed95284c233518b7ffb4a263bfb0d687b977f1",
+      "checked": [
+        "all 992 RAM-window bytes",
+        "15 selected register words"
+      ],
+      "limits": [
+        "inert MMIO memory, no hardware peripheral state evolution",
+        "pairing flag zero; no terminal state0x17 execution",
+        "software execution, no RF/interrupt timing validation"
+      ]
+    },
+    "portable_c": {
+      "status": "PASS",
+      "original_instruction_comparisons": 1024,
+      "transition_cases": 640,
+      "offer_cases": 128,
+      "mouse_cases": 256,
+      "compiler": "Apple clang version 17.0.0 (clang-1700.6.4.2)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+      "compiler_flags": [
+        "-std=c11",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-pedantic",
+        "-O2",
+        "-fPIC",
+        "-shared"
+      ],
+      "sources": {
+        "recovered-code/portable/handshake.c": "09f89dcd4131b0bca0bc403c23518d1a89c1e0d0f404eee01b25c53aa28faef8",
+        "recovered-code/portable/handshake.h": "f52364a256e545bce2eac5a3d43b581ece71ca6243755c8e838d3895c2f1b601",
+        "recovered-code/portable/mouse_handshake.c": "5080e7cd6355577d3dad6cf542ddd4dfd0552c5cc97c5cbad86e8ef3f4a37011",
+        "recovered-code/portable/mouse_handshake.h": "f125d01fb91f4dd3c0f3bb54f567c27dee3736fe266b5f7f5ebe7bf014d0af99",
+        "analysis/handshake-transition-original.jsonl": "8d63788970f7720323f20adb359ce26c616226e136897e1cb92c344984f418e1",
+        "analysis/handshake-original-emulation.jsonl": "011683be66316ec043ff6afacf55683fd7677b92140404104ee0eaec3dc0a30c",
+        "analysis/mouse-handshake-original.jsonl": "37c77f3908db611f666f02c708ed95284c233518b7ffb4a263bfb0d687b977f1"
+      },
+      "library_sha256": "f12adcdce3b25c866c2d67804b2d5666ac3b51f0afd7baef2f3ae1134dd0304c",
+      "limits": [
+        "host C compilation only, not Cortex-M target build",
+        "dongle state3 nonzero notification flag deliberately unresolved",
+        "mouse pairing flag zero, state0x14 only; inert MMIO registers",
+        "not complete radio firmware, no RF timing or hardware validation"
+      ]
+    }
+  },
+  "validation_note": "The older 128-case record describes its own scope only; later records expand coverage to all six packet production paths, not complete lifecycle or RF."
+}

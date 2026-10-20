@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "original_inputs": 3072,
+  "original_steps": 1260296,
+  "original_returns": {
+    "original_full_return": 2816
+  },
+  "boundaries": {
+    "0x0": 2816,
+    "0x23028c54": 214,
+    "0xe089d4c": 42
+  },
+  "sources": {
+    "recovered-code/portable/mouse_lifecycle_runtime.c": "7c3e8f92d0ed8147ee9fb7cdfb0a1b1326e0cceb5cf7991be6e4470531d72e67",
+    "recovered-code/portable/mouse_lifecycle_runtime.h": "b19bcb7b03e7d29f8dd4d68f491ea65014b5a8f80ce8de22728f6f9c34691170",
+    "analysis/verify_mouse_lifecycle_runtime.py": "e16237effec24ad794556cb0d32276847ccbe053190f530265cee86a67ba55f9",
+    "analysis/mouse-lifecycle-runtime-original.jsonl": "749c170411c27dcc6d60fdc6cfa910f97fa6fae5389baa2b738ba1612b7dba13",
+    "analysis/mouse-lifecycle-runtime-comparison.json": "c8765f216a8385a539848f1dd62cb2daed681fd18242672f3159bc422dc2fb98",
+    "analysis/mouse-stop-registration-evidence.json": "8fd16da1be2be61a4961d1939e46d517246047bd622bf5a4e4d8b4461dffd9ef",
+    "ghidra-scripts/EmulateMouseLifecycleRuntime.java": "f49fdb7faf8adaa45137f6e9d7528e153f2e06ffd9aff394da76113bf32164fd"
+  },
+  "entry_spans": [
+    {
+      "address": "0x23022d88",
+      "image_offset": "0x3524",
+      "entry16_hex": "70b500240546144b82b0224621462046"
+    },
+    {
+      "address": "0x23025c2c",
+      "image_offset": "0x63c8",
+      "entry16_hex": "08b5044806f0bafb034bd87bbde80840"
+    },
+    {
+      "address": "0x23025eb4",
+      "image_offset": "0x6650",
+      "entry16_hex": "4388032b00d0704710b5034c236813b1"
+    }
+  ],
+  "limits": [
+    "RAM/MMIO snapshots, no autonomous IRQ/time/RF",
+    "Synthetic unknown stop callback not an identified firmware registration",
+    "CPU request boundaries do not include caller resumption after CPU switch",
+    "Legacy APIs preserved; new runtime APIs opt into expanded waiting paths; IRQ/scanning/RTC adapters still use old APIs"
+  ]
+}

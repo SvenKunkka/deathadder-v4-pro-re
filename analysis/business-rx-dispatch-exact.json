@@ -1,0 +1,76 @@
+{
+  "firmware": "official1.20 radio",
+  "original_instruction_cases": 1920,
+  "rx_cases": 1280,
+  "dispatch_cases": 640,
+  "component_integration_cases": 662,
+  "spans": [
+    {
+      "side": "mouse",
+      "start": "0x230259ec",
+      "end_exclusive": "0x23025ab0",
+      "image": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "file_offset": "0x6188",
+      "bytes": "2de9f84f1778284e17f01f0094460c4606ebc11636d0dff8948018f80190814506d00023224a08f801305354bde8f88fdff87ca05d1e1af804b0511c06eb0b002a46ab4409f1010906f0e8fd5ffa89f90af804b03b0608f80490e7d4154b1af804201c70144b314614481a7006f0d6fd002308f804300af804301148bde8f84f06f020bddff82480dff824a05a1e08f804000cf1010130460af804204ff0010906f0bcfdd6e700bf50680023506b0023586b00239b7700239c770023d0670023a0670023",
+      "sha256": "f19ed7c624af8571eaf8d206abe3c8036878b258ef1da662c9574654a822a877"
+    },
+    {
+      "side": "dongle",
+      "start": "0x23025004",
+      "end_exclusive": "0x230251e4",
+      "image": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "file_offset": "0x57a0",
+      "bytes": "2de9f04f1578dff8c4918db08df80f3015f01f030c46804609ebc11a54d06c4e775c9f4206d000236a4a735453540db0bde8f08fdff89cb1511c1bf804309df80f200aeb0300013a02920193013702f0f5f8dde9013213440bf80430ffb22b063755e4d4002535551bf80460012c0bf804508df80f6040d0032c34d0022c69d0042c65d104af20222946384602f066f851463246384602f0d1f838460df10f01fbf740f80028c2d010229df810308df80f20012b77d01022ba4651462046fbf7c5f80db0bde8f08f511c9df80f20404edff800b1013a504633550bf80420012702f0acf8bbe7324651464046fff7cafd00289cd19df80f20dfe708238df80f30354b99f880001f78baf80210384300f07f008df81000988849babaf804200144adf81410d98852ba0a449af80160adf816205a781d705d60a3f80150b3188df811508df812508df813300df1100a08263246b2e704af20222946384601f0feff51463246384602f069f838460df10f01faf7d8ff00283ff45aaf0822174e8df80f2035712a460df10f030df1170513f8011f002918bf02469d42f8d10ab101233371ba46d3e70d4e0df1110335710df11f0113f8012f002a18bf05469942f8d1002d3ff478af0123337174e77862002378650023806500238865002390650023",
+      "sha256": "964e401dcbd157ce442d689ee881e50d01f354064e1670f6a0a972a8319deb55"
+    },
+    {
+      "side": "dongle",
+      "start": "0x2302455c",
+      "end_exclusive": "0x230247d0",
+      "image": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "file_offset": "0x4cf8",
+      "bytes": "40f684732de9f04f00fb03f3964d87b005eb030999f9141199f814210029029202dc07b0bde8f08f99f816a103f58b730446504605eb0308fcf72afa07465046fcf728fa83465046fcf728fa06465046fcf71afa029aaeb309eb060393f8b71081422ad0012e83f8b7003ed0023a51b20029d3b20cdd08f10102314640f6847606fb045696f869600020009600f05aff40f684730021754e03fb0453b6f8ae21c3f88c100132a6f8ae21b6f8ac310133a6f8ac3107b0bde8f08f012e00f09f806a4ef2e798f801302b2b7fd02c2b72d0172b68d0654e40f6847303fb0453204693f8691000f074ffdfe7012f4dd06049887d4a8a8b8a40f684794ff0000eb8f803c09cfa9cfc1ffa8cfcaceb02026cf30f0e09fb045c9cf89d90b8f805c0c2f3072b9cfa9cfc1ffa8cfcaceb03036cf31f4e98f802c0d2b2aceb00000292c3f30722f24698f80180c0b24ffa8cfc0392dbb2b9f1000f5fd181f816c0c1f812e081f8178002998df810908df811808df812008df813b08df814108df815208df8163000bf072304aa77e799f8a6305b45add0002336491a46184689f8a6b08b75c1f81230a7e7b8f80230304e5bba9bb2c9f88c308fe798f802302c4ea9f83630b8f803305bbaa9f8383084e7b8f80310b8f8052098f802303046244e49ba52baa6f8a211a6f8a421022103f03f029b09a6f89e21a6f8a031fdf7f2fd6be799f89d30012b28d040f68472002302fb0455164ec5f88c3048e7012f17bf4ff0000a47465746d4468df816300023029acf758df81420039a81f816c0c1f812a08df811808df812008df813b08df815208df8103000bf00bf95e7002fd4d1044bc3f81270df82cfe700bfe83300233032002390300023",
+      "sha256": "206ac17f405d17e2b7485e6092370715de09b0fe19e07188ac7deeb1a2c2d614"
+    },
+    {
+      "side": "dongle",
+      "start": "0x23020128",
+      "end_exclusive": "0x23020160",
+      "image": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "file_offset": "0x8c4",
+      "bytes": "70b505460c7888b068460e462246294607f082f8a10804d06846064afff77aff347822466946284607f076f8012008b070bd00bf20300023",
+      "sha256": "a7e1359d7e1fa8a82a9ea6cdcb777ee94575e19e07e1eee5bfbdb66986844e0b"
+    }
+  ],
+  "source_sha256": {
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_rx.h": "62157d3ed842022307b7e9311032ab806662ab2efaa6754a75666184f4e2acd8",
+    "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+    "recovered-code/portable/business_dispatch.h": "54e151a2cbccf44c246012fce8e79030ee73c4d1be9ae6ea105d3274d8e7cc74",
+    "analysis/business-rx-original-comparison.json": "71deb05a9f5dfeead6d6b0b0ae9cb3b6ccc3ac85d27dc34de735341dbfdb686d",
+    "analysis/business-dispatch-original-comparison.json": "c6b6c110170a3365f25360b1e14996db17e74988654bc439f39ddaa3e56c860b",
+    "analysis/business-pipeline-comparison.json": "9d2601680a051a608a7bfe420eb6c247feca3d90340ab54095648820e0b7aeec",
+    "analysis/verify_business_rx_original.py": "dc2dfbaf6eb1ab0e16fbfcc8e6f607e5538c51efa1f074aac4153b3a753f90dc",
+    "analysis/verify_business_dispatch_original.py": "355c4a8b724ea700aa806859cb630672f318f2572ba4b2edcf877ca03540dca0",
+    "analysis/verify_business_pipeline.py": "f4dbc979e7e3ae80b79ab8f284db284be566e5bbb785822004f1df908d81f578"
+  },
+  "scope": "exact declared entry-to-boundary execution, not full receive stack",
+  "revision": {
+    "reason": "Preserve all128B persistent dongle reassembly bank for short-message consumer tail reads. Four original-entrypoint short B1 cases confirm behavior. RX1280 and pipeline662 rerun PASS. Original instruction byte spans unchanged.",
+    "related_evidence": "analysis/receiver-business-flow-exact.json",
+    "updated_sources": {
+      "recovered-code/portable/business_rx.c": {
+        "previous": "2cdb519c2b10949592ce911bc0b450461be358a029f06a6a6d9f8a3b5574c833",
+        "current": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8"
+      },
+      "analysis/business-rx-original-comparison.json": {
+        "previous": "5a602052aad9114ef16751d14fcefe8deaee50bae51038668a9911ec29922d90",
+        "current": "71deb05a9f5dfeead6d6b0b0ae9cb3b6ccc3ac85d27dc34de735341dbfdb686d"
+      },
+      "analysis/business-pipeline-comparison.json": {
+        "previous": "4342b40c0c6a1e5b7cab0c048a497c15b899b0270753427037cd414a1440ab5c",
+        "current": "9d2601680a051a608a7bfe420eb6c247feca3d90340ab54095648820e0b7aeec"
+      }
+    }
+  }
+}

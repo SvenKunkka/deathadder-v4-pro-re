@@ -1,0 +1,217 @@
+{
+  "status": "PARTIAL_RECOVERY_VERIFIED",
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "entry_spans": [
+    {
+      "address": "0xe06d0d0",
+      "image_offset": "0x190d0",
+      "role": "semaphore give",
+      "entry16_hex": "38b50446eff31185402383f31288bff3"
+    },
+    {
+      "address": "0xe06df70",
+      "image_offset": "0x19f70",
+      "role": "waiter dequeue",
+      "entry16_hex": "f8b5eff31185402383f31288bff36f8f"
+    },
+    {
+      "address": "0xe06dd24",
+      "image_offset": "0x19d24",
+      "role": "ready critical section",
+      "entry16_hex": "10b5eff31184402383f31288bff36f8f"
+    },
+    {
+      "address": "0xe06da0c",
+      "image_offset": "0x19a0c",
+      "role": "priority ready insertion",
+      "entry16_hex": "90f90d30427b002b03dbd30601d18369"
+    },
+    {
+      "address": "0xe06d9cc",
+      "image_offset": "0x199cc",
+      "role": "next thread selection",
+      "entry16_hex": "38b50e4d2b4653f8184f9c4214d09cb1"
+    },
+    {
+      "address": "0xe06e4ec",
+      "image_offset": "0x1a4ec",
+      "role": "timeslice reset",
+      "entry16_hex": "70b5144b144e1d7c044605eb450306eb"
+    },
+    {
+      "address": "0xe06e078",
+      "image_offset": "0x1a078",
+      "role": "unlock or context switch",
+      "entry16_hex": "49b9eff3058030b9054b5a699b689a42"
+    },
+    {
+      "address": "0xe06cbdc",
+      "image_offset": "0x18bdc",
+      "role": "message put",
+      "entry16_hex": "2de9f04104460d46964682b000f10807"
+    },
+    {
+      "address": "0xe06cd54",
+      "image_offset": "0x18d54",
+      "role": "message purge",
+      "entry16_hex": "f8b5044600f10806eff31187402383f3"
+    },
+    {
+      "address": "0x230254f8",
+      "image_offset": "0x5c94",
+      "role": "disconnect type2 producer",
+      "entry16_hex": "0221024610b58ab000680191516802ab"
+    },
+    {
+      "address": "0x23024c2a",
+      "image_offset": "0x53c6",
+      "role": "mode4 disconnect prefix",
+      "entry16_hex": "0024104b2246c3f804411149c3f80441"
+    },
+    {
+      "address": "0x230221a4",
+      "image_offset": "0x2940",
+      "role": "disconnect flag and semaphore",
+      "entry16_hex": "40f684710122034b01fb00331a710248"
+    }
+  ],
+  "rtos_comparison": {
+    "status": "PASS",
+    "original_cases": 1536,
+    "original_steps": 322614,
+    "counts": {
+      "0": 384,
+      "1": 384,
+      "2": 384,
+      "3": 384
+    },
+    "boundaries": {
+      "0x0": 1418,
+      "0xe06e768": 60,
+      "0xe06e648": 27,
+      "0xe0611cc": 31
+    },
+    "failures": [],
+    "sources": {
+      "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+      "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+      "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+      "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+      "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+      "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+      "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+      "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+      "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+      "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+      "recovered-code/portable/receiver_rtos_lifecycle.h": "0f537f04de20a55f667c76f868198ed461e4319656472a9a74edfa2eddfe432b",
+      "analysis/verify_receiver_rtos_lifecycle.py": "66fe87129abeb2ee00258fec798d05a7a2aa1ae558cc967846cda406e4ee4f31",
+      "ghidra-scripts/EmulateReceiverRtosLifecycle.java": "06d3102fdc49a8c6b9d01dc08e5888a7c21f62a7ff774a3a87e92f21c7c09977",
+      "analysis/receiver-rtos-lifecycle-original.jsonl": "50244d6cc41f24ebecc05617b81f13b39c71fb926c8a9617dbaf4640b3ac8a85"
+    },
+    "limits": [
+      "128KiB RAM snapshot and serialized CPU priority/exception model",
+      "active timeout/timeslice start or actual thread context switch remain real boundaries; prior side effects retained",
+      "message type2 copies24 bytes of explicit previous stack data, not initialized payload",
+      "no RF/device writes or actual scheduler execution"
+    ]
+  },
+  "disconnect_comparison": {
+    "status": "PASS",
+    "original_cases": 256,
+    "full_instruction_returns": 256,
+    "original_steps": 168370,
+    "failures": [],
+    "sources": {
+      "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+      "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+      "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+      "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+      "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+      "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+      "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+      "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+      "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+      "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+      "recovered-code/portable/receiver_rtos_lifecycle.h": "0f537f04de20a55f667c76f868198ed461e4319656472a9a74edfa2eddfe432b",
+      "analysis/verify_receiver_disconnect_lifecycle.py": "2720e2cb45cda210ecf41534d683ab0b41de192e7e3ad97ca1e80a9dcd5fb8f9",
+      "ghidra-scripts/EmulateReceiverDisconnectLifecycle.java": "0daa8d861ba68f68cd81a6b20f35ce2eb5379f663444f31e1d9932e28354ca44",
+      "analysis/receiver-disconnect-lifecycle-original.jsonl": "1584fbdf348af51b9f801d1869f6dd782e3081c19789e0ba7809df974a7ecc61"
+    },
+    "limits": [
+      "24 uninitialized notification tail bytes observed at original callsite supplied explicitly to C; CPU stack residue generation itself NOT reconstructed",
+      "timer -> actual semaphore/waiter-ready operations -> actual notification queue executed, no successful stubs",
+      "active timeout, timeslice start, true thread-mode context switch excluded from these256 inputs; separately boundary-tested",
+      "MMIO snapshots, no IRQ preemption/time/PHY"
+    ]
+  },
+  "historical_stage1_rtos_comparison": {
+    "status": "PASS",
+    "original_cases": 1536,
+    "original_steps": 322614,
+    "counts": {
+      "0": 384,
+      "1": 384,
+      "2": 384,
+      "3": 384
+    },
+    "boundaries": {
+      "0x0": 1418,
+      "0xe06e768": 60,
+      "0xe06e648": 27,
+      "0xe0611cc": 31
+    },
+    "failures": [],
+    "sources": {
+      "recovered-code/portable/receiver_rtos_lifecycle.c": "482d12d1575973d1ab18f9c5b154db2c3cc9a317c65e84a773fc454283a7f80c",
+      "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+      "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+      "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+      "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+      "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+      "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+      "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+      "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+      "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+      "recovered-code/portable/receiver_rtos_lifecycle.h": "62bf6f209ee118f085fe70c27e704bf3aac409fe89060a5b78ac8a9ebb2d4fd7",
+      "analysis/verify_receiver_rtos_lifecycle.py": "66fe87129abeb2ee00258fec798d05a7a2aa1ae558cc967846cda406e4ee4f31",
+      "ghidra-scripts/EmulateReceiverRtosLifecycle.java": "06d3102fdc49a8c6b9d01dc08e5888a7c21f62a7ff774a3a87e92f21c7c09977",
+      "analysis/receiver-rtos-lifecycle-original.jsonl": "50244d6cc41f24ebecc05617b81f13b39c71fb926c8a9617dbaf4640b3ac8a85"
+    },
+    "limits": [
+      "128KiB RAM snapshot and serialized CPU priority/exception model",
+      "active timeout/timeslice start or actual thread context switch remain real boundaries; prior side effects retained",
+      "message type2 copies24 bytes of explicit previous stack data, not initialized payload",
+      "no RF/device writes or actual scheduler execution"
+    ]
+  },
+  "historical_stage1_disconnect_comparison": {
+    "status": "PASS",
+    "original_cases": 256,
+    "full_instruction_returns": 256,
+    "original_steps": 168370,
+    "failures": [],
+    "sources": {
+      "recovered-code/portable/receiver_rtos_lifecycle.c": "482d12d1575973d1ab18f9c5b154db2c3cc9a317c65e84a773fc454283a7f80c",
+      "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+      "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+      "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+      "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+      "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+      "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+      "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+      "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+      "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+      "recovered-code/portable/receiver_rtos_lifecycle.h": "62bf6f209ee118f085fe70c27e704bf3aac409fe89060a5b78ac8a9ebb2d4fd7",
+      "analysis/verify_receiver_disconnect_lifecycle.py": "2720e2cb45cda210ecf41534d683ab0b41de192e7e3ad97ca1e80a9dcd5fb8f9",
+      "ghidra-scripts/EmulateReceiverDisconnectLifecycle.java": "0daa8d861ba68f68cd81a6b20f35ce2eb5379f663444f31e1d9932e28354ca44",
+      "analysis/receiver-disconnect-lifecycle-original.jsonl": "1584fbdf348af51b9f801d1869f6dd782e3081c19789e0ba7809df974a7ecc61"
+    },
+    "limits": [
+      "24 uninitialized notification tail bytes observed at original callsite supplied explicitly to C; CPU stack residue generation itself NOT reconstructed",
+      "timer -> actual semaphore/waiter-ready operations -> actual notification queue executed, no successful stubs",
+      "active timeout, timeslice start, true thread-mode context switch excluded from these256 inputs; separately boundary-tested",
+      "MMIO snapshots, no IRQ preemption/time/PHY"
+    ]
+  },
+  "revision": "Old APIs retain exact pending boundaries; regression rerun after new optional timeout ops. Expanded3840 inputs are documented in receiver-timeout-exact.json."
+}

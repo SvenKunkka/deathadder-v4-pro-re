@@ -1,0 +1,254 @@
+{
+  "status": "PASS",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "original_inputs": 6144,
+  "full_function_returns": 2048,
+  "next_worker_loop_headers": 753,
+  "CPU_request_entry_boundaries": 3291,
+  "base_API_scan_callback_boundaries": 52,
+  "entry_spans": [
+    {
+      "address": "0xe096220",
+      "role": "wake first waiter and abort timeout",
+      "image_offset": "0x2a220",
+      "entry16_hex": "f8b5eff31185202383f31288bff36f8f"
+    },
+    {
+      "address": "0xe09600c",
+      "role": "yield ready requeue before CPU request",
+      "image_offset": "0x2a00c",
+      "entry16_hex": "f8b5eff31187202383f31288bff36f8f"
+    },
+    {
+      "address": "0xe09628c",
+      "role": "pend wrapper before CPU request",
+      "image_offset": "0x2a28c",
+      "entry16_hex": "10b582b0dde90434cde90034069cfff7"
+    },
+    {
+      "address": "0xe095cf8",
+      "role": "pend current thread and register optional timeout",
+      "image_offset": "0x29cf8",
+      "entry16_hex": "f8b51248124b8468069f1c60079e0c46"
+    },
+    {
+      "address": "0xe095924",
+      "role": "remove ready and insert priority wait queue",
+      "image_offset": "0x29924",
+      "entry16_hex": "38b590f90d200446002a0d46437b09da"
+    },
+    {
+      "address": "0xe095254",
+      "role": "delayed work expiry",
+      "image_offset": "0x29254",
+      "entry16_hex": "10b582b0eff31184202383f31288bff3"
+    },
+    {
+      "address": "0xe09518c",
+      "role": "work submission to selected queue",
+      "image_offset": "0x2918c",
+      "entry16_hex": "f8b5c3680d469a07c3f3400611d45f07"
+    },
+    {
+      "address": "0xe09504c",
+      "role": "worker loop",
+      "image_offset": "0x2904c",
+      "entry16_hex": "2de9f04f20254ff0ff384ff0ff390446"
+    },
+    {
+      "address": "0xe089d4c",
+      "role": "CPU request boundary not executed",
+      "image_offset": "0x1dd4c",
+      "entry16_hex": "10b46ff00a040a4a0a4993684ff0000c"
+    },
+    {
+      "address": "0xe089dcc",
+      "role": "PendSV handler pointed to by vector not executed",
+      "image_offset": "0x1ddcc",
+      "entry16_hex": "0e498a684ff030001044eff3098c80e8"
+    },
+    {
+      "address": "0x23022620",
+      "role": "scan work callback supported by extended API",
+      "image_offset": "0x2dbc",
+      "entry16_hex": "10b51d4b93f827404cbb1c4a117901b9"
+    }
+  ],
+  "literal_evidence": [
+    {
+      "image_offset": "0x294dc",
+      "value": "0xe095255",
+      "bytes4": "5552090e",
+      "role": "delayed work scheduling explicit queue"
+    },
+    {
+      "image_offset": "0x29548",
+      "value": "0xe095255",
+      "bytes4": "5552090e",
+      "role": "delayed work scheduling default queue"
+    },
+    {
+      "image_offset": "0x295c0",
+      "value": "0xe095255",
+      "bytes4": "5552090e",
+      "role": "delayed work rescheduling explicit queue"
+    },
+    {
+      "image_offset": "0x2963c",
+      "value": "0xe095255",
+      "bytes4": "5552090e",
+      "role": "delayed work rescheduling default queue"
+    },
+    {
+      "image_offset": "0x30e58",
+      "value": "0x23025f79",
+      "bytes4": "795f0223",
+      "role": "initialized disconnect callback pointer; RAM object mapping not asserted here"
+    },
+    {
+      "image_offset": "0x2b55c",
+      "value": "0x23028c55",
+      "bytes4": "558c0223",
+      "role": "allocator thunk pointer; NOT proof of RTC callback registration"
+    },
+    {
+      "image_offset": "0x38",
+      "value": "0xe089dcd",
+      "bytes4": "cd9d080e",
+      "role": "PendSV vector"
+    }
+  ],
+  "comparison": {
+    "status": "PASS",
+    "original_cases": 6144,
+    "original_steps": 1192039,
+    "counts": {
+      "0": 1024,
+      "1": 1024,
+      "2": 1024,
+      "3": 1024,
+      "4": 1024,
+      "5": 1024
+    },
+    "boundaries": {
+      "0x0": 2801,
+      "0xe089d4c": 3291,
+      "0x23022620": 52
+    },
+    "original_returns": {
+      "full_return": 2048,
+      "next_loop_header": 753
+    },
+    "failures": [],
+    "sources": {
+      "recovered-code/portable/mouse_worker_runtime.c": "9d8263f50eef812d14f310176ed684464ae8993008f47431be622c190d2420f8",
+      "recovered-code/portable/mouse_scanning.c": "4b2d52a41de90de241c36360cf1f22f188fdd0d243b5f92ef7272798809418de",
+      "recovered-code/portable/mouse_work_thread.c": "cc38c5a3c3b833a7a2e0bd2580e0128251de17396c19bb1a5bb72bc625393dfb",
+      "recovered-code/portable/mouse_timer_expiry.c": "78cfea2a6a9906102f54483b6fd23bea0fec9e4a18cc5a5a4914e9cf87791cc4",
+      "recovered-code/portable/mouse_work_queue.c": "18634efd7f5860b19c3d85a8ac7341b8635561b8f8ad2c1b163e401df564778e",
+      "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+      "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+      "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+      "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+      "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+      "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+      "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+      "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+      "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+      "recovered-code/portable/mouse_worker_runtime.h": "d3b1404df8f4eec0861d9ab591f022b8582e593503a36228ec5a231a4c574c46",
+      "recovered-code/portable/mouse_scanning.h": "22d784038291fc59a908168a88bb56ab9d2ba905ea894ccf287b92c0c6b55396",
+      "recovered-code/portable/mouse_work_thread.h": "f7daa4058a68d2dbbd8a038ad826e570c4da11c022e30efe3b9e628814b4ca46",
+      "recovered-code/portable/mouse_timer_expiry.h": "4d5d1a24c2e17cd287939e9efe1cad3dbde5d73a28c206131c366794b930f249",
+      "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+      "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+      "analysis/verify_mouse_worker_runtime.py": "9e6bb0dd97b2adc463537ebc6dd276af7e60b92e98f5ad9bd18e4bd07441d31c",
+      "ghidra-scripts/EmulateMouseWorkerRuntime.java": "76a7ba65fd4e9b327bb6f2009f7d5602af84cf79138ae8ecaaf9099e016c7bf9",
+      "analysis/mouse-worker-runtime-original.jsonl": "2cc86971b691262f8c1def7242099074c335c97b520a3085686ecbfc8a8fa825"
+    },
+    "limits": [
+      "Original wake/yield/pend/delayed-work functions and actual worker through scheduling requests",
+      "CPU context-switch request is a real entry boundary, not executed or replaced with successful return",
+      "Worker next-loop header is not thread exit; unknown handler retains actual pointer",
+      "Pend stops before CPU call; post-switch return/output and live CPU scheduling not reconstructed",
+      "Inert RAM/MMIO only; no real RF or concurrent IRQ execution"
+    ]
+  },
+  "component_integration": {
+    "status": "PASS",
+    "scenarios": 3,
+    "cycles": 192,
+    "worker_pend_to_CPU_boundaries": 192,
+    "explicit_context_handoffs": 384,
+    "delayed_callbacks": 192,
+    "worker_next_loop_segments": 192,
+    "results": [
+      {
+        "initial_priority": 0,
+        "wait_delayed_enqueue_callback_cycles": 64
+      },
+      {
+        "initial_priority": 16,
+        "wait_delayed_enqueue_callback_cycles": 64
+      },
+      {
+        "initial_priority": 128,
+        "wait_delayed_enqueue_callback_cycles": 64
+      }
+    ],
+    "sources": {
+      "analysis/test_mouse_worker_continuous.py": "9d23793a97f459340c04db0f3b1d0455951f302f38be88a37f24af4789dd4abb",
+      "recovered-code/portable/mouse_worker_runtime.c": "9d8263f50eef812d14f310176ed684464ae8993008f47431be622c190d2420f8",
+      "recovered-code/portable/mouse_worker_runtime.h": "d3b1404df8f4eec0861d9ab591f022b8582e593503a36228ec5a231a4c574c46",
+      "analysis/libmouse_worker_runtime.dylib": "9ac2981aa77eb8c0b1d5926851a942b2f0332eafcd6f990b46bdfa5dae4e8008"
+    },
+    "not_added_to_original_input_count": true,
+    "limits": [
+      "C integration with explicitly supplied context handoffs and delayed-callback arrival",
+      "CPU request and exception execution not modeled; no automatic RTC/IRQ/time or RF",
+      "Worker next-loop segment is not a thread return"
+    ]
+  },
+  "sources": {
+    "recovered-code/portable/mouse_worker_runtime.c": "9d8263f50eef812d14f310176ed684464ae8993008f47431be622c190d2420f8",
+    "recovered-code/portable/mouse_scanning.c": "4b2d52a41de90de241c36360cf1f22f188fdd0d243b5f92ef7272798809418de",
+    "recovered-code/portable/mouse_work_thread.c": "cc38c5a3c3b833a7a2e0bd2580e0128251de17396c19bb1a5bb72bc625393dfb",
+    "recovered-code/portable/mouse_timer_expiry.c": "78cfea2a6a9906102f54483b6fd23bea0fec9e4a18cc5a5a4914e9cf87791cc4",
+    "recovered-code/portable/mouse_work_queue.c": "18634efd7f5860b19c3d85a8ac7341b8635561b8f8ad2c1b163e401df564778e",
+    "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+    "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+    "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+    "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+    "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+    "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+    "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/mouse_worker_runtime.h": "d3b1404df8f4eec0861d9ab591f022b8582e593503a36228ec5a231a4c574c46",
+    "recovered-code/portable/mouse_scanning.h": "22d784038291fc59a908168a88bb56ab9d2ba905ea894ccf287b92c0c6b55396",
+    "recovered-code/portable/mouse_work_thread.h": "f7daa4058a68d2dbbd8a038ad826e570c4da11c022e30efe3b9e628814b4ca46",
+    "recovered-code/portable/mouse_timer_expiry.h": "4d5d1a24c2e17cd287939e9efe1cad3dbde5d73a28c206131c366794b930f249",
+    "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+    "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+    "analysis/verify_mouse_worker_runtime.py": "9e6bb0dd97b2adc463537ebc6dd276af7e60b92e98f5ad9bd18e4bd07441d31c",
+    "ghidra-scripts/EmulateMouseWorkerRuntime.java": "76a7ba65fd4e9b327bb6f2009f7d5602af84cf79138ae8ecaaf9099e016c7bf9",
+    "analysis/mouse-worker-runtime-original.jsonl": "2cc86971b691262f8c1def7242099074c335c97b520a3085686ecbfc8a8fa825",
+    "analysis/mouse-worker-runtime-comparison.json": "1a6a0f24be416e69643a61e1d8752c4583528b449433ee390afb4a9e063f5110",
+    "analysis/mouse-worker-continuous-comparison.json": "29ee71ee34a40223fb1158eeab816c1b3393dbd3eea1a52454bcc222eff40682",
+    "analysis/mouse-worker-runtime-ghidra.log": "80aafc374d09ae769ad951a0c433eb9b8b5ded461a1cfe68e58b8cb0eb40c705",
+    "analysis/mouse-radio-1.20-final/0e095478.c": "b44d930897e2d1933cfcd9e4ad58a02015a7ca8f5ee18b8687118964441465bc",
+    "analysis/mouse-radio-1.20-final/0e0954e0.c": "0147ead3181bbc5b5c8ed5b7b0bb295830119bfce9a672e7ff65673a4663e9a7",
+    "analysis/mouse-radio-1.20-final/0e09554c.c": "d4c0c0648b72ea3999f381f0cb45cfa05d0993d51be4873360a93163b350eaef",
+    "analysis/mouse-radio-1.20-final/0e0955c4.c": "94f78a2a8fa6eadc330286845a28b694bec5cf2eac577f5e0dbcc55dde4a659f",
+    "analysis/mouse-radio-1.20-final/23028c54.c": "323262342215f77a5f5bd46cc65c000d1581b0541afd8f1d7fc8f1a0e453fec2"
+  },
+  "limits": [
+    "Original wake/yield/pend/delayed-work functions and actual worker through scheduling requests",
+    "CPU context-switch request is a real entry boundary, not executed or replaced with successful return",
+    "Worker next-loop header is not thread exit; unknown handler retains actual pointer",
+    "Pend stops before CPU call; post-switch return/output and live CPU scheduling not reconstructed",
+    "Inert RAM/MMIO only; no real RF or concurrent IRQ execution",
+    "Earlier5120 fixture run was expanded to6144, not counted twice",
+    "Allocator23028c54 used as synthetic unknown callback in earlier test is not evidence of actual RTC registration",
+    "Delay scheduling producers not reconstructed by this phase; expiry and queue submit are implemented"
+  ]
+}

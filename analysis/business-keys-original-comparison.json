@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "original_instruction_cases": 1056,
+  "per_side": {
+    "mouse": 528,
+    "dongle": 528
+  },
+  "failures": [],
+  "sources": {
+    "analysis/mouse-keys-original.jsonl": "63103ed8f48c520dcd16f95f23ebbec0a549d1e921ee868cb1fd33d9ff420e93",
+    "analysis/dongle-keys-original.jsonl": "6b58c7d66391439fc7f0ac3f1e2cc71bd1e9de82356fa05bcb37fd968a773e43",
+    "recovered-code/portable/business_keys.c": "76bc4d99c53b0e4b2bbf0d5dac91569b1715e42dad2b2cc52d23ff8f5131b8fe",
+    "recovered-code/portable/business_keys.h": "72298c0f1d59dca2614d104d799b3849f646c111b2138cba06522bb1bebc26d2",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_cipher.h": "176e03bac6ad07d95aa9759b84f3510ae06bf1a07950258be02878961828ad53",
+    "ghidra-scripts/EmulateBusinessKeys.java": "f07245ef97dc4124a6ed48f57970f12125e0b69b9527ad29078ff7c5f29c2b1f"
+  },
+  "coverage": [
+    "each16 key selectors x every length0..32 on both sides",
+    "random upper28 bits in key identity argument",
+    "actual installer then wrapper/transform/memcpy in same emulator memory",
+    "64-byte key area guards and64-byte data guards plus length object unchanged"
+  ],
+  "limits": [
+    "host simulation; wrapper domain0..32 only",
+    "connection initialization caller and scheduler timing not executed",
+    "not identity authentication or RF proof"
+  ]
+}

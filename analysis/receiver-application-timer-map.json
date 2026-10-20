@@ -1,0 +1,60 @@
+{
+  "status": "static-evidence",
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "timers": [
+    {
+      "timer": "0x23001a30",
+      "file_offset": "0x1e284",
+      "bytes": "000000000000000001eb060e000000000000000000000000481a0023481a0023b95502230000000000000000000000000000000000000000",
+      "expiry_callback": "0x230255b9",
+      "stop_callback": "0x0",
+      "callback_entry": "0x230255b8",
+      "callback_offset": "0x5d54",
+      "entry16_hex": "00214ff4a022034b01201980c3f85220"
+    },
+    {
+      "timer": "0x23001a68",
+      "file_offset": "0x1e2bc",
+      "bytes": "000000000000000001eb060e000000000000000000000000801a0023801a0023d15502230000000000000000000000000000000000000000",
+      "expiry_callback": "0x230255d1",
+      "stop_callback": "0x0",
+      "callback_entry": "0x230255d0",
+      "callback_offset": "0x5d6c",
+      "entry16_hex": "30b5002383b000240025054a0548cde9"
+    },
+    {
+      "timer": "0x23001aa0",
+      "file_offset": "0x1e2f4",
+      "bytes": "000000000000000001eb060e000000000000000000000000b81a0023b81a0023f95502230000000000000000000000000000000000000000",
+      "expiry_callback": "0x230255f9",
+      "stop_callback": "0x0",
+      "callback_entry": "0x230255f8",
+      "callback_offset": "0x5d94",
+      "entry16_hex": "30b50024002583b000230c4a0c48cde9"
+    },
+    {
+      "timer": "0x23001ad8",
+      "file_offset": "0x1e32c",
+      "bytes": "000000000000000001eb060e000000000000000000000000f01a0023f01a0023415602230000000000000000000000000000000000000000",
+      "expiry_callback": "0x23025641",
+      "stop_callback": "0x0",
+      "callback_entry": "0x23025640",
+      "callback_offset": "0x5ddc",
+      "entry16_hex": "30b5284c8bb0a3891bb1013b9bb2a381"
+    },
+    {
+      "timer": "0x23001b10",
+      "file_offset": "0x1e364",
+      "bytes": "000000000000000001eb060e000000000000000000000000281b0023281b0023e95602230000000000000000000000000000000000000000",
+      "expiry_callback": "0x230256e9",
+      "stop_callback": "0x0",
+      "callback_entry": "0x230256e8",
+      "callback_offset": "0x5e84",
+      "entry16_hex": "f0b5524c8bb0e38c002b3bd0013b9bb2"
+    }
+  ],
+  "limits": [
+    "Static initializers, not proof of runtime registration or exclusivity",
+    "Only1A30 user callback currently integrated into generic expiry; others remain explicit unknown user boundaries"
+  ]
+}

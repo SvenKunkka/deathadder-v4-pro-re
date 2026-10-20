@@ -1,0 +1,681 @@
+{
+  "status": "STATIC_ORIGINAL_BYTES_REVIEWED_NO_NEW_EXECUTION",
+  "scope": "receiver USB SOF -> radio TIMER phase correction; report submit and completion distinction",
+  "firmware": {
+    "file": "outputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+    "size": 124596,
+    "sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+    "rom_base": "0x0e054000",
+    "ram_code": {
+      "vma": "0x23020000",
+      "file_offset": "0x79c",
+      "size": "0x7270"
+    },
+    "initialized_data": {
+      "vma": "0x23000000",
+      "file_offset": "0x1c854",
+      "size": "0x1e08"
+    }
+  },
+  "verified_conclusion": "USB SOF callback 23026DE0 captures TIMER020 CC7 and adjusts TIMER020 CC0 via23022204. HID IN completion23026CD0 only releases busy state. Frame number is read by controller ISR but is not used by the application phase estimator.",
+  "edges": [
+    {
+      "source": "0E0664C4",
+      "target": "0E064778",
+      "evidence": "SOF branch at E0669D8; r1=5,r2=0; GINTSTS bit3, DSTS bits8..21 saved"
+    },
+    {
+      "source": "0E064778",
+      "target": "0E063144",
+      "evidence": "controller data+98 callback; registered by E0633E4 -> E064CA4"
+    },
+    {
+      "source": "0E063144",
+      "target": "0E06CBDC",
+      "evidence": "event queue put 23001C2C, no wait"
+    },
+    {
+      "source": "0E063240",
+      "target": "0E0631F0",
+      "evidence": "event5, USB configured state+2C==2"
+    },
+    {
+      "source": "0E0631F0",
+      "target": "0E0640B8",
+      "evidence": "class API+1C=E0640B9 at E0710BC"
+    },
+    {
+      "source": "0E0640B8",
+      "target": "23026DE0",
+      "evidence": "HID ops+20=23026DE1, table23000420"
+    },
+    {
+      "source": "23026DE0",
+      "target": "23022204",
+      "evidence": "5302805C CAPTURE7=1 before direct BL"
+    },
+    {
+      "source": "23026DE0",
+      "target": "23026948",
+      "evidence": "queue0 nonempty, USB state!=3, tailcall report submit"
+    },
+    {
+      "source": "23026DE0",
+      "target": "0E06D5C8",
+      "evidence": "queue0 empty, defer work2220 on2170 delay50,0"
+    },
+    {
+      "source": "0E06D19C",
+      "target": "23026D28",
+      "evidence": "work handler23026D29"
+    },
+    {
+      "source": "23026D28",
+      "target": "23026948",
+      "evidence": "capture TIMER130 CC2 wait then tailcall"
+    },
+    {
+      "source": "23026948",
+      "target": "23027188",
+      "evidence": "device0/1/2 report8/16/8"
+    },
+    {
+      "source": "23027188",
+      "target": "0E064504",
+      "evidence": "literal thunk"
+    },
+    {
+      "source": "0E064504",
+      "target": "0E064288",
+      "evidence": "device API+4 at E0702E8=E064289"
+    },
+    {
+      "source": "0E064288",
+      "target": "0E061A98",
+      "evidence": "allocate report buffer wrapper"
+    },
+    {
+      "source": "0E064288",
+      "target": "0E063EE0",
+      "evidence": "submit class-owned buffer"
+    },
+    {
+      "source": "0E063EE0",
+      "target": "0E064AB4",
+      "evidence": "controller submit"
+    },
+    {
+      "source": "0E064AB4",
+      "target": "0E065344",
+      "evidence": "controller API+4=E065345"
+    },
+    {
+      "source": "0E065344",
+      "target": "0E066D3C",
+      "evidence": "enqueue endpoint FIFO and signal event bits; asynchronous consumer"
+    },
+    {
+      "source": "0E066D3C",
+      "target": "0E065734",
+      "evidence": "endpoint work dispatch"
+    },
+    {
+      "source": "0E065734",
+      "target": "0E065570",
+      "evidence": "IN size/control/FIFO programming"
+    },
+    {
+      "source": "0E066D3C",
+      "target": "0E064798",
+      "evidence": "completed noncontrol IN, result0"
+    },
+    {
+      "source": "0E064798",
+      "target": "0E063144",
+      "evidence": "event6 through same controller callback"
+    },
+    {
+      "source": "0E063240",
+      "target": "0E063A80",
+      "evidence": "event6 nonzero endpoint"
+    },
+    {
+      "source": "0E063A80",
+      "target": "0E064144",
+      "evidence": "owner class API+10=E064145"
+    },
+    {
+      "source": "0E064144",
+      "target": "23026CD0",
+      "evidence": "HID ops+18=23026CD1"
+    },
+    {
+      "source": "23026AD8",
+      "target": "0E0622BC",
+      "evidence": "state3 remote-wakeup request, not report submit"
+    },
+    {
+      "source": "0E0622BC",
+      "target": "0E06521C",
+      "evidence": "controller API+20=E06521D"
+    }
+  ],
+  "phase_algorithm": {
+    "gates": [
+      "u16[3230]!=5",
+      "byte[3250]==0",
+      "byte[3256]==0",
+      "byte[3258]!=0",
+      "byte[325A]==0",
+      "byte[325B]==0",
+      "byte[325C]!=0"
+    ],
+    "sample": "u32[5302855C]",
+    "valid_sample_unsigned": "(sample-1761)<=1598, equivalently1761..3359",
+    "sum": "u32[3270] wrapping addition",
+    "count": "u32[3278] wrapping addition; signed CMP >31 triggers",
+    "mean": "ASR32(sum,5), then unsigned comparison with2560",
+    "adjust": {
+      "above2591": "+32 to CC0",
+      "below2529": "-32 to CC0",
+      "2529..2591": "no change"
+    },
+    "clear_after_decision": [
+      "3270",
+      "3278"
+    ],
+    "initial_rephase": "if325A!=0: disable IRQ40; ICPR E000E284=100; TIMER CLEAR=1; START=1; enable IRQ40; 325A=0,325B=1,325C=0,3264=0",
+    "settle": "325B!=0: increment3264; signed >32 clears325B andsets325C=1",
+    "period_semantics": "SHORTS bit0 COMPARE0_CLEAR. Normal mode1/2/4 CC0 handlers reload16000; adjustment changes a subsequent compare/reset phase, not proven permanent oscillator retuning."
+  },
+  "mmio": {
+    "usb_base": "0x2f700000",
+    "sof_status": "0x2f700014 bit3",
+    "sof_mask": "0x2f700018 bit3",
+    "frame_number": "0x2f700808 bits8..21, copied to driver private+360",
+    "radio_timer": "0x53028000",
+    "capture7": "0x5302805c",
+    "cc7": "0x5302855c",
+    "cc0": "0x53028540",
+    "aux_timer": "GLOBAL_TIMER130_S 0x5f9a2000",
+    "aux_capture2": "0x5f9a2048",
+    "aux_cc2": "0x5f9a2548"
+  },
+  "callback_tables": {
+    "base_runtime": "0x23000420",
+    "base_lma": "0x0e070c74",
+    "stride": 36,
+    "completion_offset": 24,
+    "completion_all": "0x23026cd1",
+    "sof_offset": 32,
+    "sof": [
+      "0x23026de1",
+      0,
+      0
+    ]
+  },
+  "limits": [
+    "Static analysis, no device or timing trace.",
+    "SOF callback executes after IRQ->event queue->USB thread; sample includes dispatch latency/jitter.",
+    "No direct use of USB frame number by23022204; it averages timer phase.",
+    "125us vs1ms SOF cadence and timer physical tick scale are not established here.",
+    "TIMER130 capture wait is identified, but its counter start/reset relation to SOF is not closed.",
+    "No statement about sensor-side synchronization or exact host delivery latency from this USB-only slice.",
+    "SOF mask enable is now statically identified atE065DC6; boot-to-configured runtime scheduling remains unexecuted."
+  ],
+  "raw_regions": [
+    {
+      "name": "usb_sof_irq_branch",
+      "address": "0xe0669d8",
+      "size": 32,
+      "image_offset": "0x129d8",
+      "sha256": "a832e5e863b82be2cb2b016fee9aff8f62832bb7bf7dada734c9d11969a4d7a9",
+      "bytes": "0823caf81430daf808380599c3f30d23a1f86033002205215846fdf7c1fe84e5"
+    },
+    {
+      "name": "usb_event_emit",
+      "address": "0xe064778",
+      "size": 32,
+      "image_offset": "0x10778",
+      "sha256": "dcfd6afb400d7a3fbb8677add231bd72cbf829305e0f5d6cf7d29a658a81b933",
+      "bytes": "8c4600b585b00292026901a9d2f898308df804c00390984705b05df804fb00bf"
+    },
+    {
+      "name": "usb_event_enqueue",
+      "address": "0xe063144",
+      "size": 16,
+      "image_offset": "0xf144",
+      "sha256": "609278f1b924f67c24ad5facf172d5d79cd7b348ab2b340e53787917404f8654",
+      "bytes": "00220023014809f047bd00bf2c1c0023"
+    },
+    {
+      "name": "usb_event_thread",
+      "address": "0xe063240",
+      "size": 420,
+      "image_offset": "0xf240",
+      "sha256": "ae726b05d85674af0e37c274cfd9aa8091afe1c2319eb6d58137a9ad47c20921",
+      "bytes": "2de9f041664e84b04ff0ff324ff0ff33304601a909f01efd039a9df804301269d2f89c40072befd8dfe803f0917b816b261d0a0406212046029a00f0e9fee3e7029920460b7ed1f81e205b0640f09080fff754fa0546002dd6d02a460721204600f0d6fed0e794f82c30022bccd1204601a9fff79dffc7e794f86030a7696ff3820384f86030d7f808803b69a033d3e8af3f9907c3f340027bd5d8f83c3038469847d8f824300021384698470546d8f8403038469847002d4fd12946204600f043fa0546002848d18021204600f004fea06901f053fc07462a4684f82c50a7f10205b5fa85f594f860306d0923f0380343ea05130421204684f8603000f088fe82e794f8603094f82c2043f00403022a84f8603033d000220321204600f078fe72e700220121204600f072fe6ce794f8603094f82c206ff38203022a84f8603022d000220221204600f062fe5ce700222046114600f05cfe56e720460022042100f056fe2a460721204600f051fe4be700f066fb0546002d3ff446af6de7204601a9fff715ffc6e7204601a9fff710ffd7e70421204600f03bfe4ff0ff355ce72c1c0023"
+    },
+    {
+      "name": "usb_class_event_dispatch",
+      "address": "0xe0631f0",
+      "size": 80,
+      "image_offset": "0xf1f0",
+      "sha256": "8b44e34c697bba8bf2c6932e0f5ae665e521cd2480fbf55ec9edca5fd690cc8b",
+      "bytes": "38b50d4600f0aefaa0b1c46824b911e0022b16d024686cb12b78032b0bd0052bf6d160688368db69002bf3d098472468002cf1d138bd606883685b69002bf5d1e8e7606883689b69002befd1e2e700bf"
+    },
+    {
+      "name": "hid_sof_bridge",
+      "address": "0xe0640b8",
+      "size": 16,
+      "image_offset": "0x100b8",
+      "sha256": "53009aa7b85860800e2c10965fe10fd7cb97ac3767c936b6726e277cf482caa0",
+      "bytes": "006903695b681b6a03b11847704700bf"
+    },
+    {
+      "name": "app_sof_callback",
+      "address": "0x23026de0",
+      "size": 144,
+      "image_offset": "0x757c",
+      "sha256": "da367aaaf97161ced301d48bd1a39d11c439240fb483741f9f1e40f802b46705",
+      "bytes": "194b1b7803b9704710b50124174bdc65fbf708fa164a174b17491470d81c13f8012b32b10a78013ad2b20a700ab903f8012c984201f10101f1d1104b1b78032b09d00f4a0f4b12781b789a4204d0bde81040fff789bd10bd3222bde81040002309490a4800f078b9e471002300800253e27100230069002308690023e671002338680023346800232022002370210023"
+    },
+    {
+      "name": "radio_phase_correction",
+      "address": "0x23022204",
+      "size": 292,
+      "image_offset": "0x29a0",
+      "sha256": "3ef15156f206f418c113bfa2b67b64578c5cb0fc15fe3030b76d2570c01b11cf",
+      "bytes": "70b5444c2388052b0bd094f82030002b3ed194f826502db1626b0132402a626341dc70bd94f82830002bfad094f82a30002b4cd194f82b30002b3ed194f82c30002beed06ff4dc6040f23e61324aa36cd2f85c251018884204d8216c013311442164a3641f2bdcdd236c5b11b3f5206f41d9a3f520631f2b06d9274ad2f840352033c2f8403500bf00232364a36470bd0022012384f8202084f826301f48bde8704004f0abbf012284f8263084f828201a48bde8704004f0a1bf636b0133202b6363aedd4ff48073a4f82b3070bd282004f0a8ff4ff4807601220f4b10492820c1f88461da601a6004f014ff668584f82c50656370bdc7d0c3f520631f2bc3d9054ad2f84035203bc2f8403500bf00bfbae700bf3032002300800253541c002300e100e0"
+    },
+    {
+      "name": "app_in_complete_callback",
+      "address": "0x23026cd0",
+      "size": 88,
+      "image_offset": "0x746c",
+      "sha256": "f181d0ebd14652691963b76d746cad970f3c32fb97bfc82a558a03d2f64e9a42",
+      "bytes": "0f4b98420cd00f4b984203d00e4b98420fd0704700230d490d4a4b70537070470c4b1a78002af4d01a78013ad2b21a70704700230549064a8b709370704700bfa4f6060e90f6060e7cf6060e006900230869002304690023"
+    },
+    {
+      "name": "hid_transfer_complete",
+      "address": "0xe064144",
+      "size": 128,
+      "image_offset": "0x10144",
+      "sha256": "d7a8e6f5a2fc397d28ceaa824061f40f1ade1553f963f09bc63893752eb9087e",
+      "bytes": "2de9f0470c46066905467368d0f804801968237e91f8220037699842d7f8049008d00a7d9a421ad021464046bde8f047fff7ccbed9f81ca0baf1000ff1d01ab93046e268218ad04707f1240009f054f92b695b681968237e0a7d9a42e4d1d9f818303bb13046984721464046bde8f047fff7acbe07f1140008f088ffd4e700bf"
+    },
+    {
+      "name": "usb_worker_capture_wait",
+      "address": "0x23026d28",
+      "size": 64,
+      "image_offset": "0x74c4",
+      "sha256": "2736ea8ca0344f62e405e63745d4c0f789849458908b7eb08d234942592d4fa8",
+      "bytes": "70b4152201240b490b4e0c4d8c64d1f84835013b442b0ad830782b78984206d100bf00bf00bf00bf00bf013aeed170bcfff7f6bd00209a5f3868002334680023"
+    },
+    {
+      "name": "report_submit_body",
+      "address": "0x23026948",
+      "size": 400,
+      "image_offset": "0x70e4",
+      "sha256": "5e9409a3eb254562dabff3e15e2443b96b90a446c8a0d01dd5925ed38415dc18",
+      "bytes": "2de9f041534c544b206854491b7810f0010f534a08bf0a464bb1524d2b78012b2bd9514c6578002d47d0a5780db1bde8f0814e4e4e4ab37891789942f7d0032b7dd801210320a1704a494b4a4b4f083301eb0313b87093e8030082e803000821474800f0edfb002850d1b3780133dbb2042b14bfb370b070d9e73c4e3c49337808789842cdd0032b5ed83a492f7801eb0313012f93e8030082e8030045d90821384800f0cdfb002833d02b78002bb8d02b78013bdbb22b70b3e72c4f2c4a7b7851789942b1d0032b34d8012203216270284a2d4edff8a480043302eb031388f801100fcb86e80f0032461021274800f0a7fb38b97b780133dbb2042b14bf7b70787092e7657088f801508ee7a570bd708de7337822680133dbb2042b08bf0023c2f10102226033707be72b780133dbb22b70b4e7158095703d80bd7075e7158095703580b57072e700230b808b703380b37066e730680023e4710023601e0023801e0023046900230069002334680023386800233c680023201e0023086900237cf6060ea4f6060e401e002390f6060e"
+    },
+    {
+      "name": "hid_submit_vtable",
+      "address": "0xe064504",
+      "size": 8,
+      "image_offset": "0x10504",
+      "sha256": "acc38c2f8df8692bbe219e4d5f42e8a192f586f4ecdce046367e0809cf9cdc12",
+      "bytes": "83685b68184700bf"
+    },
+    {
+      "name": "hid_submit",
+      "address": "0xe064288",
+      "size": 156,
+      "image_offset": "0x10288",
+      "sha256": "4929521185a129a956516bec90e94d0b11f56f5beaab062e5b98a28fc8855a6f",
+      "bytes": "13462de9f04d0a460669194643687768d3f8048082b006f11000d0e8af0fc00739d54ff0000a4ff0000bd868d8f810305b681b681d7dcde900abfdf7e9fb0446b8b100224046a26121462576e2612284fff702fe054628b9bb6983b1284602b0bde8f08d2046fdf7e7fb284602b0bde8f08d6ff00b05284602b0bde8f08d4ff0ff324ff0ff3306f1140008f001ff284602b0bde8f08d6ff00c05dfe7"
+    },
+    {
+      "name": "class_request_enqueue",
+      "address": "0xe063ee0",
+      "size": 48,
+      "image_offset": "0xfee0",
+      "sha256": "22ffc015734d46bdf59a12ab62c78e4ff78e68cdc8a1dcbcd48294ba2ce7234e",
+      "bytes": "70b591f918300c46002b0546466807dbc4f81a502146b069bde8704000f0dabd3046fef713fa0028f2d04ff0ff3070bd"
+    },
+    {
+      "name": "udc_request_enqueue",
+      "address": "0xe064ab4",
+      "size": 100,
+      "image_offset": "0x10ab4",
+      "sha256": "447b7093cfbf6fd13f77c925a577a24ad526c4957d59bf973c2ddf0249d9e997",
+      "bytes": "70b5044686680d46f36b98472369a033d3e8af3f9b071ed52b7ee3b103f00f02180658bf1346216948bf02f1100351f8231099b10b7ddb0710d56b7e2a466ff300036b7620467368984705462046336c9847284670bd4ff0ff35f7e76ff01205f4e700bf"
+    },
+    {
+      "name": "controller_ep_enqueue",
+      "address": "0xe065344",
+      "size": 68,
+      "image_offset": "0x11344",
+      "sha256": "349f51c66823557cbb60704c5aca732159ed38fc6c25aa8ee39118c894214ed3",
+      "bytes": "38b50c46036911462046d3f8ac50fff7fdf9237d9b0713d4012194f91820237e002aaabf103323f08003dbb2994005f19c0009f023fd022105f1900009f01efd002038bd"
+    },
+    {
+      "name": "controller_in_fifo_start",
+      "address": "0xe065570",
+      "size": 452,
+      "image_offset": "0x11570",
+      "sha256": "07f736fe055f5b6c561604090456beab72afd5a6ebfacd05e867170276e9362a",
+      "bytes": "2de9f04f91460569d1f8ace0508b117e527ec0f3c12c12f001041f8a01f07f01c0f30a0002f0030840f08f8005eb4112d2f81829c61c92b2920026f00306b2fbf6fa06fb1a2600fb0a66be424fea411204d20cf1010bda45c0f0a880be4228bf3e46002e7bd14ff4002b01270eeb8100c0f8bc62eff3118a402080f31288bff36f8f34b10cf10100400700f0c0404bea000ba818c0f810b905eb4114d4f8000910f4004f00f08580b8f1010f08d1bef860c31cf0010f14bf40f0805040f0005040f00440c4f8000940202a44c2f80809d3f80c8097b3013105eb0135b9f81a20c2f30a02b24228bf324612b34046002303f1010c6245017888bf90f801c003f1020488bf41ea0c21a24288bf847803f1030e88bf41ea0441964538bfc47803f1040338bf41ea04619a42296000f10400ded8013f9044a6eb0206cfd18af31188bff36f8f0020bde8f08fb8f1010f27d10cfb0002974228bf1746444666e709b3dee9ad7abe4205d90cfb0006b7fbf6f707fb06f6471e3744b7fbf0f7574581bf0cf10107bafbf7fa07fb0af700fb07f60b4800eac74bc6f312004bea000b65e7012443e74ff0030a7f27dbe76ff00a00c9e78af31188bff36f8f6ff00100c2e70000f81f"
+    },
+    {
+      "name": "controller_completion_emit",
+      "address": "0xe064798",
+      "size": 60,
+      "image_offset": "0x10798",
+      "sha256": "8bcad92220735d520fe7fb094bdcce0fb070e124dd21c68adfe01e7113e37e9a",
+      "bytes": "10b5062484b08df80440cde90210046904f1a003d3e8af3fdb0707d5c1f81e20d4f8983001a9984704b010bd4ff0ff30fae700bf2de9f8430d061646"
+    },
+    {
+      "name": "usb_wakeup_request",
+      "address": "0xe0622bc",
+      "size": 112,
+      "image_offset": "0xe2bc",
+      "sha256": "5b05e0c7a9b6b79f8680537e32fa5afbd4ad25d5e23af89a6a2fd528c7ab61e5",
+      "bytes": "70b5836904461b69061dd3f880504ff0ff324ff0ff3330460af06afda80720d594f86030190719d55a0717d5a469a5682369a033d3e8af3f9b0715d52046eb6b984720462b6a984703462a6c20461c46904730460af0cafd204670bd6ff00c04f7e76ff08504f4e74ff0ff34f1e700bf"
+    },
+    {
+      "name": "controller_wakeup_request",
+      "address": "0xe06521c",
+      "size": 20,
+      "image_offset": "0x1121c",
+      "sha256": "393cd7fa93f7c443fbb34e1feb652fac1e9633b341e67426623f52dca3211870",
+      "bytes": "08b50369d3f8ac009030102109f0cafd002008bd"
+    },
+    {
+      "name": "usb_init_register_ops",
+      "address": "0x23026c58",
+      "size": 120,
+      "image_offset": "0x73f4",
+      "sha256": "94b2c139a6b3e9c9caffedf0f50c8a046635b552e9bafec8d7748e00b70a13ae",
+      "bytes": "f8b500240120124b124d134a13491c809c70134b2c70134e134d144f0c8014808c709470187057f83400013470b13346aa88296800f0dcfa0835243630b9032cf1d10b4800f0e0fa0a4b18600120f8bd00690023e47100230869002304690023e67100232004002334fd060e1cfd060e096b02230c690023"
+    },
+    {
+      "name": "hid_register_ops",
+      "address": "0xe0641c4",
+      "size": 76,
+      "image_offset": "0x101c4",
+      "sha256": "614a4f882b579bcf4765abd96ffab3ef12ee00f41f0fcc444ed688154d2ef734",
+      "bytes": "30b404694068056804f11000d0e8af0fc00718d4a3b1586890b195f8200008b1986868b1a87940b90020a160110ae26063602a74697430bc704758690028f3d16ff01500f7e76ff07700f4e7"
+    },
+    {
+      "name": "radio_start_gate",
+      "address": "0x23022008",
+      "size": 100,
+      "image_offset": "0x27a4",
+      "sha256": "47d027a2d62c5f0e75c8f171eb8229e4a291cbec4dc3fc23e999b308addfec78",
+      "bytes": "042330b50125134c8bb062690deb0300029209936580fef711fe0022638984f82950ab420bbf28461046114629460a4b84f823501a7183f8882f84f8200084f82810064805f090f8054805f0d5f80bb030bd00bf30320023e8330023c01f0023541c0023"
+    },
+    {
+      "name": "radio_rearm",
+      "address": "0x23021eb8",
+      "size": 76,
+      "image_offset": "0x2654",
+      "sha256": "56155fc9bd4b4a0b2b0b935fa9f3ee93dbcebe7cae906cf26eed23826302808b",
+      "bytes": "10b500f02dfffef7c7fffef72bfe0c4b5a89012a02d183f82a2010bd282005f0a7f94ff480740122064b07492820c1f88441da601a60bde8104005f011b900bf303200230080025300e100e0"
+    },
+    {
+      "name": "timer_shortcut_init",
+      "address": "0x23022d18",
+      "size": 120,
+      "image_offset": "0x34b4",
+      "sha256": "d72deb9a8b1c98bb8e781ec2a7fee71afd09b84ae22d6ad3c61b0fb0e2cb2229",
+      "bytes": "30b400224ff0020c49f240254ff41654164b1749c3f84055a1f804c0a1f8a0c00125c3f844254ff0640cc3f84845c3f84c25c3f85025c3f85425c3f85825c3f85c254ff47c12a1f850c00320c3f800520b24c3f80423ff22064b0880c3f8080fc3f8884f81f8522030bc70470080025330320023e8430023"
+    },
+    {
+      "name": "hid_ops_all",
+      "address": "0x23000420",
+      "size": 108,
+      "image_offset": "0x1cc74",
+      "sha256": "f2ceaa193cd339ab10cb5c11c4bf687546cbca1822773b98dbefd1fe3185c6f0",
+      "bytes": "3d6c0223096c0223796d0223696d0223fd6b0223756d0223d16c022300000000e16d022300000000096c0223796d0223696d0223fd6b0223756d0223d16c0223000000000000000000000000096c0223796d0223696d0223fd6b0223756d0223d16c02230000000000000000"
+    },
+    {
+      "name": "hid_class_vtable",
+      "address": "0xe0710a0",
+      "size": 52,
+      "image_offset": "0x1d0a0",
+      "sha256": "b41bc1c718bc0bc996170eceb79e5811ae4c97003126156af603bda88c1d1786",
+      "bytes": "00000000000000004944060e2543060e4541060ec940060e0145060eb940060e0541060ee140060edd40060efd44060ecd40060e"
+    },
+    {
+      "name": "hid_submit_vtable_data",
+      "address": "0xe0702e4",
+      "size": 12,
+      "image_offset": "0x1c2e4",
+      "sha256": "5d9624b5ba472674ed22d7315da524685a0cad111702048dec5138a44b9c3505",
+      "bytes": "000000008942060ec541060e"
+    },
+    {
+      "name": "controller_vtable",
+      "address": "0xe070350",
+      "size": 68,
+      "image_offset": "0x1c350",
+      "sha256": "27b5a00c4b091504058840364298c96a64602613ef61c91849757c5bd8f01495",
+      "bytes": "f150060e4553060e1959060ef958060e9152060e00000000795f060e915e060e1d52060e9d50060ec150060e855b060e4964060e4959060e0551060e7154060e3152060e"
+    },
+    {
+      "name": "controller_config",
+      "address": "0xe07031c",
+      "size": 40,
+      "image_offset": "0x1c31c",
+      "sha256": "4d9055ba53dc6b40d2e35cfaac4f8d423196ff6a9dbcbc8ab55b0649c6daff80",
+      "bytes": "080000000a000000306a0023306b00230000702f0000000030090023a953060e9153060e8953060e"
+    },
+    {
+      "name": "controller_device",
+      "address": "0xe06f6b8",
+      "size": 20,
+      "image_offset": "0x1b6b8",
+      "sha256": "02a03aae19cae5c494b8a1551aeb6936604670e7f4675aead0f8763d541e7daf",
+      "bytes": "1003070e1c03070e5003070e181a002380080023"
+    },
+    {
+      "name": "usb_context",
+      "address": "0x23001d0c",
+      "size": 112,
+      "image_offset": "0x1e560",
+      "sha256": "d03cef46bc96da2f3cb57b7069117490233748443bda3c8f828741fde076c86f",
+      "bytes": "78f7060e0000000000000000000000000000000000000000b8f6060e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000a40300239003002300000000"
+    },
+    {
+      "name": "usb_sof_mask_enable",
+      "address": "0xe065dc4",
+      "size": 8,
+      "image_offset": "0x11dc4",
+      "sha256": "f865e87d7311117d5262440f0514202a9a011a2a378847710140ef49dece3471",
+      "bytes": "304ba3617b689b69"
+    },
+    {
+      "name": "usb_sof_mask_literal",
+      "address": "0xe065e88",
+      "size": 4,
+      "image_offset": "0x11e88",
+      "sha256": "c7efafc0a8d1f73697e3afcca2b0189e5bd94cceea45c186c2e62db379d17219",
+      "bytes": "08383c80"
+    },
+    {
+      "name": "usb_enumdone_speed_capture",
+      "address": "0xe066946",
+      "size": 66,
+      "image_offset": "0x12946",
+      "sha256": "ea78080b35d404dd6ae9b5e06b2fbf0d3f295f372bfa51eec7327c67714ed4d6",
+      "bytes": "4ff40053caf81430dbf80430dbf810201b69d2f8ac00d3f8083890f862235b089b0102f01f0243f02003134380f862330121903008f021fa002204215846fdf7f8fe"
+    },
+    {
+      "name": "usb_speed_getter",
+      "address": "0xe0650f0",
+      "size": 20,
+      "image_offset": "0x110f0",
+      "sha256": "c355922deaa1016d95954bac88989dfeda10b2f3196fe7425531201a8ed8e443",
+      "bytes": "0369d3f8ac3093f862339b0914bf012002207047"
+    },
+    {
+      "name": "usb_speed_wrapper",
+      "address": "0xe064bbc",
+      "size": 72,
+      "image_offset": "0x10bbc",
+      "sha256": "fb9037414813062f0c031499670660552039091a11908094fcd40b3932830f70",
+      "bytes": "70b504468668f36b98472369a033d3e8af3fc3f340059b0704d533683bb12046984705462046336c9847284670bd01252046336c9847284670bd00bff8b5044687680669fb6b9847"
+    },
+    {
+      "name": "usb_context_speed_assignment",
+      "address": "0xe063310",
+      "size": 50,
+      "image_offset": "0xf310",
+      "sha256": "fdd86b8f8f0c09b46da30546d751afab2c1e63d05153cd20ab9d322a466491c4",
+      "bytes": "a06901f053fc07462a4684f82c50a7f10205b5fa85f594f860306d0923f0380343ea05130421204684f8603000f088fe82e7"
+    },
+    {
+      "name": "app_speed_callback",
+      "address": "0x23026c3c",
+      "size": 28,
+      "image_offset": "0x73d8",
+      "sha256": "be133dc3e5be2852207d1d28dadc973fd9bdcb82085f8d8a68faeff2d8c0c217",
+      "bytes": "01b9704708b5034b186800f053fa024b187008bd0c690023e5710023"
+    },
+    {
+      "name": "usb_context_speed_getter",
+      "address": "0xe062244",
+      "size": 12,
+      "image_offset": "0xe244",
+      "sha256": "0a538f85388d6d3f84fd5085098ed71e679350f97f2ecc7ee9e215d8b28793b8",
+      "bytes": "90f86000c0f30110704700bf"
+    },
+    {
+      "name": "usb_event_queue_initial",
+      "address": "0x23001c2c",
+      "size": 40,
+      "image_offset": "0x1e480",
+      "sha256": "5afda32aec3e208775d69b6c800f267cbc2b6ca7aa0d726e528a7d32fe76c348",
+      "bytes": "2c1c00232c1c00230c0000000001000040420123404e012340420123404201230000000000000000"
+    }
+  ],
+  "source_hashes": {
+    "outputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__radio_radio.bin": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/disassembly.txt": "4a77b642cdb1924f6c5b6b078523f2773254be1d872de3389b687269b48aee46",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/references.tsv": "f73a38ecb0e148bf21c598e434770fa8de5f42fcdc423c989d77b29d2aef6171",
+    "outputs/razer-radio-re/downloads/nordic/nrf54h20_radiocore.svd": "27edcdd0dd7538c292d0a4a69254b69e97595df7afaaa8f33c385a57d1063c85",
+    "outputs/razer-radio-re/analysis/ram-mapping.md": "43d9ce1936716c9942ae335aceae5c43c89c9fee74aadebf7b5bc45b6e720a05",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23026de0.c": "4ee32ac5d9b94405b97aec0b6c7f90814374b93b93caa8a024f1fbeacbdbc3c2",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23022204.c": "e0ab48a87c4d9542446ca32e1e61b901b55474edbe0a58ef146f3a6965b2d4e0",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23026cd0.c": "7f3d6aa9e00139032288da65d465aea532f14aadb6114e130743aaffe9dda940",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/23026d28.c": "a3952e55a5e6d7d862bb873e9708e0c6cff5f0a3aca80c0ab5a60f36343e03c9",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e064288.c": "fa34f6e71b798091b246d34dd388aa35f3097aabbba6efad1feb0560af359ec4",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e063ee0.c": "b6d6136621607c4b28af1905f9f80e1d8d999d1014cbf345aa079792f5eb0abd",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e064ab4.c": "3ffc69304af57d896c89a9da73543996f86397f043c4edb17450df99416ac170",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e065344.c": "a7528f059f5577f95263a4b0e6784c640a9c6098205469546bd303b539cf3175",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e065570.c": "eb102f9da47e3d94d9c1d1cc4038ca0a8aa77afacf83be9a9c465e258c5ae2aa",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e066d3c.c": "0895981463363f7a5cd07efb4b6ed20216cbb7bc6e245ff757c31e046315f5bc",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e0664c4.c": "5602c2db7163ea282464b7762170ba182c787c51ff77679a4f11353defcccfca",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e063240.c": "52eab740aecc3f83900b5f9c69719466a2ec092acfa8b8a864edb3ba5a74e8bd",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e0631f0.c": "459e6fad5f9a87e007aabea1184069e46ae6cb57ec39768bdf1bc2a3a4e95c2d",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e064144.c": "563bc33657eec1648f7f14374b7df1842f03265a1144609af89228a06a0a5d23",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e0622bc.c": "a550a9a20a029fd461507833e82cc39928c2c6fea9aeecfe244319e2ce1d1c16",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e065b84.c": "897511a0548e610e71ece297f9ca0c9104309043d383e63bf11a49078fdcd594",
+    "outputs/razer-radio-re/analysis/dongle-radio-1.20-final/0e064bbc.c": "304fb1c57164809c122480d028e534aa349c108178064e7d55f977464fa4e880",
+    "outputs/razer-radio-re/analysis/dongle-application-1.20/disassembly.txt": "17b0526162527fb93d3d3a8bf011249d47f4eb8ef91d4d781fe55ae9fef89bb5"
+  },
+  "external_semantics": [
+    {
+      "url": "https://github.com/zephyrproject-rtos/zephyr/blob/main/include/zephyr/drivers/usb/udc.h",
+      "use": "Event enum corroborates5=SOF,6=EP_REQUEST; exact build version not inferred."
+    },
+    {
+      "url": "https://github.com/zephyrproject-rtos/zephyr/blob/main/subsys/usb/device_next/class/usbd_hid.c",
+      "use": "usbd_hid_sof callback structure corroborates observed class bridge."
+    },
+    {
+      "url": "https://docs.zephyrproject.org/latest/doxygen/html/structhid__device__ops.html",
+      "use": "SOF callback documented as software/hardware jitter-sensitive."
+    }
+  ],
+  "followup": {
+    "timer130": {
+      "status": "START_RESET_ORIGIN_NOT_CLOSED",
+      "literal_scan": [
+        {
+          "file": "outputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+          "size": 124596,
+          "sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+          "u32_literal_hits": [
+            {
+              "offset": "0x74f8",
+              "value": "0x5f9a2000"
+            }
+          ]
+        },
+        {
+          "file": "outputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__application_application.bin",
+          "size": 37892,
+          "sha256": "526e05816153bf117683cbed3031a81dcf1636fc7459f1bc7c1ec29da9555e5d",
+          "u32_literal_hits": []
+        },
+        {
+          "file": "outputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__top_sysctrl_nrf54h20_sysctl_v4.2.3.bin",
+          "size": 51556,
+          "sha256": "ee5d07aade94b44b8d53f45e81186f220fb00d2ee2de1871b13f2ef056c58844",
+          "u32_literal_hits": []
+        },
+        {
+          "file": "outputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__top_secdom_nrf54h20_sec_v10.3.3.bin",
+          "size": 217172,
+          "sha256": "5a996ecb50d23f3963811be018a76cdccd6ee4885fff56756c1adb36645742bd",
+          "u32_literal_hits": [
+            {
+              "offset": "0x24adc",
+              "value": "0x4f9a2d8d"
+            }
+          ]
+        },
+        {
+          "file": "outputs/razer-radio-re/firmware-extracted-1.20/Suit1FWData__top_secdom_nrf54h20_sec_rec_v10.3.3.bin",
+          "size": 34768,
+          "sha256": "ca516ec778b69024c2aaa84355feed95d64508e904de20c16fed59ae63ff4372",
+          "u32_literal_hits": []
+        }
+      ],
+      "retained_export_scan": {
+        "radio": "Only23026D28 references5F9A2048/2548; no5F9A/4F9A MOV-immediate matches in retained disassembly.",
+        "application": "NoexplicitTIMER130 or5F9A/4F9A MMIOaccess in retained application export."
+      },
+      "interpretation": "Only boundednegativeevidence. Does not excludecomputedperipheraladdresses, otherbootcode or externalcorehardwareconfiguration. Noevidence permittingSOF-reset timer130 claim.",
+      "literal_scan_note": "Range matches are raw 32-bit byte sequences, not resolved references. sec image offset0x24ADC value0x4F9A2D8D has no confirmed instruction/data pointer interpretation. Only exact base5F9A2000 match is radio0x74F8."
+    },
+    "usb_speed": {
+      "hardware": "ENUMDONE bit13 at2F700014; DSTS ENUMSPD2F700808 bits1..2",
+      "capture": "E066946..E066972: driver[362] low5bits preserved; bit5set; ENUMSPD placedbits6..7",
+      "getter": "E0650F0: driver[362]>>6 nonzero returns1; zero returns2. SVD ENUMSPD0=HS,1/3=FS,2=LS.",
+      "context": "E063310..E063338: E064BBC speed return2setscontext+60 bit4; other returns clear bit4; preservesbits0..2and6..7, clears3..5beforeassignment.",
+      "application": "E062244 returns(context[60]&3F)>>4; 23026C3C callbackstoresit230071E5 wheniface_ready argumentnonzero.",
+      "actual_link_speed": "Notobserved; dynamicstate notconstant."
+    },
+    "sof_delivery": {
+      "mask_write": "E065DC6 writesGINTMSK0x803C3808; literal E065E88",
+      "software_divider_observed": false,
+      "audited_path": [
+        "E0669D8..E0669F6",
+        "E064778",
+        "E063144",
+        "E063240event5",
+        "E0631F0event5",
+        "E0640B8",
+        "23026DE0"
+      ],
+      "statement": "EachhandledSOFbit3eventemitsoneevent5withoutframe-mod8orspeeddivider. Subsequentdeliveryrequiresqueueacceptanceandconfiguredstate; no8-to-1softwaredividerseen.",
+      "queue": "23001C2C initializedmsgsize12,capacity256,buffer23014240..23014E40. E063144usesnowaitput; nointentionalcoalescingordividerinthatcallback.",
+      "sample_selection": "23022204timerwindow1761..3359filtersphasesamples; thisisnottheUSBcallbackcadencedivider.",
+      "physical_cadence": "DependsontheactualnegotiatedspeedandhardwareSOFgeneration; thisreviewdoesnotobservearealreceiverlink."
+    }
+  }
+}

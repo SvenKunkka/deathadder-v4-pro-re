@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "input": {
+    "filename": "Suit1FWData__radio_radio.bin",
+    "size": 124596,
+    "sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162"
+  },
+  "mcu": {
+    "user_supplied_part": "nRF54H20",
+    "verification_status": "not_verified"
+  },
+  "statistics": {
+    "shannon_entropy_bits_per_byte": 6.97465,
+    "zero_byte_ratio": 0.10213,
+    "ff_byte_ratio": 0.012858,
+    "trailing_zero_bytes": 0,
+    "trailing_ff_bytes": 0
+  },
+  "vector_hints": {
+    "arm_cortex_m_at_offset_zero": {
+      "available": true,
+      "initial_sp_hex": "0x23013640",
+      "reset_vector_hex": "0x0e0610ad",
+      "reset_target_hex": "0x0e0610ac",
+      "stack_pointer_looks_sram_like": true,
+      "reset_vector_has_thumb_bit": true,
+      "reset_target_in_image_if_base_zero": false,
+      "classification": "candidate_only"
+    }
+  },
+  "limitations": [
+    "Vector-table output is a heuristic candidate, not proof of architecture or load address.",
+    "Entropy alone cannot prove compression or encryption.",
+    "This report does not disassemble code or identify embedded filesystems."
+  ]
+}

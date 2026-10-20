@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "original_cases": 2048,
+  "original_steps": 42496,
+  "counts": {
+    "0": 512,
+    "1": 512,
+    "2": 512,
+    "3": 512
+  },
+  "normal_returns": 1536,
+  "before_exception_return_BX_LR": 512,
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/receiver_context_switch.c": "ff56aa2afaf785e3145ce1195886f0777791f53f516291b0c624c6ffdb35d4a0",
+    "recovered-code/portable/receiver_context_switch.h": "78bead283e479e0c2d56aaf834493147f95a41f6998313d880072ff43e0c6faf",
+    "analysis/verify_receiver_context_switch.py": "f16e1f39185f6201b49b66909c44b44242f9b7615575edd43ce1c0e87bf92590",
+    "ghidra-scripts/EmulateReceiverContextSwitch.java": "200b6c2bde46e4436b885b6972d14d899c39a0f2276d6db950dd64f8d15d98c2",
+    "analysis/receiver-context-switch-original.jsonl": "50cac70cea3fe23382eeb2ba86140e140c032f333305da837790f21d52754bdd"
+  },
+  "limits": [
+    "Privileged body execution; no asynchronous interrupt in request",
+    "PendSV original stops before BX LR at0e061286; no architectural frame unstacking, exception entry or real concurrency",
+    "PSP uses emulator shared native CPU state; absent PSPLIM operation records literal assignment only, not memory fault enforcement",
+    "All13 registers, SP/LR/PC, PSP/PSPLIM/BASEPRI, five flag bits,32B MSP scratch,128KiB RAM and4KiB SCB snapshot compared",
+    "Inert ICSR snapshots record original writes, not hardware readback or interrupt delivery"
+  ]
+}

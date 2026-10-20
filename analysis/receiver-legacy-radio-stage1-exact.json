@@ -1,0 +1,261 @@
+{
+  "status": "frozen_verified_valid_domain",
+  "firmware_version": "1.20",
+  "image_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "entries": {
+    "mode1_radio": "0x23023498",
+    "mode2_radio": "0x23022A50",
+    "root_dispatcher": "0x23020A00",
+    "mode1_business": "0x23023968",
+    "mode2_business": "0x23022D90",
+    "swi_dispatcher": "0x23021BE4"
+  },
+  "deliverables": [
+    "recovered-code/portable/receiver_legacy_radio.c",
+    "recovered-code/portable/receiver_legacy_radio.h",
+    "ghidra-scripts/EmulateReceiverLegacyRadio.java",
+    "analysis/verify_receiver_legacy_radio.py",
+    "analysis/receiver-legacy-radio-original.jsonl",
+    "analysis/receiver-legacy-radio-comparison.json"
+  ],
+  "validation": {
+    "status": "PASS",
+    "cases": 2688,
+    "by_operation": {
+      "0": 1536,
+      "1": 512,
+      "2": 256,
+      "3": 384
+    },
+    "by_mode": {
+      "1": 960,
+      "2": 1728
+    },
+    "original_steps": 576920,
+    "original_message_put_calls": 350,
+    "original_message_purge_calls": 50,
+    "full_returns": 2676,
+    "real_USB_boundary_cases": 12,
+    "explicit_USB_return_continuations": 12,
+    "continuation_steps": 729,
+    "checks": [
+      "all131072 RAM bytes at IRQ return and final SWI return/boundary",
+      "RADIO4096B TIMER2048B auxiliary2048B",
+      "NVIC last word and actual write request masks",
+      "CPU BASEPRI",
+      "USB pointer and delayed business tail"
+    ]
+  },
+  "operations": {
+    "0": "normal/failed receive and event gates",
+    "1": "mode2 handshake parser and pairing notification",
+    "2": "mode2 negotiated mode application and connected notification",
+    "3": "original IRQ return followed by original SWI using same RAM/MMIO"
+  },
+  "mode1": {
+    "peer": "u16[23006274]",
+    "trigger": "END==1",
+    "dma_nonzero_required": true,
+    "crc_ok_equals": 1,
+    "disabled_cleanup_only": "CRCOK/CRCERROR cleared only when DISABLED==1 after END work. State13 END calls disable and clears DISABLED; pre-existing DISABLED is consumed by task helper, not serviced again.",
+    "failure": "zero DMA length; if peer0 interval==1 or slot<2 selected context+A2=1, otherwise23023708(1) operates peer0 counters",
+    "ack_low_nibble": "header low4 to selected context+90+2channel AND23005380+2channel",
+    "disabled_state13": "if selected context failure>2, advance shared candidate unless5384 nonzero, clear selected failure; state13 retained"
+  },
+  "mode2": {
+    "peer": "u16[230032D0]",
+    "trigger": "DISABLED==1",
+    "END": "cleared for any nonzero value; no receive processing on END alone",
+    "ADDRESS": "untouched",
+    "dma_nonzero_required": false,
+    "state8": "to7",
+    "state9": "CRCOK==1 parser; result0/1=>7,result2=>disable,state10",
+    "state10": "clear subscriptions; disable,state0; apply3236 selected mode1/2/4; real connected type1 notice; delayed common CRC cleanup",
+    "state11": "11",
+    "state12": "CRC success copy/ack/pend then11; CRC failure11; no DMA length decrement/checksum",
+    "state13": "13"
+  },
+  "shared_receive": {
+    "copy": "16B DMA23003050 to selected context+114; DMA byte0 cleared",
+    "reply": "header bit7 duplicated in context+9C/+9D",
+    "sequence": "(header&0x7F)>>4; changed sequence clears context+88 and selected channel failure",
+    "queue": "if changed sequence AND u16 context+96!=0, advance txseq byte (+1;8->1), call2302073C queue pop, save selectedq in+98. Set selectedq=0 unconditionally after receive. Valid-domain q0..5; no invented q<6 firmware guard.",
+    "swi": "context+9B=sequence;23021C24 writes peer230071A4 and actual W1S10000000 toE000E208. Old last register does not imply new request."
+  },
+  "notification": {
+    "pairing": "type5 + peer16 + one16 + base1word + identity byte-swapped16pair +20 opaque stack bytes",
+    "connected": "type1 + peer16 +2 opaque padding bytes +identity byte-swapped16pair +24 opaque stack bytes",
+    "queue": "23001B8C,36B records,5 slots,ring23015760..23015814",
+    "actual_calls": [
+      "0x0E06CBDC message_put",
+      "0x0E06CD54 purge"
+    ],
+    "failure_retry": "real full queue returns-35; purge and real enqueue retry, no success stub",
+    "opaque_provenance": "Original stack-derived bytes captured at actual message_put and supplied explicitly to C; defined message bytes independently reconstructed. Not a recovery of meaningful fields from uninitialized data."
+  },
+  "boundaries": {
+    "USB": "real0E0622BC not executed;12 explicit return continuations through existing rr_receiver_legacy_resume",
+    "RTOS": "reuse existing lifecycle APIs; real timeout/scheduler pending entry/arg0 propagated and prefix side effects retained. No automatic resumable C continuation at those CPU boundaries; do not re-enter IRQ as resume.",
+    "hardware": "snapshot MMIO; tasks do not manufacture events; no PHY,DPPI,interrupt timing or barrier synchronization validation"
+  },
+  "remaining": [
+    "mode1/2 TIMER and retry timing are separate from these RADIO entries",
+    "Timed waiter cancellation/context switch beyond existing lifecycle contract remains explicit boundary in this module; parent timed APIs not yet wired here",
+    "No interrupt preemption/concurrent queue producer simulation",
+    "Malformed contexts or queue identifiers outside documented valid domain unsupported; model checks are not firmware guards",
+    "All notification fixtures here cover no-waiter ring/full/purge/retry; active waiters tested separately by parent RTOS module, not by these IRQ fixtures"
+  ],
+  "evidence": [
+    {
+      "address": "0x23023498",
+      "meaning": "mode1 RADIO entry",
+      "ram_offset": 13464,
+      "bytes16": "2de9f84f944bd3f80422012a04bf0022",
+      "source_flash": "0x0E057C34"
+    },
+    {
+      "address": "0x230234CE",
+      "meaning": "mode1 END equals1 gate",
+      "ram_offset": 13518,
+      "bytes16": "d3f81822012a07d0864bd3f82022012a",
+      "source_flash": "0x0E057C6A"
+    },
+    {
+      "address": "0x23023516",
+      "meaning": "mode1 state13 DISABLE task",
+      "ram_offset": 13590,
+      "bytes16": "06f1800079492844fdf7fdfcd8e70022",
+      "source_flash": "0x0E057CB2"
+    },
+    {
+      "address": "0x2302357E",
+      "meaning": "mode1 CRC/length receive gate",
+      "ram_offset": 13694,
+      "bytes16": "d3f82cc2dff880e1bcf1010f1cd00022",
+      "source_flash": "0x0E057D1A"
+    },
+    {
+      "address": "0x2302363C",
+      "meaning": "mode1 queue0 sentinel",
+      "ram_offset": 13884,
+      "bytes16": "79b199f89a3050460133dbb2082b08bf",
+      "source_flash": "0x0E057DD8"
+    },
+    {
+      "address": "0x23023672",
+      "meaning": "mode1 SWI4 request",
+      "ram_offset": 13938,
+      "bytes16": "fef7d7fa96f815113846fdf7a4f940f2",
+      "source_flash": "0x0E057E0E"
+    },
+    {
+      "address": "0x2302369E",
+      "meaning": "mode1 disabled failure channel candidate",
+      "ram_offset": 13982,
+      "bytes16": "05f5805393f89c0f70b941f661702944",
+      "source_flash": "0x0E057E3A"
+    },
+    {
+      "address": "0x23023708",
+      "meaning": "mode1 peer0 failure helper",
+      "ram_offset": 14088,
+      "bytes16": "324b10b193f8a22042b11a68032a06d0",
+      "source_flash": "0x0E057EA4"
+    },
+    {
+      "address": "0x23022A50",
+      "meaning": "mode2 RADIO entry",
+      "ram_offset": 10832,
+      "bytes16": "8e4bd3f80422012a04bf0022c3f80422",
+      "source_flash": "0x0E0571EC"
+    },
+    {
+      "address": "0x23022A72",
+      "meaning": "mode2 END any-nonzero clear",
+      "ram_offset": 10866,
+      "bytes16": "d3f8182212b10022c3f81822834bd3f8",
+      "source_flash": "0x0E05720E"
+    },
+    {
+      "address": "0x23022A80",
+      "meaning": "mode2 DISABLED equals1 gate",
+      "ram_offset": 10880,
+      "bytes16": "d3f82022012a00d0704700222de9f047",
+      "source_flash": "0x0E05721C"
+    },
+    {
+      "address": "0x23022B38",
+      "meaning": "mode2 handshake transition configuration",
+      "ram_offset": 11064,
+      "bytes16": "40f68473002203fb06f452485449c0f8",
+      "source_flash": "0x0E0572D4"
+    },
+    {
+      "address": "0x23022BA8",
+      "meaning": "mode2 handshake parser call",
+      "ram_offset": 11176,
+      "bytes16": "fff722fc012867d902287ff474af04f1",
+      "source_flash": "0x0E057344"
+    },
+    {
+      "address": "0x23022C44",
+      "meaning": "mode2 queue0 sentinel",
+      "ram_offset": 11332,
+      "bytes16": "79b19af89a3030460133dbb2082b08bf",
+      "source_flash": "0x0E0573E0"
+    },
+    {
+      "address": "0x23022C7A",
+      "meaning": "mode2 SWI4 request",
+      "ram_offset": 11386,
+      "bytes16": "fef7d3ff33e707232c44c4f8803009e7",
+      "source_flash": "0x0E057416"
+    },
+    {
+      "address": "0x23021DBC",
+      "meaning": "apply negotiated mode",
+      "ram_offset": 7612,
+      "bytes16": "10b50e4a0446d388042b938004d0012b",
+      "source_flash": "0x0E056558"
+    },
+    {
+      "address": "0x2302546C",
+      "meaning": "type1 connected notification",
+      "ram_offset": 21612,
+      "bytes16": "0121024610b58ab000680191516802ab",
+      "source_flash": "0x0E059C08"
+    },
+    {
+      "address": "0x23025580",
+      "meaning": "type5 pairing notification",
+      "ram_offset": 21888,
+      "bytes16": "0246052110b58ab00068019151689268",
+      "source_flash": "0x0E059D1C"
+    },
+    {
+      "address": "0x23021C24",
+      "meaning": "set peer and NVIC SWI4 request",
+      "ram_offset": 7204,
+      "bytes16": "4ff080520249034b0880c3f808217047",
+      "source_flash": "0x0E0563C0"
+    }
+  ],
+  "sources": {
+    "recovered-code/portable/receiver_legacy_radio.c": "fcb39e2f999a0b6cd7ac10f340ff2c514ad8f1691d9d33f8e4fc8564604c612c",
+    "recovered-code/portable/receiver_legacy_business.c": "6b54875b1def2d228d24f505e00cd19ba05452bbbf695df4b269be9b2b7cffac",
+    "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+    "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+    "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+    "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+    "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+    "recovered-code/portable/handshake.c": "09f89dcd4131b0bca0bc403c23518d1a89c1e0d0f404eee01b25c53aa28faef8",
+    "recovered-code/portable/receiver_legacy_radio.h": "1c20ce41fa13784a7e4e30e8b801f33bd84ef860c0c38b3fda184fbfb78cc92e",
+    "analysis/receiver-legacy-radio-original.jsonl": "26b3ef54f528a4a3176110ff380c63c0aeaf7676fc13b3a11e5607234cc3a1a4",
+    "ghidra-scripts/EmulateReceiverLegacyRadio.java": "a91d9784b8608e8fadbdb9d7ec811b002cf60ed85209d4b5fb9edb91368ad287"
+  }
+}

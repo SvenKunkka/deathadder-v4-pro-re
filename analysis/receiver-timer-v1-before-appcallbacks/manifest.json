@@ -1,0 +1,13 @@
+{
+  "files": {
+    "recovered-code/portable/receiver_timer_expiry.c": {
+      "frozen_path": "analysis/receiver-timer-v1-before-appcallbacks/receiver_timer_expiry.c",
+      "sha256": "e9eff8c10640869ccbf691090669d129bb26964a162237b3fe6e224f470ce0bc"
+    },
+    "recovered-code/portable/receiver_timer_expiry.h": {
+      "frozen_path": "analysis/receiver-timer-v1-before-appcallbacks/receiver_timer_expiry.h",
+      "sha256": "5b18056ccf4cd7ca4d3eb9c64bf889ae47199c93505b68ba3bc9dbd9e799063a"
+    }
+  },
+  "purpose": "Preserve53-unit default timer before optional user callback handler"
+}

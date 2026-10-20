@@ -1,0 +1,80 @@
+{
+  "status": "verified-static",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "static_initializers": [
+    {
+      "timer": "timer1540_init",
+      "file_offset": "0x30dc8",
+      "user_callback": "0x23022311",
+      "stop_callback": "0x0",
+      "bytes": "00000000000000005169090e0000000000000000000000005815002358150023112302230000000000000000000000000000000000000000"
+    },
+    {
+      "timer": "timer1578_init",
+      "file_offset": "0x30e00",
+      "user_callback": "0x23025f65",
+      "stop_callback": "0x0",
+      "bytes": "00000000000000005169090e0000000000000000000000009015002390150023655f02230000000000000000000000000000000000000000"
+    },
+    {
+      "timer": "timer15b0_init",
+      "file_offset": "0x30e38",
+      "user_callback": "0x23025f79",
+      "stop_callback": "0x0",
+      "bytes": "00000000000000005169090e000000000000000000000000c8150023c8150023795f02230000000000000000000000000000000000000000"
+    }
+  ],
+  "dynamic_initializer_call_sites": [
+    "230269c4\t2302c538\tUNCONDITIONAL_CALL\t23026994",
+    "2302b6d0\t2302c538\tUNCONDITIONAL_CALL\t2302b6b8"
+  ],
+  "spans": [
+    {
+      "address": "0x2302b6be",
+      "length": 22,
+      "file_offset": "0xbe5a",
+      "bytes": "227822b10f4c23785bb102b010bd0d490e4800f032ff",
+      "meaning": "r2 loaded from7748; initializer reached only when zero; no intervening r2 change"
+    },
+    {
+      "address": "0x23026996",
+      "length": 4,
+      "file_offset": "0x7132",
+      "bytes": "0024154b",
+      "meaning": "r4 set zero"
+    },
+    {
+      "address": "0x230269bc",
+      "length": 12,
+      "file_offset": "0x7158",
+      "bytes": "22460e490e482c7005f0b8fd",
+      "meaning": "r2=r4 zero passed to timer initializer"
+    },
+    {
+      "address": "0x2302b704",
+      "length": 8,
+      "file_offset": "0xbea0",
+      "bytes": "adb60223481b0023",
+      "meaning": "timer1b48 callback/address literals"
+    },
+    {
+      "address": "0x230269f8",
+      "length": 8,
+      "file_offset": "0x7194",
+      "bytes": "c9680223801b0023",
+      "meaning": "timer1b80 callback/address literals"
+    },
+    {
+      "address": "0x2302c538",
+      "length": 8,
+      "file_offset": "0xccd4",
+      "bytes": "5ff800f0316a090e",
+      "meaning": "initializer thunk"
+    }
+  ],
+  "conclusion": "All three examined wireless static timers have stop_callback=0; both known direct dynamic timer init sites also pass zero stop callback",
+  "limits": [
+    "Bounded to initialized-data records and exported direct thunk callers; not a whole-program proof excluding later writes/indirect initialization",
+    "No actual nonzero stop callback registration identified by this check; synthetic test callback not a product registration"
+  ]
+}

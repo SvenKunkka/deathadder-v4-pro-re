@@ -1,0 +1,428 @@
+{
+  "status": "STATIC_INDEX_ONLY",
+  "new_original_execution_cases": 0,
+  "entries": [
+    {
+      "address": "0xe095018",
+      "name": "sysworkq_init",
+      "original_entry_bytes_16": "10b5094b84b002ac93e803004ff48052",
+      "sha256_entry16": "6798db306b6a4d50adf6779a0578229cf556427da3cdf1c0ebb3d14f3c0e73b2",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin"
+    },
+    {
+      "address": "0xe0953e0",
+      "name": "work_queue_create",
+      "original_entry_bytes_16": "f0b50026044689b0c0f89060c0f89460",
+      "sha256_entry16": "570e557e766b7c7568f4a1b11094318ca561fd98cf0cfc57d4d630bc9a97b416",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin"
+    },
+    {
+      "address": "0xe09504c",
+      "name": "work_thread_loop",
+      "original_entry_bytes_16": "2de9f04f20254ff0ff384ff0ff390446",
+      "sha256_entry16": "bbf95582519e285ab636041c555eaae5cb494bc5d596cc08da6653157f4212ae",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin"
+    },
+    {
+      "address": "0xe0952a0",
+      "name": "work_init",
+      "original_entry_bytes_16": "00234160c0e902330360704770b582b0",
+      "sha256_entry16": "a87faf2cf9c5f1d5ea7461c46c00bdea8e4cfa45d1afd7fb448e7f9ec7b48a33",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin"
+    },
+    {
+      "address": "0x23022d68",
+      "name": "work3858_register",
+      "original_entry_bytes_16": "08b50449044809f0fffb0122034b1a70",
+      "sha256_entry16": "06578a2c724428668c89a35eb47858ed70791f38a27248f34080095a13053342",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x23025d1c",
+      "name": "business_workers_register",
+      "original_entry_bytes_16": "30b589b0fdf722f80020002100240a25",
+      "sha256_entry16": "8547bf132dc093f5999c808d8e0cd3e26fd48b42c0f5ed0b3f4c81e1c02e8271",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x23022620",
+      "name": "work3858_handler",
+      "original_entry_bytes_16": "10b51d4b93f827404cbb1c4a117901b9",
+      "sha256_entry16": "a79dea9206f2649cbb858147874312f076636087f8958a408f0895aa841a24e4",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x23022cf0",
+      "name": "mode2_scan_start_tail",
+      "original_entry_bytes_16": "30b54ff47a74002102201325154b164a",
+      "sha256_entry16": "6a90d1257e4d96c8e6e66182b875879c3bb653bc7f4caae5994459af5d209a3b",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x23025df0",
+      "name": "work67c0_handler",
+      "original_entry_bytes_16": "034b0120598a012918bf0021fbf73eb8",
+      "sha256_entry16": "74e60cdd2fb985bd5ca2ab5574e08a090ab0f4a4ce4a9cc53f7e7c648f85885b",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x23020e7c",
+      "name": "application_link_state_handler",
+      "original_entry_bytes_16": "194b012910b5198010d000230121174a",
+      "sha256_entry16": "4548f31fc5bfa51285d8baa62560709f26a86ba345e6a3c8e59b601e77ecfa62",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0xe089fe4",
+      "name": "generic_irq_entry",
+      "original_entry_bytes_16": "08b572b60b4b5a6972b962b6eff30583",
+      "sha256_entry16": "cc1d36ef7aeafcf648afde46f14a3039b2162400b4bac32acfc9bbe941fc573d",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin"
+    },
+    {
+      "address": "0x23028cec",
+      "name": "irq_callback_thunk",
+      "original_entry_bytes_16": "004700bf2de9f041114f4b09fb5c1646",
+      "sha256_entry16": "efbbee1117c19a7ce512e06bcc1b65a2c55f3b7b7aaa4e1060d1e6cf5433044a",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x23029a30",
+      "name": "rtc_event_dispatch",
+      "original_entry_bytes_16": "4ef2800cf0b5274b83b0d3e901232cea",
+      "sha256_entry16": "da09d83b1250f39c4afabf77681c0c94df76b5675460aa7046ee60b2a1c66b1b",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x23028c08",
+      "name": "clock_announce_callback",
+      "original_entry_bytes_16": "70b514461d4682b0684600f0b7ffdde9",
+      "sha256_entry16": "161a5c134b8308e2deec9b23ed199843fa905327ea5e1dcfcc6fd9a6c6e84790",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0xe09668c",
+      "name": "timeout_announce",
+      "original_entry_bytes_16": "2de9f84f0346eff311884ff0200989f3",
+      "sha256_entry16": "6490ac6fe0e897549863dcf83dc9d2e11267a8add8a2365fbdfb204511cdb63c",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin"
+    },
+    {
+      "address": "0xe09643c",
+      "name": "timeout_unlink",
+      "original_entry_bytes_16": "10b40c4b5a68036882420ad04bb1d3e9",
+      "sha256_entry16": "4b4d2ef0c6f57b62cdd403ad8d0c494f00be04cb60d727b3a7a3392b1126c338",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin"
+    },
+    {
+      "address": "0xe096950",
+      "name": "timer_expiry",
+      "original_entry_bytes_16": "f8b5eff31186202383f31288bff36f8f",
+      "sha256_entry16": "78e1a07ebbf78212b4c8e4979bc81bd8069b32caf05df585e0b2474111f74327",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin"
+    },
+    {
+      "address": "0xe0967f0",
+      "name": "current_ticks",
+      "original_entry_bytes_16": "10b5eff31184202383f31288bff36f8f",
+      "sha256_entry16": "d4197ddb9c5489ec0a8e2cb7e996adf6d84171d5f96364ede125e7a64ea79fe5",
+      "source": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin"
+    },
+    {
+      "address": "0x23025f64",
+      "name": "timer1578_user_expiry",
+      "original_entry_bytes_16": "0022024b02485a8206f0a0ba6c6b0023",
+      "sha256_entry16": "ff8505c8cde3bfeb0dd0476033544497b4c0d5125daca72623a000402781e0d1",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x23025f78",
+      "name": "timer15b0_user_expiry",
+      "original_entry_bytes_16": "014bd87bfcf704bf6c6b002338b54468",
+      "sha256_entry16": "9de2bcfb960a74cf5e8f7f2c4fca43ac4d1262c9e8209906f5a1907655dd36de",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x23022310",
+      "name": "timer1540_user_expiry",
+      "original_entry_bytes_16": "70b58ab000bf424cd4f88c30172b0fd8",
+      "sha256_entry16": "661f35532d1f1f3bf16fd705185186c5566c2cedaf26dc0c0aca68b5aa13fe37",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x2302b70c",
+      "name": "optional_timer1b48_start",
+      "original_entry_bytes_16": "0c4b1b7833b110b50b4c82b0237813b1",
+      "sha256_entry16": "b94e6642d0d412893882a6ee76c989b3f48bf6be026a58aea3d37050148bad2b",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    },
+    {
+      "address": "0x23025d90",
+      "name": "separate_message_thread",
+      "original_entry_bytes_16": "10b50a4ca0b04ff0ff3201a94ff0ff33",
+      "sha256_entry16": "24c7c80ed50e453e1f06bf60cebac0308b4e5c38cf5c69997dde7ba1c31aebd4",
+      "source": "analysis/runtime-images/mouse-ram-1.20.bin"
+    }
+  ],
+  "call_sites": [
+    {
+      "site": "0xe095036",
+      "target": "0xe0953e0",
+      "relation": "direct",
+      "original_bytes4": "00f0d3f9"
+    },
+    {
+      "site": "0xe09542e",
+      "target": "0xe0957a8",
+      "relation": "thread create r3=0e09504d",
+      "original_bytes4": "00f0bbf9"
+    },
+    {
+      "site": "0x23022d6e",
+      "target": "0x2302c570",
+      "relation": "work_init thunk handler23022621",
+      "original_bytes4": "09f0fffb"
+    },
+    {
+      "site": "0x23025d4c",
+      "target": "0x2302c570",
+      "relation": "work_init thunk handler23025df1",
+      "original_bytes4": "06f010fc"
+    },
+    {
+      "site": "0xe0950b4",
+      "target": null,
+      "relation": "BLX r1=[work+4], r0=work",
+      "original_bytes4": "8847eff3"
+    },
+    {
+      "site": "0xe0950ea",
+      "target": "0xe09600c",
+      "relation": "conditional yield",
+      "original_bytes4": "00f08fff"
+    },
+    {
+      "site": "0xe08a002",
+      "target": null,
+      "relation": "BLX r1=irq_table[IPSR-16].handler",
+      "original_bytes4": "8847bde8"
+    },
+    {
+      "site": "0x23028cec",
+      "target": null,
+      "relation": "BX r0=23029a31 for IRQ109",
+      "original_bytes4": "004700bf"
+    },
+    {
+      "site": "0x23029ac4",
+      "target": null,
+      "relation": "BLX r1=RTC slot callback",
+      "original_bytes4": "88470c34"
+    },
+    {
+      "site": "0x23028c46",
+      "target": "0x2302c548",
+      "relation": "tail thunk\u21920e09668c",
+      "original_bytes4": "03f07fbc"
+    },
+    {
+      "site": "0xe0966e0",
+      "target": "0xe09643c",
+      "relation": "unlink expiring timeout",
+      "original_bytes4": "fff7acfe"
+    },
+    {
+      "site": "0xe0966ee",
+      "target": null,
+      "relation": "BLX r3=[timeout+8], r0=timeout",
+      "original_bytes4": "9847eff3"
+    },
+    {
+      "site": "0xe0969b8",
+      "target": "0xe096474",
+      "relation": "periodic timeout reinsert",
+      "original_bytes4": "fff75cfd"
+    },
+    {
+      "site": "0xe0969d2",
+      "target": null,
+      "relation": "BLX r3=[timer+20], r0=timer",
+      "original_bytes4": "9847eff3"
+    },
+    {
+      "site": "0xe0969f0",
+      "target": "0xe095c40",
+      "relation": "unpend waiting thread",
+      "original_bytes4": "fff726f9"
+    },
+    {
+      "site": "0xe096a08",
+      "target": "0xe095bd4",
+      "relation": "ready thread tail",
+      "original_bytes4": "fff7e4b8"
+    },
+    {
+      "site": "0x23025f6c",
+      "target": "0x2302c4b0",
+      "relation": "work-submit thunk work67c0",
+      "original_bytes4": "06f0a0ba"
+    },
+    {
+      "site": "0x23025dfc",
+      "target": "0x23020e7c",
+      "relation": "state handler r0=1,r1=(halfword6b7e==1)",
+      "original_bytes4": "fbf73eb8"
+    },
+    {
+      "site": "0x2302267a",
+      "target": "0x23022cf0",
+      "relation": "scan start tail",
+      "original_bytes4": "00f039bb"
+    },
+    {
+      "site": "0x23022d4a",
+      "target": "0x2302c438",
+      "relation": "timer-start thunk timer1540 duration32 period32",
+      "original_bytes4": "09f075fb"
+    }
+  ],
+  "initialized_data": [
+    {
+      "name": "IRQ109_entry",
+      "flash_address": "0xe097d4c",
+      "file_offset": "0x2bd4c",
+      "bytes": "319a0223ed8c0223",
+      "words": [
+        "0x23029a31",
+        "0x23028ced"
+      ]
+    },
+    {
+      "name": "RTC_callback_descriptor",
+      "flash_address": "0xe09cb84",
+      "file_offset": "0x30b84",
+      "bytes": "098c022300000000ff000000",
+      "words": [
+        "0x23028c09",
+        "0x0",
+        "0xff"
+      ]
+    },
+    {
+      "name": "timer1540_init",
+      "flash_address": "0xe09cdc8",
+      "file_offset": "0x30dc8",
+      "bytes": "00000000000000005169090e0000000000000000000000005815002358150023112302230000000000000000000000000000000000000000",
+      "words": [
+        "0x0",
+        "0x0",
+        "0xe096951",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x23001558",
+        "0x23001558",
+        "0x23022311",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "name": "timer1578_init",
+      "flash_address": "0xe09ce00",
+      "file_offset": "0x30e00",
+      "bytes": "00000000000000005169090e0000000000000000000000009015002390150023655f02230000000000000000000000000000000000000000",
+      "words": [
+        "0x0",
+        "0x0",
+        "0xe096951",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x23001590",
+        "0x23001590",
+        "0x23025f65",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    },
+    {
+      "name": "timer15b0_init",
+      "flash_address": "0xe09ce38",
+      "file_offset": "0x30e38",
+      "bytes": "00000000000000005169090e000000000000000000000000c8150023c8150023795f02230000000000000000000000000000000000000000",
+      "words": [
+        "0x0",
+        "0x0",
+        "0xe096951",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x230015c8",
+        "0x230015c8",
+        "0x23025f79",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0",
+        "0x0"
+      ]
+    }
+  ],
+  "irq": {
+    "irq": 109,
+    "svd_name": "GRTC_1",
+    "vector_offset": "0x1f4",
+    "vector_value": "0x0e089fe5",
+    "table_base": "0x0e0979e4",
+    "argument": "0x23029a31",
+    "handler": "0x23028ced",
+    "dispatcher": "0x23029a30"
+  },
+  "timer1578": {
+    "timeout_callback": "0x0e096951",
+    "user_callback": "0x23025f65",
+    "callback_behavior": "clear halfword23006b7e then submitwork230067c0",
+    "work_callback": "0x23025df1",
+    "subsequent_branch": "23020e7c r1=0 unless later state modified before deferred handler",
+    "not_direct_reconnect": true
+  },
+  "reuse": [
+    "mouse_work_queue: actualsubmit/wake/ready/timeslice supported contract",
+    "mouse_timer_start: delta insert, timer start, RTC rearm",
+    "mouse_timer_lifecycle: timer abort/stop, disconnect23022d88",
+    "mouse_lifecycle_connected_work: only6b7e==1 branch, cannot stand in for1578expiry state0",
+    "mouse_handshake and radio modules: downstream protocol state already separate; work3858 glue still needed"
+  ],
+  "remaining": [
+    "actual work_thread_loop0e09504c dispatch/posthandler/wait/yield",
+    "RTC event dispatch23029a30 and announce23028c08/0e09668c",
+    "timer expiry0e096950 periodic reinsert/status/usercallback/waiter path",
+    "work3858 handler23022620\u219222cf0 linkage",
+    "1578\u219267c0\u219223020e7c state0 plus conditional1b48 start and MMIO effects",
+    "PRIMASK/IPSR/exception-return and context-switch execution",
+    "dynamic callback changes/races not established by static initialized pointer evidence"
+  ],
+  "sources": {
+    "firmware-extracted-1.20/Suit2FWData__radio_radio.bin": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+    "analysis/runtime-images/mouse-ram-1.20.bin": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5",
+    "analysis/mouse-radio-1.20-final/disassembly.txt": "a8ef6a7c6f09f107d6d42df38e8eca60d68452032589c3ed225ccd75dba9742c",
+    "analysis/mouse-radio-1.20-final/references.tsv": "eb7ac6b21b241995550947a1da6a378505464a576579cc6f2ecf62cd80318ec8",
+    "analysis/mouse-radio-1.20-final/0e096404.c": "436790f43ba152c2bf40e7fc6baa94448e6aeb883f49c354ac59ee4f464359ae",
+    "analysis/mouse-radio-1.20-final/0e09504c.c": "4f1788831ac7b67a055bb0372da1404f15a23a83b7e8b052f77d454d41200c06",
+    "analysis/mouse-radio-1.20-final/0e09668c.c": "29ab2af839951dde056748b8e77bb4294856bd32c6877723d92957bc65092fd7",
+    "analysis/mouse-radio-1.20-final/23029a30.c": "0dc714bb36a6911f0a88cd3066a9eb5ce74b25b5ff25eee8b568a0ff5c58fd00",
+    "analysis/mouse-radio-1.20-final/23028c08.c": "4421193df07c0beeb1bd2492ab322a17c6277eac012167a94cb4f75b7c4a171c",
+    "analysis/mouse-radio-1.20-final/23020e7c.c": "9b18ae9a4d00c87356caef7f7965c91b5f8dcc16436e5a3906a59ff05a4b7b1a",
+    "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+    "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+    "recovered-code/portable/mouse_timer_lifecycle.h": "0724d6c805f20f89424ba4cc96f2f07addbebf234a92e5d0bcd689a5520eb064",
+    "recovered-code/portable/mouse_lifecycle.h": "0b4468651907b5cc96fb64c2f58cbe9eb0b3b1ed1643bf7f36261d99833b53d0"
+  }
+}

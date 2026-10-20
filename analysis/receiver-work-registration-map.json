@@ -1,0 +1,36 @@
+{
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "registrations": [
+    {
+      "initializer": "0x23026e70",
+      "work": "0x23002220",
+      "callback": "0x23026d29",
+      "role": "USB deferred work registration",
+      "image_offset": "0x760c",
+      "entry16_hex": "10b5002482b00749074800f059f96ff0",
+      "decompilation": "analysis/dongle-radio-1.20-final/23026e70.c",
+      "sha256": "55a57e5fd3f577451a07d4e6c39447798bbf4c90b85d72596326991ed4682a4a"
+    },
+    {
+      "initializer": "0x230204c0",
+      "work": "0x23002c94",
+      "callback": "0x230205f9",
+      "role": "mode work registration",
+      "image_offset": "0xc5c",
+      "entry16_hex": "30b5002089b0002100240e254ff40062",
+      "decompilation": "analysis/dongle-radio-1.20-final/230204c0.c",
+      "sha256": "719fbadddbc18868584f5ee38171873802f7f401bb1014b39074174a73bc553b"
+    }
+  ],
+  "next_entries": [
+    "0e06d19c",
+    "0e06d530",
+    "0e06d8f8",
+    "23026d28",
+    "230205f8"
+  ],
+  "limits": [
+    "Static evidence only; dynamic registration coverage incomplete",
+    "Callback execution not established by successful enqueue"
+  ]
+}

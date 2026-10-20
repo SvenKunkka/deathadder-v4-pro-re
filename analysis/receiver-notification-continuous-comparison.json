@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "cycles": 128,
+  "real_notification_messages": 256,
+  "timer_starts": 128,
+  "timer_stops": 128,
+  "usb_reports_queued": 96,
+  "usb_reports_dropped": 160,
+  "B1_messages_queued": 120,
+  "B1_messages_rejected": 8,
+  "explicit_usb_drains": 32,
+  "explicit_rf_queue_pops": 210,
+  "not_added_to_original_count": true,
+  "checks": [
+    "Actual event2/event1 producers through36-byte queue and notification consumer",
+    "Each disconnect starts timer1A30; each connection stops it and clears full65E2 word",
+    "Independent USB ring capacity/FIFO/report bytes with explicit sink drains",
+    "B1 two-fragment payload, checksum, sequence and queue-full preservation",
+    "All24 prior-stack tail bytes preserved in queue messages"
+  ],
+  "limits": [
+    "Explicit queue sink consumption; no USB transmission or RF events",
+    "No real CPU switching; priority80 suppresses wakeup switches",
+    "Synthetic opaque tail supplied explicitly; no full ABI stack generation"
+  ],
+  "sources": {
+    "analysis/test_receiver_notification_continuous.py": "13e47b237125256aa989757c751fff101701048a217f1e6a93ca123504229404",
+    "recovered-code/portable/receiver_notification_runtime.c": "1864fb806d1d6b6e8a2f994ca9bd39219a2e0716e19c657d52166229f1500334",
+    "recovered-code/portable/receiver_notification_runtime.h": "44fb9adcd1d1d9f202df476f5f7899d121bbded4f2c7fcae16913eda41264656",
+    "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+    "recovered-code/portable/receiver_config_control.c": "8d7238c18d684406ddc6b8616b47f0fdc436cec38219158491c07bb74e4062cc",
+    "recovered-code/portable/receiver_timeout.c": "e08d18e42ad9dd1d3cb88d2e8c066a18b131f783509df689e2ee46ed7f504d8b",
+    "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "analysis/receiver-notification-runtime-original.jsonl": "e5f4b90a74209e14a658a467dc3c135a286483daca122e71616a8e71ea2f718f"
+  }
+}

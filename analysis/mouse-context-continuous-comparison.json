@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "scenarios": 4,
+  "switch_request_segments": 256,
+  "PendSV_body_segments": 256,
+  "results": [
+    {
+      "seed": 0,
+      "switch_body_segments": 64
+    },
+    {
+      "seed": 1,
+      "switch_body_segments": 64
+    },
+    {
+      "seed": 2,
+      "switch_body_segments": 64
+    },
+    {
+      "seed": 3,
+      "switch_body_segments": 64
+    }
+  ],
+  "sources": {
+    "analysis/test_mouse_context_continuous.py": "8b2ffb779802f5dffd3b04b49dc7d257d1a6cd65b712bdd6ab11fb72bd68bc7e",
+    "recovered-code/portable/mouse_context_switch.c": "eb41c00365b26172bc3dbbd2c0a95d3fc53709a9abe992b83bb04efbb96c6a47",
+    "recovered-code/portable/mouse_context_switch.h": "e232c97940f596ab5d27fc62d6266f15e6f36c3d36d82338c4d1cf89c4a9dc47",
+    "analysis/libmouse_context_switch.dylib": "625d3db239d71626aa3f4095e8f020d59000f0a08f08973383f59446218a72fb"
+  },
+  "not_added_to_original_input_count": true,
+  "limits": [
+    "C component sequence with explicitly provided thread execution and handler entry inputs",
+    "Stops before each hardware exception return; no frame unstacking or real autonomous task execution",
+    "NVIC ICSR is last-written snapshot only"
+  ]
+}

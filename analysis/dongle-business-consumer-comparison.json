@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "original_instruction_cases": 2736,
+  "counts": {
+    "0": 432,
+    "1": 576,
+    "2": 128,
+    "3": 1536,
+    "4": 64
+  },
+  "boundary_stops": 9,
+  "continuation_cases": 64,
+  "checked": [
+    "64KiB RAM including preserved bytes",
+    "128-byte input and guard",
+    "queue/management rawr0",
+    "actual USB driver boundary condition and r0 device argument"
+  ],
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+    "recovered-code/portable/dongle_business_consumer.h": "db0d78b4311984afe58f6766256d299c8b23f12d3def08e879e8c20748142afd",
+    "analysis/dongle-business-consumer-original.jsonl": "3dc98dd52d79c8e0e7e3b9c578cce1a0ed158514df7837848dfd7212798a88c8",
+    "ghidra-scripts/EmulateDongleBusinessConsumer.java": "181ef7912376ee313cd50ed53cd947dcc200ba5caa72e65d3c3b569a7adb0bc6",
+    "firmware-extracted-1.20/Suit1FWData__radio_radio.bin": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162"
+  },
+  "limits": [
+    "op4 starts at actual post-driver continuation with synthetic ABI frame and supplied environment result; does not execute USB driver",
+    "boundary cases stop before0E0622BC; no success stub",
+    "no CPU userop overrides or opcode replacements",
+    "no RF/hardware/concurrency validation"
+  ]
+}

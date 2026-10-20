@@ -1,0 +1,398 @@
+{
+  "firmware_version": "1.20",
+  "source_image": "./firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+  "sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "analysis_directory": "./analysis/mouse-radio-1.20-final",
+  "scope": "Static analysis only; names inferred; not original source code; no device writes",
+  "findings": [
+    {
+      "id": "normal_init",
+      "addresses": [
+        "23021150",
+        "230259a4",
+        "23022e28",
+        "230218ec"
+      ],
+      "confidence": "high-static",
+      "claim": "Normal wrapper chain initializes RADIO, TIMER020 and DPPI. Initial MODE=4; PCNF0=0x01000005, PCNF1=0x0303001f; CRCCNF=0x102, CRCPOLY=0x11021, CRCINIT=0xffff. BASE1 comes from supplied configuration.",
+      "limitations": "Initial register setup, not assertion that every normal packet retains this setup. Mode-specific restore modifies PCNF/PREFIX.",
+      "direct_callers": {
+        "23021150": [
+          "2302869c"
+        ],
+        "230259a4": [
+          "23021150"
+        ],
+        "23022e28": [
+          "230259a4"
+        ],
+        "230218ec": [
+          "23022310",
+          "23022dec",
+          "23022e28"
+        ]
+      },
+      "sources": [
+        "./analysis/mouse-radio-1.20-final/23021150.c",
+        "./analysis/mouse-radio-1.20-final/230259a4.c",
+        "./analysis/mouse-radio-1.20-final/23022e28.c",
+        "./analysis/mouse-radio-1.20-final/230218ec.c"
+      ]
+    },
+    {
+      "id": "phy_modes",
+      "addresses": [
+        "23021af8",
+        "23023544",
+        "230244cc",
+        "23025778"
+      ],
+      "confidence": "high-static",
+      "claim": "Modes2/1 enter wrappers that call radio rate selector(2): MODE4. Mode4 calls selector(4): MODE9. SVD identifies MODE4 BLE 2M PHY, MODE9 Nordic4M BT0.6.",
+      "limitations": "PHY encoding does not establish Bluetooth link-layer conformance. Private tuning register writes remain unnamed.",
+      "direct_callers": {
+        "23021af8": [
+          "23022620",
+          "23022c3c",
+          "23023544",
+          "230244cc",
+          "23025778"
+        ],
+        "23023544": [
+          "230227b8"
+        ],
+        "230244cc": [
+          "230227b8"
+        ],
+        "23025778": [
+          "230227b8"
+        ]
+      },
+      "sources": [
+        "./analysis/mouse-radio-1.20-final/23021af8.c",
+        "./analysis/mouse-radio-1.20-final/23023544.c",
+        "./analysis/mouse-radio-1.20-final/230244cc.c",
+        "./analysis/mouse-radio-1.20-final/23025778.c"
+      ]
+    },
+    {
+      "id": "interrupt_binding",
+      "addresses": [
+        "23021704",
+        "2302243c"
+      ],
+      "confidence": "high-static",
+      "claim": "Image vector word at0e06c0f0=23021705, IRQ44 RADIO; at0e06c0e0=2302243d, IRQ40 TIMER020. RADIO handler dispatches based on state; TIMER handler schedules phases and calls TX/RX/hop helpers.",
+      "limitations": "Static vector binding; live VTOR/IRQ use not captured. Indirect callgraph is incomplete.",
+      "direct_callers": {
+        "23021704": [],
+        "2302243c": []
+      },
+      "sources": [
+        "./analysis/mouse-radio-1.20-final/23021704.c",
+        "./analysis/mouse-radio-1.20-final/2302243c.c"
+      ]
+    },
+    {
+      "id": "dppi",
+      "addresses": [
+        "23021800",
+        "23022e28"
+      ],
+      "confidence": "high-static",
+      "claim": "TIMER020 COMPARE0..5 publish DPPI0..5; RADIO ADDRESS publishes6; CHENSET=0x7f. TIMER PRESCALER5, BITMODE2.",
+      "limitations": "No absolute timing-unit claim without reference-clock validation; compare constants alone are not polling rates.",
+      "direct_callers": {
+        "23021800": [
+          "23022e28"
+        ],
+        "23022e28": [
+          "230259a4"
+        ]
+      },
+      "sources": [
+        "./analysis/mouse-radio-1.20-final/23021800.c",
+        "./analysis/mouse-radio-1.20-final/23022e28.c"
+      ]
+    },
+    {
+      "id": "handshake",
+      "addresses": [
+        "2302253c",
+        "230227b8",
+        "23021c40"
+      ],
+      "confidence": "high-static-medium-name",
+      "claim": "Handshake RX buffer23002a56 has length0x0b; at buffer+3 receive11/13/15 and send12/14/16 across states0,1,4,6. Extracts operating mode, channel mode/table/mask; conditionally adopts new BASE1. Completes into normal mode wrappers.",
+      "limitations": "Connection negotiation is verified; new pairing versus reconnect and persistence semantics remain conditional/unproven. Callback23025f44 decompiles empty.",
+      "direct_callers": {
+        "2302253c": [
+          "23022310"
+        ],
+        "230227b8": [
+          "23021704"
+        ],
+        "23021c40": [
+          "230227b8",
+          "23025c48"
+        ]
+      },
+      "sources": [
+        "./analysis/mouse-radio-1.20-final/2302253c.c",
+        "./analysis/mouse-radio-1.20-final/230227b8.c",
+        "./analysis/mouse-radio-1.20-final/23021c40.c"
+      ]
+    },
+    {
+      "id": "tx_rx_state",
+      "addresses": [
+        "23023ab8",
+        "23024078",
+        "23021704"
+      ],
+      "confidence": "high-static",
+      "claim": "State23002a04:0x18 idle,0x19 TX,0x1a RX inferred by TASK/SUBSCRIBE and buffer assignments. TX can open RX window at buffer23002630; CRCOK copies response and clears failure counters.",
+      "limitations": "State names inferred; no RF capture. CRCOK alone is not cryptographic authentication nor complete ACK matching.",
+      "direct_callers": {
+        "23023ab8": [
+          "2302243c"
+        ],
+        "23024078": [
+          "23023ab8"
+        ],
+        "23021704": []
+      },
+      "sources": [
+        "./analysis/mouse-radio-1.20-final/23023ab8.c",
+        "./analysis/mouse-radio-1.20-final/23024078.c",
+        "./analysis/mouse-radio-1.20-final/23021704.c"
+      ]
+    },
+    {
+      "id": "packet_assembly",
+      "addresses": [
+        "230215ac",
+        "230214e0",
+        "2302168c",
+        "23021698",
+        "23024078"
+      ],
+      "confidence": "high-static-medium-fields",
+      "claim": "Queue element+4 is DMA header length=payload_len+2; +6 contains class<<3 OR rolling1..7. Getter returns element+4; final +1 header built from flag<<7|sequence<<4|lowfield. Payload starts packet+3. Class1 branch aggregates fields at offsets3/4/5..8 using OR and addition, big-endian16 conversions.",
+      "limitations": "Names buttons/wheel/X/Y are candidates, not yet independently matched against input reports. Decompiler omits some preserved-register arguments; verify assembly when implementing.",
+      "direct_callers": {
+        "230215ac": [
+          "23021c6c",
+          "23022f70",
+          "23025ab0"
+        ],
+        "230214e0": [
+          "2302243c",
+          "23024078"
+        ],
+        "2302168c": [
+          "2302243c",
+          "230227b8",
+          "23024078"
+        ],
+        "23021698": [
+          "2302243c",
+          "230227b8",
+          "23024078"
+        ],
+        "23024078": [
+          "23023ab8"
+        ]
+      },
+      "sources": [
+        "./analysis/mouse-radio-1.20-final/230215ac.c",
+        "./analysis/mouse-radio-1.20-final/230214e0.c",
+        "./analysis/mouse-radio-1.20-final/2302168c.c",
+        "./analysis/mouse-radio-1.20-final/23021698.c",
+        "./analysis/mouse-radio-1.20-final/23024078.c"
+      ]
+    },
+    {
+      "id": "hop",
+      "addresses": [
+        "23021d6c",
+        "23021de0",
+        "230222e0",
+        "2302218c",
+        "23023a10"
+      ],
+      "confidence": "high-static",
+      "claim": "For channel mode0/1 choose one of2 banks of4 frequencies negotiated in handshake; mode2/3 uses BASE1 low16 xor high16 seed, counter, three permute/MAM rounds, xor seed, modulo37 then enabled-channel remap. Timer advances counter; r1=(counter>>1)&1.",
+      "limitations": "Algorithm structurally resembles Bluetooth CSA2 but is not evidence complete connection is BLE. Active on-device mode/map/counter not read.",
+      "direct_callers": {
+        "23021d6c": [
+          "23022264",
+          "2302227c"
+        ],
+        "23021de0": [
+          "2302218c"
+        ],
+        "230222e0": [
+          "23021de0"
+        ],
+        "2302218c": [
+          "2302243c",
+          "23023a10"
+        ],
+        "23023a10": [
+          "2302243c"
+        ]
+      },
+      "sources": [
+        "./analysis/mouse-radio-1.20-final/23021d6c.c",
+        "./analysis/mouse-radio-1.20-final/23021de0.c",
+        "./analysis/mouse-radio-1.20-final/230222e0.c",
+        "./analysis/mouse-radio-1.20-final/2302218c.c",
+        "./analysis/mouse-radio-1.20-final/23023a10.c"
+      ]
+    },
+    {
+      "id": "retry",
+      "addresses": [
+        "230238f0",
+        "23024408",
+        "23024078",
+        "23021704"
+      ],
+      "confidence": "high-static-medium-name",
+      "claim": "CRC success clears per-bank failure count and updates queue/rolling sequence; failure path sets pending work and increments selected-bank failure count; >3 advances/wraps frequency index. Cached packet and aggregated movement data are retained for subsequent scheduling.",
+      "limitations": "Cannot state universal max retries=3: threshold is frequency-bank advancement, not packet discard count. Exact ACK sequence acceptance not fully established.",
+      "direct_callers": {
+        "230238f0": [
+          "23021704",
+          "23023ab8"
+        ],
+        "23024408": [
+          "23023ab8"
+        ],
+        "23024078": [
+          "23023ab8"
+        ],
+        "23021704": []
+      },
+      "sources": [
+        "./analysis/mouse-radio-1.20-final/230238f0.c",
+        "./analysis/mouse-radio-1.20-final/23024408.c",
+        "./analysis/mouse-radio-1.20-final/23024078.c",
+        "./analysis/mouse-radio-1.20-final/23021704.c"
+      ]
+    },
+    {
+      "id": "rf_test_separation",
+      "addresses": [
+        "0e07a5b0",
+        "0e07a688"
+      ],
+      "confidence": "high-static",
+      "claim": "Separate RF test setup selects fixed ABABABAB/CCCCCCCC/base patterns, mode-dependent CRC and packet configs, and test buffer230039b0 filled with constant data.",
+      "limitations": "Do not use test settings as normal wireless protocol constants.",
+      "direct_callers": {
+        "0e07a5b0": [
+          "0e07a688",
+          "0e07a810"
+        ],
+        "0e07a688": [
+          "0e07a93c"
+        ]
+      },
+      "sources": [
+        "./analysis/mouse-radio-1.20-final/0e07a5b0.c",
+        "./analysis/mouse-radio-1.20-final/0e07a688.c"
+      ]
+    }
+  ],
+  "tables": {
+    "permutation": {
+      "address": "0e098a04",
+      "bytes": [
+        0,
+        8,
+        4,
+        12,
+        2,
+        10,
+        6,
+        14,
+        1,
+        9,
+        5,
+        13,
+        3,
+        11,
+        7,
+        15
+      ]
+    },
+    "frequency_offsets": {
+      "address": "0e098a14",
+      "bytes": [
+        4,
+        6,
+        8,
+        10,
+        12,
+        14,
+        16,
+        18,
+        20,
+        22,
+        24,
+        28,
+        30,
+        32,
+        34,
+        36,
+        38,
+        40,
+        42,
+        44,
+        46,
+        48,
+        50,
+        52,
+        54,
+        56,
+        58,
+        60,
+        62,
+        64,
+        66,
+        68,
+        70,
+        72,
+        74,
+        76,
+        78,
+        2,
+        26,
+        80
+      ]
+    },
+    "scan_indices": {
+      "address": "0e098a3c",
+      "bytes": [
+        37,
+        38,
+        22,
+        39
+      ]
+    },
+    "scan_frequency_offsets": [
+      2,
+      26,
+      50,
+      80
+    ]
+  },
+  "assembly_crosschecks": {
+    "0x23021de0": "\noutputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary\n\n\nDisassembly of section .data:\n\n23021de0 <.data+0x1de0>:\n23021de0:\tb538      \tpush\t{r3, r4, r5, lr}\n23021de2:\t4603      \tmov\tr3, r0\n23021de4:\t4d1c      \tldr\tr5, [pc, #112]\t@ (0x23021e58)\n23021de6:\t8fec      \tldrh\tr4, [r5, #62]\t@ 0x3e\n23021de8:\t87ab      \tstrh\tr3, [r5, #60]\t@ 0x3c\n23021dea:\t4060      \teors\tr0, r4\n23021dec:\tf000 fa78 \tbl\t0x230222e0\n23021df0:\teb00 1000 \tadd.w\tr0, r0, r0, lsl #4\n23021df4:\tfa14 f080 \tuxtah\tr0, r4, r0\n23021df8:\tb280      \tuxth\tr0, r0\n23021dfa:\tf000 fa71 \tbl\t0x230222e0\n23021dfe:\teb00 1000 \tadd.w\tr0, r0, r0, lsl #4\n23021e02:\tfa14 f080 \tuxtah\tr0, r4, r0\n23021e06:\tb280      \tuxth\tr0, r0\n23021e08:\tf000 fa6a \tbl\t0x230222e0\n23021e0c:\teb00 1000 \tadd.w\tr0, r0, r0, lsl #4\n23021e10:\tfa14 f080 \tuxtah\tr0, r4, r0\n23021e14:\t4b11      \tldr\tr3, [pc, #68]\t@ (0x23021e5c)\n23021e16:\tb280      \tuxth\tr0, r0\n23021e18:\t4044      \teors\tr4, r0\n23021e1a:\tfba3 2304 \tumull\tr2, r3, r3, r4\n23021e1e:\t1ae2      \tsubs\tr2, r4, r3\n23021e20:\teb03 0352 \tadd.w\tr3, r3, r2, lsr #1\n23021e24:\t095b      \tlsrs\tr3, r3, #5\n23021e26:\teb03 02c3 \tadd.w\tr2, r3, r3, lsl #3\n23021e2a:\teb03 0382 \tadd.w\tr3, r3, r2, lsl #2\n23021e2e:\t1ae3      \tsubs\tr3, r4, r3\n23021e30:\tfa15 f383 \tuxtah\tr3, r5, r3\n23021e34:\tf893 308a \tldrb.w\tr3, [r3, #138]\t@ 0x8a\n23021e38:\t2bff      \tcmp\tr3, #255\t@ 0xff\n23021e3a:\td10a      \tbne.n\t0x23021e52\n23021e3c:\tf895 30af \tldrb.w\tr3, [r5, #175]\t@ 0xaf\n23021e40:\tfb04 f303 \tmul.w\tr3, r4, r3\n23021e44:\teb05 4313 \tadd.w\tr3, r5, r3, lsr #16\n23021e48:\tf893 3040 \tldrb.w\tr3, [r3, #64]\t@ 0x40\n23021e4c:\t442b      \tadd\tr3, r5\n23021e4e:\tf893 3065 \tldrb.w\tr3, [r3, #101]\t@ 0x65\n23021e52:\tf885 303b \tstrb.w\tr3, [r5, #59]\t@ 0x3b\n23021e56:\tbd38      \tpop\t{r3, r4, r5, pc}\n23021e58:\t2688      \tmovs\tr6, #136\t@ 0x88\n23021e5a:\t2300      \tmovs\tr3, #0\n23021e5c:\t914d      \tstr\tr1, [sp, #308]\t@ 0x134\n23021e5e:\tbacf      \trevsh\tr7, r1\n",
+    "0x230222e0": "\noutputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary\n\n\nDisassembly of section .data:\n\n230222e0 <.data+0x22e0>:\n230222e0:\t4a0a      \tldr\tr2, [pc, #40]\t@ (0x2302230c)\n230222e2:\tf000 010f \tand.w\tr1, r0, #15\n230222e6:\tf3c0 1303 \tubfx\tr3, r0, #4, #4\n230222ea:\tf812 c001 \tldrb.w\tip, [r2, r1]\n230222ee:\t5cd3      \tldrb\tr3, [r2, r3]\n230222f0:\tf3c0 2103 \tubfx\tr1, r0, #8, #4\n230222f4:\t5c51      \tldrb\tr1, [r2, r1]\n230222f6:\t0b00      \tlsrs\tr0, r0, #12\n230222f8:\t5c12      \tldrb\tr2, [r2, r0]\n230222fa:\tea43 130c \torr.w\tr3, r3, ip, lsl #4\n230222fe:\tea43 3001 \torr.w\tr0, r3, r1, lsl #12\n23022302:\tea40 2002 \torr.w\tr0, r0, r2, lsl #8\n23022306:\tb280      \tuxth\tr0, r0\n23022308:\t4770      \tbx\tlr\n2302230a:\tbf00      \tnop\n2302230c:\t8a04      \tldrh\tr4, [r0, #16]\n2302230e:\t0e09      \tlsrs\tr1, r1, #24\n",
+    "0x2302218c": "\noutputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary\n\n\nDisassembly of section .data:\n\n2302218c <.data+0x218c>:\n2302218c:\tb508      \tpush\t{r3, lr}\n2302218e:\t4b10      \tldr\tr3, [pc, #64]\t@ (0x230221d0)\n23022190:\t89db      \tldrh\tr3, [r3, #14]\n23022192:\tb143      \tcbz\tr3, 0x230221a6\n23022194:\t2b01      \tcmp\tr3, #1\n23022196:\td006      \tbeq.n\t0x230221a6\n23022198:\t2b02      \tcmp\tr3, #2\n2302219a:\td00e      \tbeq.n\t0x230221ba\n2302219c:\t2b03      \tcmp\tr3, #3\n2302219e:\td00c      \tbeq.n\t0x230221ba\n230221a0:\tf640 1062 \tmovw\tr0, #2402\t@ 0x962\n230221a4:\tbd08      \tpop\t{r3, pc}\n230221a6:\t4b0b      \tldr\tr3, [pc, #44]\t@ (0x230221d4)\n230221a8:\t185a      \tadds\tr2, r3, r1\n230221aa:\tf892 205d \tldrb.w\tr2, [r2, #93]\t@ 0x5d\n230221ae:\teb03 0381 \tadd.w\tr3, r3, r1, lsl #2\n230221b2:\t4413      \tadd\tr3, r2\n230221b4:\tf893 005f \tldrb.w\tr0, [r3, #95]\t@ 0x5f\n230221b8:\tbd08      \tpop\t{r3, pc}\n230221ba:\tf7ff fe11 \tbl\t0x23021de0\n230221be:\t4b06      \tldr\tr3, [pc, #24]\t@ (0x230221d8)\n230221c0:\t4906      \tldr\tr1, [pc, #24]\t@ (0x230221dc)\n230221c2:\tf893 203b \tldrb.w\tr2, [r3, #59]\t@ 0x3b\n230221c6:\tf8a3 210a \tstrh.w\tr2, [r3, #266]\t@ 0x10a\n230221ca:\t5c88      \tldrb\tr0, [r1, r2]\n230221cc:\tbd08      \tpop\t{r3, pc}\n230221ce:\tbf00      \tnop\n230221d0:\t2794      \tmovs\tr7, #148\t@ 0x94\n230221d2:\t2300      \tmovs\tr3, #0\n230221d4:\t2978      \tcmp\tr1, #120\t@ 0x78\n230221d6:\t2300      \tmovs\tr3, #0\n230221d8:\t2688      \tmovs\tr6, #136\t@ 0x88\n230221da:\t2300      \tmovs\tr3, #0\n230221dc:\t8a14      \tldrh\tr4, [r2, #16]\n230221de:\t0e09      \tlsrs\tr1, r1, #24\n",
+    "0x23023a10": "\noutputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary\n\n\nDisassembly of section .data:\n\n23023a10 <.data+0x3a10>:\n23023a10:\tb538      \tpush\t{r3, r4, r5, lr}\n23023a12:\t4d26      \tldr\tr5, [pc, #152]\t@ (0x23023aac)\n23023a14:\t882b      \tldrh\tr3, [r5, #0]\n23023a16:\t2b02      \tcmp\tr3, #2\n23023a18:\td937      \tbls.n\t0x23023a8a\n23023a1a:\t4c25      \tldr\tr4, [pc, #148]\t@ (0x23023ab0)\n23023a1c:\tf8b5 30a2 \tldrh.w\tr3, [r5, #162]\t@ 0xa2\n23023a20:\tf8b4 2094 \tldrh.w\tr2, [r4, #148]\t@ 0x94\n23023a24:\t4423      \tadd\tr3, r4\n23023a26:\t3201      \tadds\tr2, #1\n23023a28:\tf8a4 2094 \tstrh.w\tr2, [r4, #148]\t@ 0x94\n23023a2c:\tf893 2059 \tldrb.w\tr2, [r3, #89]\t@ 0x59\n23023a30:\tf8b4 0092 \tldrh.w\tr0, [r4, #146]\t@ 0x92\n23023a34:\t2a02      \tcmp\tr2, #2\n23023a36:\tbf9c      \titt\tls\n23023a38:\t3201      \taddls\tr2, #1\n23023a3a:\tf883 2059 \tstrbls.w\tr2, [r3, #89]\t@ 0x59\n23023a3e:\tf8d4 3098 \tldr.w\tr3, [r4, #152]\t@ 0x98\n23023a42:\t3001      \tadds\tr0, #1\n23023a44:\t2bc7      \tcmp\tr3, #199\t@ 0xc7\n23023a46:\tbf98      \tit\tls\n23023a48:\t3301      \taddls\tr3, #1\n23023a4a:\tb280      \tuxth\tr0, r0\n23023a4c:\tbf98      \tit\tls\n23023a4e:\tf8c4 3098 \tstrls.w\tr3, [r4, #152]\t@ 0x98\n23023a52:\tf894 3058 \tldrb.w\tr3, [r4, #88]\t@ 0x58\n23023a56:\tf3c0 0140 \tubfx\tr1, r0, #1, #1\n23023a5a:\tf8a4 0092 \tstrh.w\tr0, [r4, #146]\t@ 0x92\n23023a5e:\tf8a5 10a2 \tstrh.w\tr1, [r5, #162]\t@ 0xa2\n23023a62:\tb113      \tcbz\tr3, 0x23023a6a\n23023a64:\t3b01      \tsubs\tr3, #1\n23023a66:\tf884 3058 \tstrb.w\tr3, [r4, #88]\t@ 0x58\n23023a6a:\t6d63      \tldr\tr3, [r4, #84]\t@ 0x54\n23023a6c:\tb10b      \tcbz\tr3, 0x23023a72\n23023a6e:\t3b01      \tsubs\tr3, #1\n23023a70:\t6563      \tstr\tr3, [r4, #84]\t@ 0x54\n23023a72:\tf7fe fb8b \tbl\t0x2302218c\n23023a76:\t4a0f      \tldr\tr2, [pc, #60]\t@ (0x23023ab4)\n23023a78:\t8ee3      \tldrh\tr3, [r4, #54]\t@ 0x36\n23023a7a:\tf8a2 0104 \tstrh.w\tr0, [r2, #260]\t@ 0x104\n23023a7e:\tb123      \tcbz\tr3, 0x23023a8a\n23023a80:\t8f21      \tldrh\tr1, [r4, #56]\t@ 0x38\n23023a82:\tf8b4 2092 \tldrh.w\tr2, [r4, #146]\t@ 0x92\n23023a86:\t4291      \tcmp\tr1, r2\n23023a88:\td000      \tbeq.n\t0x23023a8c\n23023a8a:\tbd38      \tpop\t{r3, r4, r5, pc}\n23023a8c:\t2200      \tmovs\tr2, #0\n23023a8e:\t86a3      \tstrh\tr3, [r4, #52]\t@ 0x34\n23023a90:\te9c4 2211 \tstrd\tr2, r2, [r4, #68]\t@ 0x44\n23023a94:\te9c4 2213 \tstrd\tr2, r2, [r4, #76]\t@ 0x4c\n23023a98:\t86e2      \tstrh\tr2, [r4, #54]\t@ 0x36\n23023a9a:\t8722      \tstrh\tr2, [r4, #56]\t@ 0x38\n23023a9c:\t63e2      \tstr\tr2, [r4, #60]\t@ 0x3c\n23023a9e:\t6422      \tstr\tr2, [r4, #64]\t@ 0x40\n23023aa0:\t6562      \tstr\tr2, [r4, #84]\t@ 0x54\n23023aa2:\tbf00      \tnop\n23023aa4:\tbf00      \tnop\n23023aa6:\tbf00      \tnop\n23023aa8:\tbf00      \tnop\n23023aaa:\tbd38      \tpop\t{r3, r4, r5, pc}\n23023aac:\t2794      \tmovs\tr7, #148\t@ 0x94\n23023aae:\t2300      \tmovs\tr3, #0\n23023ab0:\t2978      \tcmp\tr1, #120\t@ 0x78\n23023ab2:\t2300      \tmovs\tr3, #0\n23023ab4:\t2688      \tmovs\tr6, #136\t@ 0x88\n23023ab6:\t2300      \tmovs\tr3, #0\n"
+  }
+}

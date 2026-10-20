@@ -1,0 +1,163 @@
+{
+  "scope": "mouse firmware1.20 state0x17 terminal lifecycle with explicit RTOS boundary",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "ram_sha256": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5",
+  "instruction_ranges": [
+    {
+      "start": "0x23022818",
+      "end_exclusive": "0x23022882",
+      "name": "state17 dispatch and mode selection",
+      "raw_hex": "0528d8d100bf002563699a499c4ac1f80051c2f88c50b3bb9a4e01af0020fff7dff90020fff7b8f9fef7d6ff964809f0affd954809f0acfdb388022b35d0012b37d0042b0bd0002261893846adf80630adf80810adf8042003f0a6faabe7fff701f902f07dffb388ede7",
+      "sha256": "468c3d32a13f24802cc097958ac75bfd1f9f895e79b9ad10d65d229b8a1076fd"
+    },
+    {
+      "start": "0x2302289e",
+      "end_exclusive": "0x230228d6",
+      "name": "pairing identity branch and mode1/2 calls",
+      "raw_hex": "4ff480337e4e01aff26938466561adf80c500292019303f046fb2846f169fff7c0f9b8e700f03ffeb388c9e7fff7d7f801f0fdfdb388c3e7",
+      "sha256": "245e95d3bed20e52238feb5676d0143fa129adeb300cdd9bffea54d616815eda"
+    },
+    {
+      "start": "0x23025f44",
+      "end_exclusive": "0x23025f48",
+      "name": "notification candidate is literal return",
+      "raw_hex": "704700bf",
+      "sha256": "0c302d771ae76f031fe8c4a87c6f54f6b1e93bbf4552d26a8ea553f2a89c0530"
+    },
+    {
+      "start": "0x23021c40",
+      "end_exclusive": "0x23021c50",
+      "name": "BASE1 and complement writes",
+      "raw_hex": "ca43034b03489961c0f8301e1a627047",
+      "sha256": "73934326d53a9b45347b81898f03af84735396c1b71c997cbe7f13d01ec3d081"
+    },
+    {
+      "start": "0x23023544",
+      "end_exclusive": "0x230235ec",
+      "name": "mode2 init",
+      "raw_hex": "032370b5ff220025224c234e23603380b4f8923084f8a7200533a4f89230c4e92655a4f894502586fef798f91b4b4ff0ff31d3f80024c3f80054d3f80024022042f4002242f00102c3f800244ff48072c3f89014c3f88824fef7acfafef760fe18220f4904f18c00fef7f0fa4ff4967102230c4ac4e90f55c4e91155c4e913556565c2f84815a6f8a83000bf00bf00bf00bf70bd782900239427002300c0025310c0025300800253",
+      "sha256": "dd7a0ef862b96242aa5977e93991947debdda1728f92d311217b7c9e9dfb43d2"
+    },
+    {
+      "start": "0x230244cc",
+      "end_exclusive": "0x23024590",
+      "name": "mode1 init",
+      "raw_hex": "ff232de9f04100250326294c294f84f8a730b4f892303e8005332660a4f89230c4e92655c4e90f55c4e91155a4f894502586fdf7cff94ff4a7714ff0ff301e4bdff878801b7843f00043c8f8dc301c4bd3f80024c3f80054d3f8002442f00102c3f80024c3f89004c3f888140220fdf7ddfafdf791fea38e1822012b0abf40f28b134ff4c3730426c4f88c20c8f848350023a7f8a860c4e90f33c4e91133c4e91333636500bf00bf00bf00bfbde8f0817829002394270023ef7600230080025300c00253",
+      "sha256": "217f6355fa137bcd1907974f001662f511cc088c43878b526bd5a9162890dd54"
+    },
+    {
+      "start": "0x23025778",
+      "end_exclusive": "0x23025838",
+      "name": "mode4 init",
+      "raw_hex": "2de9f843032300250527ff224ff01808264c274e23603380b4f8923028463b4484f8a720a4f89230c4e92655a4f894502586c4f88880a4f88270fbf7c7fffcf773f84ff4a0714ff0ff301a4bdff868901b7843f00043c9f8dc30184bd3f80024c3f80054d3f8002442f00102c3f80024c3f89004c3f888140420fcf781f9fcf735fd40f29f13c4e90f55c4e91155c4e91355c4f88c80a6f8a8706565c9f8483500bf00bf00bf00bfbde8f8837829002394270023ef7600230080025300c00253",
+      "sha256": "c453116d70a1b30c87681bf2dbd1c4d720fada0cc3053422e5e42f4db3dcce1c"
+    },
+    {
+      "start": "0x23021a7c",
+      "end_exclusive": "0x23021af8",
+      "name": "packet config",
+      "raw_hex": "1b4b1c491b6a1c4ac1f8343e9378507892f800c01b0443ea0023d07843ea0c0392f804c043ea005343ea8c5392f805c0907a43ea0c6392f806c0000443ea8c6392f807c043ea4c7392f809c040ea0c2092f808c0c1f8203e40ea0c03d07a127b43ea006343ea4263c1f8283e704700bf9427002300c0025320260023",
+      "sha256": "cd714d28d722a020d053cdc10ba2b17eeaa98f00c5f0d4c49f850669fa2b8a3f"
+    },
+    {
+      "start": "0x23021af8",
+      "end_exclusive": "0x23021b90",
+      "name": "radio mode and undocumented calibration words",
+      "raw_hex": "022810b42ed0042827d0194bd3f8a028b2f1004f1cd0d3f8a028164b9a4217d0134b15481549164c164ac3f8a408c3f8a8181548c3f8ac481449c3f8ac27144ac3f8b007c3f8b417c3f8e42710bc7047074b104ac3f8a028e2e70922044bc3f80025d2e70422024bc3f80025cde700bf00c002530e1258005faaf8003000c0003000a8007a8272867286767e7e00060484c312040e095800",
+      "sha256": "e5f75ee8236dc3641c9b39f8d64550815b0b62c4241e6e50547b17850723ee79"
+    },
+    {
+      "start": "0x23025dc0",
+      "end_exclusive": "0x23025df0",
+      "name": "notification latch plus work submission",
+      "raw_hex": "10b50446074806f0effa074b5a8a02b110bd01225a8262880448da82bde8104006f066bb781500236c6b0023c0670023",
+      "sha256": "797cb9342a7fa6654f46a4c1420923f89d8ac10c0eb7e3714f82ca8088921fe8"
+    },
+    {
+      "start": "0x23025df0",
+      "end_exclusive": "0x23025e04",
+      "name": "registered deferred connection callback",
+      "raw_hex": "034b0120598a012918bf0021fbf73eb86c6b0023",
+      "sha256": "5e4f19905e60ecd73e2d8c2fc9803df0d17ea99317bbc50c46ef327f5170a40b"
+    },
+    {
+      "start": "0x23020e7c",
+      "end_exclusive": "0x23020f0c",
+      "name": "connection up/down dispatcher; only up branch implemented",
+      "raw_hex": "194b012910b5198010d000230121174a174c1268174823705160d16003700af037fc154b1b78012b19d010bd114b0c4619700af04dfc0222104b0d491a700c700bf088fb0e4a0f4b12781c70002aecd000220d480d4904700a801a7010bdbde810400bf023bb00bfe07600234892090e7f7700231f7700232377002388770023367700232c7700232d77002390760023",
+      "sha256": "3553e3e42853ce0edef1bc4b10b0402ba60498572860fd112e60685d8325f350"
+    },
+    {
+      "start": "0x2302b74c",
+      "end_exclusive": "0x2302b774",
+      "name": "optional timer cancellation",
+      "raw_hex": "074b1b7823b110b5064c23780bb910bd7047054800f022fe0023237010bd00bf4877002347770023",
+      "sha256": "a7267d6b89e28387a93f46e13fe8d8b6ba0afed6b0afde00c53082fac2144e73"
+    },
+    {
+      "start": "0xe07efac",
+      "end_exclusive": "0xe07f000",
+      "name": "connection status byte reset",
+      "raw_hex": "0d4b1a78b2b90d490a789ab9ff204ff0010c10b40a4c83f800c02070094c81f800c02070084b094c094920700a801a7010bc7047704700bf5d7700235c77002343770023427700235e770023417700239c760023",
+      "sha256": "b2d173bf120a809670c5739779e3a55b98a43ba1a4fdbb0f8c65ba13c9a8919c"
+    }
+  ],
+  "direct_chain": [
+    "230227b8 state17 + event5",
+    "clear RADIO_SUBSCRIBE_TXEN and TIMER_SUBSCRIBE_CLEAR",
+    "if pairing!=0: clear pairing,23025f44(no-op),23021c40(0,identity)",
+    "23021bf8(0),23021bb0(0),230217f0",
+    "0e096ac4(timer23001540) twice",
+    "mode2:23023544; mode1:23021a7c+230244cc; mode4:23021a7c+23025778",
+    "23025dc0 -> timer stop23001578 -> pending latch/work submission"
+  ],
+  "rtos_boundary": {
+    "timer_stop": "0x0e096ac4",
+    "timer_unlink": "0x0e096594 -> 0x0e09643c",
+    "timer_active_callback_offset": "0x24",
+    "timer_waiter_path": "0x0e095d50(timer+0x18) -> 0x0e095bd4 -> 0x0e095ecc",
+    "work_submit": "0x0e0952ec -> 0x0e09518c",
+    "supported_preconditions": [
+      "u32[23001540]==0",
+      "u32[23001578]==0",
+      "u16[23006b7e]!=0 OR u32[230067cc]&6!=0"
+    ],
+    "unsupported_preflight_returns": {
+      "-2": "active timer",
+      "-3": "scheduler-entering work submission possible"
+    }
+  },
+  "confidence": "Original Thumb/C differential PASS within declared RTOS preconditions",
+  "not_persistence": [
+    "23025f44 has no body",
+    "23025dc0 latches RAM state and submits work; no NVM established"
+  ],
+  "limits": [
+    "Full active-timer scheduler and callbacks not recovered",
+    "Hardware autonomous behavior not modeled",
+    "Full implementation goal remains open"
+  ],
+  "deferred_callback": {
+    "registration": "23025d1c ->0e0952a0(work230067c0,23025df1)",
+    "body": "23025df0 ->23020e7c(1,u16[23006b7e]==1)",
+    "implemented_entry": "rr_mouse_lifecycle_connected_work",
+    "precondition": "pending==1; optional timer23001b48 inactive when 7748 and7747 both nonzero",
+    "effects": [
+      "u16[230076e0]=1; u8[2300771f]=1",
+      "optional stop timer23001b48 and clear byte7747",
+      "u8[23007788]=2; u8[2300777f]=1",
+      "if bytes775c/775d bothzero reset flag group via0e07efac",
+      "byte772c=1; if byte7736!=0 then byte772d=1,u16[7690]=0,byte772c=0"
+    ],
+    "disconnect_branch_implemented": false
+  },
+  "verification": {
+    "status": "PASS",
+    "original_terminal_cases": 400,
+    "original_connected_callback_cases": 128,
+    "comparison": "mouse-lifecycle-comparison.json",
+    "unmodified_target_instructions": true,
+    "CPU_support": "getBasePriority bridge to Ghidra same ArmCpuState; final BASEPRI checked",
+    "emulator_limit": "ISB TODO/no-op; no barrier timing claim"
+  }
+}

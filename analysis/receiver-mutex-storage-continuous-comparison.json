@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "cycles": 192,
+  "config_records_written": 384,
+  "config_records_read": 384,
+  "aux_records_written": 192,
+  "aux_latest_checks": 573,
+  "identity_messages_consumed": 192,
+  "mapped_reads": 82277,
+  "mapped_writes": 1605,
+  "lock_calls": 962,
+  "unlock_calls": 962,
+  "page_close_writes": 9,
+  "page_header_writes": 13,
+  "startup_calls": 193,
+  "final_snapshot_sha256": "cfc4ce7ca47ba6f4d4bf52b9e85620e8617980f10ada1a246183c30aff406000",
+  "not_added_to_original_count": true,
+  "checks": [
+    "1924 mutex calls execute restored acquisition/release rather than externally assumed success",
+    "Startup constructs both partition geometries and mounts from erased storage, then both contexts reset and initialized after every write cycle",
+    "Record write manager updates mapped snapshot without externally supplying write success",
+    "Both configuration records re-read after every write and auxiliary update",
+    "Long/inline records and tombstones preserve latest values across repeated page rotations/collection",
+    "Loaded identity reaches original configuration queue, radio init and key install"
+  ],
+  "limits": [
+    "Device state ready supplied at preceding driver initialization boundary; no actual full-device boot or power cycle",
+    "Mutex operations execute restored functions; no contention in this continuous storage scenario; actual CPU switching not exercised",
+    "Mapped2MiB is host memory; no physical flash persistence or actual receiver/RF"
+  ],
+  "sources": {
+    "analysis/test_receiver_mutex_storage_continuous.py": "8e988c5efffb595e454d376abfc6401217ad750125c979afbea05fb4008cc11f",
+    "recovered-code/portable/receiver_mutex.c": "fa324740ddc856d743bc1c60607b3ba789d79203fe0f05bee96d9f30fc629aee",
+    "recovered-code/portable/receiver_mutex.h": "586427fc53408937f6183d2b4ada63825a25f8766a03a43e33d4cf480695ad7b",
+    "recovered-code/portable/receiver_storage_startup.c": "39805df4c1e84156072bad46413499b5ff71900d9e3ffc6d936db75bd6e5def6",
+    "recovered-code/portable/receiver_storage_startup.h": "5386e3aa34915c42071096b5c94acf4ceec88f2da14e8a213030b8376ee532e8",
+    "recovered-code/portable/receiver_storage_mount.c": "40b90604ac0fbc6811556dff27c202c5e0ae4dba1329d23477a0c26674fac9a0",
+    "recovered-code/portable/receiver_storage_mount.h": "cec2817c6f640123fcd425b687ffd41427395e9725f4a8050d0b46d41ffb4e66",
+    "recovered-code/portable/receiver_storage_scan.c": "086c762b23e334a6d319b2f5765f92ea6156c84bec9c569032b04c29cb2a2116",
+    "recovered-code/portable/receiver_storage_write.c": "3bae0bf72c8297e1b8b604c4810c8422b82fad1cff12d05c46776d4fdf805c2b",
+    "recovered-code/portable/receiver_storage_write.h": "c3d77b56662e21cc1298501992fa2ece5981576f558ed4c9aa7c50d18937d5b6",
+    "recovered-code/portable/receiver_storage_read.c": "1437c371a376f8a00a9da0c53d0e4e5854f1a1a27686572a8f488a8d9c6572ca",
+    "recovered-code/portable/receiver_settings.c": "db585b985a86c19f84f2f77baf1a985953ae1b2c3e40f7e6cd26e300f4537fd8",
+    "recovered-code/portable/receiver_config_producer.c": "394e27aa5dd4b02f6521b00dc48d49c760a987e60d2c52b768430232afad48a1",
+    "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+    "recovered-code/portable/receiver_initialization.c": "b2f24a53c713d974ee10c31ff8ac4f7244cc451c273a988cd6ec8669d97063f9",
+    "firmware-extracted-1.20/Suit1FWData__radio_radio.bin": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162"
+  }
+}

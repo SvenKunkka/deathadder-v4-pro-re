@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "original_records": 8192,
+  "unique_initial_RAM_snapshots": 8192,
+  "overlap_with_RTC_baseline_initial_RAM": 0,
+  "replayed_case6032_matches_final_record": true,
+  "initial_batch_failure": "Ghidra decode error at230201F6 during case6032, process terminal; this case had no emitted record",
+  "recovery": "Exact same case6032 completed in isolated process; retained records0..6031 and executed remaining6032..8191 in batches, contiguous IDs validated",
+  "counting": "Replay diagnostic not included as another input. Baseline6144 regressions not added again.",
+  "limits": [
+    "A decode error is tool failure evidence; no inference of a firmware defect",
+    "RAM snapshot uniqueness check does not establish physical execution or whole-device transaction coverage"
+  ]
+}

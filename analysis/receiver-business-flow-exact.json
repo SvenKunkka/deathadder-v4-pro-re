@@ -1,0 +1,184 @@
+{
+  "status": "PASS",
+  "version": "official1.20 receiver radio",
+  "original_entrypoint": "2302455C",
+  "scope": "classes0..5, peer0/1, component valid domain; including real consumer/status/end bookkeeping",
+  "validation": {
+    "entrypoint_cases": 1152,
+    "full_returns": 1148,
+    "real_driver_boundary_cases": 4,
+    "separate_explicit_environment_return_continuations": 4,
+    "per_class": 192,
+    "comparison": "analysis/receiver-business-flow-comparison.json",
+    "rx_regression_original_cases": 1280,
+    "c_pipeline_regression_cases": 662
+  },
+  "integration_order": [
+    "class0->rr_control_consume",
+    "nonclass0->rr_business_dispatch",
+    "ifforward->rr_business_rx",
+    "management->rr_dbc_management; ifunhandled->rr_dbc_consume",
+    "deliver->rr_dbc_consume",
+    "aftereveryforwardreturn->rr_dongle_business_stats(peer0)",
+    "then rr_business_dispatch_finish(selectedpeer)"
+  ],
+  "pending": {
+    "at": "0E0622BC USB driver entry",
+    "saved": [
+      "selectedpeer",
+      "metadata",
+      "device_pointer"
+    ],
+    "deferred": [
+      "driver execution",
+      "consumer postdriver continuation",
+      "statistics",
+      "dispatch_finish"
+    ],
+    "resume": "externally supplied driver result ->rr_dbc_resume_result->statistics->finish; no success assumption",
+    "cases": [
+      {
+        "case": 268,
+        "class": 1,
+        "peer": 0,
+        "driver_result": 0,
+        "device": "0x23006910"
+      },
+      {
+        "case": 269,
+        "class": 1,
+        "peer": 0,
+        "driver_result": -1,
+        "device": "0x23006910"
+      },
+      {
+        "case": 364,
+        "class": 1,
+        "peer": 1,
+        "driver_result": 0,
+        "device": "0x23006910"
+      },
+      {
+        "case": 365,
+        "class": 1,
+        "peer": 1,
+        "driver_result": -1,
+        "device": "0x23006910"
+      }
+    ]
+  },
+  "stale_tail_fix": {
+    "file": "recovered-code/portable/business_rx.c",
+    "change": "ordinary receiver event payload copiesfull128B bank; event.length unchanged; mouse completed length-limited copy unchanged; cipher localpayload stillzerofilled",
+    "why": "original passes persistentbank pointer; class3 B1 reads fixedbytes5..7 evenwhenlength0/1",
+    "verified_cases": [
+      {
+        "case": 600,
+        "logical_total": 0,
+        "old_bank_tail_5_7": "835147",
+        "consumer_status_B4_B6": "835147"
+      },
+      {
+        "case": 601,
+        "logical_total": 1,
+        "old_bank_tail_5_7": "91c331",
+        "consumer_status_B4_B6": "91c331"
+      },
+      {
+        "case": 696,
+        "logical_total": 0,
+        "old_bank_tail_5_7": "7d04a4",
+        "consumer_status_B4_B6": "7d04a4"
+      },
+      {
+        "case": 697,
+        "logical_total": 1,
+        "old_bank_tail_5_7": "97dfa0",
+        "consumer_status_B4_B6": "97dfa0"
+      }
+    ]
+  },
+  "preservation": [
+    "dispatch state committed before downstream; fresh reload beforefinish prevents overwritingA4 peer0queuepurge",
+    "data branch stats always peer0 despite selectedpeer1",
+    "class0 stats selectedpeer",
+    "more-fragment and mismatch stillgetstatistics afterreassembly returns",
+    "USB pending postpones finalstats/clear/counters untilresume"
+  ],
+  "sources": [
+    {
+      "path": "recovered-code/portable/receiver_business_flow.c",
+      "sha256": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110"
+    },
+    {
+      "path": "recovered-code/portable/receiver_business_flow.h",
+      "sha256": "4020edc2c746e420e001ca572c03d29c45fc2c87dddc0c3218038f9f4ae0f014"
+    },
+    {
+      "path": "recovered-code/portable/business_rx.c",
+      "sha256": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8"
+    },
+    {
+      "path": "ghidra-scripts/EmulateReceiverBusinessFlow.java",
+      "sha256": "743357c956a19090b046ec2d8add496a19922607f0b4a26209c7f7d6146a372c"
+    },
+    {
+      "path": "analysis/verify_receiver_business_flow.py",
+      "sha256": "47d731afa6dc2d54b2755e92aac821fdf17d0b23dc4d53bf7f6f85e46a1e23bd"
+    },
+    {
+      "path": "analysis/receiver-business-flow-comparison.json",
+      "sha256": "492065b9f27e7056512b8dd4ddb18bc34215f324244d5aa8827246c2cd2848ab"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/2302455c.c",
+      "sha256": "44eea6a6d24718e31e5a3c31fcd40693396db00cdfcb0c09bff6e5bd1bb8e4de"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230254a0.c",
+      "sha256": "fc8ee348ed6792d656445b78db27f93785172b8ceaf72450972659eb9bf1b3bf"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23025004.c",
+      "sha256": "bb2b229deae7286e97fbd4ed7f1cedf176db8d1a34b7e38664e7c752cf3ad3fd"
+    }
+  ],
+  "raw_evidence": [
+    {
+      "ram_address": "2302455c",
+      "radio_file_offset": "0x4cf8",
+      "bytes": "40 f6 84 73 2d e9 f0 4f 00 fb 03 f3 96 4d 87 b0 05 eb 03 09 99 f9 14 11",
+      "note": "original full receive entry"
+    },
+    {
+      "ram_address": "230245d6",
+      "radio_file_offset": "0x4d72",
+      "bytes": "31 46 40 f6 84 76 06 fb 04 56 96 f8 69 60 00 20 00 96 00 f0 5a ff 40 f6 84 73 00 21 75 4e 03 fb 04 53 b6 f8 ae 21 c3 f8 8c 10 01 32 a6 f8 ae 21",
+      "note": "downstream forward and final bookkeeping region"
+    },
+    {
+      "ram_address": "230254a0",
+      "radio_file_offset": "0x5c3c",
+      "bytes": "38 b5 bd f8 10 50 db b2 04 46 c9 b2 c0 b2 ff f7 a9 fd 10 4b d5 b1 ff 2d 18 d0 21 1d 53 f8 21 20",
+      "note": "reassembly call and subsequent statistics wrapper entry"
+    },
+    {
+      "ram_address": "23025004",
+      "radio_file_offset": "0x57a0",
+      "bytes": "2d e9 f0 4f 15 78 df f8 c4 91 8d b0 8d f8 0f 30 15 f0 1f 03 0c 46 80 46 09 eb c1 1a 54 d0 6c 4e",
+      "note": "persistent bank reassembly entry"
+    },
+    {
+      "ram_address": "230202e6",
+      "radio_file_offset": "0xa82",
+      "bytes": "0b 78 b1 2b c3 d1 a2 79 e3 79 49 79 31 4d 31 4e 2f 4c e1 20 32 70 23 70 29 70 05 f0",
+      "note": "B1 fixed-offset reads bytes5/6/7 independentoflogical_length"
+    }
+  ],
+  "limits": [
+    "USB0E0622BC driver/RTOS body notexecuted",
+    "RX final class2/4 lengths8/16 only; unsupportedbounds returnhost-1",
+    "bank totals<=128 and validbuffers",
+    "no packet generation/PHY/radio/actualUSB transfer/IRQtiming validation"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "classification": "static caller-chain evidence, not executed or C recovered",
+  "spans": [
+    {
+      "side": "mouse",
+      "image": "firmware-extracted-1.20/Suit2FWData__radio_radio.bin",
+      "image_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+      "start": "0x230259a4",
+      "end_exclusive": "0x230259e8",
+      "file_offset": "0x6140",
+      "bytes": "f0b50646072785b068460d461446adf80c30adf80810adf80a2001970096fdf731fab0b2fbf72cfa00200122034b0449dd801c810860da7205b0f0bd6c6b0023686b0023",
+      "sha256": "36274bb68dabc42290f5897a810b81834cddfc401ccb20bdbae5fddc96b5d24b",
+      "observed_static_order": "Config wrapper calls23022e28 first, then key installer23020e24 with low16bits of original identity; then writes6b72/6b74/6b68/6b77"
+    },
+    {
+      "side": "dongle",
+      "image": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "image_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+      "start": "0x23024f28",
+      "end_exclusive": "0x23024f3a",
+      "file_offset": "0x56c4",
+      "bytes": "00200699fcf74ef8bdf81800fbf7e8f885e7",
+      "sha256": "9deab023a3a0b14ea3390cd526202e4cfbd6fd9916ea1c50f1bb2db6e12f1f48",
+      "observed_static_order": "Dispatch arm config23020fcc then key install23020108 from low16bits atsp+24"
+    },
+    {
+      "side": "dongle",
+      "image": "firmware-extracted-1.20/Suit1FWData__radio_radio.bin",
+      "image_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+      "start": "0x23024f4c",
+      "end_exclusive": "0x23024f64",
+      "file_offset": "0x56e8",
+      "bytes": "0423069a02a8cde90223fdf789f8bdf80800fbf7d3f870e7",
+      "sha256": "0836293e8df0cac68292cca35059dfecd481051aed8659d69ab00cc006a5492a",
+      "observed_static_order": "Dispatch arm constructs id+mode4 config and calls2302206c then key install23020108"
+    }
+  ],
+  "next_requirements": [
+    "Mouse23022e28 and its teardown/radio/timer setup dependencies",
+    "Receiver enclosing event loop around23024e38 including queue waits and dispatcher",
+    "Both startup input identities and crosscore provenance",
+    "No conclusion of durable pairing or authentication from these key calls"
+  ]
+}

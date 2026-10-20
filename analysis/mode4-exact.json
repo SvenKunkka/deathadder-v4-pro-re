@@ -1,0 +1,345 @@
+{
+  "status": "partial-static-reconstruction",
+  "firmware": "1.20 official updater / both radio cores",
+  "sources": [
+    {
+      "path": "analysis/mouse-radio-1.20-final/23025778.c",
+      "sha256": "702d376e3224cf99d156a30f3ba1e2d7d9f68e8a604a1a981473fe386ca2336c"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23021af8.c",
+      "sha256": "68dfdeef83ddc80ce6429e369c29a8936ebb7c3a3c549e5fbfb8539d9204cfe7"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/2302243c.c",
+      "sha256": "487853cd06172af4877e658f7c8fdd561aadb19210c871d6440f1e68aa4dce4a"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23021704.c",
+      "sha256": "98777e0caf2f15160a579f64092a3a79abf1fa00ab3934a19ecf3fce6750188f"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/2302168c.c",
+      "sha256": "a3687cb6ba28147623f60f205dabc35a0c94b721d8f5207be8f07d939a252ae9"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23021698.c",
+      "sha256": "aedf9542a91d304d1095d7e10836d4293670d9e1e306f1e04675b3d928379cb3"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230221ec.c",
+      "sha256": "f6582f4c364dfd03a3424388f529fe2bc3dfd32f62ee1c75ab4f94fc2f607d6c"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23022e28.c",
+      "sha256": "27c73853cbab9b0ab2d3238ed8d4ac3f8997582b46264897210c34d52545429e"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23024190.c",
+      "sha256": "d08861a3e64205345c58c27f956915babb24f37051c40252555476f5378857dd"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23021bbc.c",
+      "sha256": "3fcbd91a95fdca864f9216a5602efb8d209c54e5592d5e9c3f4ac56af7f6fa2c"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230240ac.c",
+      "sha256": "a01f906a06d153b6dd95ec3b8d58990a773e5ea296d8bcd98e2e44aeb66dfedd"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23023fa4.c",
+      "sha256": "ac0a0c9f62f681edf0ef117c8618be60525a5b99357fcf4b78eff07ae2f5251e"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230209d0.c",
+      "sha256": "ba69061ced115b03307ab9212bbaa6420ce05fba1ec7e07fd8298ced4d0c03f0"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230209dc.c",
+      "sha256": "933731331ad0301db0960eb72a976471325b400cc30eb7d812ee10bd65b6a73c"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/2302206c.c",
+      "sha256": "6b6117c948b2e532881589691a27cc26deeb2c53bcca18d51203dd81c1639491"
+    },
+    {
+      "path": "analysis/runtime-images/mouse-ram-gnu-disassembly.txt",
+      "sha256": "79f8dfb4c0aa3d899a938f9d2217243e77121e1806653e8bb6278f0aea315d23"
+    },
+    {
+      "path": "analysis/runtime-images/dongle-ram-gnu-disassembly.txt",
+      "sha256": "4bde1268417567df70c13022224fcba13b34ac93d741c151db5e74af0fd803af"
+    }
+  ],
+  "findings": [
+    {
+      "id": "mode-selection",
+      "confidence": "high",
+      "evidence": [
+        "mouse 23025778 -> 23021AF8(4)",
+        "mouse DAT_23002798==4",
+        "dongle DAT_23003234==4"
+      ],
+      "fact": "Protocol mode 4 selects RADIO.MODE=9 (nRF4Mbit0BT6); distinct from protocol mode 2 selecting RADIO.MODE=4. These two numeric mode namespaces must not be confused."
+    },
+    {
+      "id": "uplink-check",
+      "confidence": "high-assembly-crosschecked",
+      "evidence": [
+        "mouse 23024BAA..23024BF4",
+        "dongle 2302427A..230242BC"
+      ],
+      "fact": "Normal mouse DMA frame [L,data L bytes] becomes [L+1,data,(-sum(data)) mod256]. Receiver requires HW CRCOK and nonzero Lwire; sums bytes 1..Lwire-1, compares byte Lwire, restores length Lwire-1. Length field and hardware CRC excluded."
+    },
+    {
+      "id": "decompiler-alias-correction",
+      "confidence": "high-assembly-crosschecked",
+      "evidence": [
+        "mouse 23024BB8 str.w ip,[r0]",
+        "mouse 23024BD4 ldrb.w r1,[r2,#1]!"
+      ],
+      "fact": "Full first source word is stored before checksum. Ghidra global alias output appears to restore it afterwards; use assembly ordering."
+    },
+    {
+      "id": "downlink-no-extra-check",
+      "confidence": "high-assembly-crosschecked",
+      "evidence": [
+        "dongle 230248D6..230248F4",
+        "mouse 23021704 C lines 240..355"
+      ],
+      "fact": "Recovered normal downlink copies 16 bytes unchanged and assigns PACKETPTR; no additive append. Mouse mode4 RX accepts CRCOK path without additive verification. This does not describe other protocol modes."
+    },
+    {
+      "id": "uplink-header",
+      "confidence": "high",
+      "evidence": [
+        "mouse 2302168C",
+        "mouse 230221EC",
+        "dongle 230209A8/AC/B4"
+      ],
+      "fields": [
+        {
+          "offset": 1,
+          "bits": "7",
+          "meaning": "request/enable reply flag",
+          "confidence": "high behavior, inferred name"
+        },
+        {
+          "offset": 1,
+          "bits": "6:4",
+          "meaning": "link sequence modulo 1..7"
+        },
+        {
+          "offset": 1,
+          "bits": "3:0",
+          "meaning": "saturated per-channel failure counter (max15)"
+        }
+      ]
+    },
+    {
+      "id": "downlink-header",
+      "confidence": "high",
+      "evidence": [
+        "dongle 230209D0",
+        "dongle 23021BBC mode4 queue branch"
+      ],
+      "formula": "(flag7<<7)|(queued_flag6<<6)|raw_low_value; the third operand is not masked in helper",
+      "fact": "Do not reuse mouse header encoder: dongle second operand shifts by 6, not 4."
+    },
+    {
+      "id": "status-layout",
+      "confidence": "high",
+      "evidence": [
+        "mouse 23024CEE..23024D6A",
+        "dongle 23021BBC C lines694..705"
+      ],
+      "mouse_status": {
+        "offset0": 6,
+        "offset1": "mouse header",
+        "offset2": "body sequence 1..7",
+        "offset3": 23,
+        "offset4_5": "idle/data-gap counter BE16 DAT_23002A10",
+        "offset6": "negative sum bytes1..5"
+      },
+      "dongle_sync": {
+        "offset0": 5,
+        "offset1": "dongle header",
+        "offset2": "body sequence 1..7",
+        "offset3": 31,
+        "offset4_5": "event counter BE16 DAT_23005376",
+        "extra_checksum": false
+      }
+    },
+    {
+      "id": "motion-aggregation",
+      "confidence": "high for operations; medium for field names",
+      "evidence": [
+        "mouse 23025020..2302513E in 2302243C C"
+      ],
+      "layout": {
+        "offset3": "buttons OR with latch and retained accumulator",
+        "offset4": "wheel add modulo256",
+        "offset5_6": "X add modulo65536, BE bytes",
+        "offset7_8": "Y add modulo65536, BE bytes"
+      },
+      "fact": "Queue1 / reportinterval<3 branch pops input queue into retained accumulator, rebuilds cached packet on retry, and clears accumulation on CRCOK downlink. Other queue paths use deferred pop. Byte3 is NOT universally an opcode."
+    },
+    {
+      "id": "short-frame-exception",
+      "confidence": "high for bytes and bypass; purpose unresolved",
+      "evidence": [
+        "mouse 23024A28 movw r6,0x5502",
+        "mouse 2302243C C lines1001..1051"
+      ],
+      "frame_hex": "025500",
+      "fact": "Special reportinterval=1 slot0/3 branch writes DMA length2, data55 00 and bypasses common append. It fails normal receiver additive check. Do not silently normalize it or claim its purpose is proven."
+    },
+    {
+      "id": "receiver-duplicate",
+      "confidence": "high",
+      "evidence": [
+        "dongle 23024190 C lines80..112"
+      ],
+      "fact": "Changed uplink link-sequence resets miss bookkeeping and pops selected downlink queue iff queue<6, advancing TX sequence1..7. Duplicate still stores packet and calls notification; cannot infer global duplicate suppression from this function."
+    },
+    {
+      "id": "mouse-ack",
+      "confidence": "high",
+      "evidence": [
+        "mouse 23021704 C lines270..333"
+      ],
+      "fact": "CRCOK mode4 downlink advances uplink sequence1..7, clears miss counter and motion cache, marks ack flag and pops selected queue if <6. CRC failure retains sequence/cache, increments failure bookkeeping, sets retry holdoff DAT_230029D0=2."
+    },
+    {
+      "id": "counter-sync",
+      "confidence": "high-assembly-crosschecked",
+      "evidence": [
+        "mouse 23024846..23024898"
+      ],
+      "fact": "Only byte3==1F updates event counter: capture7 in166..249 => received BE16;416..499=>received+1 modulo65536;else keep old. Unsigned32 range tests."
+    },
+    {
+      "id": "disconnect",
+      "confidence": "high",
+      "evidence": [
+        "mouse 2302243C C lines1229..1303",
+        "dongle 23021BBC C lines583..619"
+      ],
+      "fact": "At end slot5 in connected states, increment event/miss counters; >=100 missed-cycle counter stops link; data-gap >=200 changes connection-state3->4 if miss<100. Units are scheduler cycles; thresholds are not number of individual retransmissions."
+    }
+  ],
+  "schedule": {
+    "mouse": {
+      "prescaler": 5,
+      "period_ticks": 500,
+      "period_corrections": [
+        497,
+        503
+      ],
+      "rows": [
+        {
+          "compare1": 75,
+          "slot": 1,
+          "action": "TX candidate",
+          "next_CC1": 140,
+          "next_CC2": 165
+        },
+        {
+          "compare1": 140,
+          "slot": 2,
+          "action": "RX reply if reply flag=1",
+          "next_CC1": 220,
+          "next_CC2": "250 if reportinterval<5 else0"
+        },
+        {
+          "compare1": 220,
+          "slot": 3,
+          "action": "TX candidate (skip for reportinterval>4)",
+          "next_CC1": "325 if reportinterval1 or (2 and pending), else390",
+          "next_CC2": "350 or415"
+        },
+        {
+          "compare1": 325,
+          "slot": 4,
+          "action": "TX candidate",
+          "next_CC1": 390,
+          "next_CC2": 415
+        },
+        {
+          "compare1": 390,
+          "slot": 5,
+          "action": "RX reply if reply flag=1",
+          "next_CC1": 470,
+          "next_CC2": 0
+        },
+        {
+          "compare1": 470,
+          "slot": 0,
+          "action": "TX candidate across period boundary",
+          "next_CC1": "reset at compare0",
+          "next_CC2": "reset at compare0"
+        }
+      ]
+    },
+    "dongle": {
+      "prescaler": 0,
+      "period_ticks": 16000,
+      "rows": [
+        {
+          "compare1": 2720,
+          "slot": 1,
+          "action": "RX window",
+          "next_CC1": 4640,
+          "next_CC2": 5280
+        },
+        {
+          "compare1": 4640,
+          "slot": 2,
+          "action": "TX reply if uplink flag7=1",
+          "next_CC1": 7040,
+          "next_CC2": 8000
+        },
+        {
+          "compare1": 7040,
+          "slot": 3,
+          "action": "RX window",
+          "next_CC1": 10720,
+          "next_CC2": 11200
+        },
+        {
+          "compare1": 10720,
+          "slot": 4,
+          "action": "RX window",
+          "next_CC1": 12640,
+          "next_CC2": 13280
+        },
+        {
+          "compare1": 12640,
+          "slot": 5,
+          "action": "TX reply if uplink flag7=1",
+          "next_CC1": 15040,
+          "next_CC2": 0
+        },
+        {
+          "compare1": 15040,
+          "slot": 0,
+          "action": "RX window / tune next channel",
+          "next_CC1": 2720,
+          "next_CC2": 3200
+        }
+      ]
+    },
+    "note": "CC1 handler decisions and CC2 reprogramming, not measured RF packet timestamps. Periods agree after observed 32x divider ratio."
+  },
+  "unknowns": [
+    "No actual over-air capture or execution/emulation comparison; byte offsets are RADIO RAM framing. Preamble/address/CRC/whitening bitstream encoder not implemented here.",
+    "Exact absolute TIMER020 source clock and DPPI endpoint trigger latency not independently closed; report raw ticks with observed prescaler ratio32.",
+    "Full scheduling behavior for all reportinterval values, all queues and dynamic queue races is not reconstructed as executable state machine.",
+    "All queued command/body variants and fragmentation are not decoded by this subset; queue1 field names are inferred from operations and cross-context.",
+    "Special 02 55 00 short frame purpose/peer handling remains unresolved.",
+    "No proof of behavior outside recovered lengths or malformed frames; host codec validation is stricter than recovered firmware integrity fragment.",
+    "RX CRCOK treatment alone does not establish whole-protocol authentication/encryption or security properties."
+  ],
+  "code": "analysis/mode4_codec.py",
+  "tests": "analysis/mode4_test_results.json"
+}

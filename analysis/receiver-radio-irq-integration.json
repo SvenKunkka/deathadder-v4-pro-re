@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "component_cases": 192,
+  "nvic_write_action_regressions": 48,
+  "queued_ack": 175,
+  "sync_fallback": 17,
+  "late_tx_cancel": 96,
+  "scope": "C IRQ -> C SWI4 business -> explicitly supplied subsequent TIMER CC1 event",
+  "original_instruction_cases_added": 0,
+  "limitations": [
+    "explicit slot/event/capture inputs, not automatic hardware or NVIC",
+    "no RF operation"
+  ]
+}

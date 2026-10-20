@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "cases": 2304,
+  "full_returns": 2286,
+  "real_rtos_boundaries": 18,
+  "by_event": {
+    "-1": 256,
+    "0": 256,
+    "1": 256,
+    "2": 256,
+    "3": 256,
+    "4": 256,
+    "5": 256,
+    "6": 256,
+    "7": 256
+  },
+  "original_steps": 129178,
+  "checks": [
+    "all65536 RAM bytes",
+    "RADIO4096B TIMER2048B auxiliary2048B",
+    "NVIC last word",
+    "RTOS boundary entry and r0 argument"
+  ],
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/receiver_radio_timer.c": "879ba8ce2ee3d9ce34297e31d8653a3e45a01d68c3e03c4761ad3aaf5b25ab2e",
+    "recovered-code/portable/receiver_radio_irq.c": "bdf952ac523a614186eaa0c57f4882078cbdab45edc90ab8d5349818b8e274d9",
+    "recovered-code/portable/receiver_business_flow.c": "56e425c006837b99d255c522fead4297d7ffc5c0e6aefe3a528425aadcfb5110",
+    "recovered-code/portable/business_dispatch.c": "fbe593946fc81dc5e6a1a70b2eac379faf206b05294a2b0ddbe7396087f0280c",
+    "recovered-code/portable/business_rx.c": "151ecda8acf9def29c3461aeedc98b2518570fb3fdf0514f8f9ac05b0afeb2d8",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/business_control.c": "d121670edaf68110c2ed4a7b658fb972de67f97e21316142c949ef1df02e9b8d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+    "analysis/receiver-radio-timer-original.jsonl": "172620b4fbd13b78b0db2a1a7b4d3f8903a2959f05eab59666c47d456bbce1db",
+    "ghidra-scripts/EmulateReceiverRadioTimer.java": "4c6b590accd35f590c2bd222c921ce85bd551ea0ff5584ee4b1ea5ffb41406d6"
+  },
+  "limits": [
+    "snapshot MMIO; no PHY/DPPI/time simulation",
+    "disconnect stops before real RTOS semaphore-give0E06D0D0; no successful stub or continuation",
+    "mode4 only",
+    "no actual hardware operation"
+  ]
+}

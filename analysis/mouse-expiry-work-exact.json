@@ -1,0 +1,213 @@
+{
+  "status": "PASS",
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "new_original_inputs": 6144,
+  "full_function_returns": 3959,
+  "next_worker_loop_headers": 800,
+  "real_unimplemented_entry_boundaries": 1385,
+  "entry_spans": [
+    {
+      "address": "0xe096950",
+      "role": "timer expiry",
+      "image_offset": "0x2a950",
+      "entry16_hex": "f8b5eff31186202383f31288bff36f8f"
+    },
+    {
+      "address": "0xe0967f0",
+      "role": "current ticks",
+      "image_offset": "0x2a7f0",
+      "entry16_hex": "10b5eff31184202383f31288bff36f8f"
+    },
+    {
+      "address": "0xe095c40",
+      "role": "unpend timer waiter",
+      "image_offset": "0x29c40",
+      "entry16_hex": "eff31181202383f31288bff36f8f8368"
+    },
+    {
+      "address": "0xe095bd4",
+      "role": "ready wrapper",
+      "image_offset": "0x29bd4",
+      "entry16_hex": "10b5eff31184202383f31288bff36f8f"
+    },
+    {
+      "address": "0x23025f64",
+      "role": "disconnect notification callback",
+      "image_offset": "0x6700",
+      "entry16_hex": "0022024b02485a8206f0a0ba6c6b0023"
+    },
+    {
+      "address": "0x23025df0",
+      "role": "connection-state work callback",
+      "image_offset": "0x658c",
+      "entry16_hex": "034b0120598a012918bf0021fbf73eb8"
+    },
+    {
+      "address": "0x23020e7c",
+      "role": "application link-state branch",
+      "image_offset": "0x1618",
+      "entry16_hex": "194b012910b5198010d000230121174a"
+    },
+    {
+      "address": "0x2302b70c",
+      "role": "optional timer start",
+      "image_offset": "0xbea8",
+      "entry16_hex": "0c4b1b7833b110b50b4c82b0237813b1"
+    },
+    {
+      "address": "0x2302b74c",
+      "role": "optional timer stop",
+      "image_offset": "0xbee8",
+      "entry16_hex": "074b1b7823b110b5064c23780bb910bd"
+    },
+    {
+      "address": "0xe07eee8",
+      "role": "disconnected state flags",
+      "image_offset": "0x12ee8",
+      "entry16_hex": "0e4a1378c3b9012110b40d480d4c0370"
+    },
+    {
+      "address": "0xe09504c",
+      "role": "actual work thread",
+      "image_offset": "0x2904c",
+      "entry16_hex": "2de9f04f20254ff0ff384ff0ff390446"
+    },
+    {
+      "address": "0xe094f80",
+      "role": "semaphore give",
+      "image_offset": "0x28f80",
+      "entry16_hex": "38b50446eff31185202383f31288bff3"
+    },
+    {
+      "address": "0xe095da0",
+      "role": "semaphore waiter unpend/abort",
+      "image_offset": "0x29da0",
+      "entry16_hex": "f8b5eff31185202383f31288bff36f8f"
+    },
+    {
+      "address": "0xe095ea8",
+      "role": "reschedule or restore",
+      "image_offset": "0x29ea8",
+      "entry16_hex": "49b9eff3058030b9054b9a699b689a42"
+    }
+  ],
+  "comparisons": {
+    "mouse-timer-expiry-comparison.json": {
+      "status": "PASS",
+      "original_cases": 4096,
+      "original_steps": 836227,
+      "counts": {
+        "0": 1024,
+        "1": 1024,
+        "2": 1024,
+        "3": 1024
+      },
+      "boundaries": {
+        "0x0": 3959,
+        "0x23022310": 118,
+        "0xe089d4c": 19
+      },
+      "original_returns": {
+        "original_full_return": 3959
+      },
+      "failures": [],
+      "sources": {
+        "recovered-code/portable/mouse_timer_expiry.c": "78cfea2a6a9906102f54483b6fd23bea0fec9e4a18cc5a5a4914e9cf87791cc4",
+        "recovered-code/portable/mouse_work_queue.c": "18634efd7f5860b19c3d85a8ac7341b8635561b8f8ad2c1b163e401df564778e",
+        "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+        "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+        "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+        "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+        "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+        "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+        "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+        "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+        "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+        "recovered-code/portable/mouse_timer_expiry.h": "4d5d1a24c2e17cd287939e9efe1cad3dbde5d73a28c206131c366794b930f249",
+        "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+        "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+        "analysis/verify_mouse_timer_expiry.py": "c00e4c8ee0e896ab808ec8f3a76ebe48825c9897ba6c25600d8c72246cefe1e5",
+        "ghidra-scripts/EmulateMouseTimerExpiry.java": "010f283e36e3e990e8e1373268f137063b0579547a96526ec4972f3d295d5d8e",
+        "analysis/mouse-timer-expiry-original.jsonl": "f434a24681c3bcc059c8b1c7b69e29fe60ed5bcc63205d9abfa0a73cd7a16647"
+      },
+      "limits": [
+        "64KiB RAM and4KiB RTC snapshots plus serialized privileged CPU priority/exception model",
+        "timer expiry, periodic reinsert, usercallback1578, timer waiter ready and link-state work callback execute original paths",
+        "unknown callback23022310 and true CPU context switch remain real entry boundaries",
+        "direct callback invocation does not prove autonomous RTC dispatch or actual work thread dispatch",
+        "inert clock/IRQ/peripherals, no physical device access"
+      ]
+    },
+    "mouse-work-thread-comparison.json": {
+      "status": "PASS",
+      "original_cases": 2048,
+      "original_steps": 386396,
+      "counts": {
+        "4": 2048
+      },
+      "boundaries": {
+        "0xe096220": 34,
+        "0x0": 800,
+        "0xe09600c": 794,
+        "0xe09628c": 260,
+        "0x23022620": 160
+      },
+      "original_returns": {
+        "next_loop_header": 800
+      },
+      "failures": [],
+      "sources": {
+        "recovered-code/portable/mouse_work_thread.c": "cc38c5a3c3b833a7a2e0bd2580e0128251de17396c19bb1a5bb72bc625393dfb",
+        "recovered-code/portable/mouse_timer_expiry.c": "78cfea2a6a9906102f54483b6fd23bea0fec9e4a18cc5a5a4914e9cf87791cc4",
+        "recovered-code/portable/mouse_work_queue.c": "18634efd7f5860b19c3d85a8ac7341b8635561b8f8ad2c1b163e401df564778e",
+        "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+        "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+        "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+        "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+        "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+        "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+        "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+        "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+        "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+        "recovered-code/portable/mouse_work_thread.h": "f7daa4058a68d2dbbd8a038ad826e570c4da11c022e30efe3b9e628814b4ca46",
+        "recovered-code/portable/mouse_timer_expiry.h": "4d5d1a24c2e17cd287939e9efe1cad3dbde5d73a28c206131c366794b930f249",
+        "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+        "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+        "analysis/verify_mouse_work_thread.py": "80cb2ffd19b638eea5d8bbc5c2d5222c18306671dc4212e1faac4850258716da",
+        "ghidra-scripts/EmulateMouseWorkThread.java": "43e16212be85a0851d50858500a4477a35c3afe29283dbaab44d7ec075c09ca1",
+        "analysis/mouse-work-thread-original.jsonl": "bc68cd713d1e13bee438333a877eab905b7556ce574f5a5ed7d3792915ebb771"
+      },
+      "limits": [
+        "Original worker entry through one loop body; next loop header is a segment boundary, NOT thread exit",
+        "Known link-state callback executes original instructions; Flush/cancel semaphore give executes; unknown handler, drain wake, pend and yield stop at real callees",
+        "Yield takes no arguments; arg0 normalized0 on both sides, not a claim about incidental r0 bits",
+        "No real CPU/thread/IRQ scheduling or RF verification"
+      ]
+    }
+  },
+  "sources": {
+    "recovered-code/portable/mouse_timer_expiry.c": "78cfea2a6a9906102f54483b6fd23bea0fec9e4a18cc5a5a4914e9cf87791cc4",
+    "recovered-code/portable/mouse_timer_expiry.h": "4d5d1a24c2e17cd287939e9efe1cad3dbde5d73a28c206131c366794b930f249",
+    "recovered-code/portable/mouse_work_thread.c": "cc38c5a3c3b833a7a2e0bd2580e0128251de17396c19bb1a5bb72bc625393dfb",
+    "recovered-code/portable/mouse_work_thread.h": "f7daa4058a68d2dbbd8a038ad826e570c4da11c022e30efe3b9e628814b4ca46",
+    "analysis/mouse-timer-expiry-comparison.json": "2c8be64c5ee60a21f033177c362bf9d027164308e36b27e5310bd49552173e6e",
+    "analysis/mouse-work-thread-comparison.json": "8212c83b4e4dcf9e56c62b73bb26a22e1b64571b31aeacf1bc3d11ec0cc9f7c7",
+    "analysis/verify_mouse_timer_expiry.py": "c00e4c8ee0e896ab808ec8f3a76ebe48825c9897ba6c25600d8c72246cefe1e5",
+    "analysis/verify_mouse_work_thread.py": "80cb2ffd19b638eea5d8bbc5c2d5222c18306671dc4212e1faac4850258716da",
+    "analysis/mouse-timer-expiry-original.jsonl": "f434a24681c3bcc059c8b1c7b69e29fe60ed5bcc63205d9abfa0a73cd7a16647",
+    "analysis/mouse-work-thread-original.jsonl": "bc68cd713d1e13bee438333a877eab905b7556ce574f5a5ed7d3792915ebb771",
+    "analysis/mouse-timer-expiry-ghidra.log": "0a03ffc512d98c7805eb37e302b147c517ef21e9a1b59cded6dbfe31ac9a787f",
+    "analysis/mouse-work-thread-ghidra.log": "d2d48b14ca3bdcc75b1211408b49be2651a2911027aafa02054beb352c498306",
+    "ghidra-scripts/EmulateMouseTimerExpiry.java": "010f283e36e3e990e8e1373268f137063b0579547a96526ec4972f3d295d5d8e",
+    "ghidra-scripts/EmulateMouseWorkThread.java": "43e16212be85a0851d50858500a4477a35c3afe29283dbaab44d7ec075c09ca1"
+  },
+  "limits": [
+    "Official1.20 firmware, matching reported device version; not live flash dump or RF capture",
+    "Privileged CPU BASEPRI model; ISB logged inert; IRQ number explicit; RAM/RTC/MMIO frozen snapshots",
+    "Unknown timer callback23022310 and work callback23022620 remain real entry boundaries",
+    "Worker2048 inputs stop at next loop header or real drain-wake/pend/yield callees; no claim of thread termination",
+    "No automatic RTC interrupt, actual context switch, preemption/concurrency or radio timing",
+    "Timer-stop callback/waiter and RTC-busy negative boundaries retain earlier contracts; not covered by complete-return fixtures",
+    "Semaphore helper verified as worker composition under lock, not every independent caller context"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "original_regression_cases": 6144,
+  "not_added_to_original_input_count": true,
+  "legacy_boundary_counts_unchanged": true,
+  "continuous_scan_results_unchanged": true,
+  "sources": {
+    "analysis/rtc-v1-before-deferred/manifest.json": "2496db04e096ce84e5ca3b8b9153ac2b09a3e2e13c85c112ff9a66867d47cbb9",
+    "analysis/mouse-rtc-dispatch-comparison.json": "6dad0ea2cbefb860a2ddc7d2b6b231019472900bbb1f38534af70a960115bdf6",
+    "analysis/mouse-rtc-continuous-comparison.json": "6d21d52daa7a22f668efa8a51d0adf6f8b3c50d6ae2e0318673881ad0be252ca",
+    "recovered-code/portable/mouse_rtc_dispatch.c": "316124a6271c46faf2aa811bf94d3a3a2a50f1494f16aa745e6258fb218cbc79",
+    "recovered-code/portable/mouse_rtc_dispatch.h": "daad4b65c7ab13ec1ac2c6ecfa5eeeba9b628ee60eb7c207f3320f1937c11681"
+  },
+  "scope": "Shared RTC engine now accepts optional concrete handlers; original NULL-hook entry points retain all6144 historical input behavior and continuous scan results"
+}

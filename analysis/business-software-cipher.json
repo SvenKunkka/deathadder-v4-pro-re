@@ -1,0 +1,207 @@
+{
+  "status": "static reconstruction plus original-instruction differential verified",
+  "scope": "uplink business class2 and4; not all air traffic",
+  "algorithm_structure": "Corrected Block TEA / XXTEA complete update expression; name not from firmware symbols",
+  "arithmetic": {
+    "word_bits": 32,
+    "word_byte_order": "little",
+    "delta": "0x9E3779B9",
+    "rounds": "6+floor(52/n)",
+    "class2": {
+      "bytes": 8,
+      "words": 2,
+      "rounds": 32
+    },
+    "class4": {
+      "bytes": 16,
+      "words": 4,
+      "rounds": 19
+    }
+  },
+  "parameters": {
+    "mouse_23020d50": {
+      "r0": "uint32_t* mutable block",
+      "r1": "word count n",
+      "r2": "4word key pointer"
+    },
+    "dongle_2302003c": "same ABI"
+  },
+  "table": {
+    "length_bytes": 256,
+    "records": 16,
+    "record_bytes": 16,
+    "selector": "(connection BASE1 &0xF)",
+    "sha256": "d33f232d47337cb1d80b47ef7c78787df4e8fc49f532155fbd35e06df70841f7",
+    "mouse": {
+      "flash": "0x0E098904",
+      "file_offset": "0x2C904",
+      "key_ram": "0x23002600"
+    },
+    "dongle": {
+      "flash": "0x0E06FA74",
+      "file_offset": "0x1BA74",
+      "key_ram": "0x23003020"
+    },
+    "provenance": "literal pointers in23020E3C and23020120, exact256bytes matched from both original1.20radio images;16-byte record chosen with &15 and <<4, ldmia/stmia4words"
+  },
+  "raw_instruction_evidence": [
+    {
+      "role": "mouse",
+      "ram_address": "0x23020d50",
+      "flash_address": "0xe06d4ec",
+      "radio_file_offset": "0x14ec",
+      "bytes": "34 23 93 fb f1 f3",
+      "meaning": "52 / n"
+    },
+    {
+      "role": "mouse",
+      "ram_address": "0x23020e1c",
+      "flash_address": "0xe06d5b8",
+      "radio_file_offset": "0x15b8",
+      "bytes": "56 da 4c b5 b9 79 37 9e",
+      "meaning": "6*DELTA and DELTA literals"
+    },
+    {
+      "role": "mouse",
+      "ram_address": "0x23020e28",
+      "flash_address": "0xe06d5c4",
+      "radio_file_offset": "0x15c4",
+      "bytes": "00 f0 0f 00 04 4c 03 eb 00 13 0f cb 84 e8 0f 00",
+      "meaning": "mask selector and copy4words"
+    },
+    {
+      "role": "mouse",
+      "ram_address": "0x23020e58",
+      "flash_address": "0xe06d5f4",
+      "radio_file_offset": "0x15f4",
+      "bytes": "a1 08 04 d0 68 46 06 4a ff f7 76 ff",
+      "meaning": "n=len>>2, stack buffer and key pointer to cipher"
+    },
+    {
+      "role": "mouse",
+      "ram_address": "0x23025af0",
+      "flash_address": "0xe07228c",
+      "radio_file_offset": "0x628c",
+      "bytes": "10 23 06 a8 0d f1 17 01 8d f8 17 30 05 46 fb f7 a1 f9",
+      "meaning": "q4 len16 before wrapper"
+    },
+    {
+      "role": "dongle",
+      "ram_address": "0x2302003c",
+      "flash_address": "0xe0547d8",
+      "radio_file_offset": "0x7d8",
+      "bytes": "34 23 2d e9 f0 4f 93 fb f1 f6",
+      "meaning": "52/n"
+    },
+    {
+      "role": "dongle",
+      "ram_address": "0x2302005c",
+      "flash_address": "0xe0547f8",
+      "radio_file_offset": "0x7f8",
+      "bytes": "06 36 05 fb 06 f6",
+      "meaning": "rounds+6 and sum initialization"
+    },
+    {
+      "role": "dongle",
+      "ram_address": "0x23020100",
+      "flash_address": "0xe05489c",
+      "radio_file_offset": "0x89c",
+      "bytes": "b9 79 37 9e 47 86 c8 61",
+      "meaning": "DELTA and negativeDELTA"
+    },
+    {
+      "role": "dongle",
+      "ram_address": "0x2302010c",
+      "flash_address": "0xe0548a8",
+      "radio_file_offset": "0x8a8",
+      "bytes": "00 f0 0f 00 04 4c 03 eb 00 13 0f cb 84 e8 0f 00",
+      "meaning": "mask selector and copy4words"
+    },
+    {
+      "role": "dongle",
+      "ram_address": "0x2302013c",
+      "flash_address": "0xe0548d8",
+      "radio_file_offset": "0x8d8",
+      "bytes": "a1 08 04 d0 68 46 06 4a ff f7 7a ff",
+      "meaning": "n=len>>2 to inverse"
+    }
+  ],
+  "sources": [
+    {
+      "path": "analysis/mouse-radio-1.20-final/23020d50.c",
+      "sha256": "136d2f97c26ebd2b4f4e688628947e4fb0763d983295b8d901e62ccfad3dc318"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23020e24.c",
+      "sha256": "db9ce94c5a8de89355d1924ff5987a2ad77c49826327c1ee96a70d44bd285066"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23020e44.c",
+      "sha256": "c55ccbda00df144b6a2bf630892abea86d7c7af6b352138af6c3f30a868d72ca"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23025ab0.c",
+      "sha256": "d5f92f2843babc76501b7641e2b2d867cfba100547970e393d411dd8fe753411"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230259a4.c",
+      "sha256": "9ba39c99a730026603049a38aed51afdfe3a94755999f72e1a9d64222f5fd2ce"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23021150.c",
+      "sha256": "cf81b0146c50ecf8e358d640ccf3020e496139d7fb233f20f3662da210a6f226"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/2302869c.c",
+      "sha256": "ca2a55937fb60805b7446ad1a94ca13d10c1cc2036a0f760d88b9ce6ca7dc036"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23022e28.c",
+      "sha256": "27c73853cbab9b0ab2d3238ed8d4ac3f8997582b46264897210c34d52545429e"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230218ec.c",
+      "sha256": "6dd04c60a02ec4d59896153a70f9340e92ddab7a70ed255bb232f211cec6142f"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/2302003c.c",
+      "sha256": "cec63562ae90286892ea074f385f3404ec56f44d999d167c604ca812667defed"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23020108.c",
+      "sha256": "79ad9ca035927f1f4293e99a646076363a3939e0d7652a53d74f2cece91b887f"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23020128.c",
+      "sha256": "9c9d72a6ae34e058419bc91367879233109cfd2168b1e05ddfbb41dc75b43757"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23025004.c",
+      "sha256": "bb2b229deae7286e97fbd4ed7f1cedf176db8d1a34b7e38664e7c752cf3ad3fd"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23024e38.c",
+      "sha256": "382389dbdd78cf9174190c276c283598793aeb321dd0b5dcec627f21a8e621cc"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23020fcc.c",
+      "sha256": "f44fc23879cd9f68b3968b4b019273ceda75fb29dc252a10b31a2c05e7cccbd6"
+    }
+  ],
+  "code": "analysis/business_software_cipher.py",
+  "host_oracle": "analysis/business_cipher_oracle.c",
+  "tests": "analysis/business-cipher-test-results.json",
+  "limits": [
+    "Original ARM pure transform routines now have128 differential cases; wrappers/key installation/framing are not covered by that test.",
+    "No captured session plaintext/ciphertext verified.",
+    "Static table selection is observed, not a complete pairing/key-lifetime security analysis.",
+    "Only class2/4 dataflow establishes usage; no assertion all traffic encrypted or authenticated.",
+    "Host API deliberately supports only8/16bytes; arbitrary firmware length behavior not claimed."
+  ],
+  "original_instruction_validation": {
+    "report": "analysis/business-cipher-original-comparison.json",
+    "cases": 128,
+    "result": "PASS",
+    "scope": "pure transform functions only, software emulation; parent task produced and independently verified evidence"
+  }
+}

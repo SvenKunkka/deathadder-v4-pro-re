@@ -1,0 +1,153 @@
+{
+  "status": "PASS",
+  "scenarios": 4,
+  "complete_timeout_restart_cycles": 8,
+  "explicit_application_timer_calls": 8000,
+  "actual_worker_segments": 8,
+  "sources": {
+    "analysis/test_mouse_scanning_continuous.py": "1bff682f95312fa245733905cad763a49a2e95f1750795efb8cc926bfc5dcbaa",
+    "recovered-code/portable/mouse_scanning.c": "4b2d52a41de90de241c36360cf1f22f188fdd0d243b5f92ef7272798809418de",
+    "recovered-code/portable/mouse_scanning.h": "22d784038291fc59a908168a88bb56ab9d2ba905ea894ccf287b92c0c6b55396",
+    "analysis/libmouse_scanning.dylib": "81c79593fbdbf5af7e12a050d535c2c0cabebd591e391836827541db9d757edf"
+  },
+  "results": [
+    {
+      "initial_scan_index": 0,
+      "cycles": [
+        {
+          "callbacks": 1000,
+          "first_eight_frequencies": [
+            2,
+            26,
+            50,
+            80,
+            2,
+            26,
+            50,
+            80
+          ],
+          "scanning_restarted": true
+        },
+        {
+          "callbacks": 1000,
+          "first_eight_frequencies": [
+            26,
+            50,
+            80,
+            2,
+            26,
+            50,
+            80,
+            2
+          ],
+          "scanning_restarted": true
+        }
+      ]
+    },
+    {
+      "initial_scan_index": 1,
+      "cycles": [
+        {
+          "callbacks": 1000,
+          "first_eight_frequencies": [
+            26,
+            50,
+            80,
+            2,
+            26,
+            50,
+            80,
+            2
+          ],
+          "scanning_restarted": true
+        },
+        {
+          "callbacks": 1000,
+          "first_eight_frequencies": [
+            50,
+            80,
+            2,
+            26,
+            50,
+            80,
+            2,
+            26
+          ],
+          "scanning_restarted": true
+        }
+      ]
+    },
+    {
+      "initial_scan_index": 2,
+      "cycles": [
+        {
+          "callbacks": 1000,
+          "first_eight_frequencies": [
+            50,
+            80,
+            2,
+            26,
+            50,
+            80,
+            2,
+            26
+          ],
+          "scanning_restarted": true
+        },
+        {
+          "callbacks": 1000,
+          "first_eight_frequencies": [
+            80,
+            2,
+            26,
+            50,
+            80,
+            2,
+            26,
+            50
+          ],
+          "scanning_restarted": true
+        }
+      ]
+    },
+    {
+      "initial_scan_index": 3,
+      "cycles": [
+        {
+          "callbacks": 1000,
+          "first_eight_frequencies": [
+            80,
+            2,
+            26,
+            50,
+            80,
+            2,
+            26,
+            50
+          ],
+          "scanning_restarted": true
+        },
+        {
+          "callbacks": 1000,
+          "first_eight_frequencies": [
+            2,
+            26,
+            50,
+            80,
+            2,
+            26,
+            50,
+            80
+          ],
+          "scanning_restarted": true
+        }
+      ]
+    }
+  ],
+  "not_added_to_original_input_count": true,
+  "limits": [
+    "C component integration only, not new original-instruction evidence",
+    "Application timer callback invoked explicitly; RTC snapshot supplied by test, no automatic expiry/IRQ dispatch",
+    "No receiver, no radio events/RX packets, no real RF verification"
+  ]
+}

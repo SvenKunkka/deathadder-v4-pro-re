@@ -1,0 +1,496 @@
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+23022508 <.data+0x2508>:
+23022508:	4b07      	ldr	r3, [pc, #28]	@ (0x23022528)
+2302250a:	889b      	ldrh	r3, [r3, #4]
+2302250c:	2b04      	cmp	r3, #4
+2302250e:	d004      	beq.n	0x2302251a
+23022510:	2b01      	cmp	r3, #1
+23022512:	d004      	beq.n	0x2302251e
+23022514:	2b02      	cmp	r3, #2
+23022516:	d004      	beq.n	0x23022522
+23022518:	4770      	bx	lr
+2302251a:	f003 b9b9 	b.w	0x23025890
+2302251e:	f002 b85b 	b.w	0x230245d8
+23022522:	f001 b887 	b.w	0x23023634
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+230216a0 <.data+0x16a0>:
+230216a0:	f000 0007 	and.w	r0, r0, #7
+230216a4:	4770      	bx	lr
+230216a6:	bf00      	nop
+230216a8:	f3c0 00c2 	ubfx	r0, r0, #3, #3
+230216ac:	4770      	bx	lr
+230216ae:	bf00      	nop
+230216b0:	f44f 636e 	mov.w	r3, #3808	@ 0xee0
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+23023634 <.data+0x3634>:
+23023634:	b5f0      	push	{r4, r5, r6, r7, lr}
+23023636:	4c1c      	ldr	r4, [pc, #112]	@ (0x230236a8)
+23023638:	b083      	sub	sp, #12
+2302363a:	f994 211e 	ldrsb.w	r2, [r4, #286]	@ 0x11e
+2302363e:	f894 611e 	ldrb.w	r6, [r4, #286]	@ 0x11e
+23023642:	2a00      	cmp	r2, #0
+23023644:	dc01      	bgt.n	0x2302364a
+23023646:	b003      	add	sp, #12
+23023648:	bdf0      	pop	{r4, r5, r6, r7, pc}
+2302364a:	f894 7120 	ldrb.w	r7, [r4, #288]	@ 0x120
+2302364e:	4638      	mov	r0, r7
+23023650:	f7fe f82a 	bl	0x230216a8
+23023654:	4605      	mov	r5, r0
+23023656:	4638      	mov	r0, r7
+23023658:	f7fe f822 	bl	0x230216a0
+2302365c:	b95d      	cbnz	r5, 0x23023676
+2302365e:	f894 3068 	ldrb.w	r3, [r4, #104]	@ 0x68
+23023662:	2b00      	cmp	r3, #0
+23023664:	d0ef      	beq.n	0x23023646
+23023666:	4628      	mov	r0, r5
+23023668:	f894 106d 	ldrb.w	r1, [r4, #109]	@ 0x6d
+2302366c:	b003      	add	sp, #12
+2302366e:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+23023672:	f002 bc53 	b.w	0x23025f1c
+23023676:	1962      	adds	r2, r4, r5
+23023678:	f892 30c2 	ldrb.w	r3, [r2, #194]	@ 0xc2
+2302367c:	4283      	cmp	r3, r0
+2302367e:	d0e2      	beq.n	0x23023646
+23023680:	4629      	mov	r1, r5
+23023682:	2500      	movs	r5, #0
+23023684:	1eb3      	subs	r3, r6, #2
+23023686:	b25b      	sxtb	r3, r3
+23023688:	f882 00c2 	strb.w	r0, [r2, #194]	@ 0xc2
+2302368c:	b29b      	uxth	r3, r3
+2302368e:	4628      	mov	r0, r5
+23023690:	f204 1221 	addw	r2, r4, #289	@ 0x121
+23023694:	9500      	str	r5, [sp, #0]
+23023696:	f002 fbb5 	bl	0x23025e04
+2302369a:	2302      	movs	r3, #2
+2302369c:	f8c4 5098 	str.w	r5, [r4, #152]	@ 0x98
+230236a0:	f884 3058 	strb.w	r3, [r4, #88]	@ 0x58
+230236a4:	b003      	add	sp, #12
+230236a6:	bdf0      	pop	{r4, r5, r6, r7, pc}
+230236a8:	2978      	cmp	r1, #120	@ 0x78
+230236aa:	2300      	movs	r3, #0
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+230245d8 <.data+0x45d8>:
+230245d8:	b5f0      	push	{r4, r5, r6, r7, lr}
+230245da:	4c1c      	ldr	r4, [pc, #112]	@ (0x2302464c)
+230245dc:	b083      	sub	sp, #12
+230245de:	f994 211e 	ldrsb.w	r2, [r4, #286]	@ 0x11e
+230245e2:	f894 611e 	ldrb.w	r6, [r4, #286]	@ 0x11e
+230245e6:	2a00      	cmp	r2, #0
+230245e8:	dc01      	bgt.n	0x230245ee
+230245ea:	b003      	add	sp, #12
+230245ec:	bdf0      	pop	{r4, r5, r6, r7, pc}
+230245ee:	f894 7120 	ldrb.w	r7, [r4, #288]	@ 0x120
+230245f2:	4638      	mov	r0, r7
+230245f4:	f7fd f858 	bl	0x230216a8
+230245f8:	4605      	mov	r5, r0
+230245fa:	4638      	mov	r0, r7
+230245fc:	f7fd f850 	bl	0x230216a0
+23024600:	b95d      	cbnz	r5, 0x2302461a
+23024602:	f894 3068 	ldrb.w	r3, [r4, #104]	@ 0x68
+23024606:	2b00      	cmp	r3, #0
+23024608:	d0ef      	beq.n	0x230245ea
+2302460a:	4628      	mov	r0, r5
+2302460c:	f894 106d 	ldrb.w	r1, [r4, #109]	@ 0x6d
+23024610:	b003      	add	sp, #12
+23024612:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+23024616:	f001 bc81 	b.w	0x23025f1c
+2302461a:	1962      	adds	r2, r4, r5
+2302461c:	f892 30c2 	ldrb.w	r3, [r2, #194]	@ 0xc2
+23024620:	4283      	cmp	r3, r0
+23024622:	d0e2      	beq.n	0x230245ea
+23024624:	4629      	mov	r1, r5
+23024626:	2500      	movs	r5, #0
+23024628:	1eb3      	subs	r3, r6, #2
+2302462a:	b25b      	sxtb	r3, r3
+2302462c:	f882 00c2 	strb.w	r0, [r2, #194]	@ 0xc2
+23024630:	b29b      	uxth	r3, r3
+23024632:	4628      	mov	r0, r5
+23024634:	f204 1221 	addw	r2, r4, #289	@ 0x121
+23024638:	9500      	str	r5, [sp, #0]
+2302463a:	f001 fbe3 	bl	0x23025e04
+2302463e:	2302      	movs	r3, #2
+23024640:	f8c4 5098 	str.w	r5, [r4, #152]	@ 0x98
+23024644:	f884 3058 	strb.w	r3, [r4, #88]	@ 0x58
+23024648:	b003      	add	sp, #12
+2302464a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+2302464c:	2978      	cmp	r1, #120	@ 0x78
+2302464e:	2300      	movs	r3, #0
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+23025890 <.data+0x5890>:
+23025890:	b5f0      	push	{r4, r5, r6, r7, lr}
+23025892:	4c2a      	ldr	r4, [pc, #168]	@ (0x2302593c)
+23025894:	b083      	sub	sp, #12
+23025896:	f994 211e 	ldrsb.w	r2, [r4, #286]	@ 0x11e
+2302589a:	f894 611e 	ldrb.w	r6, [r4, #286]	@ 0x11e
+2302589e:	2a00      	cmp	r2, #0
+230258a0:	dc01      	bgt.n	0x230258a6
+230258a2:	b003      	add	sp, #12
+230258a4:	bdf0      	pop	{r4, r5, r6, r7, pc}
+230258a6:	f894 7120 	ldrb.w	r7, [r4, #288]	@ 0x120
+230258aa:	4638      	mov	r0, r7
+230258ac:	f7fb fefc 	bl	0x230216a8
+230258b0:	4605      	mov	r5, r0
+230258b2:	4638      	mov	r0, r7
+230258b4:	f7fb fef4 	bl	0x230216a0
+230258b8:	b1d5      	cbz	r5, 0x230258f0
+230258ba:	1962      	adds	r2, r4, r5
+230258bc:	f892 30c2 	ldrb.w	r3, [r2, #194]	@ 0xc2
+230258c0:	4283      	cmp	r3, r0
+230258c2:	d0ee      	beq.n	0x230258a2
+230258c4:	f882 00c2 	strb.w	r0, [r2, #194]	@ 0xc2
+230258c8:	1eb3      	subs	r3, r6, #2
+230258ca:	f894 206d 	ldrb.w	r2, [r4, #109]	@ 0x6d
+230258ce:	b25b      	sxtb	r3, r3
+230258d0:	9200      	str	r2, [sp, #0]
+230258d2:	4629      	mov	r1, r5
+230258d4:	f204 1221 	addw	r2, r4, #289	@ 0x121
+230258d8:	2000      	movs	r0, #0
+230258da:	b29b      	uxth	r3, r3
+230258dc:	f000 fa92 	bl	0x23025e04
+230258e0:	2200      	movs	r2, #0
+230258e2:	2302      	movs	r3, #2
+230258e4:	f8c4 2098 	str.w	r2, [r4, #152]	@ 0x98
+230258e8:	f884 3058 	strb.w	r3, [r4, #88]	@ 0x58
+230258ec:	b003      	add	sp, #12
+230258ee:	bdf0      	pop	{r4, r5, r6, r7, pc}
+230258f0:	f894 3121 	ldrb.w	r3, [r4, #289]	@ 0x121
+230258f4:	2b28      	cmp	r3, #40	@ 0x28
+230258f6:	d01b      	beq.n	0x23025930
+230258f8:	2b29      	cmp	r3, #41	@ 0x29
+230258fa:	d10d      	bne.n	0x23025918
+230258fc:	2101      	movs	r1, #1
+230258fe:	f8b4 3123 	ldrh.w	r3, [r4, #291]	@ 0x123
+23025902:	4a0f      	ldr	r2, [pc, #60]	@ (0x23025940)
+23025904:	ba5b      	rev16	r3, r3
+23025906:	480f      	ldr	r0, [pc, #60]	@ (0x23025944)
+23025908:	f8a2 31de 	strh.w	r3, [r2, #478]	@ 0x1de
+2302590c:	f894 3122 	ldrb.w	r3, [r4, #290]	@ 0x122
+23025910:	f882 1031 	strb.w	r1, [r2, #49]	@ 0x31
+23025914:	f880 303a 	strb.w	r3, [r0, #58]	@ 0x3a
+23025918:	f894 3068 	ldrb.w	r3, [r4, #104]	@ 0x68
+2302591c:	2b00      	cmp	r3, #0
+2302591e:	d0c0      	beq.n	0x230258a2
+23025920:	2000      	movs	r0, #0
+23025922:	f894 106d 	ldrb.w	r1, [r4, #109]	@ 0x6d
+23025926:	b003      	add	sp, #12
+23025928:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+2302592c:	f000 baf6 	b.w	0x23025f1c
+23025930:	f8d4 2122 	ldr.w	r2, [r4, #290]	@ 0x122
+23025934:	4b03      	ldr	r3, [pc, #12]	@ (0x23025944)
+23025936:	f8c3 2036 	str.w	r2, [r3, #54]	@ 0x36
+2302593a:	e7ed      	b.n	0x23025918
+2302593c:	2978      	cmp	r1, #120	@ 0x78
+2302593e:	2300      	movs	r3, #0
+23025940:	2794      	movs	r7, #148	@ 0x94
+23025942:	2300      	movs	r3, #0
+23025944:	2688      	movs	r6, #136	@ 0x88
+23025946:	2300      	movs	r3, #0
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+230259ec <.data+0x59ec>:
+230259ec:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+230259f0:	7817      	ldrb	r7, [r2, #0]
+230259f2:	4e28      	ldr	r6, [pc, #160]	@ (0x23025a94)
+230259f4:	f017 001f 	ands.w	r0, r7, #31
+230259f8:	4694      	mov	ip, r2
+230259fa:	460c      	mov	r4, r1
+230259fc:	eb06 16c1 	add.w	r6, r6, r1, lsl #7
+23025a00:	d036      	beq.n	0x23025a70
+23025a02:	f8df 8094 	ldr.w	r8, [pc, #148]	@ 0x23025a98
+23025a06:	f818 9001 	ldrb.w	r9, [r8, r1]
+23025a0a:	4581      	cmp	r9, r0
+23025a0c:	d006      	beq.n	0x23025a1c
+23025a0e:	2300      	movs	r3, #0
+23025a10:	4a22      	ldr	r2, [pc, #136]	@ (0x23025a9c)
+23025a12:	f808 3001 	strb.w	r3, [r8, r1]
+23025a16:	5453      	strb	r3, [r2, r1]
+23025a18:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+23025a1c:	f8df a07c 	ldr.w	sl, [pc, #124]	@ 0x23025a9c
+23025a20:	1e5d      	subs	r5, r3, #1
+23025a22:	f81a b004 	ldrb.w	fp, [sl, r4]
+23025a26:	1c51      	adds	r1, r2, #1
+23025a28:	eb06 000b 	add.w	r0, r6, fp
+23025a2c:	462a      	mov	r2, r5
+23025a2e:	44ab      	add	fp, r5
+23025a30:	f109 0901 	add.w	r9, r9, #1
+23025a34:	f006 fde8 	bl	0x2302c608
+23025a38:	fa5f f989 	uxtb.w	r9, r9
+23025a3c:	f80a b004 	strb.w	fp, [sl, r4]
+23025a40:	063b      	lsls	r3, r7, #24
+23025a42:	f808 9004 	strb.w	r9, [r8, r4]
+23025a46:	d4e7      	bmi.n	0x23025a18
+23025a48:	4b15      	ldr	r3, [pc, #84]	@ (0x23025aa0)
+23025a4a:	f81a 2004 	ldrb.w	r2, [sl, r4]
+23025a4e:	701c      	strb	r4, [r3, #0]
+23025a50:	4b14      	ldr	r3, [pc, #80]	@ (0x23025aa4)
+23025a52:	4631      	mov	r1, r6
+23025a54:	4814      	ldr	r0, [pc, #80]	@ (0x23025aa8)
+23025a56:	701a      	strb	r2, [r3, #0]
+23025a58:	f006 fdd6 	bl	0x2302c608
+23025a5c:	2300      	movs	r3, #0
+23025a5e:	f808 3004 	strb.w	r3, [r8, r4]
+23025a62:	f80a 3004 	strb.w	r3, [sl, r4]
+23025a66:	4811      	ldr	r0, [pc, #68]	@ (0x23025aac)
+23025a68:	e8bd 4ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+23025a6c:	f006 bd20 	b.w	0x2302c4b0
+23025a70:	f8df 8024 	ldr.w	r8, [pc, #36]	@ 0x23025a98
+23025a74:	f8df a024 	ldr.w	sl, [pc, #36]	@ 0x23025a9c
+23025a78:	1e5a      	subs	r2, r3, #1
+23025a7a:	f808 0004 	strb.w	r0, [r8, r4]
+23025a7e:	f10c 0101 	add.w	r1, ip, #1
+23025a82:	4630      	mov	r0, r6
+23025a84:	f80a 2004 	strb.w	r2, [sl, r4]
+23025a88:	f04f 0901 	mov.w	r9, #1
+23025a8c:	f006 fdbc 	bl	0x2302c608
+23025a90:	e7d6      	b.n	0x23025a40
+23025a92:	bf00      	nop
+23025a94:	6850      	ldr	r0, [r2, #4]
+23025a96:	2300      	movs	r3, #0
+23025a98:	6b50      	ldr	r0, [r2, #52]	@ 0x34
+23025a9a:	2300      	movs	r3, #0
+23025a9c:	6b58      	ldr	r0, [r3, #52]	@ 0x34
+23025a9e:	2300      	movs	r3, #0
+23025aa0:	779b      	strb	r3, [r3, #30]
+23025aa2:	2300      	movs	r3, #0
+23025aa4:	779c      	strb	r4, [r3, #30]
+23025aa6:	2300      	movs	r3, #0
+23025aa8:	67d0      	str	r0, [r2, #124]	@ 0x7c
+23025aaa:	2300      	movs	r3, #0
+23025aac:	67a0      	str	r0, [r4, #120]	@ 0x78
+23025aae:	2300      	movs	r3, #0
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+23025e04 <.data+0x5e04>:
+23025e04:	b510      	push	{r4, lr}
+23025e06:	b2c0      	uxtb	r0, r0
+23025e08:	b2c9      	uxtb	r1, r1
+23025e0a:	b2db      	uxtb	r3, r3
+23025e0c:	f8bd 4008 	ldrh.w	r4, [sp, #8]
+23025e10:	f7ff fdec 	bl	0x230259ec
+23025e14:	f247 5130 	movw	r1, #30000	@ 0x7530
+23025e18:	4a06      	ldr	r2, [pc, #24]	@ (0x23025e34)
+23025e1a:	8bd3      	ldrh	r3, [r2, #30]
+23025e1c:	8b90      	ldrh	r0, [r2, #28]
+23025e1e:	3301      	adds	r3, #1
+23025e20:	b29b      	uxth	r3, r3
+23025e22:	428b      	cmp	r3, r1
+23025e24:	bf88      	it	hi
+23025e26:	2300      	movhi	r3, #0
+23025e28:	4404      	add	r4, r0
+23025e2a:	8394      	strh	r4, [r2, #28]
+23025e2c:	bf94      	ite	ls
+23025e2e:	83d3      	strhls	r3, [r2, #30]
+23025e30:	61d3      	strhi	r3, [r2, #28]
+23025e32:	bd10      	pop	{r4, pc}
+23025e34:	6b6c      	ldr	r4, [r5, #52]	@ 0x34
+23025e36:	2300      	movs	r3, #0
+
+
+outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin:     file format binary
+
+
+Disassembly of section .data:
+
+23025f1c <.data+0x5f1c>:
+23025f1c:	f247 5030 	movw	r0, #30000	@ 0x7530
+23025f20:	4a07      	ldr	r2, [pc, #28]	@ (0x23025f40)
+23025f22:	8bd3      	ldrh	r3, [r2, #30]
+23025f24:	f8b2 c01c 	ldrh.w	ip, [r2, #28]
+23025f28:	3301      	adds	r3, #1
+23025f2a:	b29b      	uxth	r3, r3
+23025f2c:	4283      	cmp	r3, r0
+23025f2e:	bf88      	it	hi
+23025f30:	2300      	movhi	r3, #0
+23025f32:	4461      	add	r1, ip
+23025f34:	8391      	strh	r1, [r2, #28]
+23025f36:	bf94      	ite	ls
+23025f38:	83d3      	strhls	r3, [r2, #30]
+23025f3a:	61d3      	strhi	r3, [r2, #28]
+23025f3c:	4770      	bx	lr
+23025f3e:	bf00      	nop
+23025f40:	6b6c      	ldr	r4, [r5, #52]	@ 0x34
+23025f42:	2300      	movs	r3, #0
+
+
+outputs/razer-radio-re/firmware-extracted-1.20/Suit2FWData__radio_radio.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0e09518c <.data+0x2918c>:
+ e09518c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ e09518e:	68c3      	ldr	r3, [r0, #12]
+ e095190:	460d      	mov	r5, r1
+ e095192:	079a      	lsls	r2, r3, #30
+ e095194:	f3c3 0640 	ubfx	r6, r3, #1, #1
+ e095198:	d411      	bmi.n	0xe0951be
+ e09519a:	075f      	lsls	r7, r3, #29
+ e09519c:	d512      	bpl.n	0xe0951c4
+ e09519e:	2300      	movs	r3, #0
+ e0951a0:	602b      	str	r3, [r5, #0]
+ e0951a2:	4630      	mov	r0, r6
+ e0951a4:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ e0951a6:	f000 fa9b 	bl	0xe0956e0
+ e0951aa:	f8d7 30a8 	ldr.w	r3, [r7, #168]	@ 0xa8
+ e0951ae:	b9a8      	cbnz	r0, 0xe0951dc
+ e0951b0:	07d9      	lsls	r1, r3, #31
+ e0951b2:	f3c3 02c0 	ubfx	r2, r3, #3, #1
+ e0951b6:	d547      	bpl.n	0xe095248
+ e0951b8:	b1d2      	cbz	r2, 0xe0951f0
+ e0951ba:	075a      	lsls	r2, r3, #29
+ e0951bc:	d418      	bmi.n	0xe0951f0
+ e0951be:	f06f 060f 	mvn.w	r6, #15
+ e0951c2:	e7ec      	b.n	0xe09519e
+ e0951c4:	680f      	ldr	r7, [r1, #0]
+ e0951c6:	4604      	mov	r4, r0
+ e0951c8:	b347      	cbz	r7, 0xe09521c
+ e0951ca:	07db      	lsls	r3, r3, #31
+ e0951cc:	d42b      	bmi.n	0xe095226
+ e0951ce:	2601      	movs	r6, #1
+ e0951d0:	4b1f      	ldr	r3, [pc, #124]	@ (0xe095250)
+ e0951d2:	689b      	ldr	r3, [r3, #8]
+ e0951d4:	42bb      	cmp	r3, r7
+ e0951d6:	d0e6      	beq.n	0xe0951a6
+ e0951d8:	f8d7 30a8 	ldr.w	r3, [r7, #168]	@ 0xa8
+ e0951dc:	07d8      	lsls	r0, r3, #31
+ e0951de:	f3c3 0280 	ubfx	r2, r3, #2, #1
+ e0951e2:	d531      	bpl.n	0xe095248
+ e0951e4:	2a00      	cmp	r2, #0
+ e0951e6:	d1ea      	bne.n	0xe0951be
+ e0951e8:	f3c3 03c0 	ubfx	r3, r3, #3, #1
+ e0951ec:	2b00      	cmp	r3, #0
+ e0951ee:	d1e6      	bne.n	0xe0951be
+ e0951f0:	2300      	movs	r3, #0
+ e0951f2:	6023      	str	r3, [r4, #0]
+ e0951f4:	f8d7 3094 	ldr.w	r3, [r7, #148]	@ 0x94
+ e0951f8:	b1eb      	cbz	r3, 0xe095236
+ e0951fa:	601c      	str	r4, [r3, #0]
+ e0951fc:	f8c7 4094 	str.w	r4, [r7, #148]	@ 0x94
+ e095200:	2200      	movs	r2, #0
+ e095202:	f107 0098 	add.w	r0, r7, #152	@ 0x98
+ e095206:	4611      	mov	r1, r2
+ e095208:	f001 f80a 	bl	0xe096220
+ e09520c:	68e3      	ldr	r3, [r4, #12]
+ e09520e:	4630      	mov	r0, r6
+ e095210:	f043 0304 	orr.w	r3, r3, #4
+ e095214:	60e3      	str	r3, [r4, #12]
+ e095216:	682b      	ldr	r3, [r5, #0]
+ e095218:	60a3      	str	r3, [r4, #8]
+ e09521a:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ e09521c:	6887      	ldr	r7, [r0, #8]
+ e09521e:	600f      	str	r7, [r1, #0]
+ e095220:	68c3      	ldr	r3, [r0, #12]
+ e095222:	07de      	lsls	r6, r3, #31
+ e095224:	d50c      	bpl.n	0xe095240
+ e095226:	68a7      	ldr	r7, [r4, #8]
+ e095228:	2602      	movs	r6, #2
+ e09522a:	602f      	str	r7, [r5, #0]
+ e09522c:	2f00      	cmp	r7, #0
+ e09522e:	d1cf      	bne.n	0xe0951d0
+ e095230:	f06f 0615 	mvn.w	r6, #21
+ e095234:	e7b3      	b.n	0xe09519e
+ e095236:	f8c7 4090 	str.w	r4, [r7, #144]	@ 0x90
+ e09523a:	f8c7 4094 	str.w	r4, [r7, #148]	@ 0x94
+ e09523e:	e7df      	b.n	0xe095200
+ e095240:	2601      	movs	r6, #1
+ e095242:	2f00      	cmp	r7, #0
+ e095244:	d1c4      	bne.n	0xe0951d0
+ e095246:	e7f3      	b.n	0xe095230
+ e095248:	f06f 0612 	mvn.w	r6, #18
+ e09524c:	e7a7      	b.n	0xe09519e
+ e09524e:	bf00      	nop
+ e095250:	764c      	strb	r4, [r1, #25]
+ e095252:	2300      	movs	r3, #0
+
+
+outputs/razer-radio-re/firmware-extracted-1.20/Suit2FWData__radio_radio.bin:     file format binary
+
+
+Disassembly of section .data:
+
+0e0952ec <.data+0x292ec>:
+ e0952ec:	b570      	push	{r4, r5, r6, lr}
+ e0952ee:	4b0f      	ldr	r3, [pc, #60]	@ (0xe09532c)
+ e0952f0:	b082      	sub	sp, #8
+ e0952f2:	9301      	str	r3, [sp, #4]
+ e0952f4:	f3ef 8611 	mrs	r6, BASEPRI
+ e0952f8:	2520      	movs	r5, #32
+ e0952fa:	f385 8812 	msr	BASEPRI_MAX, r5
+ e0952fe:	f3bf 8f6f 	isb	sy
+ e095302:	a901      	add	r1, sp, #4
+ e095304:	f7ff ff42 	bl	0xe09518c
+ e095308:	4604      	mov	r4, r0
+ e09530a:	f386 8811 	msr	BASEPRI, r6
+ e09530e:	f3bf 8f6f 	isb	sy
+ e095312:	2800      	cmp	r0, #0
+ e095314:	dd07      	ble.n	0xe095326
+ e095316:	f3ef 8011 	mrs	r0, BASEPRI
+ e09531a:	f385 8812 	msr	BASEPRI_MAX, r5
+ e09531e:	f3bf 8f6f 	isb	sy
+ e095322:	f000 fdd3 	bl	0xe095ecc
+ e095326:	4620      	mov	r0, r4
+ e095328:	b002      	add	sp, #8
+ e09532a:	bd70      	pop	{r4, r5, r6, pc}
+ e09532c:	2498      	movs	r4, #152	@ 0x98
+ e09532e:	2300      	movs	r3, #0
+ e095330:	4602      	mov	r2, r0
+ e095332:	f3ef 8c11 	mrs	ip, BASEPRI
+ e095336:	2320      	movs	r3, #32
+ e095338:	f383 8812 	msr	BASEPRI_MAX, r3
+ e09533c:	f3bf 8f6f 	isb	sy
+ e095340:	68c3      	ldr	r3, [r0, #12]
+ e095342:	0799      	lsls	r1, r3, #30
+ e095344:	d50c      	bpl.n	0xe095360
+ e095346:	f013 001f 	ands.w	r0, r3, #31
+ e09534a:	d004      	beq.n	0xe095356
+ e09534c:	f043 0302 	orr.w	r3, r3, #2
+ e095350:	60d3      	str	r3, [r2, #12]
+ e095352:	f040 0002 	orr.w	r0, r0, #2
+ e095356:	f38c 8811 	msr	BASEPRI, ip
+ e09535a:	f3bf 8f6f 	isb	sy
+ e09535e:	4770      	bx	lr
+ e095360:	b410      	push	{r4}
+ e095362:	f3c3 0180 	ubfx	r1, r3, #2, #1
+ e095366:	f023 0304 	bic.w	r3, r3, #4
+ e09536a:	6884      	ldr	r4, [r0, #8]
+ e09536c:	60c3      	str	r3, [r0, #12]
+ e09536e:	b969      	cbnz	r1, 0xe09538c

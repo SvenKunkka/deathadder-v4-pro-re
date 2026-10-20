@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "original_cases": 512,
+  "coverage": {
+    "kind_0": 64,
+    "kind_1": 64,
+    "kind_2": 64,
+    "kind_3": 64,
+    "kind_4": 64,
+    "kind_5": 64,
+    "kind_6": 64,
+    "kind_7": 64
+  },
+  "failures": [],
+  "boundary_tests": 5,
+  "comparison": [
+    "all65536 RAM bytes",
+    "SPIM inert16B",
+    "DPPI inert72B",
+    "actual TX fragmentation/ring helpers and memory copy executed"
+  ],
+  "source_sha256": "88eddfd9d553a8abe0e55218dc9378c366bb85e436655033d18139b34a61f312",
+  "code_sha256": {
+    "recovered-code/portable/mouse_business_consumer.c": "960209e44840ab98ee0cad65750a5d0e18fcef15c4a084b92295332285065b86",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/mouse_business_consumer.h": "2e6fe0665bff1759b46f83bee44e9c98e18a20b5fdc83e06f61bade0fec06537",
+    "ghidra-scripts/EmulateMouseBusinessConsumer.java": "c5f5c55ebb8069a3080c76275520d33be70a8128a12a2a4e63631a492bef6b26"
+  },
+  "limits": [
+    "A3 timer-start branch not implemented",
+    "B1 reboot path not returned/modelled",
+    "B1 active sensor reinit gated off",
+    "class5 n0/n2 huge copy rejected by host preflight",
+    "PRIMASK/real peripheral timing not modeled"
+  ]
+}

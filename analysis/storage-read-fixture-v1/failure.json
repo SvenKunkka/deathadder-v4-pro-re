@@ -1,0 +1,5 @@
+{
+  "status": "fixture-failure",
+  "case": 1009,
+  "reason": "Positive driver return permits original advance to use unvalidated close offset; resulting read crosses fixture backing range. Handle this with explicit driver failure rather than assuming valid bounds. Add explicit prior-stack record for positive return propagation."
+}

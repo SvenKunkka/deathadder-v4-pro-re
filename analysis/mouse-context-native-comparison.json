@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "architecture": "Cortex-M33 Thumb ARMv8-M",
+  "compared_bytes": 200,
+  "spans": [
+    {
+      "start": "0xe089d4c",
+      "end_exclusive": "0xe089e0c",
+      "image_offset": "0x1dd4c",
+      "assembled_offset": "0x0",
+      "length": 192,
+      "sha256": "058e2f2f46e44c54079311d8eafc6c322cdfdd86919843146af9046ef2a7c386"
+    },
+    {
+      "start": "0xe089f3c",
+      "end_exclusive": "0xe089f44",
+      "image_offset": "0x1df3c",
+      "assembled_offset": "0x1f0",
+      "length": 8,
+      "sha256": "b5b063a6360a0101c1e907751d8f0b79c647561ab8332ec8e206944184efa52e"
+    }
+  ],
+  "sources": {
+    "recovered-code/cortex-m/mouse_context_switch.S": "072e10b4c787d0d0dc6af5d6c483712c8ed8893a04b8e3e7b6a1e24b1480de85",
+    "recovered-code/cortex-m/mouse_context_switch.ld": "51dc93f4c27787a9fce17a683f28aa4d424dc66e763ac9ab8ccb5f6a76682dfd",
+    "recovered-code/cortex-m/Makefile": "f6e16abeac9c570a753a4b13ca9314b1275f7bcdf418f5f8c9b9967bca6a6521",
+    "recovered-code/cortex-m/build/mouse_context_switch.o": "0e1aa24bb2b4ec01e8205f1b2c324d3392a09edc8d4bf1270bbce1891b0a256b",
+    "recovered-code/cortex-m/build/mouse_context_switch.elf": "fd1bd2519f6da3bed94c63929d3a7e8ec61fee5dc4e8905acb9c042ec7e2b55c",
+    "recovered-code/cortex-m/build/mouse_context_switch.bin": "9cf618b079099a02457c359cc7e6265d6ee55a6e32767063c9ff9d61a5c77db4"
+  },
+  "firmware_sha256": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48",
+  "limits": [
+    "Exact source-assembled bytes for selected200 bytes, not full MCU image",
+    "Intervening304 bytes in fragment are placeholder padding and excluded, not original code",
+    "Fixed mouse1.20 addresses; no boot/vector/startup/full firmware linking or device execution",
+    "BX LR bytes match; architectural exception return is not executed in original-instruction fixture"
+  ]
+}

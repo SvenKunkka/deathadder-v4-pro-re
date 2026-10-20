@@ -1,0 +1,20 @@
+[
+  {
+    "name": "mouse",
+    "file": "outputs/razer-radio-re/analysis/runtime-images/mouse-ram-1.20.bin",
+    "source": "Suit2FWData__radio_radio.bin",
+    "source_offset": "0x79c",
+    "vma": "0x23020000",
+    "size": 50864,
+    "sha256": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5"
+  },
+  {
+    "name": "dongle",
+    "file": "outputs/razer-radio-re/analysis/runtime-images/dongle-ram-1.20.bin",
+    "source": "Suit1FWData__radio_radio.bin",
+    "source_offset": "0x79c",
+    "vma": "0x23020000",
+    "size": 29296,
+    "sha256": "b433bd37e6dea78cda5295b6263a674fe0280268264a333d2e86e76cc559d0d6"
+  }
+]

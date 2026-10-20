@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "architecture": "Cortex-M33 Thumb ARMv8-M",
+  "compared_bytes": 200,
+  "spans": [
+    {
+      "start": "0xe0611cc",
+      "end_exclusive": "0xe06128c",
+      "image_offset": "0xd1cc",
+      "assembled_offset": "0x0",
+      "length": 192,
+      "sha256": "2e3c1f8f319927824bf14ac47c53afbea12cdcc936c131b029cbc8dc38a6a99b"
+    },
+    {
+      "start": "0xe0613a4",
+      "end_exclusive": "0xe0613ac",
+      "image_offset": "0xd3a4",
+      "assembled_offset": "0x1d8",
+      "length": 8,
+      "sha256": "b5b063a6360a0101c1e907751d8f0b79c647561ab8332ec8e206944184efa52e"
+    }
+  ],
+  "sources": {
+    "recovered-code/cortex-m/receiver/receiver_context_switch.S": "896ffee0a4a1df110ab3c1e3d2e23d9562600bcf4b9d6d095510f1f5236a5c3c",
+    "recovered-code/cortex-m/receiver/receiver_context_switch.ld": "67435962d080fc2f66742e11282cfa44b3d785b9fd2cae1a2b0f1b36b60916c4",
+    "recovered-code/cortex-m/receiver/Makefile": "01eed5f64bdb975241365f04c348eb48b62557d4e5cb3578b34079a671aabede",
+    "recovered-code/cortex-m/receiver/build/receiver_context_switch.o": "45c5501ea0d45ee62d42d04bfba447bf5a2b50d5418ab0f678be8caa0edc9c08",
+    "recovered-code/cortex-m/receiver/build/receiver_context_switch.elf": "8a0402da8c112992ee94055cd0d0890d7085d1b549fa8ec66abb4d8f87903cb8",
+    "recovered-code/cortex-m/receiver/build/receiver_context_switch.bin": "8ad7c23afed33f4bd97428f43116ca64450fdbcc970f46f85e527ac4b0d34989"
+  },
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "limits": [
+    "Exact source-assembled bytes for selected200 bytes, not full MCU image",
+    "Intervening280 bytes in fragment are placeholder padding and excluded, not original code",
+    "Fixed receiver1.20 addresses; no boot/vector/startup/full firmware linking or device execution",
+    "BX LR bytes match; architectural exception return is not executed in original-instruction fixture"
+  ]
+}

@@ -1,0 +1,1 @@
+Discarded fixture revision: case31 entered huge unsigned-wrap traversal because initial low cursor was below 2*slot. Emulator stopped at 1,000,000 instructions. Not a firmware defect claim. Final finite-domain suite uses an out-of-map address to test driver rejection instead. The v1 partial rows are not counted.

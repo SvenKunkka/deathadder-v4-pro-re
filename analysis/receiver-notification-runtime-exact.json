@@ -1,0 +1,208 @@
+{
+  "status": "PASS",
+  "original_cases": 6144,
+  "original_steps": 945483,
+  "endings": {
+    "full_return": 4096,
+    "synthetic_stop_callback": 16,
+    "next_loop_head": 1859,
+    "cpu_request": 173
+  },
+  "by_op": {
+    "0": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1024
+      }
+    },
+    "1": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1024
+      }
+    },
+    "2": {
+      "cases": 1024,
+      "endings": {
+        "synthetic_stop_callback": 11,
+        "next_loop_head": 1012,
+        "CPU_request": 1
+      }
+    },
+    "3": {
+      "cases": 1024,
+      "endings": {
+        "CPU_request": 172,
+        "next_loop_head": 847,
+        "synthetic_stop_callback": 5
+      }
+    },
+    "4": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1024
+      }
+    },
+    "5": {
+      "cases": 1024,
+      "endings": {
+        "full_return": 1024
+      }
+    }
+  },
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "entry_spans": [
+    {
+      "name": "connection_flags_USB_and_B1",
+      "address": "0x230201b4",
+      "image_offset": "0x950",
+      "entry16_hex": "30b501220024244d85b00129cde90144"
+    },
+    {
+      "name": "B1_status_send",
+      "address": "0x2302060c",
+      "image_offset": "0xda8",
+      "entry16_hex": "002301214ff0b10c00b5134a85b01278"
+    },
+    {
+      "name": "mode_notice_op2",
+      "address": "0x230203fc",
+      "image_offset": "0xb98",
+      "entry16_hex": "002310b5022884b0cde90033cde90233"
+    },
+    {
+      "name": "notification_thread_entry",
+      "address": "0x230253c4",
+      "image_offset": "0x5b60",
+      "entry16_hex": "2de9f04700260027234ddff89080dff8"
+    },
+    {
+      "name": "notification_get_loop",
+      "address": "0x230253dc",
+      "image_offset": "0x5b78",
+      "entry16_hex": "4ff0ff3203a94ff0ff33404601f0fefe"
+    },
+    {
+      "name": "notification_dispatch",
+      "address": "0x230253ec",
+      "image_offset": "0x5b88",
+      "entry16_hex": "0399012916d00229f2d1bdf81040b5f8"
+    },
+    {
+      "name": "connection_call_r0_r1_both1",
+      "address": "0x23025438",
+      "image_offset": "0x5bd4",
+      "entry16_hex": "0846faf7bbfe02220423104602a9adf8"
+    },
+    {
+      "name": "clear_full65e2_word",
+      "address": "0x23025454",
+      "image_offset": "0x5bf0",
+      "entry16_hex": "c5f85240c0e700bf906500238c1b0023"
+    },
+    {
+      "name": "connection_event1_producer",
+      "address": "0x2302546c",
+      "image_offset": "0x5c08",
+      "entry16_hex": "0121024610b58ab000680191516802ab"
+    },
+    {
+      "name": "existing_disconnect_event2_producer",
+      "address": "0x230254f8",
+      "image_offset": "0x5c94",
+      "entry16_hex": "0221024610b58ab000680191516802ab"
+    },
+    {
+      "name": "USB_report_ring_enqueue",
+      "address": "0x230268b0",
+      "image_offset": "0x704c",
+      "entry16_hex": "f8b5184b1d789db1174b184f1e5c184b"
+    },
+    {
+      "name": "registered_disconnect_expiry",
+      "address": "0x230255b8",
+      "image_offset": "0x5d54",
+      "entry16_hex": "00214ff4a022034b01201980c3f85220"
+    }
+  ],
+  "sources": {
+    "recovered-code/portable/receiver_notification_runtime.c": "1864fb806d1d6b6e8a2f994ca9bd39219a2e0716e19c657d52166229f1500334",
+    "recovered-code/portable/receiver_notification_runtime.h": "44fb9adcd1d1d9f202df476f5f7899d121bbded4f2c7fcae16913eda41264656",
+    "ghidra-scripts/EmulateReceiverNotificationRuntime.java": "520e0a097d8a7a1ac30e53b87e206830899a1a7eef2e79f58a6cc386636eb4ff",
+    "analysis/verify_receiver_notification_runtime.py": "0d7bef8fb4dafd7551cc36a1899dcc6c1aad5d88931be901ac7fab0120a2c493",
+    "analysis/receiver-notification-runtime-original.jsonl": "e5f4b90a74209e14a658a467dc3c135a286483daca122e71616a8e71ea2f718f",
+    "analysis/receiver-notification-runtime-comparison.json": "6019fbd496afd7dc71ea788f62e546a6b3d2a638198228b239f6aa0b448ffb86",
+    "analysis/receiver-notification-continuous-comparison.json": "09efe7024a611973d166cc1c58586d4b4492e44293b866efd57b9e8262ed65a5",
+    "analysis/dongle-radio-1.20-final/230201b4.c": "f8d4c386ec260a84db1d7c96aa067470e342b612c47a771abfee8815d267585b",
+    "analysis/dongle-radio-1.20-final/2302060c.c": "17c19727f9a5e2b1570f564c90ee01e57a77cb65d524f3660c93c598da3d5d41",
+    "analysis/dongle-radio-1.20-final/230203fc.c": "e82b0729b90dc293399c4b53316e2f7e9941c8eb936b31f7eb099fc697c0ce68",
+    "analysis/dongle-radio-1.20-final/230253c4.c": "dc1b6d8260872a392e86865f7feac21c67cd02da65c524faf0dbca5920ddc15d",
+    "analysis/dongle-radio-1.20-final/2302546c.c": "4b5ebcec3616b3f60d890954c98e886a827b8e14e2381650a00bfc804f1cbf32",
+    "analysis/dongle-radio-1.20-final/230254f8.c": "87cbd13935d6f71b932c5e8d6d80ca301b053254f12239b476501cc149c270e7",
+    "analysis/dongle-radio-1.20-final/230268b0.c": "4f76e7d4ae5f3bea87e75d862453eabb604bf16e71f36f684b6ac71edff1fd49",
+    "analysis/dongle-radio-1.20-final/230255b8.c": "7a1adb02a34e56bc92e4c7af5a3020afdc92bc5d9c5387f0d520e43116fea462"
+  },
+  "component_integration": {
+    "status": "PASS",
+    "cycles": 128,
+    "real_notification_messages": 256,
+    "timer_starts": 128,
+    "timer_stops": 128,
+    "usb_reports_queued": 96,
+    "usb_reports_dropped": 160,
+    "B1_messages_queued": 120,
+    "B1_messages_rejected": 8,
+    "explicit_usb_drains": 32,
+    "explicit_rf_queue_pops": 210,
+    "not_added_to_original_count": true,
+    "checks": [
+      "Actual event2/event1 producers through36-byte queue and notification consumer",
+      "Each disconnect starts timer1A30; each connection stops it and clears full65E2 word",
+      "Independent USB ring capacity/FIFO/report bytes with explicit sink drains",
+      "B1 two-fragment payload, checksum, sequence and queue-full preservation",
+      "All24 prior-stack tail bytes preserved in queue messages"
+    ],
+    "limits": [
+      "Explicit queue sink consumption; no USB transmission or RF events",
+      "No real CPU switching; priority80 suppresses wakeup switches",
+      "Synthetic opaque tail supplied explicitly; no full ABI stack generation"
+    ],
+    "sources": {
+      "analysis/test_receiver_notification_continuous.py": "13e47b237125256aa989757c751fff101701048a217f1e6a93ca123504229404",
+      "recovered-code/portable/receiver_notification_runtime.c": "1864fb806d1d6b6e8a2f994ca9bd39219a2e0716e19c657d52166229f1500334",
+      "recovered-code/portable/receiver_notification_runtime.h": "44fb9adcd1d1d9f202df476f5f7899d121bbded4f2c7fcae16913eda41264656",
+      "recovered-code/portable/receiver_queue_runtime.c": "fe840c9b9a9b59992f1b95b16ccfe1ad07d271e7f13bb5cb5fde7220b7f18932",
+      "recovered-code/portable/receiver_config_control.c": "8d7238c18d684406ddc6b8616b47f0fdc436cec38219158491c07bb74e4062cc",
+      "recovered-code/portable/receiver_timeout.c": "e08d18e42ad9dd1d3cb88d2e8c066a18b131f783509df689e2ee46ed7f504d8b",
+      "recovered-code/portable/receiver_rtos_lifecycle.c": "b37aa45d109298f1ff696c530e9ccbe216454f04f2a82eb6fee7638a2304d14d",
+      "recovered-code/portable/dongle_business_consumer.c": "c6cfdbf10cf0e27239c948b69f98d430753ee6ae43b3b5bd7a9d071cc3dd2b86",
+      "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+      "analysis/receiver-notification-runtime-original.jsonl": "e5f4b90a74209e14a658a467dc3c135a286483daca122e71616a8e71ea2f718f"
+    }
+  },
+  "findings": [
+    "Notification event1 peer0 calls230201B4 with r0=1 and r1=1 despite truncated pseudocode",
+    "Connection clears full32-bit word65E2 after stopping1A30; event2 writes only lower halfword4",
+    "Event5 falls through; this consumer does not prove pairing persistence",
+    "230268B0 is the previously recovered USB report ring, not a newly established crosscore transport",
+    "Static timer1A30 registers230255B9 and stop0; restored expiry clears6590, writes65E2=50000, calls connection notice(1,0)"
+  ],
+  "limits": [
+    "Ten inert memory windows, no autonomous IRQ/RTC/radio hardware",
+    "Notification iteration begins before message_get; stops at next loop, real CPU request, or synthetic stop callback",
+    "Synthetic stop callback 23024fd8 is a test boundary, not a claimed production registration",
+    "No nested continuation is fabricated; CPU/callback stack continuation, crosscore startup and real RF remain incomplete",
+    "Producer event1 copies12initialized bytes plus24prior-stack bytes, supplied explicitly",
+    "Event2 producer reused from earlier validated module",
+    "Mode helper covers original230203FC selector2; selectors1/99 are not added by this module",
+    "No automatic USB/RF sink, clock, IRQ or core scheduling"
+  ],
+  "timer_initializer": {
+    "address": "0x23001a30",
+    "file_offset": "0x1e284",
+    "bytes": "000000000000000001eb060e000000000000000000000000481a0023481a0023b95502230000000000000000000000000000000000000000",
+    "expiry": "0x230255b9",
+    "stop": "0x0",
+    "scope": "Static initializer only, does not exclude later runtime writes"
+  }
+}

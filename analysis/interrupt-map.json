@@ -1,0 +1,1776 @@
+{
+  "mouse": [
+    {
+      "irq": 0,
+      "names": [
+        "SPU000"
+      ],
+      "vector_offset": "0x40",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 1,
+      "names": [
+        "MPC"
+      ],
+      "vector_offset": "0x44",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 2,
+      "names": [
+        "CPUC"
+      ],
+      "vector_offset": "0x48",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 3,
+      "names": [
+        "MVDMA",
+        "MVDMA"
+      ],
+      "vector_offset": "0x4c",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 16,
+      "names": [
+        "SPU010"
+      ],
+      "vector_offset": "0x80",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 19,
+      "names": [
+        "WDT010",
+        "WDT010"
+      ],
+      "vector_offset": "0x8c",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 20,
+      "names": [
+        "WDT011",
+        "WDT011"
+      ],
+      "vector_offset": "0x90",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 32,
+      "names": [
+        "SPU020"
+      ],
+      "vector_offset": "0xc0",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 37,
+      "names": [
+        "EGU020",
+        "EGU020"
+      ],
+      "vector_offset": "0xd4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 39,
+      "names": [
+        "GPIOTE_0",
+        "GPIOTE_0"
+      ],
+      "vector_offset": "0xdc",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 40,
+      "names": [
+        "TIMER020",
+        "TIMER020"
+      ],
+      "vector_offset": "0xe0",
+      "handler": "0x2302243d"
+    },
+    {
+      "irq": 41,
+      "names": [
+        "TIMER021",
+        "TIMER021"
+      ],
+      "vector_offset": "0xe4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 42,
+      "names": [
+        "TIMER022",
+        "TIMER022"
+      ],
+      "vector_offset": "0xe8",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 43,
+      "names": [
+        "RTC",
+        "RTC"
+      ],
+      "vector_offset": "0xec",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 44,
+      "names": [
+        "RADIO_0",
+        "RADIO_0"
+      ],
+      "vector_offset": "0xf0",
+      "handler": "0x23021705"
+    },
+    {
+      "irq": 45,
+      "names": [
+        "RADIO_1",
+        "RADIO_1"
+      ],
+      "vector_offset": "0xf4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 48,
+      "names": [
+        "SPU030"
+      ],
+      "vector_offset": "0x100",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 58,
+      "names": [
+        "AAR030_CCM030",
+        "AAR030_CCM030",
+        "AAR030_CCM030",
+        "AAR030_CCM030"
+      ],
+      "vector_offset": "0x128",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 59,
+      "names": [
+        "ECB030",
+        "ECB030"
+      ],
+      "vector_offset": "0x12c",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 60,
+      "names": [
+        "AAR031_CCM031",
+        "AAR031_CCM031",
+        "AAR031_CCM031",
+        "AAR031_CCM031"
+      ],
+      "vector_offset": "0x130",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 61,
+      "names": [
+        "ECB031",
+        "ECB031"
+      ],
+      "vector_offset": "0x134",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 64,
+      "names": [
+        "IPCT_0",
+        "IPCT_0"
+      ],
+      "vector_offset": "0x140",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 65,
+      "names": [
+        "IPCT_1",
+        "IPCT_1"
+      ],
+      "vector_offset": "0x144",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 88,
+      "names": [
+        "SWI0"
+      ],
+      "vector_offset": "0x1a0",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 89,
+      "names": [
+        "SWI1"
+      ],
+      "vector_offset": "0x1a4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 90,
+      "names": [
+        "SWI2"
+      ],
+      "vector_offset": "0x1a8",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 91,
+      "names": [
+        "SWI3"
+      ],
+      "vector_offset": "0x1ac",
+      "handler": "0x23022f71"
+    },
+    {
+      "irq": 92,
+      "names": [
+        "SWI4"
+      ],
+      "vector_offset": "0x1b0",
+      "handler": "0x23022509"
+    },
+    {
+      "irq": 93,
+      "names": [
+        "SWI5"
+      ],
+      "vector_offset": "0x1b4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 94,
+      "names": [
+        "SWI6"
+      ],
+      "vector_offset": "0x1b8",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 95,
+      "names": [
+        "SWI7"
+      ],
+      "vector_offset": "0x1bc",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 96,
+      "names": [
+        "BELLBOARD_0",
+        "BELLBOARD_0"
+      ],
+      "vector_offset": "0x1c0",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 97,
+      "names": [
+        "BELLBOARD_1",
+        "BELLBOARD_1"
+      ],
+      "vector_offset": "0x1c4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 98,
+      "names": [
+        "BELLBOARD_2",
+        "BELLBOARD_2"
+      ],
+      "vector_offset": "0x1c8",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 99,
+      "names": [
+        "BELLBOARD_3",
+        "BELLBOARD_3"
+      ],
+      "vector_offset": "0x1cc",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 104,
+      "names": [
+        "GPIOTE130_0",
+        "GPIOTE130_0"
+      ],
+      "vector_offset": "0x1e0",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 105,
+      "names": [
+        "GPIOTE130_1",
+        "GPIOTE130_1"
+      ],
+      "vector_offset": "0x1e4",
+      "handler": "0xe07df65"
+    },
+    {
+      "irq": 108,
+      "names": [
+        "GRTC_0",
+        "GRTC_0"
+      ],
+      "vector_offset": "0x1f0",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 109,
+      "names": [
+        "GRTC_1",
+        "GRTC_1"
+      ],
+      "vector_offset": "0x1f4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 110,
+      "names": [
+        "GRTC_2",
+        "GRTC_2"
+      ],
+      "vector_offset": "0x1f8",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 127,
+      "names": [
+        "TBM",
+        "TBM"
+      ],
+      "vector_offset": "0x23c",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 134,
+      "names": [
+        "USBHS",
+        "USBHS"
+      ],
+      "vector_offset": "0x258",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 146,
+      "names": [
+        "MRAMC110",
+        "MRAMC110"
+      ],
+      "vector_offset": "0x288",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 147,
+      "names": [
+        "MRAMC111",
+        "MRAMC111"
+      ],
+      "vector_offset": "0x28c",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 149,
+      "names": [
+        "EXMIF",
+        "EXMIF"
+      ],
+      "vector_offset": "0x294",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 197,
+      "names": [
+        "OTPC"
+      ],
+      "vector_offset": "0x354",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 209,
+      "names": [
+        "IPCT120_0",
+        "IPCT120_0"
+      ],
+      "vector_offset": "0x384",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 212,
+      "names": [
+        "VPR121",
+        "VPR121"
+      ],
+      "vector_offset": "0x390",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 216,
+      "names": [
+        "CAN120",
+        "CAN120"
+      ],
+      "vector_offset": "0x3a0",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 217,
+      "names": [
+        "MVDMA120",
+        "MVDMA120"
+      ],
+      "vector_offset": "0x3a4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 226,
+      "names": [
+        "TIMER120",
+        "TIMER120"
+      ],
+      "vector_offset": "0x3c8",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 227,
+      "names": [
+        "TIMER121",
+        "TIMER121"
+      ],
+      "vector_offset": "0x3cc",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 228,
+      "names": [
+        "PWM120",
+        "PWM120"
+      ],
+      "vector_offset": "0x3d0",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 229,
+      "names": [
+        "SPIS120",
+        "SPIS120"
+      ],
+      "vector_offset": "0x3d4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 230,
+      "names": [
+        "SPIM120_UARTE120",
+        "SPIM120_UARTE120",
+        "SPIM120_UARTE120",
+        "SPIM120_UARTE120"
+      ],
+      "vector_offset": "0x3d8",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 231,
+      "names": [
+        "SPIM121",
+        "SPIM121"
+      ],
+      "vector_offset": "0x3dc",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 264,
+      "names": [
+        "VPR130",
+        "VPR130"
+      ],
+      "vector_offset": "0x460",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 289,
+      "names": [
+        "IPCT130_0",
+        "IPCT130_0"
+      ],
+      "vector_offset": "0x4c4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 296,
+      "names": [
+        "RTC130",
+        "RTC130"
+      ],
+      "vector_offset": "0x4e0",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 297,
+      "names": [
+        "RTC131",
+        "RTC131"
+      ],
+      "vector_offset": "0x4e4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 299,
+      "names": [
+        "WDT131",
+        "WDT131"
+      ],
+      "vector_offset": "0x4ec",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 300,
+      "names": [
+        "WDT132",
+        "WDT132"
+      ],
+      "vector_offset": "0x4f0",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 301,
+      "names": [
+        "EGU130",
+        "EGU130"
+      ],
+      "vector_offset": "0x4f4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 386,
+      "names": [
+        "SAADC",
+        "SAADC"
+      ],
+      "vector_offset": "0x648",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 387,
+      "names": [
+        "COMP_LPCOMP",
+        "COMP_LPCOMP",
+        "COMP_LPCOMP",
+        "COMP_LPCOMP"
+      ],
+      "vector_offset": "0x64c",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 388,
+      "names": [
+        "TEMP",
+        "TEMP"
+      ],
+      "vector_offset": "0x650",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 389,
+      "names": [
+        "NFCT",
+        "NFCT"
+      ],
+      "vector_offset": "0x654",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 402,
+      "names": [
+        "TDM130",
+        "TDM130"
+      ],
+      "vector_offset": "0x688",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 403,
+      "names": [
+        "PDM",
+        "PDM"
+      ],
+      "vector_offset": "0x68c",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 404,
+      "names": [
+        "QDEC130",
+        "QDEC130"
+      ],
+      "vector_offset": "0x690",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 405,
+      "names": [
+        "QDEC131",
+        "QDEC131"
+      ],
+      "vector_offset": "0x694",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 407,
+      "names": [
+        "TDM131",
+        "TDM131"
+      ],
+      "vector_offset": "0x69c",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 418,
+      "names": [
+        "TIMER130",
+        "TIMER130"
+      ],
+      "vector_offset": "0x6c8",
+      "handler": "0x2302b4a9"
+    },
+    {
+      "irq": 419,
+      "names": [
+        "TIMER131",
+        "TIMER131"
+      ],
+      "vector_offset": "0x6cc",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 420,
+      "names": [
+        "PWM130",
+        "PWM130"
+      ],
+      "vector_offset": "0x6d0",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 421,
+      "names": [
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0"
+      ],
+      "vector_offset": "0x6d4",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 422,
+      "names": [
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1"
+      ],
+      "vector_offset": "0x6d8",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 434,
+      "names": [
+        "TIMER132",
+        "TIMER132"
+      ],
+      "vector_offset": "0x708",
+      "handler": "0x2302b225"
+    },
+    {
+      "irq": 435,
+      "names": [
+        "TIMER133",
+        "TIMER133"
+      ],
+      "vector_offset": "0x70c",
+      "handler": "0x2302b395"
+    },
+    {
+      "irq": 436,
+      "names": [
+        "PWM131",
+        "PWM131"
+      ],
+      "vector_offset": "0x710",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 437,
+      "names": [
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2"
+      ],
+      "vector_offset": "0x714",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 438,
+      "names": [
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3"
+      ],
+      "vector_offset": "0x718",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 450,
+      "names": [
+        "TIMER134",
+        "TIMER134"
+      ],
+      "vector_offset": "0x748",
+      "handler": "0x2302b3d1"
+    },
+    {
+      "irq": 451,
+      "names": [
+        "TIMER135",
+        "TIMER135"
+      ],
+      "vector_offset": "0x74c",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 452,
+      "names": [
+        "PWM132",
+        "PWM132"
+      ],
+      "vector_offset": "0x750",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 453,
+      "names": [
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4"
+      ],
+      "vector_offset": "0x754",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 454,
+      "names": [
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5"
+      ],
+      "vector_offset": "0x758",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 466,
+      "names": [
+        "TIMER136",
+        "TIMER136"
+      ],
+      "vector_offset": "0x788",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 467,
+      "names": [
+        "TIMER137",
+        "TIMER137"
+      ],
+      "vector_offset": "0x78c",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 468,
+      "names": [
+        "PWM133",
+        "PWM133"
+      ],
+      "vector_offset": "0x790",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 469,
+      "names": [
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6"
+      ],
+      "vector_offset": "0x794",
+      "handler": "0xe089fe5"
+    },
+    {
+      "irq": 470,
+      "names": [
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7"
+      ],
+      "vector_offset": "0x798",
+      "handler": "0xe089fe5"
+    }
+  ],
+  "dongle": [
+    {
+      "irq": 0,
+      "names": [
+        "SPU000"
+      ],
+      "vector_offset": "0x40",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 1,
+      "names": [
+        "MPC"
+      ],
+      "vector_offset": "0x44",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 2,
+      "names": [
+        "CPUC"
+      ],
+      "vector_offset": "0x48",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 3,
+      "names": [
+        "MVDMA",
+        "MVDMA"
+      ],
+      "vector_offset": "0x4c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 16,
+      "names": [
+        "SPU010"
+      ],
+      "vector_offset": "0x80",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 19,
+      "names": [
+        "WDT010",
+        "WDT010"
+      ],
+      "vector_offset": "0x8c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 20,
+      "names": [
+        "WDT011",
+        "WDT011"
+      ],
+      "vector_offset": "0x90",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 32,
+      "names": [
+        "SPU020"
+      ],
+      "vector_offset": "0xc0",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 37,
+      "names": [
+        "EGU020",
+        "EGU020"
+      ],
+      "vector_offset": "0xd4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 39,
+      "names": [
+        "GPIOTE_0",
+        "GPIOTE_0"
+      ],
+      "vector_offset": "0xdc",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 40,
+      "names": [
+        "TIMER020",
+        "TIMER020"
+      ],
+      "vector_offset": "0xe0",
+      "handler": "0x23021bbd"
+    },
+    {
+      "irq": 41,
+      "names": [
+        "TIMER021",
+        "TIMER021"
+      ],
+      "vector_offset": "0xe4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 42,
+      "names": [
+        "TIMER022",
+        "TIMER022"
+      ],
+      "vector_offset": "0xe8",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 43,
+      "names": [
+        "RTC",
+        "RTC"
+      ],
+      "vector_offset": "0xec",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 44,
+      "names": [
+        "RADIO_0",
+        "RADIO_0"
+      ],
+      "vector_offset": "0xf0",
+      "handler": "0x23020a01"
+    },
+    {
+      "irq": 45,
+      "names": [
+        "RADIO_1",
+        "RADIO_1"
+      ],
+      "vector_offset": "0xf4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 48,
+      "names": [
+        "SPU030"
+      ],
+      "vector_offset": "0x100",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 58,
+      "names": [
+        "AAR030_CCM030",
+        "AAR030_CCM030",
+        "AAR030_CCM030",
+        "AAR030_CCM030"
+      ],
+      "vector_offset": "0x128",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 59,
+      "names": [
+        "ECB030",
+        "ECB030"
+      ],
+      "vector_offset": "0x12c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 60,
+      "names": [
+        "AAR031_CCM031",
+        "AAR031_CCM031",
+        "AAR031_CCM031",
+        "AAR031_CCM031"
+      ],
+      "vector_offset": "0x130",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 61,
+      "names": [
+        "ECB031",
+        "ECB031"
+      ],
+      "vector_offset": "0x134",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 64,
+      "names": [
+        "IPCT_0",
+        "IPCT_0"
+      ],
+      "vector_offset": "0x140",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 65,
+      "names": [
+        "IPCT_1",
+        "IPCT_1"
+      ],
+      "vector_offset": "0x144",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 88,
+      "names": [
+        "SWI0"
+      ],
+      "vector_offset": "0x1a0",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 89,
+      "names": [
+        "SWI1"
+      ],
+      "vector_offset": "0x1a4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 90,
+      "names": [
+        "SWI2"
+      ],
+      "vector_offset": "0x1a8",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 91,
+      "names": [
+        "SWI3"
+      ],
+      "vector_offset": "0x1ac",
+      "handler": "0x23022329"
+    },
+    {
+      "irq": 92,
+      "names": [
+        "SWI4"
+      ],
+      "vector_offset": "0x1b0",
+      "handler": "0x23021be5"
+    },
+    {
+      "irq": 93,
+      "names": [
+        "SWI5"
+      ],
+      "vector_offset": "0x1b4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 94,
+      "names": [
+        "SWI6"
+      ],
+      "vector_offset": "0x1b8",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 95,
+      "names": [
+        "SWI7"
+      ],
+      "vector_offset": "0x1bc",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 96,
+      "names": [
+        "BELLBOARD_0",
+        "BELLBOARD_0"
+      ],
+      "vector_offset": "0x1c0",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 97,
+      "names": [
+        "BELLBOARD_1",
+        "BELLBOARD_1"
+      ],
+      "vector_offset": "0x1c4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 98,
+      "names": [
+        "BELLBOARD_2",
+        "BELLBOARD_2"
+      ],
+      "vector_offset": "0x1c8",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 99,
+      "names": [
+        "BELLBOARD_3",
+        "BELLBOARD_3"
+      ],
+      "vector_offset": "0x1cc",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 104,
+      "names": [
+        "GPIOTE130_0",
+        "GPIOTE130_0"
+      ],
+      "vector_offset": "0x1e0",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 105,
+      "names": [
+        "GPIOTE130_1",
+        "GPIOTE130_1"
+      ],
+      "vector_offset": "0x1e4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 108,
+      "names": [
+        "GRTC_0",
+        "GRTC_0"
+      ],
+      "vector_offset": "0x1f0",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 109,
+      "names": [
+        "GRTC_1",
+        "GRTC_1"
+      ],
+      "vector_offset": "0x1f4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 110,
+      "names": [
+        "GRTC_2",
+        "GRTC_2"
+      ],
+      "vector_offset": "0x1f8",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 127,
+      "names": [
+        "TBM",
+        "TBM"
+      ],
+      "vector_offset": "0x23c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 134,
+      "names": [
+        "USBHS",
+        "USBHS"
+      ],
+      "vector_offset": "0x258",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 146,
+      "names": [
+        "MRAMC110",
+        "MRAMC110"
+      ],
+      "vector_offset": "0x288",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 147,
+      "names": [
+        "MRAMC111",
+        "MRAMC111"
+      ],
+      "vector_offset": "0x28c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 149,
+      "names": [
+        "EXMIF",
+        "EXMIF"
+      ],
+      "vector_offset": "0x294",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 197,
+      "names": [
+        "OTPC"
+      ],
+      "vector_offset": "0x354",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 209,
+      "names": [
+        "IPCT120_0",
+        "IPCT120_0"
+      ],
+      "vector_offset": "0x384",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 212,
+      "names": [
+        "VPR121",
+        "VPR121"
+      ],
+      "vector_offset": "0x390",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 216,
+      "names": [
+        "CAN120",
+        "CAN120"
+      ],
+      "vector_offset": "0x3a0",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 217,
+      "names": [
+        "MVDMA120",
+        "MVDMA120"
+      ],
+      "vector_offset": "0x3a4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 226,
+      "names": [
+        "TIMER120",
+        "TIMER120"
+      ],
+      "vector_offset": "0x3c8",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 227,
+      "names": [
+        "TIMER121",
+        "TIMER121"
+      ],
+      "vector_offset": "0x3cc",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 228,
+      "names": [
+        "PWM120",
+        "PWM120"
+      ],
+      "vector_offset": "0x3d0",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 229,
+      "names": [
+        "SPIS120",
+        "SPIS120"
+      ],
+      "vector_offset": "0x3d4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 230,
+      "names": [
+        "SPIM120_UARTE120",
+        "SPIM120_UARTE120",
+        "SPIM120_UARTE120",
+        "SPIM120_UARTE120"
+      ],
+      "vector_offset": "0x3d8",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 231,
+      "names": [
+        "SPIM121",
+        "SPIM121"
+      ],
+      "vector_offset": "0x3dc",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 264,
+      "names": [
+        "VPR130",
+        "VPR130"
+      ],
+      "vector_offset": "0x460",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 289,
+      "names": [
+        "IPCT130_0",
+        "IPCT130_0"
+      ],
+      "vector_offset": "0x4c4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 296,
+      "names": [
+        "RTC130",
+        "RTC130"
+      ],
+      "vector_offset": "0x4e0",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 297,
+      "names": [
+        "RTC131",
+        "RTC131"
+      ],
+      "vector_offset": "0x4e4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 299,
+      "names": [
+        "WDT131",
+        "WDT131"
+      ],
+      "vector_offset": "0x4ec",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 300,
+      "names": [
+        "WDT132",
+        "WDT132"
+      ],
+      "vector_offset": "0x4f0",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 301,
+      "names": [
+        "EGU130",
+        "EGU130"
+      ],
+      "vector_offset": "0x4f4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 386,
+      "names": [
+        "SAADC",
+        "SAADC"
+      ],
+      "vector_offset": "0x648",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 387,
+      "names": [
+        "COMP_LPCOMP",
+        "COMP_LPCOMP",
+        "COMP_LPCOMP",
+        "COMP_LPCOMP"
+      ],
+      "vector_offset": "0x64c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 388,
+      "names": [
+        "TEMP",
+        "TEMP"
+      ],
+      "vector_offset": "0x650",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 389,
+      "names": [
+        "NFCT",
+        "NFCT"
+      ],
+      "vector_offset": "0x654",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 402,
+      "names": [
+        "TDM130",
+        "TDM130"
+      ],
+      "vector_offset": "0x688",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 403,
+      "names": [
+        "PDM",
+        "PDM"
+      ],
+      "vector_offset": "0x68c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 404,
+      "names": [
+        "QDEC130",
+        "QDEC130"
+      ],
+      "vector_offset": "0x690",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 405,
+      "names": [
+        "QDEC131",
+        "QDEC131"
+      ],
+      "vector_offset": "0x694",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 407,
+      "names": [
+        "TDM131",
+        "TDM131"
+      ],
+      "vector_offset": "0x69c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 418,
+      "names": [
+        "TIMER130",
+        "TIMER130"
+      ],
+      "vector_offset": "0x6c8",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 419,
+      "names": [
+        "TIMER131",
+        "TIMER131"
+      ],
+      "vector_offset": "0x6cc",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 420,
+      "names": [
+        "PWM130",
+        "PWM130"
+      ],
+      "vector_offset": "0x6d0",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 421,
+      "names": [
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0",
+        "SERIAL0"
+      ],
+      "vector_offset": "0x6d4",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 422,
+      "names": [
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1",
+        "SERIAL1"
+      ],
+      "vector_offset": "0x6d8",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 434,
+      "names": [
+        "TIMER132",
+        "TIMER132"
+      ],
+      "vector_offset": "0x708",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 435,
+      "names": [
+        "TIMER133",
+        "TIMER133"
+      ],
+      "vector_offset": "0x70c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 436,
+      "names": [
+        "PWM131",
+        "PWM131"
+      ],
+      "vector_offset": "0x710",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 437,
+      "names": [
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2",
+        "SERIAL2"
+      ],
+      "vector_offset": "0x714",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 438,
+      "names": [
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3",
+        "SERIAL3"
+      ],
+      "vector_offset": "0x718",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 450,
+      "names": [
+        "TIMER134",
+        "TIMER134"
+      ],
+      "vector_offset": "0x748",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 451,
+      "names": [
+        "TIMER135",
+        "TIMER135"
+      ],
+      "vector_offset": "0x74c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 452,
+      "names": [
+        "PWM132",
+        "PWM132"
+      ],
+      "vector_offset": "0x750",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 453,
+      "names": [
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4",
+        "SERIAL4"
+      ],
+      "vector_offset": "0x754",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 454,
+      "names": [
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5",
+        "SERIAL5"
+      ],
+      "vector_offset": "0x758",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 466,
+      "names": [
+        "TIMER136",
+        "TIMER136"
+      ],
+      "vector_offset": "0x788",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 467,
+      "names": [
+        "TIMER137",
+        "TIMER137"
+      ],
+      "vector_offset": "0x78c",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 468,
+      "names": [
+        "PWM133",
+        "PWM133"
+      ],
+      "vector_offset": "0x790",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 469,
+      "names": [
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6",
+        "SERIAL6"
+      ],
+      "vector_offset": "0x794",
+      "handler": "0xe06144d"
+    },
+    {
+      "irq": 470,
+      "names": [
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7",
+        "SERIAL7"
+      ],
+      "vector_offset": "0x798",
+      "handler": "0xe06144d"
+    }
+  ]
+}

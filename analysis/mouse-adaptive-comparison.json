@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "original_instruction_cases": 1536,
+  "counts": {
+    "op1:phase0": 128,
+    "op0:phase0": 384,
+    "op1:phase1": 128,
+    "op0:phase1": 384,
+    "op1:phase2": 64,
+    "op0:phase2": 192,
+    "op1:phaseother": 32,
+    "op0:phaseother": 96,
+    "op2:phaseother": 128
+  },
+  "report_effects": {
+    "ready_consumed": 318,
+    "enqueue_success": 156,
+    "statistics_cleared": 240
+  },
+  "failures": [],
+  "boundary_preflight_checks": 3,
+  "checks": [
+    "all65536 RAM bytes",
+    "software pending IRQ word",
+    "actual enqueue and memset executed in original image"
+  ],
+  "sources": {
+    "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/mouse_adaptive_control.h": "7d961d19bad2ac5b8b5f6e40dd6dd783b26d45e0d410e9dabe5ccdf2a5948e1e",
+    "analysis/verify_mouse_adaptive.py": "b7a7bd3da83ccc6f308666f10169929e56d7f324aa3fd5a0ec69f9225299de97",
+    "ghidra-scripts/EmulateMouseAdaptive.java": "6abeb5949f33a67a2d5908c9bb1983468ca3299cf0808a47f357d81a2b358dd1",
+    "analysis/mouse-adaptive-original.jsonl": "97d99e99e196335a28bc5fcbb10ad50fb6b822bc908c6ef107b4dbc2d1586556"
+  },
+  "limits": [
+    "serialized software simulation, not actual radio IRQ or concurrent queue",
+    "channel0..255 and peer0/1 domain; caller ring layout must be valid",
+    "no RF quality/timing or authentication proof"
+  ]
+}

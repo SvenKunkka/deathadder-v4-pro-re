@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "cases": 640,
+  "old_cases_preserved": 256,
+  "new_original_cases": 384,
+  "coverage": {
+    "state_0x14_event_5_to_0x16": 168,
+    "pairing_identity_updated": 120,
+    "state_0x14_event_5_to_0x13": 78,
+    "identity_filter_0x10000_rejected": 24,
+    "state_0x14_event_4_to_0x14": 10,
+    "state_0x16_event_4_to_0x16": 32,
+    "state_0x16_event_5_to_0x14": 96
+  },
+  "failures": [],
+  "checked": [
+    "992 RAM bytes",
+    "15 legacy / 19 extended MMIO words",
+    "nonzero randomized initial registers",
+    "C and Python independently compared to original Thumb"
+  ],
+  "sources": {
+    "mouse-handshake-original.jsonl": "37c77f3908db611f666f02c708ed95284c233518b7ffb4a263bfb0d687b977f1",
+    "mouse-handshake-extended-original.jsonl": "6e6f5516bdfc581b9680ae48f064c88afe3e35c85afd8ff1da74803f18944510"
+  },
+  "code_hashes": {
+    "recovered-code/portable/mouse_handshake.c": "eb1da8888bf37a2c678ccac9f5d8315e54ccca7f092b0843b29c3ec547f8fb50",
+    "recovered-code/portable/mouse_handshake.h": "887d6bf65da94dc53d7f6cc302299b7e45937cebbc6e87cf523c491d6dbbb02a",
+    "analysis/mouse_handshake_transition.py": "5711b8452faf8669bcb8d3fb0514e6f07a829da7c73118d72043ba9afc33aa85",
+    "ghidra-scripts/EmulateMouseHandshakeExtended.java": "9f23aa55bf33bc823d3eb65ca9fbdf66969312dbc2eb10230c14549558f442a4"
+  },
+  "limits": [
+    "state0x17 terminal lifecycle remains unimplemented",
+    "inert MMIO only, no radio or interrupt timing validation",
+    "host C build, not Cortex-M firmware build"
+  ]
+}

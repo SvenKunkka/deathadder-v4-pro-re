@@ -1,0 +1,212 @@
+{
+  "status": "PASS",
+  "firmware_sha256": "f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162",
+  "original_cases": 5120,
+  "original_steps": 2101359,
+  "endings": {
+    "full_return": 2001,
+    "synthetic_stop_callback": 219,
+    "cpu_request": 91,
+    "next_loop_head": 2809
+  },
+  "by_op": {
+    "0": {
+      "cases": 512,
+      "steps": 146615,
+      "endings": {
+        "full_return": 512
+      }
+    },
+    "1": {
+      "cases": 512,
+      "steps": 113058,
+      "endings": {
+        "synthetic_stop_callback": 31,
+        "full_return": 475,
+        "cpu_request": 6
+      }
+    },
+    "2": {
+      "cases": 512,
+      "steps": 71062,
+      "endings": {
+        "cpu_request": 10,
+        "full_return": 502
+      }
+    },
+    "3": {
+      "cases": 512,
+      "steps": 14792,
+      "endings": {
+        "full_return": 512
+      }
+    },
+    "4": {
+      "cases": 512,
+      "steps": 309019,
+      "endings": {
+        "cpu_request": 32,
+        "next_loop_head": 480
+      }
+    },
+    "5": {
+      "cases": 512,
+      "steps": 278300,
+      "endings": {
+        "synthetic_stop_callback": 47,
+        "next_loop_head": 459,
+        "cpu_request": 6
+      }
+    },
+    "6": {
+      "cases": 512,
+      "steps": 278300,
+      "endings": {
+        "synthetic_stop_callback": 47,
+        "next_loop_head": 459,
+        "cpu_request": 6
+      }
+    },
+    "7": {
+      "cases": 512,
+      "steps": 237205,
+      "endings": {
+        "cpu_request": 25,
+        "next_loop_head": 487
+      }
+    },
+    "8": {
+      "cases": 512,
+      "steps": 319145,
+      "endings": {
+        "synthetic_stop_callback": 47,
+        "next_loop_head": 465
+      }
+    },
+    "9": {
+      "cases": 512,
+      "steps": 333863,
+      "endings": {
+        "synthetic_stop_callback": 47,
+        "next_loop_head": 459,
+        "cpu_request": 6
+      }
+    }
+  },
+  "entry_spans": [
+    {
+      "name": "timer_start",
+      "address": "0xe06ebe0",
+      "image_offset": "0x1abe0",
+      "entry16_hex": "f8b59c461d46eff31187402383f31288"
+    },
+    {
+      "name": "timer_stop",
+      "address": "0xe06ec54",
+      "image_offset": "0x1ac54",
+      "entry16_hex": "10b50446fff786fda8b9636a0bb12046"
+    },
+    {
+      "name": "thread_suspend_wrapper",
+      "address": "0xe06dd90",
+      "image_offset": "0x19d90",
+      "entry16_hex": "10b50446183000f0e7fceff311814023"
+    },
+    {
+      "name": "thread_suspend_body",
+      "address": "0xe06db60",
+      "image_offset": "0x19b60",
+      "entry16_hex": "002a2de9f8430cbf10270827437b0546"
+    },
+    {
+      "name": "thread_resume",
+      "address": "0xe06ddc4",
+      "image_offset": "0x19dc4",
+      "entry16_hex": "10b5eff31184402282f31288bff36f8f"
+    },
+    {
+      "name": "radio_stop",
+      "address": "0x23021f88",
+      "image_offset": "0x2724",
+      "entry16_hex": "f8b50024194805f0d7f8194d194b1a4f"
+    },
+    {
+      "name": "radio_disable",
+      "address": "0x23021f04",
+      "image_offset": "0x26a0",
+      "entry16_hex": "38b5fef7c5fd282005f08cf900230121"
+    },
+    {
+      "name": "radio_start",
+      "address": "0x23022008",
+      "image_offset": "0x27a4",
+      "entry16_hex": "042330b50125134c8bb062690deb0300"
+    },
+    {
+      "name": "reconnect_timers",
+      "address": "0x23024d54",
+      "image_offset": "0x54f0",
+      "entry16_hex": "00b583b00f4802f011fa0f4802f00efa"
+    },
+    {
+      "name": "disconnect_timers_A3",
+      "address": "0x23024cd4",
+      "image_offset": "0x5470",
+      "entry16_hex": "10b5194c8ab02388da0716d49b0721d4"
+    },
+    {
+      "name": "config_dispatch",
+      "address": "0x23024e56",
+      "image_offset": "0x55f2",
+      "entry16_hex": "059b013b2b2bf3d801a252f823f04d4f"
+    },
+    {
+      "name": "business_send",
+      "address": "0x230251e4",
+      "image_offset": "0x5980",
+      "entry16_hex": "2de9f04f06460f46154693b0002b54d0"
+    }
+  ],
+  "sources": {
+    "recovered-code/portable/receiver_config_control.c": "8d7238c18d684406ddc6b8616b47f0fdc436cec38219158491c07bb74e4062cc",
+    "recovered-code/portable/receiver_config_control.h": "9e94d73133c03564971236bc38b5f327b3593c0119a1c64a44568265b250eef7",
+    "analysis/verify_receiver_config_control.py": "a748f1b5d2b81b787c7639043bd3b1b1c49a5314309ce800e8f58c5cacd7d78e",
+    "ghidra-scripts/EmulateReceiverConfigControl.java": "55b44676a529f5435ad31e0f6916f81924c8885e58718ba3e092921fc108b503",
+    "analysis/receiver-config-control-original.jsonl": "86cf42b4225314ee664ac0d125953e76bc4439eb05ba84e9458c303952f6258c",
+    "analysis/receiver-config-control-comparison.json": "73413cdf92117e59fdf509ad7d61782a7ab7a2fc660e87aaa2e1018e824248d7",
+    "analysis/dongle-radio-1.20-final/0e06ebe0.c": "aa8c28608299ada36001fee0ae752294c339c5a1ed8bd8fbb8973609fffd6738",
+    "analysis/dongle-radio-1.20-final/0e06ec54.c": "64aeec3ec3715216a2d56cd4b24e286321e119fb3d4935b531a9f924d609235c",
+    "analysis/dongle-radio-1.20-final/0e06dd90.c": "20761fdc23437fb1ff2e5dd9ad5337059298b54769c56faf59deffd068ba49be",
+    "analysis/dongle-radio-1.20-final/0e06db60.c": "e3af4482465961d88195e55862b558ca2c30a405e72d57a72378b6ddfb759b6e",
+    "analysis/dongle-radio-1.20-final/0e06ddc4.c": "c0429bef71a66ee521a44ab6831a4b12e5b4e483cbf8d50a6cf837722e6520c6",
+    "analysis/dongle-radio-1.20-final/23021f88.c": "152ca0251d67850c19caab1a029301409afcdf59aa6473c61b0e42bb77387ae5",
+    "analysis/dongle-radio-1.20-final/23021f04.c": "126a45918758f40471fade2143d21cb4a0bbf1986a94fcef9ffb3d04197ae81a",
+    "analysis/dongle-radio-1.20-final/23022008.c": "4c376fb4d4be0e502c8540f643906e013881317919aab1d01942ac1098c3d06e",
+    "analysis/dongle-radio-1.20-final/23024d54.c": "57fffb6c3c50ad5aff4a6d446ca7e0e3e5bde666d036cd9612bd5f9fff06398f",
+    "analysis/dongle-radio-1.20-final/23024cd4.c": "4d166d43227a791c4e2a8e62bc6260b02f6ed47f9d633e8c9afb3749da47be24",
+    "analysis/dongle-radio-1.20-final/230251e4.c": "5fe988e66b2649a13188c6bb31e7cfee590284662275f0abf779336f4205bb09"
+  },
+  "events": [
+    4,
+    10,
+    40,
+    41,
+    43,
+    44
+  ],
+  "corrections": [
+    "23021f1c clears a 32-bit word at RAM52f0; not one byte",
+    "0e06dd90 returns early if suspended; generic body CPU check is unreachable in this wrapper case",
+    "Initial emulator stopped at missing DataMemoryBarrier after1024 completed cases; registered inert barrier and resumed deterministic generation at1024, preserving first1024 records"
+  ],
+  "limitations": [
+    "Ten inert memory windows, no autonomous IRQ/RTC/radio hardware",
+    "Config dispatch begins after dequeue; stops at next loop, real CPU request, or synthetic stop callback",
+    "Synthetic stop callback 23024fd8 is a test boundary, not a claimed production registration",
+    "No nested continuation is fabricated; complete queue loop, crosscore startup and real RF remain incomplete",
+    "DMB/ISB and MMIO modeled without asynchronous effects; no concurrent core/IRQ visibility proof",
+    "RAM128KiB and9peripheral/identity windows compared byte-for-byte; stack writes not compared",
+    "Official update receiver payload, not a live receiver dump",
+    "Old init/config API preserved; extended wrapper delegates1/8/9/default cases, previously validated through original API"
+  ]
+}

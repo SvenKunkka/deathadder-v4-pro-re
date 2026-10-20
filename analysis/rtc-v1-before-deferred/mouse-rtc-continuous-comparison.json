@@ -1,0 +1,172 @@
+{
+  "status": "PASS",
+  "scenarios": 4,
+  "complete_timeout_restart_cycles": 8,
+  "explicit_RTC_compare_events": 8000,
+  "indirect_application_timer_callbacks": 8000,
+  "actual_worker_segments": 8,
+  "sources": {
+    "analysis/test_mouse_rtc_continuous.py": "e298b88b109b5f6d02675b9cff4648d6edaba0b5d95f3a22a6a7663cd3ff15d0",
+    "recovered-code/portable/mouse_rtc_dispatch.c": "65b04d5694efa221c1a8e2569369128c287ebfdc7d81cfbfc6c5b4a69120c60b",
+    "recovered-code/portable/mouse_rtc_dispatch.h": "e89f38d990869ce241ac3df04485073a48744b25194facf2827704d1d3dc1e4e",
+    "recovered-code/portable/mouse_scanning.c": "4b2d52a41de90de241c36360cf1f22f188fdd0d243b5f92ef7272798809418de",
+    "recovered-code/portable/mouse_scanning.h": "22d784038291fc59a908168a88bb56ab9d2ba905ea894ccf287b92c0c6b55396",
+    "analysis/libmouse_rtc_dispatch.dylib": "dd1f2a5aa513662adeaece2dfef5ab851988919d26dac257099615032e589a4f"
+  },
+  "results": [
+    {
+      "initial_scan_index": 0,
+      "cycles": [
+        {
+          "explicit_RTC_events": 1000,
+          "first_deadline": 1024,
+          "last_deadline": 1024000,
+          "first_eight_frequencies": [
+            2,
+            26,
+            50,
+            80,
+            2,
+            26,
+            50,
+            80
+          ],
+          "scanning_restarted": true
+        },
+        {
+          "explicit_RTC_events": 1000,
+          "first_deadline": 1025024,
+          "last_deadline": 2048000,
+          "first_eight_frequencies": [
+            26,
+            50,
+            80,
+            2,
+            26,
+            50,
+            80,
+            2
+          ],
+          "scanning_restarted": true
+        }
+      ]
+    },
+    {
+      "initial_scan_index": 1,
+      "cycles": [
+        {
+          "explicit_RTC_events": 1000,
+          "first_deadline": 1024,
+          "last_deadline": 1024000,
+          "first_eight_frequencies": [
+            26,
+            50,
+            80,
+            2,
+            26,
+            50,
+            80,
+            2
+          ],
+          "scanning_restarted": true
+        },
+        {
+          "explicit_RTC_events": 1000,
+          "first_deadline": 1025024,
+          "last_deadline": 2048000,
+          "first_eight_frequencies": [
+            50,
+            80,
+            2,
+            26,
+            50,
+            80,
+            2,
+            26
+          ],
+          "scanning_restarted": true
+        }
+      ]
+    },
+    {
+      "initial_scan_index": 2,
+      "cycles": [
+        {
+          "explicit_RTC_events": 1000,
+          "first_deadline": 1024,
+          "last_deadline": 1024000,
+          "first_eight_frequencies": [
+            50,
+            80,
+            2,
+            26,
+            50,
+            80,
+            2,
+            26
+          ],
+          "scanning_restarted": true
+        },
+        {
+          "explicit_RTC_events": 1000,
+          "first_deadline": 1025024,
+          "last_deadline": 2048000,
+          "first_eight_frequencies": [
+            80,
+            2,
+            26,
+            50,
+            80,
+            2,
+            26,
+            50
+          ],
+          "scanning_restarted": true
+        }
+      ]
+    },
+    {
+      "initial_scan_index": 3,
+      "cycles": [
+        {
+          "explicit_RTC_events": 1000,
+          "first_deadline": 1024,
+          "last_deadline": 1024000,
+          "first_eight_frequencies": [
+            80,
+            2,
+            26,
+            50,
+            80,
+            2,
+            26,
+            50
+          ],
+          "scanning_restarted": true
+        },
+        {
+          "explicit_RTC_events": 1000,
+          "first_deadline": 1025024,
+          "last_deadline": 2048000,
+          "first_eight_frequencies": [
+            2,
+            26,
+            50,
+            80,
+            2,
+            26,
+            50,
+            80
+          ],
+          "scanning_restarted": true
+        }
+      ]
+    }
+  ],
+  "not_added_to_original_input_count": true,
+  "limits": [
+    "C component integration only, not new original-instruction evidence",
+    "RTC clock and compare event plus INTENSET readback supplied explicitly; C dispatch invokes announce, timeout expiry and scanning callback; no automatic peripherals or CPU scheduling",
+    "No receiver, no radio events/RX packets, no real RF verification"
+  ]
+}

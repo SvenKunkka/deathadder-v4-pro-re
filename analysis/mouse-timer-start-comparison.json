@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "original_instruction_cases": 4096,
+  "counts": {
+    "op0:shape0": 256,
+    "op0:shape1": 256,
+    "op0:shape2": 256,
+    "op0:shape3": 256,
+    "op0:shape4": 256,
+    "op0:shape5": 256,
+    "op0:shape6": 256,
+    "op0:shape7": 256,
+    "op1:shape0": 256,
+    "op1:shape1": 256,
+    "op1:shape2": 256,
+    "op1:shape3": 256,
+    "op1:shape4": 256,
+    "op1:shape5": 256,
+    "op1:shape6": 256,
+    "op1:shape7": 256
+  },
+  "failures": [],
+  "checks": [
+    "all65536 RAM bytes",
+    "all4096 RTC bytes",
+    "original BASEPRI restored through same ArmCpuState",
+    "full original functions execute to LR sentinel without target patches"
+  ],
+  "sources": {
+    "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+    "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+    "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+    "analysis/verify_mouse_timer_start.py": "24ef862a1def78856e640e9ec16964f26a960d5615c5df552f6d59dec81689a0",
+    "ghidra-scripts/EmulateMouseTimerStart.java": "4eb7ec89ef9785afce0c69a4a2c20a2674cdc687a33ea866f3f30ff42001f062",
+    "analysis/mouse-timer-start-original.jsonl": "95bcd66f15fca49ebf8afb31c4efd13d567f07bd23bbb779e1efff69608df948",
+    "firmware-extracted-1.20/Suit2FWData__radio_radio.bin": "c817c565857059f19092737922aa43c8e1badf0701b675c777a6e721e486af48"
+  },
+  "limits": [
+    "inert stable RTC; no actual time advance or hardware IRQ",
+    "raw timeout start expects unlinked object",
+    "start registers expiry thunk, does not execute expiry callback",
+    "C calls serially under caller interrupt exclusion; CPU BASEPRI compared only in original emulator"
+  ]
+}

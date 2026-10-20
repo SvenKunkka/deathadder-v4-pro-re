@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "original_cases": 2048,
+  "original_steps": 114522,
+  "counts": {
+    "0": 1024,
+    "1": 1024
+  },
+  "boundaries": {
+    "0x0": 2035,
+    "0xe089d4c": 13
+  },
+  "original_returns": {
+    "-22": 156,
+    "-16": 1030,
+    "0": 512,
+    "1": 185,
+    "2": 102,
+    "-19": 50
+  },
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/mouse_work_queue.c": "18634efd7f5860b19c3d85a8ac7341b8635561b8f8ad2c1b163e401df564778e",
+    "recovered-code/portable/mouse_timer_start.c": "a7877f7b438e9e852a624b5e1f373e44919eb462e6d93f9d79f54e93b4ccf995",
+    "recovered-code/portable/mouse_timer_lifecycle.c": "58ac0dc7fbb461b3883c05ffde0b5d36e861e78b2bd2d5c52aebcda52d88698a",
+    "recovered-code/portable/mouse_mode4_lifecycle.c": "dbb68f359b401b180f79d4349d370351631d5ca6697ceddf1097ba5878134ef5",
+    "recovered-code/portable/mouse_mode4_radio.c": "011a24abe9e0c3718519d2704a3a16705ea7b036c6818f2216eb2da5200c1134",
+    "recovered-code/portable/mouse_mode4_tx.c": "4936354bbd570f5959d90d234ff37581cc1ef8a20db69c94989b93f85debe9bc",
+    "recovered-code/portable/mouse_radio_irq.c": "12db98a1b9031363642b0036280c085fab0b6cc5c49789f5a4a0119127e78b5d",
+    "recovered-code/portable/mouse_adaptive_control.c": "cf26b5331d361f5f73cf57db7c3b6f901a3d7ba9571458c8cd3f1855d9a2929b",
+    "recovered-code/portable/business_tx.c": "4b6d7af1bea11e39ff2629eef7fd375c1375d17f8e9774194c746e894651a7fe",
+    "recovered-code/portable/business_cipher.c": "7381c501b8b7085dfd4777ed387d0958967d5273a19ebcc8a7cda0d98167f55a",
+    "recovered-code/portable/mouse_work_queue.h": "8e2dff01f28c5379f266cc0be4cc798142a8d5eff3f641aacbf2b3e317e6532c",
+    "recovered-code/portable/mouse_timer_start.h": "4c5495322ab56991fbe6e7208bc5359e6363b55c308ac836c2103ca40097b0b7",
+    "analysis/verify_mouse_work_queue.py": "578b80280d62f5cb7e13ade14ed50d715141e9dff5239ad185454a1a9d22c11e",
+    "ghidra-scripts/EmulateMouseWorkQueue.java": "93c2964ece976e0fe375e0ff9bc1e7bfb6fdfd9f8d4cb981f24a8ecce49a5f24",
+    "analysis/mouse-work-queue-original.jsonl": "93510e7cd1aa4dff70e9ebc704407fe8e8dc346c07d62762db219353c276c2a4"
+  },
+  "limits": [
+    "64KiB RAM and4KiB RTC snapshots plus serialized privileged CPU priority/exception model",
+    "work enqueue/wake/active-timeout/ready/timeslice original paths execute; true CPU context switch remains a real entry boundary",
+    "work callback execution not implied by successful submit",
+    "inert clock/IRQ/peripherals, no physical device access"
+  ]
+}

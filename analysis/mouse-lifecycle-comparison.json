@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "cases": 528,
+  "terminal_cases": 400,
+  "connected_work_cases": 128,
+  "coverage": {
+    "mode_0_event_5": 64,
+    "selector_0": 102,
+    "pairing_0_pending_0": 112,
+    "mode_1_event_5": 64,
+    "mode_2_event_5": 64,
+    "mode_4_event_5": 64,
+    "mode_8_event_5": 64,
+    "mode_65535_event_5": 64,
+    "selector_1": 102,
+    "selector_2": 100,
+    "selector_3": 96,
+    "pairing_1_pending_0": 96,
+    "pairing_0_pending_1": 96,
+    "pairing_1_pending_1": 96,
+    "mode_0_event_4": 3,
+    "mode_1_event_4": 3,
+    "mode_2_event_4": 3,
+    "mode_4_event_4": 3,
+    "mode_8_event_4": 2,
+    "mode_65535_event_4": 2
+  },
+  "failures": [],
+  "unsupported_context_preflight_tests": 4,
+  "checked": [
+    "32768 RAM bytes",
+    "4096 RADIO bytes",
+    "1536 TIMER020 bytes",
+    "random nonzero MMIO before-state",
+    "unmodified Thumb code including natural inactive-timer/work-fast-return paths"
+  ],
+  "source_sha256": "f49f0bc65427b5aaf819eaf84507a493d14414a7d58e05fd6b7e9a1bf3c4646a",
+  "work_source_sha256": "c29db43a6a7869f7b7396af8df397be867e03bced4d070788a0a97f1c1cafabe",
+  "code_sha256": {
+    "recovered-code/portable/mouse_lifecycle.c": "5ae2b238ddbd862fb05ad22dae18bb3c0b8d08b9f878a20e9bd0b287ca674423",
+    "recovered-code/portable/mouse_lifecycle.h": "0b4468651907b5cc96fb64c2f58cbe9eb0b3b1ed1643bf7f36261d99833b53d0",
+    "ghidra-scripts/EmulateMouseLifecycle.java": "06c9e857bd6917baea5282c9d688104a6cb01780117f80d865b0fb7123ec3648",
+    "ghidra-scripts/EmulateMouseLifecycleWork.java": "58fa792d1fb27308d96bfddd69bc9a1e74ced4ccc32e83d86bdf728775324bb7"
+  },
+  "limits": [
+    "active timer callbacks/unlinking/scheduling unresolved",
+    "unsubmitted work entering scheduler unresolved",
+    "inert MMIO, no hardware autonomous evolution, no timing validation",
+    "connected work callback only; disconnect callback excluded",
+    "ISB is TODO/no-op in Ghidra; no barrier timing verification",
+    "host C build, not deployable radio firmware"
+  ]
+}

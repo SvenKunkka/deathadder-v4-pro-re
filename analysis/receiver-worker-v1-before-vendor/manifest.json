@@ -1,0 +1,13 @@
+{
+  "reason": "Phase58 worker interface frozen before adding actual vendor callback execution interface",
+  "files": {
+    "recovered-code/portable/receiver_worker_runtime.c": {
+      "sha256": "41501a5dd540a860bee3f94293bffa296e8e828862612a1d1782dd27efd44639",
+      "frozen_path": "analysis/receiver-worker-v1-before-vendor/receiver_worker_runtime.c"
+    },
+    "recovered-code/portable/receiver_worker_runtime.h": {
+      "sha256": "05b9e714ecd5b6503e8653e66b15f68bdda181613b83068725df539109b94dec",
+      "frozen_path": "analysis/receiver-worker-v1-before-vendor/receiver_worker_runtime.h"
+    }
+  }
+}

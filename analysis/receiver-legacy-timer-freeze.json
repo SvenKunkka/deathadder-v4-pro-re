@@ -1,0 +1,79 @@
+{
+  "status": "frozen",
+  "new_original_input_cases": 4352,
+  "timer_cases": 3584,
+  "new_sentinel_irq_cases": 768,
+  "old_irq_regression_cases_not_new": 2688,
+  "component_scenarios_not_original_inputs": 24,
+  "Ghidra_running": false,
+  "files": {
+    "recovered-code/portable/receiver_legacy_timer.c": {
+      "sha256": "cce0510e045210cb4da44576c870653301487b2bb69bd9782b2bfdc887b7707e",
+      "size": 10945
+    },
+    "recovered-code/portable/receiver_legacy_timer.h": {
+      "sha256": "6e4548260604193c3b748d16f591e19aba050f4b9e56ae7029ced23f6a9708dc",
+      "size": 785
+    },
+    "recovered-code/portable/receiver_legacy_radio.c": {
+      "sha256": "d286da465bae26d74e70ebc30f1b9b46ebd247b4cfa37418f653f445db044bc0",
+      "size": 6684
+    },
+    "recovered-code/portable/receiver_legacy_radio.h": {
+      "sha256": "3f7d440c2e9eea1af4c331a1480f3d4365cf331bbe9fbda3edf5bcda7c355ec9",
+      "size": 1318
+    },
+    "ghidra-scripts/EmulateReceiverLegacyTimer.java": {
+      "sha256": "b8483eb8d078f71cb5f6a8ee1d74f3451307fd211e33d09029564cfc5d25d576",
+      "size": 10368
+    },
+    "ghidra-scripts/EmulateReceiverLegacySentinel.java": {
+      "sha256": "8836934f72684fadd692f7c2c41ffb2f654e26daf92a65874b62a0364397c919",
+      "size": 9277
+    },
+    "analysis/verify_receiver_legacy_timer.py": {
+      "sha256": "935f621089297a8a6a9892377fc77361bc655eb670256dcf01984da3d0fc520a",
+      "size": 4846
+    },
+    "analysis/verify_receiver_legacy_sentinel.py": {
+      "sha256": "1f51dd41735f5e857d9adcc665245646d15bb1618e37a8e76c846f4a4ead9999",
+      "size": 6285
+    },
+    "analysis/test_receiver_legacy_continuous.py": {
+      "sha256": "da28063632356d14675db2c120d4374a7b8910f338b80526ff8e2ab7d72481d3",
+      "size": 4994
+    },
+    "analysis/receiver-legacy-timer-original.jsonl": {
+      "sha256": "8790f317efbb17bc7873c54f0187890b28e96fd4ea9f39159c5d468bd97a1933",
+      "size": 105190857
+    },
+    "analysis/receiver-legacy-sentinel-original.jsonl": {
+      "sha256": "38e37b9d8028e9a55ba692ec4cc29d8f7a0896e2b1744f7d8f1678169c33464b",
+      "size": 24280736
+    },
+    "analysis/receiver-legacy-timer-comparison.json": {
+      "sha256": "913de1021b6140ac8ef23fd8b7c7846b9ce5ff0174bd27b88b05fd993bfbf5f7",
+      "size": 3333
+    },
+    "analysis/receiver-legacy-sentinel-comparison.json": {
+      "sha256": "ebca64c77068ce0e84b7fb48a55f31aaf97e38c5ecae105007503fbd1702e206",
+      "size": 2993
+    },
+    "analysis/receiver-legacy-continuous-comparison.json": {
+      "sha256": "bb32d6fe40069bc59aaafb416db86ba81d5c8e908b600a193a977618ada8b928",
+      "size": 7779
+    },
+    "analysis/receiver-legacy-timer-exact.md": {
+      "sha256": "dcc0e16519a3015609d0641fa9b83fb8d089c40961aa4a41b47c65bc2f42c455",
+      "size": 6443
+    },
+    "analysis/receiver-legacy-timer-exact.json": {
+      "sha256": "f446a8579dafbf1c645607f27778c7d250681b56e2c9d30f72cc6728d016be7d",
+      "size": 10168
+    },
+    "analysis/receiver-legacy-radio-revision2.json": {
+      "sha256": "1bcd3259396615b368df0d9839a37298f832626b077f2a6998691fa9296a48e2",
+      "size": 1072
+    }
+  }
+}

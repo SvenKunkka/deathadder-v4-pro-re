@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "original_cases": 2048,
+  "original_steps": 42496,
+  "counts": {
+    "0": 512,
+    "1": 512,
+    "2": 512,
+    "3": 512
+  },
+  "normal_returns": 1536,
+  "before_exception_return_BX_LR": 512,
+  "failures": [],
+  "sources": {
+    "recovered-code/portable/mouse_context_switch.c": "eb41c00365b26172bc3dbbd2c0a95d3fc53709a9abe992b83bb04efbb96c6a47",
+    "recovered-code/portable/mouse_context_switch.h": "e232c97940f596ab5d27fc62d6266f15e6f36c3d36d82338c4d1cf89c4a9dc47",
+    "analysis/verify_mouse_context_switch.py": "fba8a3c8c7d03c6f661d7452a8d4558fdd7f560c4753af6042c2b4816a784383",
+    "ghidra-scripts/EmulateMouseContextSwitch.java": "af3c507b585cccd21e0a6af092b786e7ae7a3c64501690541a73ff894881abe8",
+    "analysis/mouse-context-switch-original.jsonl": "8dbf25ce980df4c7f52a547d39daf2731da2109294318561f9f76ccf22a9ec65"
+  },
+  "limits": [
+    "Privileged body execution; no asynchronous interrupt in request",
+    "PendSV original stops before BX LR at0e089e06; no architectural frame unstacking, exception entry or real concurrency",
+    "PSP uses emulator shared native CPU state; absent PSPLIM operation records literal assignment only, not memory fault enforcement",
+    "All13 registers, SP/LR/PC, PSP/PSPLIM/BASEPRI, five flag bits,32B MSP scratch,64KiB RAM and4KiB SCB snapshot compared",
+    "Inert ICSR snapshots record original writes, not hardware readback or interrupt delivery"
+  ]
+}

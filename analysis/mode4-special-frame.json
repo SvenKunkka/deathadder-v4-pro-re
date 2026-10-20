@@ -1,0 +1,263 @@
+{
+  "status": "partial-static-purpose-recovery",
+  "firmware": "official1.20",
+  "sources": [
+    {
+      "path": "analysis/mouse-radio-1.20-final/2302243c.c",
+      "sha256": "487853cd06172af4877e658f7c8fdd561aadb19210c871d6440f1e68aa4dce4a"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23021704.c",
+      "sha256": "98777e0caf2f15160a579f64092a3a79abf1fa00ab3934a19ecf3fce6750188f"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230216b0.c",
+      "sha256": "146b8ef0b1f17ba0819b6ffab874d3be61797673041425c108f28f9bbf59975b"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230216e0.c",
+      "sha256": "29bb59be70d652252f3362e0b81b4601464bc423a83901278958f871e8e0e866"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/230214e0.c",
+      "sha256": "a30f14ed50589985cac8bff03cf06c1350f7f9dcc3e70a7b0a4983d4567815e9"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/2302145c.c",
+      "sha256": "41896dda529574610f3156aa01c9ce73bb240403a38c36c0e9bae9c6ddb39a40"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23021800.c",
+      "sha256": "bb389644b37680957f153a7b7e2070ef6aae8409abdd682c155253a8003f1e2f"
+    },
+    {
+      "path": "analysis/mouse-radio-1.20-final/23025778.c",
+      "sha256": "702d376e3224cf99d156a30f3ba1e2d7d9f68e8a604a1a981473fe386ca2336c"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23020a00.c",
+      "sha256": "41031daf188c867dda9c0e1b208d286d5a14bfd790c55fc67efafbe7ddbc5edc"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23024190.c",
+      "sha256": "d08861a3e64205345c58c27f956915babb24f37051c40252555476f5378857dd"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23023fa4.c",
+      "sha256": "ac0a0c9f62f681edf0ef117c8618be60525a5b99357fcf4b78eff07ae2f5251e"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/230240ac.c",
+      "sha256": "a01f906a06d153b6dd95ec3b8d58990a773e5ea296d8bcd98e2e44aeb66dfedd"
+    },
+    {
+      "path": "analysis/dongle-radio-1.20-final/23020c30.c",
+      "sha256": "f85dbfd2c29c46c9ba0db7e36bbb393c8e8df7513400d779d083619e8c953744"
+    },
+    {
+      "path": "analysis/runtime-images/mouse-ram-1.20.bin",
+      "sha256": "e6f1ae27ec388ce7056885cbe7cd00f372f70b5087bf4519cc280f5750a007b5"
+    },
+    {
+      "path": "analysis/runtime-images/dongle-ram-1.20.bin",
+      "sha256": "b433bd37e6dea78cda5295b6263a674fe0280268264a333d2e86e76cc559d0d6"
+    },
+    {
+      "path": "analysis/runtime-images/mouse-ram-gnu-disassembly.txt",
+      "sha256": "79f8dfb4c0aa3d899a938f9d2217243e77121e1806653e8bb6278f0aea315d23"
+    },
+    {
+      "path": "analysis/runtime-images/dongle-ram-gnu-disassembly.txt",
+      "sha256": "4bde1268417567df70c13022224fcba13b34ac93d741c151db5e74af0fd803af"
+    }
+  ],
+  "raw_instruction_evidence": [
+    {
+      "side": "mouse",
+      "ram": "0x23024a28",
+      "flash": "0xe0711c4",
+      "radio_image_offset": "0x51c4",
+      "bytes": "45 f2 02 56",
+      "meaning": "movw r6,0x5502"
+    },
+    {
+      "side": "mouse",
+      "ram": "0x23024a34",
+      "flash": "0xe0711d0",
+      "radio_image_offset": "0x51d0",
+      "bytes": "00 22",
+      "meaning": "movs r2,0"
+    },
+    {
+      "side": "mouse",
+      "ram": "0x23024a3a",
+      "flash": "0xe0711d6",
+      "radio_image_offset": "0x51d6",
+      "bytes": "9a 70",
+      "meaning": "strb r2,[r3,#2]"
+    },
+    {
+      "side": "mouse",
+      "ram": "0x23024a42",
+      "flash": "0xe0711de",
+      "radio_image_offset": "0x51de",
+      "bytes": "1e 80",
+      "meaning": "strh r6,[r3]"
+    },
+    {
+      "side": "mouse",
+      "ram": "0x23024a44",
+      "flash": "0xe0711e0",
+      "radio_image_offset": "0x51e0",
+      "bytes": "c2 f8 d0 3e",
+      "meaning": "str.w r3,[r2,#0xed0] PACKETPTR"
+    },
+    {
+      "side": "mouse",
+      "ram": "0x23024c74",
+      "flash": "0xe071410",
+      "radio_image_offset": "0x5410",
+      "bytes": "00 20 fc f7 1b fd 20 b1 94 f8 58 30 00 2b 3f f4 b4 ae",
+      "meaning": "all queues empty and retry-holdoff dispatch"
+    },
+    {
+      "side": "mouse",
+      "ram": "0x23024e84",
+      "flash": "0xe071620",
+      "radio_image_offset": "0x5620",
+      "bytes": "03 2b 7f f6 be ad",
+      "meaning": "state3 threshold <=3"
+    },
+    {
+      "side": "dongle",
+      "ram": "0x2302429a",
+      "flash": "0xe058a36",
+      "radio_image_offset": "0x4a36",
+      "bytes": "07 f1 01 0e 72 46 38 44 12 f8 01 1b 0b 44 82 42 db b2 f9 d1 5b 42 e6 44 5f fa 83 fc 9e f8 00 30 63 45 a5 d1",
+      "meaning": "sum/negate/compare and branch to reject"
+    },
+    {
+      "side": "dongle",
+      "ram": "0x2302420a",
+      "flash": "0xe0589a6",
+      "radio_image_offset": "0x49a6",
+      "bytes": "00 23 3b 70 40 f6 84 73 0b 22 03 fb 04 63 c3 f8 80 20 ea e7",
+      "meaning": "clear RX length and set state0xB"
+    }
+  ],
+  "findings": [
+    {
+      "id": "construction",
+      "confidence": "confirmed-static-instructions",
+      "evidence": [
+        "mouse23024A28",
+        "mouse23024A34..23024A44"
+      ],
+      "fact": "Special DMA frame is length2, payload55 00. Byte3 is not cleared but outside declared payload; source bytes are constructed by movw+strh+strb, not a static025500 blob."
+    },
+    {
+      "id": "trigger",
+      "confidence": "confirmed-static-control-flow",
+      "evidence": [
+        "mouse23024918..23024A16",
+        "mouse23024C74..23024C82",
+        "mouse23024E84",
+        "mouse230216B0"
+      ],
+      "conditions": [
+        "protocol mode4, radio software state0x18, TX handler event3",
+        "slot0 or3",
+        "report interval internal parameter230029AC==1",
+        "cached motion byte23002671==0",
+        "all6 queue write/read index pairs equal",
+        "retry holdoff230029D0==0",
+        "channel idle counter230029D1[channel]<4 when connectionstate23002794==3, otherwise<16"
+      ],
+      "arming_guards": {
+        "slot0": "CC7>99",
+        "slot3": "CC7<=250"
+      },
+      "fact": "Frame can be built but TXEN then cleared if timing guard fails; construction alone is not proof of transmission."
+    },
+    {
+      "id": "queue-emptiness",
+      "confidence": "confirmed-static-instructions",
+      "evidence": [
+        "mouse230216B0",
+        "mouse230214E0",
+        "mouse2302145C"
+      ],
+      "pairs": "23002AD6..ADB vs23002ADC..AE1, peer context stride0xEE0",
+      "fact": "Every pair equal means all6 circular queues empty. 230214E0 yields a packet only when pair unequal;2302145C advances the read index."
+    },
+    {
+      "id": "tx-pipeline",
+      "confidence": "confirmed-register-dataflow",
+      "evidence": [
+        "mouse23021800",
+        "mouse23024A16..23024A30",
+        "mouse23024C9A..23024CA2",
+        "mouse23021704 mode4 END",
+        "mouse23025778"
+      ],
+      "fact": "Special branch subscribes TXEN toDPPI0(slot0)/2(slot3), sets READY_START, no added PHYEND_DISABLE. DPPI0=COMPARE0,DPPI2=COMPARE2. Subsequent slot1/4 ordinary packet setup uses START subscribed toDPPI2. END changes softwareTX0x19->idle0x18 without DISABLE action in that END branch."
+    },
+    {
+      "id": "consumer",
+      "confidence": "confirmed-static-control-flow",
+      "evidence": [
+        "dongle23020A00 mode4 END->23024190(4)",
+        "dongle2302427A..230242BC",
+        "dongle2302420A..2302421C"
+      ],
+      "fact": "Normal state0xC consumer expects checksumAB for data55; received00 rejects regardless hardwareCRCOK status. Rejection clearslength, setsstate0xB; bypasses packetcopy/sequpdate/missreset/23021C24notification. No55-specific consumer in inspected mode4 IRQ route."
+    },
+    {
+      "id": "receiver-readiness",
+      "confidence": "confirmed-register-dataflow",
+      "evidence": [
+        "dongle23023FA4",
+        "dongle230240AC",
+        "dongle23021BBC"
+      ],
+      "fact": "RX slots0/3 enable END_START and clear PHYEND_DISABLE; subsequent slot1/4 handler can reestablish RX softwarestate0xC after rejected short frame. Physical END event can still retrigger START via shortcut even though application rejects the bytes."
+    },
+    {
+      "id": "purpose",
+      "confidence": "strong-inference-not-observed-hardware",
+      "evidence": [
+        "tx-pipeline",
+        "trigger",
+        "consumer"
+      ],
+      "interpretation": "TX preparation/placeholder for interval1 early half-slot; enables TX at early boundary and leaves a route to later START-only real payload. Not an accepted application keepalive: normal receiver does not reset connection miss counter from it. Exact PLL/ramp latency benefit remains unmeasured."
+    }
+  ],
+  "schedule_raw_mouse_ticks": [
+    {
+      "prepare_slot": 0,
+      "prepare_CC1": 470,
+      "TXEN_event": "next COMPARE0",
+      "TXEN_compare": 500,
+      "next_real_prepare_CC1": 75,
+      "next_real_START_compare": 100
+    },
+    {
+      "prepare_slot": 3,
+      "prepare_CC1": 220,
+      "TXEN_event": "COMPARE2",
+      "TXEN_compare": 250,
+      "next_real_prepare_CC1": 325,
+      "next_real_START_compare": 350
+    }
+  ],
+  "limitations": [
+    "No radio.STATE trace/air capture; warm-up purpose remains inference.",
+    "SHORTS|1 preserves other bits; absence of PHYEND_DISABLE in this branch does not prove all arbitrary entry states clear it.",
+    "Concurrent interrupt/queue changes not modeled; empty check is six sequential pairs.",
+    "Normal peer receive-state path analyzed; arbitrary diagnostic/malformed-state consumers not exhaustively proven absent.",
+    "No complete state-machine or PLL/clock timing emulation; packet production !=actual RF transmission."
+  ],
+  "code": "analysis/mode4_special_behavior.py",
+  "tests": "analysis/mode4_special_test_results.json"
+}
