@@ -1,3 +1,7 @@
+<!-- SVENKUNKKA-README-NAV:BEGIN -->
+[中文项目说明](#project-overview-zh) · [English overview](#project-overview-en) · [维护者 X / Maintainer on X](https://x.com/Svenu1s5)
+<!-- SVENKUNKKA-README-NAV:END -->
+
 # DeathAdder V4 Pro — firmware reconstruction
 
 Razer DeathAdder V4 Pro 官方 **1.20** 固件的部分行为复刻、反编译导出与验证工具。包含鼠标端及配套接收器端。此仓库是研究快照，**不是原厂源码，也不是可直接刷入设备的完整固件**。
@@ -58,3 +62,30 @@ make check
 | 接收器 `Suit1FWData__radio_radio.bin` | `f7a9bd6f51490bcceeaf0121775e2da3ef701a7a3218862956fb60dde2c52162` |
 
 本项目与 Razer 无隶属关系。名称和商标归各自权利人；保留文件中已有的来源与版权声明。
+
+
+---
+
+<!-- SVENKUNKKA-PROJECT-INFO:BEGIN -->
+
+<a id="project-overview-zh"></a>
+## 中文项目说明
+
+Razer DeathAdder V4 Pro 1.20 鼠标及接收器固件的逆向研究快照，包含部分行为重建、可移植 C 代码、反编译导出、分析工具与限定范围的历史验证记录。
+
+**使用入口：** 主机准备 Clang、Make、ar 与 Python 3 后运行 `make`、`make check`；当前状态和证据入口见 README 与 [STATUS.md](STATUS.md)。
+
+**范围说明：** 不是原厂源码或可直接刷写的完整固件。原始镜像和大型数据集未发布，无法直接重放全部历史验证；完整启动、传感器成帧及端到端无线/USB 实机验证仍未完成。
+
+<a id="project-overview-en"></a>
+## English project overview
+
+A reverse-engineering snapshot of Razer DeathAdder V4 Pro 1.20 mouse and receiver firmware, with partial behavior reconstruction, portable C, decompilation exports, analysis tools and bounded historical validation records.
+
+**Getting started:** With Clang, Make, ar and Python 3 available, run `make` and `make check`. See the README and [STATUS.md](STATUS.md) for status and evidence entry points.
+
+**Scope:** This is neither original vendor source nor a complete flashable replacement. Original images and large datasets are excluded, preventing direct replay of all historical validation. Full startup, sensor framing and end-to-end wireless/USB hardware verification remain incomplete.
+
+**仓库维护者 / Repository maintainer:** [SvenKunkka](https://github.com/SvenKunkka) · [X / Twitter](https://x.com/Svenu1s5)
+
+<!-- SVENKUNKKA-PROJECT-INFO:END -->
